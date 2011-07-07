@@ -272,9 +272,9 @@
             // 
             // groupBoxCharactList
             // 
-            this.groupBoxCharactList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxCharactList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxCharactList.Controls.Add(this.dataGridViewTabelaSoftware);
             this.groupBoxCharactList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxCharactList.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -308,7 +308,7 @@
             this.Column3});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -591,9 +591,9 @@
             // 
             // tabControlSmartAHP
             // 
-            this.tabControlSmartAHP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlSmartAHP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlSmartAHP.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControlSmartAHP.Controls.Add(this.tabPageSMART);
             this.tabControlSmartAHP.Controls.Add(this.tabPageAHP);
@@ -1020,9 +1020,9 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.tableLayoutPanel18);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -1053,8 +1053,8 @@
             this.label1.Size = new System.Drawing.Size(444, 64);
             this.label1.TabIndex = 0;
             this.label1.Text = "Set priorities or weights for each software within each criterion. \r\n\r\nFor each c" +
-                "riterion is necessary to define the method to use to set priorities,\r\nusing Valu" +
-                "eFn or AHP.";
+    "riterion is necessary to define the method to use to set priorities,\r\nusing Valu" +
+    "eFn or AHP.";
             // 
             // tableLayoutPanel19
             // 
@@ -1811,6 +1811,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(732, 624);
             this.Controls.Add(this.panelTab);
             this.Controls.Add(this.panelProgress);
@@ -1819,6 +1820,8 @@
             this.Name = "chooseProcess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "beSMART Software";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.chooseProcess_FormClosing);
             this.tabControlSeparates.ResumeLayout(false);
             this.tabPageChooseSoftwares.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

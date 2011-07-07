@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Business
 {
@@ -118,6 +121,16 @@ namespace Business
         public static int totalCharacteristcSelect()
         {
             return caracteristicas_escolhidas.Count;
+        }
+
+        // load file
+        public static void loadObject(String filename)
+        {
+            Stream stream = File.Open(filename, FileMode.Open);
+            BinaryFormatter bformatter = new BinaryFormatter();
+
+            Business.ManagmentDataBase.database = (Business.DataBaseUser)bformatter.Deserialize(stream);
+            stream.Close();
         }
 
     }
