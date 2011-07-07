@@ -14,7 +14,7 @@ namespace Interface
     public partial class Init : Form
     {
 
-        public Init(Business.DataBaseUser dataBase)
+        public Init()
         {
             InitializeComponent();
 

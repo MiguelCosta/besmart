@@ -18,20 +18,12 @@ namespace Interface
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Base de Dados Geral do Utulizador
-            // DataBaseUser dataBase = new DataBaseUser();
+            // Show welcome
+            Init welcome = new Init();
+            Application.Run(welcome);
 
-            // Business.ManagmentDataBase.Database = dataBase;
-
-            // Apresenta o Login
-            Init abertura = new Init(Business.ManagmentDataBase.database);
-            Application.Run(abertura);
-
-
-            //MessageBox.Show("#### TODA A INFORMAÇÂO DA BASE DE DADOS ####\n"+dataBase.toString());
-
-            // Apresenta a nova janela
-            chooseProcess cp = new chooseProcess(Business.ManagmentDataBase.database);
+            // Show main windows
+            chooseProcess cp = new chooseProcess();
             Application.Run(cp);
 
 

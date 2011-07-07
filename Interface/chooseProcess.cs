@@ -16,9 +16,6 @@ namespace Interface
 
     public partial class chooseProcess : Form
     {
-        private Business.DataBaseUser _dataBase;
-        public List<int> ids_dos_softwaresSeleccionados;
-        public Dictionary<int, string> caracteristicas_escolhidas;
         public Business.DecisionSuport decision;
         public Dictionary<string, float> tabelaSmartNorm;
         public Dictionary<string, float> pesosFinaisClassAHP;
@@ -26,15 +23,13 @@ namespace Interface
 
         public Dictionary<int, Dictionary<string, float>> resultFinal;
 
-        public chooseProcess(Business.DataBaseUser dataBase)
+        public chooseProcess()
         {
             InitializeComponent();
-            
+
             // estruturas auxiliares para calculo da decisão
             decision = new Business.DecisionSuport();
             tabelaSmartNorm = new Dictionary<string, float>();
-
-            _dataBase = dataBase;
 
             // configurações iniciais
             refreshTableSoftwares();
@@ -50,86 +45,25 @@ namespace Interface
 
         private void refreshTableSoftwares()
         {
-            // actualizar a tabela inicial
-            DataTable tabela_softwares = new DataTable();
-            tabela_softwares.Columns.Add("ID");
-            tabela_softwares.Columns.Add("Name");
-            tabela_softwares.Columns.Add("Link");
-
-            // adicionar as colunas (nome das caracteristicas)
-            foreach (Business.Characteristic c in _dataBase.Charac.Values)
-            {
-                tabela_softwares.Columns.Add(c.Name);
-            }
-
-            // adiciona as linhas (info dos softwares)
-            foreach (Business.Software s in _dataBase.Software_list.Values)
-            {
-                // coloca todas as caracteristicas numa List
-                List<string> values = new List<string>();
-                values.Add("" + s.Id);
-                values.Add(s.Name);
-                values.Add(s.Link);
-                foreach (string cV in s.Charac.Values)
-                {
-                    values.Add(cV);
-                }
-                // passa para um array, para ser possivel adicionar uma linha
-                string[] array = values.ToArray();
-                tabela_softwares.Rows.Add(array);
-            }
-
-            // cria uma nova vista para a tabela
-            DataView view = new DataView(tabela_softwares);
-            dataGridViewTabelaSoftware.DataSource = view;
-
+            dataGridViewTabelaSoftware.DataSource = Business.ManagmentDataBase.tableSoftwares();
         }
 
         private void refreshTableCaracteristics()
         {
-            DataTable tabela_caracteristicas = new DataTable();
-            tabela_caracteristicas.Columns.Add("ID");
-            tabela_caracteristicas.Columns.Add("Name");
-            foreach (Business.Characteristic c in _dataBase.Charac.Values)
-            {
-                tabela_caracteristicas.Rows.Add(c.Id, c.Name);
-            }
-
-            DataView view = new DataView(tabela_caracteristicas);
-            dataGridViewCharacteristics.DataSource = view;
+            dataGridViewCharacteristics.DataSource = Business.ManagmentDataBase.tableCharacteristics();
         }
 
         private void refreshTableSmart()
         {
-            DataTable pesos = new DataTable();
-            pesos.Columns.Add("ID");
-            pesos.Columns.Add("Name");
-            pesos.Columns["ID"].ReadOnly = true;
-            pesos.Columns["Name"].ReadOnly = true;
-            foreach (KeyValuePair<int, string> pair in caracteristicas_escolhidas)
-            {
-                pesos.Rows.Add(pair.Key, pair.Value);
-            }
-
-            DataView view = new DataView(pesos);
-            dataGridViewSmart.DataSource = view;
+            dataGridViewSmart.DataSource = Business.ManagmentDataBase.tableSmart();
         }
 
         private void refreshTableAHP()
         {
-            DataTable pesos = new DataTable();
-            pesos.Columns.Add("Best Software");
-            foreach (string name in caracteristicas_escolhidas.Values)
-            {
-                pesos.Columns.Add(name);
-                pesos.Rows.Add(name);
-            }
-
-            DataView view = new DataView(pesos);
-            dataGridViewAHP.DataSource = view;
+            dataGridViewAHP.DataSource = Business.ManagmentDataBase.tableAHP();
 
             int i = 0;
-            int num_ca = caracteristicas_escolhidas.Count;
+            int num_ca = Business.ManagmentDataBase.totalCharacteristcSelect();
 
             while (i < num_ca)
             {
@@ -140,13 +74,15 @@ namespace Interface
 
         private void FormChooseProcess_FormClosing(object sender, EventArgs e)
         {
-            Close();
+            MessageBox.Show("Exit", "Want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //this.Dispose();
+            //Close();
         }
 
 
         private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage(_dataBase);
+            ConsultWebpage cwp = new ConsultWebpage(Business.ManagmentDataBase.database);
             cwp.Show();
 
         }
@@ -156,7 +92,7 @@ namespace Interface
             Stream stream = File.Open(filename, FileMode.Open);
             BinaryFormatter bformatter = new BinaryFormatter();
 
-            _dataBase = (Business.DataBaseUser)bformatter.Deserialize(stream);
+            Business.ManagmentDataBase.database = (Business.DataBaseUser)bformatter.Deserialize(stream);
             stream.Close();
         }
 
@@ -178,12 +114,17 @@ namespace Interface
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Dispose();
+            DialogResult r = MessageBox.Show("Want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
         }
 
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditSWList editList = new EditSWList(_dataBase);
+            // ->>>>> retirar o paramentro que recebe 
+            EditSWList editList = new EditSWList(Business.ManagmentDataBase.database);
             editList.Show();
         }
 
@@ -196,7 +137,7 @@ namespace Interface
             if (ret == DialogResult.OK)
             {
                 string name = s.FileName;
-                _dataBase.saveInObject(name);
+                Business.ManagmentDataBase.database.saveInObject(name);
 
             }
         }
@@ -204,7 +145,7 @@ namespace Interface
         private void buttonNextChooseSoftwares_Click(object sender, EventArgs e)
         {
             // para apagar a lista já existente
-            ids_dos_softwaresSeleccionados = new List<int>();
+            Business.ManagmentDataBase.ids_dos_softwaresSeleccionados = new List<int>();
 
             // mensagem que vai aparecer dos softwares seleccionados
             string linhas_selecionadas = "Select Softwares ID:\n";
@@ -219,15 +160,17 @@ namespace Interface
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     // nome do software
                     string name = linha.Cells[2].Value.ToString();
-                    // adiciona o id do software à lista de software
-                    ids_dos_softwaresSeleccionados.Add(id);
+
+                    // adiciona o id do software à lista de software seleccionados
+                    Business.ManagmentDataBase.addIdSoftwareSelect(id);
+
                     // adiciona à msg o software
                     linhas_selecionadas += id + "\t" + name + "\n";
                 }
             }
 
             // condição para se ter de seleccionar mais de 2 softwares
-            if (ids_dos_softwaresSeleccionados.Count < 2 || ids_dos_softwaresSeleccionados.Count > 16)
+            if (Business.ManagmentDataBase.totalSoftwareSelect() < 2 || Business.ManagmentDataBase.totalSoftwareSelect() > 16)
             {
                 MessageBox.Show("Select between 2 and 16 softwares!");
             }
@@ -244,7 +187,7 @@ namespace Interface
 
         private void buttonViewWebPage_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage(_dataBase);
+            ConsultWebpage cwp = new ConsultWebpage(Business.ManagmentDataBase.database);
             cwp.Show();
         }
 
@@ -257,8 +200,8 @@ namespace Interface
         private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
         {
             // apagar a estrutura
-            caracteristicas_escolhidas = new Dictionary<int, string>();
-            caracteristicas_escolhidas.Clear();
+            Business.ManagmentDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
+            Business.ManagmentDataBase.caracteristicas_escolhidas.Clear();
 
 
             string linhas_selecionadas = "Select Characteristics ID:\n";
@@ -272,14 +215,14 @@ namespace Interface
                     // convert para int o ID
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     string name = (string)linha.Cells[2].Value;
-                    caracteristicas_escolhidas.Add(id, name);
+                    Business.ManagmentDataBase.caracteristicas_escolhidas.Add(id, name);
                     linhas_selecionadas += id + "\n";
                 }
             }
             //MessageBox.Show(linhas_selecionadas);
 
             // condição para se ter de seleccionar mais de 2 softwares
-            if (caracteristicas_escolhidas.Count < 1)
+            if (Business.ManagmentDataBase.caracteristicas_escolhidas.Count < 1)
             {
                 MessageBox.Show("Select at least one characteristics!");
             }
@@ -305,7 +248,7 @@ namespace Interface
             DataTable carc = new DataTable();
             carc.Columns.Add("ID");
             carc.Columns.Add("Name");
-            foreach (KeyValuePair<int, string> pair in caracteristicas_escolhidas)
+            foreach (KeyValuePair<int, string> pair in Business.ManagmentDataBase.caracteristicas_escolhidas)
             {
                 carc.Rows.Add(pair.Key, pair.Value);
             }
@@ -321,7 +264,7 @@ namespace Interface
         private string procuraIdCha(string name)
         {
             string r = "";
-            foreach (KeyValuePair<int, string> pair in caracteristicas_escolhidas)
+            foreach (KeyValuePair<int, string> pair in Business.ManagmentDataBase.caracteristicas_escolhidas)
             {
                 if (pair.Value.Equals(name)) r = "" + pair.Key;
             }
@@ -417,7 +360,7 @@ namespace Interface
         {
             DataTable pesos = new DataTable();
             pesos.Columns.Add(nameC);
-            foreach (int id in ids_dos_softwaresSeleccionados)
+            foreach (int id in Business.ManagmentDataBase.ids_dos_softwaresSeleccionados)
             {
                 pesos.Columns.Add("" + id);
                 pesos.Rows.Add("" + id);
@@ -427,7 +370,7 @@ namespace Interface
             dataGridViewAHPPriority.DataSource = view;
 
             int i = 0;
-            int num_ca = ids_dos_softwaresSeleccionados.Count;
+            int num_ca = Business.ManagmentDataBase.ids_dos_softwaresSeleccionados.Count;
 
             while (i < num_ca)
             {
@@ -457,7 +400,7 @@ namespace Interface
         private void buttonCalculateValueFn_Click_1(object sender, EventArgs e)
         {
             buttonCalcPrioAHP.Enabled = false;
-            decision.TableSW = _dataBase.softwaresWithCaracteristics(ids_dos_softwaresSeleccionados);
+            decision.TableSW = Business.ManagmentDataBase.database.softwaresWithCaracteristics(Business.ManagmentDataBase.ids_dos_softwaresSeleccionados);
 
             Dictionary<string, Dictionary<string, int>> tableFilter = new Dictionary<string, Dictionary<string, int>>();
 
@@ -731,14 +674,14 @@ namespace Interface
 
         private void startANewComparationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ids_dos_softwaresSeleccionados = new List<int>();
-            caracteristicas_escolhidas = new Dictionary<int, string>();
+            Business.ManagmentDataBase.ids_dos_softwaresSeleccionados = new List<int>();
+            Business.ManagmentDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
             tabelaSmartNorm = new Dictionary<string, float>();
             pesosFinaisClassAHP = new Dictionary<string, float>();
             refreshTableSoftwares();
             refreshTableCaracteristics();
-            ids_dos_softwaresSeleccionados.Clear();
-            caracteristicas_escolhidas.Clear();
+            Business.ManagmentDataBase.ids_dos_softwaresSeleccionados.Clear();
+            Business.ManagmentDataBase.caracteristicas_escolhidas.Clear();
             decision.TableCH.Clear();
             decision.TableAHP.Clear();
             decision.TableResult.Clear();
@@ -759,7 +702,7 @@ namespace Interface
             dataGridViewPesosAHPFinais.DataSource = null;
             dataGridViewValueFn.DataSource = null;
             dataGridViewFinal.DataSource = null;
-            
+
             progressBar1.Value = 0;
 
             labelAHPPrioCons.Text = "consitencia";
