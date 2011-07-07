@@ -1,0 +1,12 @@
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\bin\Debug\LI4.exe
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\bin\Debug\LI4.pdb
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\obj\x86\Debug\LI4.exe
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\obj\x86\Debug\LI4.pdb
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\bin\Debug\DataBase.dll
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\bin\Debug\DataBase.pdb
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\beSmart\Business\obj\x86\Debug\LI4.exe
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\beSmart\Business\obj\x86\Debug\LI4.pdb
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\beSmart\Business\bin\Debug\LI4.exe
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\beSmart\Business\bin\Debug\LI4.pdb
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\beSmart\Business\obj\x86\Debug\ResolveAssemblyReference.cache

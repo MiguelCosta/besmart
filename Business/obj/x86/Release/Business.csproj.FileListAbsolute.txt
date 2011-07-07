@@ -1,0 +1,5 @@
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\bin\Release\LI4.exe
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\bin\Release\LI4.pdb
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\obj\x86\Release\LI4.exe
+C:\Users\Miguel\Documents\Uminho\LEI\Ano 3\Semestre 6\[LI4] Laboratórios de Informática 4\Trabalho\Etapa3\LI4\LI4\obj\x86\Release\LI4.pdb
