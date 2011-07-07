@@ -38,6 +38,7 @@
     <Compile Include="DataBaseUser.cs" />
     <Compile Include="DataBaseManagement.cs" />
     <Compile Include="DecisionSuport.cs" />
+    <Compile Include="ManagmentDataBase.cs" />
     <Compile Include="NumericCharacteristic.cs" />
     <Compile Include="QualitativeCharacteristic.cs" />
     <Compile Include="Software.cs" />
