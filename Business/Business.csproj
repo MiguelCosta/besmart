@@ -36,7 +36,6 @@
   <ItemGroup>
     <Compile Include="Characteristic.cs" />
     <Compile Include="DataBaseUser.cs" />
-    <Compile Include="DataBaseManagement.cs" />
     <Compile Include="DecisionSuport.cs" />
     <Compile Include="ManagmentDataBase.cs" />
     <Compile Include="NumericCharacteristic.cs" />
