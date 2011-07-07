@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Business
 {
-    public static class ManagmentDataBase
+    public static class ManagementDataBase
     {
         public static Business.DataBaseUser database = new DataBaseUser();
         public static List<int> ids_dos_softwaresSeleccionados = new List<int>();
@@ -129,7 +129,7 @@ namespace Business
             Stream stream = File.Open(filename, FileMode.Open);
             BinaryFormatter bformatter = new BinaryFormatter();
 
-            Business.ManagmentDataBase.database = (Business.DataBaseUser)bformatter.Deserialize(stream);
+            Business.ManagementDataBase.database = (Business.DataBaseUser)bformatter.Deserialize(stream);
             stream.Close();
         }
 

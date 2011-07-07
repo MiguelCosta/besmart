@@ -45,25 +45,25 @@ namespace Interface
 
         private void refreshTableSoftwares()
         {
-            dataGridViewTabelaSoftware.DataSource = Business.ManagmentDataBase.tableSoftwares();
+            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwares();
         }
 
         private void refreshTableCaracteristics()
         {
-            dataGridViewCharacteristics.DataSource = Business.ManagmentDataBase.tableCharacteristics();
+            dataGridViewCharacteristics.DataSource = Business.ManagementDataBase.tableCharacteristics();
         }
 
         private void refreshTableSmart()
         {
-            dataGridViewSmart.DataSource = Business.ManagmentDataBase.tableSmart();
+            dataGridViewSmart.DataSource = Business.ManagementDataBase.tableSmart();
         }
 
         private void refreshTableAHP()
         {
-            dataGridViewAHP.DataSource = Business.ManagmentDataBase.tableAHP();
+            dataGridViewAHP.DataSource = Business.ManagementDataBase.tableAHP();
 
             int i = 0;
-            int num_ca = Business.ManagmentDataBase.totalCharacteristcSelect();
+            int num_ca = Business.ManagementDataBase.totalCharacteristcSelect();
 
             // 
             while (i < num_ca)
@@ -76,7 +76,7 @@ namespace Interface
 
         private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage(Business.ManagmentDataBase.database);
+            ConsultWebpage cwp = new ConsultWebpage(Business.ManagementDataBase.database);
             cwp.Show();
 
         }
@@ -91,7 +91,7 @@ namespace Interface
 
             if (ret == DialogResult.OK)
             {
-                Business.ManagmentDataBase.loadObject(filename);
+                Business.ManagementDataBase.loadObject(filename);
                 
                 // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
                 refreshTableSoftwares();
@@ -115,7 +115,7 @@ namespace Interface
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // ->>>>> retirar o paramentro que recebe 
-            EditSWList editList = new EditSWList(Business.ManagmentDataBase.database);
+            EditSWList editList = new EditSWList(Business.ManagementDataBase.database);
             editList.Show();
         }
 
@@ -128,7 +128,7 @@ namespace Interface
             if (ret == DialogResult.OK)
             {
                 string name = s.FileName;
-                Business.ManagmentDataBase.database.saveInObject(name);
+                Business.ManagementDataBase.database.saveInObject(name);
 
             }
         }
@@ -136,7 +136,7 @@ namespace Interface
         private void buttonNextChooseSoftwares_Click(object sender, EventArgs e)
         {
             // para apagar a lista já existente
-            Business.ManagmentDataBase.ids_dos_softwaresSeleccionados = new List<int>();
+            Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
 
             // mensagem que vai aparecer dos softwares seleccionados
             string linhas_selecionadas = "Select Softwares ID:\n";
@@ -153,7 +153,7 @@ namespace Interface
                     string name = linha.Cells[2].Value.ToString();
 
                     // adiciona o id do software à lista de software seleccionados
-                    Business.ManagmentDataBase.addIdSoftwareSelect(id);
+                    Business.ManagementDataBase.addIdSoftwareSelect(id);
 
                     // adiciona à msg o software
                     linhas_selecionadas += id + "\t" + name + "\n";
@@ -161,7 +161,7 @@ namespace Interface
             }
 
             // condição para se ter de seleccionar mais de 2 softwares
-            if (Business.ManagmentDataBase.totalSoftwareSelect() < 2 || Business.ManagmentDataBase.totalSoftwareSelect() > 16)
+            if (Business.ManagementDataBase.totalSoftwareSelect() < 2 || Business.ManagementDataBase.totalSoftwareSelect() > 16)
             {
                 MessageBox.Show("Select between 2 and 16 softwares!");
             }
@@ -178,7 +178,7 @@ namespace Interface
 
         private void buttonViewWebPage_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage(Business.ManagmentDataBase.database);
+            ConsultWebpage cwp = new ConsultWebpage(Business.ManagementDataBase.database);
             cwp.Show();
         }
 
@@ -191,8 +191,8 @@ namespace Interface
         private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
         {
             // apagar a estrutura
-            Business.ManagmentDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
-            Business.ManagmentDataBase.caracteristicas_escolhidas.Clear();
+            Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
+            Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
 
 
             string linhas_selecionadas = "Select Characteristics ID:\n";
@@ -206,14 +206,14 @@ namespace Interface
                     // convert para int o ID
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     string name = (string)linha.Cells[2].Value;
-                    Business.ManagmentDataBase.caracteristicas_escolhidas.Add(id, name);
+                    Business.ManagementDataBase.caracteristicas_escolhidas.Add(id, name);
                     linhas_selecionadas += id + "\n";
                 }
             }
             //MessageBox.Show(linhas_selecionadas);
 
             // condição para se ter de seleccionar mais de 2 softwares
-            if (Business.ManagmentDataBase.caracteristicas_escolhidas.Count < 1)
+            if (Business.ManagementDataBase.caracteristicas_escolhidas.Count < 1)
             {
                 MessageBox.Show("Select at least one characteristics!");
             }
@@ -239,7 +239,7 @@ namespace Interface
             DataTable carc = new DataTable();
             carc.Columns.Add("ID");
             carc.Columns.Add("Name");
-            foreach (KeyValuePair<int, string> pair in Business.ManagmentDataBase.caracteristicas_escolhidas)
+            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
             {
                 carc.Rows.Add(pair.Key, pair.Value);
             }
@@ -255,7 +255,7 @@ namespace Interface
         private string procuraIdCha(string name)
         {
             string r = "";
-            foreach (KeyValuePair<int, string> pair in Business.ManagmentDataBase.caracteristicas_escolhidas)
+            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
             {
                 if (pair.Value.Equals(name)) r = "" + pair.Key;
             }
@@ -284,16 +284,16 @@ namespace Interface
                         string pointsStr = linha.Cells[name].Value.ToString();
                         float pointf = (float)System.Convert.ToDouble(pointsStr);
                         //MessageBox.Show("idA: " + idA + "\tName: " + name + "\nIDB: " + idB + "\tNameB: " + nameB + "\nPoints: " + pointf);
-                        Business.ManagmentDataBase.decision.registerClassAHP(idA, idB, pointf);
+                        Business.ManagementDataBase.decision.registerClassAHP(idA, idB, pointf);
 
                     }
                 }
             }
 
             Dictionary<string, Dictionary<string, float>> tabelaNormAHP = new Dictionary<string, Dictionary<string, float>>();
-            tabelaNormAHP = Business.ManagmentDataBase.decision.normalizeAHP(Business.ManagmentDataBase.decision.TableAHP);
+            tabelaNormAHP = Business.ManagementDataBase.decision.normalizeAHP(Business.ManagementDataBase.decision.TableAHP);
             pesosFinaisClassAHP = new Dictionary<string, float>();
-            pesosFinaisClassAHP = Business.ManagmentDataBase.decision.pesosFinais(tabelaNormAHP);
+            pesosFinaisClassAHP = Business.ManagementDataBase.decision.pesosFinais(tabelaNormAHP);
 
 
             DataTable pesos = new DataTable();
@@ -351,7 +351,7 @@ namespace Interface
         {
             DataTable pesos = new DataTable();
             pesos.Columns.Add(nameC);
-            foreach (int id in Business.ManagmentDataBase.ids_dos_softwaresSeleccionados)
+            foreach (int id in Business.ManagementDataBase.ids_dos_softwaresSeleccionados)
             {
                 pesos.Columns.Add("" + id);
                 pesos.Rows.Add("" + id);
@@ -361,7 +361,7 @@ namespace Interface
             dataGridViewAHPPriority.DataSource = view;
 
             int i = 0;
-            int num_ca = Business.ManagmentDataBase.ids_dos_softwaresSeleccionados.Count;
+            int num_ca = Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Count;
 
             while (i < num_ca)
             {
@@ -391,12 +391,12 @@ namespace Interface
         private void buttonCalculateValueFn_Click_1(object sender, EventArgs e)
         {
             buttonCalcPrioAHP.Enabled = false;
-            Business.ManagmentDataBase.decision.TableSW = Business.ManagmentDataBase.database.softwaresWithCaracteristics(Business.ManagmentDataBase.ids_dos_softwaresSeleccionados);
+            Business.ManagementDataBase.decision.TableSW = Business.ManagementDataBase.database.softwaresWithCaracteristics(Business.ManagementDataBase.ids_dos_softwaresSeleccionados);
 
             Dictionary<string, Dictionary<string, int>> tableFilter = new Dictionary<string, Dictionary<string, int>>();
 
             string id_carac = labelCaracteristicaValueFnID.Text;
-            tableFilter = Business.ManagmentDataBase.decision.filter(id_carac);
+            tableFilter = Business.ManagementDataBase.decision.filter(id_carac);
             /*
             string erro = "nada";
 
@@ -412,8 +412,8 @@ namespace Interface
             
             MessageBox.Show(erro);
             */
-            int min = Business.ManagmentDataBase.decision.calMin(id_carac, tableFilter);
-            int max = Business.ManagmentDataBase.decision.calMax(id_carac, tableFilter);
+            int min = Business.ManagementDataBase.decision.calMin(id_carac, tableFilter);
+            int max = Business.ManagementDataBase.decision.calMax(id_carac, tableFilter);
 
             //MessageBox.Show("Min: " + min + "\tMax: " + max);
 
@@ -421,17 +421,17 @@ namespace Interface
             // maximizar
             if (radioButtonMaximize.Checked)
             {
-                aux = Business.ManagmentDataBase.decision.calValueMax(min, max, tableFilter);
+                aux = Business.ManagementDataBase.decision.calValueMax(min, max, tableFilter);
 
             }
 
             // maximizar
             if (radioButtonMinimize.Checked)
             {
-                aux = Business.ManagmentDataBase.decision.calValueMin(min, max, tableFilter);
+                aux = Business.ManagementDataBase.decision.calValueMin(min, max, tableFilter);
             }
 
-            Business.ManagmentDataBase.decision.registerPriority(id_carac, aux);
+            Business.ManagementDataBase.decision.registerPriority(id_carac, aux);
 
             DataTable prioridades = new DataTable();
             prioridades.Columns.Add("ID");
@@ -439,7 +439,7 @@ namespace Interface
 
             Dictionary<string, float> a;
 
-            Business.ManagmentDataBase.decision.TableResult.TryGetValue(id_carac, out a);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(id_carac, out a);
             foreach (KeyValuePair<string, float> pair2 in a)
             {
                 prioridades.Rows.Add(pair2.Key, pair2.Value);
@@ -475,15 +475,15 @@ namespace Interface
                         string pointsStr = linha.Cells[idSofA].Value.ToString();
                         float pointf = (float)System.Convert.ToDouble(pointsStr);
                         //MessageBox.Show("idA: " + idA + "\tName: " + name + "\nIDB: " + idB + "\tNameB: " + nameB + "\nPoints: " + pointf);
-                        Business.ManagmentDataBase.decision.registerPriorAHP(labelIDAHP.Text, idSofA, idSofB, pointf);
+                        Business.ManagementDataBase.decision.registerPriorAHP(labelIDAHP.Text, idSofA, idSofB, pointf);
 
                     }
                 }
             }
 
             Dictionary<string, Dictionary<string, Dictionary<string, float>>> tabelaNormAHP = new Dictionary<string, Dictionary<string, Dictionary<string, float>>>();
-            tabelaNormAHP = Business.ManagmentDataBase.decision.normalizePriorityAHP(Business.ManagmentDataBase.decision.TablePriorAHP);
-            Business.ManagmentDataBase.decision.pesosPriorFinais(tabelaNormAHP);
+            tabelaNormAHP = Business.ManagementDataBase.decision.normalizePriorityAHP(Business.ManagementDataBase.decision.TablePriorAHP);
+            Business.ManagementDataBase.decision.pesosPriorFinais(tabelaNormAHP);
 
             DataTable prioridades = new DataTable();
             prioridades.Columns.Add("ID");
@@ -491,7 +491,7 @@ namespace Interface
 
             Dictionary<string, float> a;
 
-            Business.ManagmentDataBase.decision.TableResult.TryGetValue(labelIDAHP.Text, out a);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(labelIDAHP.Text, out a);
             foreach (KeyValuePair<string, float> pair2 in a)
             {
                 prioridades.Rows.Add(pair2.Key, pair2.Value);
@@ -518,11 +518,11 @@ namespace Interface
             Dictionary<int, double> matrixD = new Dictionary<int, double>();
             Dictionary<string, Dictionary<string, float>> aux;
             Dictionary<string, float> aux1;
-            Business.ManagmentDataBase.decision.TablePriorAHP.TryGetValue(labelIDAHP.Text, out aux);
-            Business.ManagmentDataBase.decision.TableResult.TryGetValue(labelIDAHP.Text, out aux1);
-            matrixC = Business.ManagmentDataBase.decision.calculaMatrizC(aux, aux1);
-            matrixD = Business.ManagmentDataBase.decision.calculaMatrizD(matrixC, aux1);
-            double taxa = Business.ManagmentDataBase.decision.taxaConsitencia(matrixD);
+            Business.ManagementDataBase.decision.TablePriorAHP.TryGetValue(labelIDAHP.Text, out aux);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(labelIDAHP.Text, out aux1);
+            matrixC = Business.ManagementDataBase.decision.calculaMatrizC(aux, aux1);
+            matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, aux1);
+            double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
 
             if (taxa <= 0.10)
             {
@@ -546,12 +546,12 @@ namespace Interface
             resultFinal = new Dictionary<int, Dictionary<string, float>>();
             if (metodo_fase_1.Equals("smart"))
             {
-                resultFinal = Business.ManagmentDataBase.decision.analiseFinalSmart(Business.ManagmentDataBase.tabelaSmartNorm, Business.ManagmentDataBase.decision.TableResult);
+                resultFinal = Business.ManagementDataBase.decision.analiseFinalSmart(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
             }
 
             if (metodo_fase_1.Equals("ahp"))
             {
-                resultFinal = Business.ManagmentDataBase.decision.analiseFinalAHP(pesosFinaisClassAHP, Business.ManagmentDataBase.decision.TableResult);
+                resultFinal = Business.ManagementDataBase.decision.analiseFinalAHP(pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
             }
 
 
@@ -585,9 +585,9 @@ namespace Interface
 
 
 
-            matrixC = Business.ManagmentDataBase.decision.calculaMatrizC(Business.ManagmentDataBase.decision.TableAHP, pesosFinaisClassAHP);
-            matrixD = Business.ManagmentDataBase.decision.calculaMatrizD(matrixC, pesosFinaisClassAHP);
-            double taxa = Business.ManagmentDataBase.decision.taxaConsitencia(matrixD);
+            matrixC = Business.ManagementDataBase.decision.calculaMatrizC(Business.ManagementDataBase.decision.TableAHP, pesosFinaisClassAHP);
+            matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, pesosFinaisClassAHP);
+            double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
 
             if (taxa <= 0.10)
             {
@@ -612,17 +612,17 @@ namespace Interface
             {
                 string idChar = linha.Cells[1].Value.ToString();
                 int points = System.Convert.ToInt32(linha.Cells[0].Value.ToString());
-                Business.ManagmentDataBase.decision.registerClass(idChar, points);
+                Business.ManagementDataBase.decision.registerClass(idChar, points);
             }
 
-            Business.ManagmentDataBase.tabelaSmartNorm.Clear();
-            Business.ManagmentDataBase.tabelaSmartNorm = Business.ManagmentDataBase.decision.normalizeSMART(Business.ManagmentDataBase.decision.TableCH);
+            Business.ManagementDataBase.tabelaSmartNorm.Clear();
+            Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
 
 
             DataTable pesos = new DataTable();
             pesos.Columns.Add("ID");
             pesos.Columns.Add("Weight");
-            foreach (KeyValuePair<string, float> pair in Business.ManagmentDataBase.tabelaSmartNorm)
+            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.tabelaSmartNorm)
             {
                 pesos.Rows.Add(pair.Key, pair.Value);
             }
@@ -665,18 +665,18 @@ namespace Interface
 
         private void startANewComparationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Business.ManagmentDataBase.ids_dos_softwaresSeleccionados = new List<int>();
-            Business.ManagmentDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
-            Business.ManagmentDataBase.tabelaSmartNorm = new Dictionary<string, float>();
+            Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
+            Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
+            Business.ManagementDataBase.tabelaSmartNorm = new Dictionary<string, float>();
             pesosFinaisClassAHP = new Dictionary<string, float>();
             refreshTableSoftwares();
             refreshTableCaracteristics();
-            Business.ManagmentDataBase.ids_dos_softwaresSeleccionados.Clear();
-            Business.ManagmentDataBase.caracteristicas_escolhidas.Clear();
-            Business.ManagmentDataBase.decision.TableCH.Clear();
-            Business.ManagmentDataBase.decision.TableAHP.Clear();
-            Business.ManagmentDataBase.decision.TableResult.Clear();
-            Business.ManagmentDataBase.tabelaSmartNorm.Clear();
+            Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Clear();
+            Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
+            Business.ManagementDataBase.decision.TableCH.Clear();
+            Business.ManagementDataBase.decision.TableAHP.Clear();
+            Business.ManagementDataBase.decision.TableResult.Clear();
+            Business.ManagementDataBase.tabelaSmartNorm.Clear();
             pesosFinaisClassAHP.Clear();
 
             buttonCalFinalWe.Enabled = true;
