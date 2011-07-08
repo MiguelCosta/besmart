@@ -16,7 +16,6 @@ namespace Interface
 
     public partial class chooseProcess : Form
     {
-        //public Business.DecisionSuport decision;
         public Dictionary<string, float> tabelaSmartNorm;
         public Dictionary<string, float> pesosFinaisClassAHP;
         public string metodo_fase_1 = "smart";
@@ -28,7 +27,6 @@ namespace Interface
             InitializeComponent();
 
             // estruturas auxiliares para calculo da decisão
-            // decision = new Business.DecisionSuport();
             tabelaSmartNorm = new Dictionary<string, float>();
 
             // configurações iniciais
