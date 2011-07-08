@@ -178,6 +178,8 @@ namespace Interface
             cwp.Show();
         }
 
+        // ->>>>>>>>> rever a partir daqui
+
         private void buttonPreviewToSoftwares_Click(object sender, EventArgs e)
         {
             tabControlSeparates.SelectedTab = tabPageChooseSoftwares;

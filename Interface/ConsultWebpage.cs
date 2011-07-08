@@ -28,13 +28,6 @@ namespace Interface
             Close();
         }
 
-        private void ConsultWebpage_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'lI4DataSet.software' table. You can move, or remove it, as needed.
-            this.softwareTableAdapter.Fill(this.lI4DataSet.software);
-
-        }
-
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditSWList editList = new EditSWList();

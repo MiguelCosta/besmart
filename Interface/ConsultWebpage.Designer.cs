@@ -29,45 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultWebpage));
-            this.dataSet1 = new System.Data.DataSet();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewSimpleSoftware = new System.Windows.Forms.DataGridView();
             this.Open = new System.Windows.Forms.DataGridViewImageColumn();
             this.marqueeProgressBar = new System.Windows.Forms.ProgressBar();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
-            this.softwareBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lI4DataSet = new Interface.LI4DataSet();
-            this.softwareTableAdapter = new Interface.LI4DataSetTableAdapters.softwareTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimpleSoftware)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lI4DataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "NewDataSet";
             // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
             // 
             // splitContainer1
             // 
@@ -112,14 +95,14 @@
             this.dataGridViewSimpleSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSimpleSoftware.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Open});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSimpleSoftware.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSimpleSoftware.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSimpleSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSimpleSoftware.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSimpleSoftware.Name = "dataGridViewSimpleSoftware";
@@ -159,20 +142,6 @@
             this.webBrowser.TabIndex = 0;
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
-            // softwareBindingSource
-            // 
-            this.softwareBindingSource.DataMember = "software";
-            this.softwareBindingSource.DataSource = this.lI4DataSet;
-            // 
-            // lI4DataSet
-            // 
-            this.lI4DataSet.DataSetName = "LI4DataSet";
-            this.lI4DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // softwareTableAdapter
-            // 
-            this.softwareTableAdapter.ClearBeforeFill = true;
-            // 
             // ConsultWebpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,31 +152,22 @@
             this.Name = "ConsultWebpage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "beSMART Software | Consult Software Webpage";
-            this.Load += new System.EventHandler(this.ConsultWebpage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimpleSoftware)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lI4DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Data.DataSet dataSet1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.WebBrowser webBrowser;
-        private LI4DataSet lI4DataSet;
-        private System.Windows.Forms.BindingSource softwareBindingSource;
-        private LI4DataSetTableAdapters.softwareTableAdapter softwareTableAdapter;
         private System.Windows.Forms.DataGridView dataGridViewSimpleSoftware;
         private System.Windows.Forms.DataGridViewImageColumn Open;
         private System.Windows.Forms.ProgressBar marqueeProgressBar;
