@@ -92,7 +92,6 @@
             this.dataGridViewTabelaSoftware.Name = "dataGridViewTabelaSoftware";
             this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(708, 431);
             this.dataGridViewTabelaSoftware.TabIndex = 0;
-            this.dataGridViewTabelaSoftware.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellContentClick);
             // 
             // Column1
             // 

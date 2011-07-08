@@ -45,7 +45,7 @@ namespace Interface
 
         private void refreshTableSoftwares()
         {
-            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwares();
+            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwares(false);
         }
 
         private void refreshTableCaracteristics()
@@ -76,7 +76,7 @@ namespace Interface
 
         private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage(Business.ManagementDataBase.database);
+            ConsultWebpage cwp = new ConsultWebpage();
             cwp.Show();
 
         }
@@ -96,7 +96,6 @@ namespace Interface
                 // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
                 refreshTableSoftwares();
                 refreshTableCaracteristics();
-                //MessageBox.Show("Agora já deve estar...!");
             }
         }
 
@@ -110,12 +109,9 @@ namespace Interface
             }
         }
 
-        // ------------- aqui
-
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // ->>>>> retirar o paramentro que recebe 
-            EditSWList editList = new EditSWList(Business.ManagementDataBase.database);
+            EditSWList editList = new EditSWList();
             editList.Show();
         }
 
@@ -129,38 +125,25 @@ namespace Interface
             {
                 string name = s.FileName;
                 Business.ManagementDataBase.database.saveInObject(name);
-
             }
         }
 
         private void buttonNextChooseSoftwares_Click(object sender, EventArgs e)
         {
-            // para apagar a lista já existente
             Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
 
-            // mensagem que vai aparecer dos softwares seleccionados
-            string linhas_selecionadas = "Select Softwares ID:\n";
-
-            // vai a todas as linhas das tabelas ver quais estão seleccionadas
             foreach (DataGridViewRow linha in dataGridViewTabelaSoftware.Rows)
             {
                 // seleccionada apenas as linhas que tem o checbox activo
                 if (linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true)
                 {
-                    // convert para int o ID
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
-                    // nome do software
                     string name = linha.Cells[2].Value.ToString();
 
-                    // adiciona o id do software à lista de software seleccionados
                     Business.ManagementDataBase.addIdSoftwareSelect(id);
-
-                    // adiciona à msg o software
-                    linhas_selecionadas += id + "\t" + name + "\n";
                 }
             }
 
-            // condição para se ter de seleccionar mais de 2 softwares
             if (Business.ManagementDataBase.totalSoftwareSelect() < 2 || Business.ManagementDataBase.totalSoftwareSelect() > 16)
             {
                 MessageBox.Show("Select between 2 and 16 softwares!");
@@ -168,17 +151,30 @@ namespace Interface
             else
             {
                 // apresenta os softwares seleccionados
-                MessageBox.Show(linhas_selecionadas);
-                // selecciona o separador seguinte
+                buttonNextChooseSoftwares_message();
+          
                 tabControlSeparates.SelectedTab = tabPageChooseCriteria;
-                // aumenta a barra de progresso
+
                 progressBar1.Value = 25;
             }
         }
 
+        // messagem que deve aparecer quando se clica no next e aparece sucesso
+        private void buttonNextChooseSoftwares_message()
+        {
+            string message = "Select Software:\n";
+
+            foreach (Business.Software s in Business.ManagementDataBase.infoSoftware_byID().Values)
+            {
+                message += s.Id + "\t" + s.Name + "\n";
+            }
+
+            MessageBox.Show(message, "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
+
         private void buttonViewWebPage_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage(Business.ManagementDataBase.database);
+            ConsultWebpage cwp = new ConsultWebpage();
             cwp.Show();
         }
 

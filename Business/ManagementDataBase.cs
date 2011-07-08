@@ -22,23 +22,29 @@ namespace Business
 
         public static Dictionary<int, Dictionary<string, float>> resultFinal = new Dictionary<int, Dictionary<string, float>>();
 
-        public static Business.DataBaseUser Database
-        {
-            set { database = value; }
-        }
 
-        public static DataView tableSoftwares()
+        public static DataView tableSoftwares(bool editable)
         {
             // actualizar a tabela inicial
             DataTable tabela_softwares = new DataTable();
             tabela_softwares.Columns.Add("ID");
             tabela_softwares.Columns.Add("Name");
             tabela_softwares.Columns.Add("Link");
+            if (editable == false)
+            {
+                tabela_softwares.Columns["ID"].ReadOnly = true;
+                tabela_softwares.Columns["Name"].ReadOnly = true;
+                tabela_softwares.Columns["Link"].ReadOnly = true;
+            }
 
             // adicionar as colunas (nome das caracteristicas)
             foreach (Business.Characteristic c in database.Charac.Values)
             {
                 tabela_softwares.Columns.Add(c.Name);
+                if (editable == false)
+                {
+                    tabela_softwares.Columns[c.Name].ReadOnly = true;
+                }
             }
 
             // adiciona as linhas (info dos softwares)
@@ -58,9 +64,31 @@ namespace Business
                 tabela_softwares.Rows.Add(array);
             }
 
-            // cria uma nova vista para a tabela
             return new DataView(tabela_softwares);
         }
+
+
+        public static DataView tableSoftwaresWebPage()
+        {
+            DataTable tabela_softwares = new DataTable();
+            tabela_softwares.Columns.Add("ID");
+            tabela_softwares.Columns.Add("Name");
+            tabela_softwares.Columns.Add("Link");
+
+            foreach (Business.Software s in database.Software_list.Values)
+            {
+                List<string> values = new List<string>();
+                values.Add("" + s.Id);
+                values.Add(s.Name);
+                values.Add(s.Link);
+
+                string[] array = values.ToArray();
+                tabela_softwares.Rows.Add(array);
+            }
+
+            return new DataView(tabela_softwares);
+        }
+
 
         public static DataView tableCharacteristics()
         {
@@ -76,7 +104,6 @@ namespace Business
 
         }
 
-        // esta falta alterar por causa da caracteristicas escolhidas!
         public static DataView tableSmart()
         {
             DataTable pesos = new DataTable();
@@ -131,6 +158,12 @@ namespace Business
 
             Business.ManagementDataBase.database = (Business.DataBaseUser)bformatter.Deserialize(stream);
             stream.Close();
+        }
+
+        // info software select
+        public static Dictionary<int, Software> infoSoftware_byID()
+        {
+            return database.infoSoftware_byID(ids_dos_softwaresSeleccionados);
         }
 
     }

@@ -257,6 +257,22 @@ namespace Business
             return r;
         }
 
+
+        // devolve os softwares de uma list de ids
+        public Dictionary<int, Software> infoSoftware_byID(List<int> ids)
+        {
+            Dictionary<int, Software> r = new Dictionary<int, Software>();
+
+            foreach (int i in ids)
+            {
+                Software s = null;
+                _software_list.TryGetValue(i, out s);
+                r.Add(i, s);
+            }
+
+            return r;
+        }
+
     }
 
 }

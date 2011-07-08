@@ -11,40 +11,16 @@ namespace Interface
 {
     public partial class ConsultWebpage : Form
     {
-        private Business.DataBaseUser _dataBase;
-        public ConsultWebpage(Business.DataBaseUser dataBase)
+        public ConsultWebpage()
         {
             InitializeComponent();
-            _dataBase = dataBase;
 
             refreshTable();
         }
 
         public void refreshTable()
         {
-            // actualizar a tabela inicial
-            DataTable tabela_softwares = new DataTable();
-            tabela_softwares.Columns.Add("ID");
-            tabela_softwares.Columns.Add("Name");
-            tabela_softwares.Columns.Add("Link");
-
-            // adiciona as linhas (info dos softwares)
-            foreach (Business.Software s in _dataBase.Software_list.Values)
-            {
-                // coloca todas as caracteristicas numa List
-                List<string> values = new List<string>();
-                values.Add("" + s.Id);
-                values.Add(s.Name);
-                values.Add(s.Link);
-
-                // passa para um array, para ser possivel adicionar uma linha
-                string[] array = values.ToArray();
-                tabela_softwares.Rows.Add(array);
-            }
-
-            // cria uma nova vista para a tabela
-            DataView view = new DataView(tabela_softwares);
-            dataGridViewSimpleSoftware.DataSource = view;
+            dataGridViewSimpleSoftware.DataSource = Business.ManagementDataBase.tableSoftwaresWebPage();
         }
 
         private void ConsultWebpage_FormClosing(Object sender, FormClosingEventArgs e) 
@@ -61,7 +37,7 @@ namespace Interface
 
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditSWList editList = new EditSWList(_dataBase);
+            EditSWList editList = new EditSWList();
             editList.Show();
         }
 
@@ -73,14 +49,24 @@ namespace Interface
 
         private void dataGridViewSimpleSoftware_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
+
+            marqueeProgressBar.Style = ProgressBarStyle.Marquee;
+            
             int linha = dataGridViewSimpleSoftware.CurrentRow.Index;
             if (linha >= 0)
             {
                 string cellValue = dataGridViewSimpleSoftware["Link", linha].Value.ToString();
                 webBrowser.Navigate(cellValue);
             }
+
         }
 
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            marqueeProgressBar.Style = ProgressBarStyle.Blocks;
+        }
 
     }
 }

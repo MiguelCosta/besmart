@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultWebpage));
             this.dataSet1 = new System.Data.DataSet();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -38,6 +38,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewSimpleSoftware = new System.Windows.Forms.DataGridView();
             this.Open = new System.Windows.Forms.DataGridViewImageColumn();
+            this.marqueeProgressBar = new System.Windows.Forms.ProgressBar();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.softwareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lI4DataSet = new Interface.LI4DataSet();
@@ -90,12 +91,13 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewSimpleSoftware, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.marqueeProgressBar, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 98.2906F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.709402F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.47968F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.520325F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(213, 492);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -110,21 +112,21 @@
             this.dataGridViewSimpleSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSimpleSoftware.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Open});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSimpleSoftware.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSimpleSoftware.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewSimpleSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSimpleSoftware.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSimpleSoftware.Name = "dataGridViewSimpleSoftware";
             this.dataGridViewSimpleSoftware.ReadOnly = true;
             this.dataGridViewSimpleSoftware.RowHeadersVisible = false;
             this.dataGridViewSimpleSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSimpleSoftware.Size = new System.Drawing.Size(207, 477);
+            this.dataGridViewSimpleSoftware.Size = new System.Drawing.Size(207, 449);
             this.dataGridViewSimpleSoftware.TabIndex = 0;
             this.dataGridViewSimpleSoftware.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSimpleSoftware_CellDoubleClick);
             // 
@@ -138,6 +140,15 @@
             this.Open.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Open.Width = 5;
             // 
+            // marqueeProgressBar
+            // 
+            this.marqueeProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.marqueeProgressBar.Location = new System.Drawing.Point(3, 466);
+            this.marqueeProgressBar.MarqueeAnimationSpeed = 10;
+            this.marqueeProgressBar.Name = "marqueeProgressBar";
+            this.marqueeProgressBar.Size = new System.Drawing.Size(207, 23);
+            this.marqueeProgressBar.TabIndex = 1;
+            // 
             // webBrowser
             // 
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -146,6 +157,7 @@
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(425, 492);
             this.webBrowser.TabIndex = 0;
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
             // softwareBindingSource
             // 
@@ -198,5 +210,6 @@
         private LI4DataSetTableAdapters.softwareTableAdapter softwareTableAdapter;
         private System.Windows.Forms.DataGridView dataGridViewSimpleSoftware;
         private System.Windows.Forms.DataGridViewImageColumn Open;
+        private System.Windows.Forms.ProgressBar marqueeProgressBar;
     }
 }
