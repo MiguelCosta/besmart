@@ -84,20 +84,9 @@ namespace Business
             _software_list.Remove(id);
         }
 
-        public Software ViewSoftware(Software s)
-        {
-            return s;
-            //ESTE MÉTODO AINDA NÃO ESTÁ IMPLEMENTADO
-        }
-
         public void RemoveChar(int id)
         {
             _charac.Remove(id);
-        }
-
-        public void filterDB()
-        {
-            //ESTE MÉTODO AINDA NÃO ESTÁ IMPLEMENTADO
         }
 
         public void saveInObject(String filename)
@@ -108,23 +97,6 @@ namespace Business
             bformatter.Serialize(stream, this);
             stream.Close();
         }
-        /* * O MÉTODO SEGUINTE SERVE PARA CARREGAR O FICHEIRO
-         * PROVAVELMENTE NÃO PODE ESTAR NESTA CLASSE
-         * DEVE TER DE ESTAR NA CLASSE ONDE SE CARREGAM FICHEIROS (NA INTERFACE?)
-         * Aí, deve-se trocar o this para o nome da variável...
-         * O Código vai comentado devido ao erro óbvio
-         * */
-        /*
-        public void loadObject(String filename)
-        {
-            Stream stream = File.Open(filename, FileMode.Open);
-            BinaryFormatter bformatter = new BinaryFormatter();
-
-            this = (DataBaseUser)bformatter.Deserialize(stream);
-            stream.Close();
-        }*/
-
-
 
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
@@ -187,18 +159,6 @@ namespace Business
 
             }
 
-            /*
-            string result = "";
-            foreach (KeyValuePair<String, Dictionary<string, int>> pair in r)
-            {
-                result += "\nSoftware: " + pair.Key;
-                foreach (KeyValuePair<string, int> pair2 in pair.Value)
-                {
-                    result += "\n\tID: " + pair2.Key + "\tValue: " + pair2.Value;
-                }
-            }
-            MessageBox.Show(result);
-            */
             return r;
         }
 

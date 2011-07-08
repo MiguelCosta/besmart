@@ -178,8 +178,6 @@ namespace Interface
             cwp.Show();
         }
 
-        // ->>>>>>>>> rever a partir daqui
-
         private void buttonPreviewToSoftwares_Click(object sender, EventArgs e)
         {
             tabControlSeparates.SelectedTab = tabPageChooseSoftwares;
@@ -188,43 +186,51 @@ namespace Interface
 
         private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
         {
-            // apagar a estrutura
+            // limpar a estrutura
             Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
             Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
-
-
-            string linhas_selecionadas = "Select Characteristics ID:\n";
 
             // vai a todas as linhas das tabelas ver quais estão seleccionadas
             foreach (DataGridViewRow linha in dataGridViewCharacteristics.Rows)
             {
                 if (linha.Cells[0].Value != null)
                 {
-
-                    // convert para int o ID
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     string name = (string)linha.Cells[2].Value;
                     Business.ManagementDataBase.caracteristicas_escolhidas.Add(id, name);
-                    linhas_selecionadas += id + "\n";
                 }
             }
-            //MessageBox.Show(linhas_selecionadas);
 
-            // condição para se ter de seleccionar mais de 2 softwares
+            // condição para se ter de seleccionar pelo menos uma caracteristica
             if (Business.ManagementDataBase.caracteristicas_escolhidas.Count < 1)
             {
                 MessageBox.Show("Select at least one characteristics!");
             }
             else
             {
+                buttonNextChooseCriteria_message();
                 tabControlSeparates.SelectedTab = tabPageClassificaoes;
                 progressBar1.Value = 50;
                 refreshTableSmart();
                 refreshTableAHP();
             }
-
-
         }
+
+
+        // messagem que deve aparecer quando se clica no next e aparece sucesso
+        private void buttonNextChooseCriteria_message()
+        {
+            string message = "Select Characteristics:\n";
+
+            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
+            {
+                message += pair.Key + "\t" + pair.Value + "\n";
+            }
+
+            MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
+
+
 
         private void buttonPreviewDefiniotWeigths_Click(object sender, EventArgs e)
         {
@@ -234,21 +240,12 @@ namespace Interface
 
         private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e)
         {
-            DataTable carc = new DataTable();
-            carc.Columns.Add("ID");
-            carc.Columns.Add("Name");
-            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
-            {
-                carc.Rows.Add(pair.Key, pair.Value);
-            }
-
-            DataView view = new DataView(carc);
-            dataGridViewCaracteristicasPrioridades.DataSource = view;
-
-
+            dataGridViewCaracteristicasPrioridades.DataSource = Business.ManagementDataBase.tableCaracteristicasPrioridades();
             tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
             progressBar1.Value = 75;
         }
+
+        // ->>>>>>> a partir daqui
 
         private string procuraIdCha(string name)
         {

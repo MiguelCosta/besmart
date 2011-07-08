@@ -104,6 +104,7 @@ namespace Business
 
         }
 
+
         public static DataView tableSmart()
         {
             DataTable pesos = new DataTable();
@@ -120,7 +121,7 @@ namespace Business
             return new DataView(pesos);
         }
 
-        // o mesmo que a anterior
+
         public static DataView tableAHP()
         {
             DataTable pesos = new DataTable();
@@ -132,6 +133,20 @@ namespace Business
             }
 
             return new DataView(pesos);
+        }
+
+
+        public static DataView tableCaracteristicasPrioridades()
+        {
+            DataTable carc = new DataTable();
+            carc.Columns.Add("ID");
+            carc.Columns.Add("Name");
+            foreach (KeyValuePair<int, string> pair in caracteristicas_escolhidas)
+            {
+                carc.Rows.Add(pair.Key, pair.Value);
+            }
+
+            return new DataView(carc);
         }
 
         public static void addIdSoftwareSelect(int id)
@@ -165,6 +180,7 @@ namespace Business
         {
             return database.infoSoftware_byID(ids_dos_softwaresSeleccionados);
         }
+
 
     }
 }
