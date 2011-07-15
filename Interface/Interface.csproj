@@ -68,6 +68,30 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_Characteristics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Characteristics.Designer.cs">
+      <DependentUpon>Add_Characteristics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Characteristics_Numeric.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Add_Characteristics_Numeric.Designer.cs">
+      <DependentUpon>Add_Characteristics_Numeric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Characteristics_Qualitative.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Add_Characteristics_Qualitative.Designer.cs">
+      <DependentUpon>Add_Characteristics_Qualitative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Characteristics_Yes_No.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Add_Characteristics_Yes_No.Designer.cs">
+      <DependentUpon>Add_Characteristics_Yes_No.cs</DependentUpon>
+    </Compile>
     <Compile Include="chooseProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,15 +128,22 @@
     <Compile Include="ConsultWebpage.Designer.cs">
       <DependentUpon>ConsultWebpage.cs</DependentUpon>
     </Compile>
-    <Compile Include="LI4DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LI4DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Characteristics.resx">
+      <DependentUpon>Add_Characteristics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Characteristics_Numeric.resx">
+      <DependentUpon>Add_Characteristics_Numeric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Characteristics_Qualitative.resx">
+      <DependentUpon>Add_Characteristics_Qualitative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Characteristics_Yes_No.resx">
+      <DependentUpon>Add_Characteristics_Yes_No.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="chooseProcess.resx">
       <DependentUpon>chooseProcess.cs</DependentUpon>
@@ -143,17 +174,6 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="LI4DataSet.xsc">
-      <DependentUpon>LI4DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LI4DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LI4DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LI4DataSet.xss">
-      <DependentUpon>LI4DataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

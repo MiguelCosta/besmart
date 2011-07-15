@@ -172,8 +172,10 @@ namespace Interface
 
         private void buttonViewWebPage_Click(object sender, EventArgs e)
         {
-            ConsultWebpage cwp = new ConsultWebpage();
-            cwp.Show();
+            Business.ManagementDataBase.mostraCaracterísticas();
+
+            //ConsultWebpage cwp = new ConsultWebpage();
+            //cwp.Show();
         }
 
         private void buttonPreviewToSoftwares_Click(object sender, EventArgs e)

@@ -34,8 +34,8 @@
             this.dataGridViewTabelaSoftware = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.buttonAddCharacteristics = new System.Windows.Forms.Button();
             this.buttonAddnew = new System.Windows.Forms.Button();
+            this.buttonAddCharacteristics = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -68,9 +68,9 @@
             // 
             // groupBoxCharactList
             // 
-            this.groupBoxCharactList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxCharactList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxCharactList.Controls.Add(this.dataGridViewTabelaSoftware);
             this.groupBoxCharactList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxCharactList.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -116,6 +116,19 @@
             this.splitContainer2.SplitterDistance = 363;
             this.splitContainer2.TabIndex = 2;
             // 
+            // buttonAddnew
+            // 
+            this.buttonAddnew.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAddnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddnew.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddnew.Location = new System.Drawing.Point(114, 21);
+            this.buttonAddnew.Name = "buttonAddnew";
+            this.buttonAddnew.Size = new System.Drawing.Size(142, 25);
+            this.buttonAddnew.TabIndex = 0;
+            this.buttonAddnew.Text = "Add new Sotfware";
+            this.buttonAddnew.UseVisualStyleBackColor = true;
+            this.buttonAddnew.Click += new System.EventHandler(this.buttonAddnew_Click);
+            // 
             // buttonAddCharacteristics
             // 
             this.buttonAddCharacteristics.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -128,18 +141,6 @@
             this.buttonAddCharacteristics.Text = "Add new Characteristics";
             this.buttonAddCharacteristics.UseVisualStyleBackColor = true;
             this.buttonAddCharacteristics.Click += new System.EventHandler(this.buttonAddCharacteristics_Click);
-            // 
-            // buttonAddnew
-            // 
-            this.buttonAddnew.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddnew.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddnew.Location = new System.Drawing.Point(114, 21);
-            this.buttonAddnew.Name = "buttonAddnew";
-            this.buttonAddnew.Size = new System.Drawing.Size(142, 25);
-            this.buttonAddnew.TabIndex = 0;
-            this.buttonAddnew.Text = "Add new Sotfware";
-            this.buttonAddnew.UseVisualStyleBackColor = true;
             // 
             // EditSWList
             // 

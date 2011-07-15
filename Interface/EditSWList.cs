@@ -77,6 +77,13 @@ namespace Interface
             }
              * */
 
+            Add_Characteristics a = new Add_Characteristics();
+            a.ShowDialog();
+
+        }
+
+        private void buttonAddnew_Click(object sender, EventArgs e)
+        {
         }
     }
 }
