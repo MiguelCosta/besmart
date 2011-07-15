@@ -79,6 +79,11 @@ namespace Business
             _software_list.Add(s.Id, s);
         }
 
+        public void AddCharacteristics(Characteristic c)
+        {
+            _charac.Add(c.Id, c);
+        }
+
         public void RemoveSoftware(int id)
         {
             _software_list.Remove(id);

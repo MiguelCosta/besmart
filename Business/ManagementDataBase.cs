@@ -23,6 +23,7 @@ namespace Business
         public static Dictionary<int, Dictionary<string, float>> resultFinal = new Dictionary<int, Dictionary<string, float>>();
 
 
+
         public static DataView tableSoftwares(bool editable)
         {
             // actualizar a tabela inicial
@@ -183,7 +184,19 @@ namespace Business
 
 
 
+        public static bool add_characteristics(Business.Characteristic c)
+        {
+            try
+            {
+                database.AddCharacteristics(c);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
+            return true;
+        }
 
 
 
