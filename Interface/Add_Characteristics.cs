@@ -18,6 +18,7 @@ namespace Interface
         {
             InitializeComponent();
 
+            // configurações
             num.Dock = DockStyle.Fill;
             yes_no.Dock = DockStyle.Fill;
         }
