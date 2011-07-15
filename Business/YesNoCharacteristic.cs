@@ -76,11 +76,14 @@ namespace Business
 
         public override string toString()
         {
-            StringBuilder s = new StringBuilder("Characteristic\n");
+            StringBuilder s = new StringBuilder("______________________\nYesNoCharacteristic\n");
+            s.Append("Name: ");
             s.Append(_name);
             s.Append("\n");
+            s.Append("ID: ");
             s.Append(_id);
             s.Append("\n");
+            s.Append("Estado: ");
             s.Append(_state);
             s.Append("\n");
             return s.ToString();

@@ -80,12 +80,16 @@ namespace Business
 
         public override string toString()
         {
-            StringBuilder s = new StringBuilder("Characteristic\n");
+            StringBuilder s = new StringBuilder("______________________\nNumericoCharacteristic\n");
+            s.Append("Name: ");
             s.Append(_name);
             s.Append("\n");
+            s.Append("ID: ");
             s.Append(_id);
             s.Append("\n");
+            s.Append("Value: ");
             s.Append(_value);
+            s.Append("\n");
             return s.ToString();
         }
     }

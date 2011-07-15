@@ -182,5 +182,33 @@ namespace Business
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+        // funções de teste
+        // imprimir as características
+        public static void mostraCaracterísticas()
+        {
+            Dictionary<int, Characteristic> cara = database.Charac;
+            StringBuilder s = new StringBuilder("***CARACTERISTICAS***\n");
+
+            foreach (Business.Characteristic c in cara.Values)
+            {
+                s.Append(c.toString());
+            }
+
+            MessageBox.Show(s.ToString());
+
+        }
+
     }
 }
