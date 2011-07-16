@@ -60,7 +60,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(416, 246);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 269);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -69,7 +69,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(410, 44);
+            this.groupBox1.Size = new System.Drawing.Size(374, 44);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type";
@@ -88,7 +88,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(404, 25);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(368, 25);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // radioButtonNumeric
@@ -106,7 +106,7 @@
             // radioButtonQualitative
             // 
             this.radioButtonQualitative.AutoSize = true;
-            this.radioButtonQualitative.Location = new System.Drawing.Point(137, 3);
+            this.radioButtonQualitative.Location = new System.Drawing.Point(125, 3);
             this.radioButtonQualitative.Name = "radioButtonQualitative";
             this.radioButtonQualitative.Size = new System.Drawing.Size(75, 17);
             this.radioButtonQualitative.TabIndex = 1;
@@ -118,7 +118,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(271, 3);
+            this.radioButton3.Location = new System.Drawing.Point(247, 3);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(60, 17);
             this.radioButton3.TabIndex = 2;
@@ -134,7 +134,7 @@
             this.panelCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCharacteristics.Location = new System.Drawing.Point(3, 53);
             this.panelCharacteristics.Name = "panelCharacteristics";
-            this.panelCharacteristics.Size = new System.Drawing.Size(410, 134);
+            this.panelCharacteristics.Size = new System.Drawing.Size(374, 157);
             this.panelCharacteristics.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -147,17 +147,17 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonClean, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 193);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 216);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(410, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(374, 50);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // Add
             // 
             this.Add.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Add.Location = new System.Drawing.Point(30, 13);
+            this.Add.Location = new System.Drawing.Point(24, 13);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
             this.Add.TabIndex = 0;
@@ -169,7 +169,7 @@
             // 
             this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(303, 13);
+            this.buttonCancel.Location = new System.Drawing.Point(273, 13);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 1;
@@ -180,7 +180,7 @@
             // buttonClean
             // 
             this.buttonClean.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonClean.Location = new System.Drawing.Point(166, 13);
+            this.buttonClean.Location = new System.Drawing.Point(148, 13);
             this.buttonClean.Name = "buttonClean";
             this.buttonClean.Size = new System.Drawing.Size(75, 23);
             this.buttonClean.TabIndex = 2;
@@ -195,7 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(416, 246);
+            this.ClientSize = new System.Drawing.Size(380, 269);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

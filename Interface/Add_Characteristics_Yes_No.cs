@@ -24,10 +24,7 @@ namespace Interface
                 int i = System.Convert.ToInt32(id_t);
                 return i;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Numeric Value incorrect!");
-            }
+            catch (Exception) { }
 
             return -1;
         }
@@ -55,7 +52,7 @@ namespace Interface
         private void buttonGenerateID_Click(object sender, EventArgs e)
         {
             int id = Business.ManagementDataBase.next_ID();
-            textBoxID.Text = ""+id;
+            textBoxID.Text = "" + id;
         }
 
         private void buttonGenerateID_Click_1(object sender, EventArgs e)
