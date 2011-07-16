@@ -13,6 +13,7 @@ namespace Interface
     {
         private Add_Characteristics_Numeric num = new Add_Characteristics_Numeric();
         private Add_Characteristics_Yes_No yes_no = new Add_Characteristics_Yes_No();
+        private Add_Characteristics_Qualitative qual = new Add_Characteristics_Qualitative();
 
         public Add_Characteristics()
         {
@@ -21,6 +22,9 @@ namespace Interface
             // configurações
             num.Dock = DockStyle.Fill;
             yes_no.Dock = DockStyle.Fill;
+            qual.Dock = DockStyle.Fill;
+
+            this.Size = new System.Drawing.Size(this.Size.Width, 300);
         }
 
 
@@ -28,11 +32,13 @@ namespace Interface
         {
             panelCharacteristics.Controls.Clear();
             panelCharacteristics.Controls.Add(num);
+
         }
 
         private void radioButtonQualitative_CheckedChanged(object sender, EventArgs e)
         {
-            
+            panelCharacteristics.Controls.Clear();
+            panelCharacteristics.Controls.Add(qual);
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -68,10 +74,34 @@ namespace Interface
 
             if (panelCharacteristics.Controls.Contains(yes_no))
             {
-                
+                string name = yes_no.name();
+                int id = yes_no.id();
+                bool value = yes_no.value();
+
+                if (id != -1 && name.Equals("") == false)
+                {
+                    Business.Characteristic c = new Business.YesNoCharacteristic(id, name, value);
+                    bool b = Business.ManagementDataBase.add_characteristics(c);
+                    if (b)
+                    {
+                        MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                    else
+                    {
+                        string message = "Error adding.\nPlease check if the ID does not exist yet.";
+                        MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+
             }
             
 
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         

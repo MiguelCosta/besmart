@@ -198,6 +198,18 @@ namespace Business
             return true;
         }
 
+        // for generate ID
+        public static int next_ID()
+        {
+            int i = 0;
+            foreach (int id in database.Charac.Keys)
+            {
+                if (id > i) i = id;
+            }
+
+            return i+1;
+        }
+
 
 
 

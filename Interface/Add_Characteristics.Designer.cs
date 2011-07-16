@@ -37,6 +37,7 @@
             this.panelCharacteristics = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Add = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -57,7 +58,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(361, 276);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(361, 218);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -69,7 +70,7 @@
             this.groupBox1.Size = new System.Drawing.Size(355, 44);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Type";
             // 
             // tableLayoutPanel2
             // 
@@ -131,7 +132,7 @@
             this.panelCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCharacteristics.Location = new System.Drawing.Point(3, 53);
             this.panelCharacteristics.Name = "panelCharacteristics";
-            this.panelCharacteristics.Size = new System.Drawing.Size(355, 164);
+            this.panelCharacteristics.Size = new System.Drawing.Size(355, 106);
             this.panelCharacteristics.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -140,16 +141,19 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.Add, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 223);
+            this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 165);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(200, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(355, 50);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(3, 3);
+            this.Add.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Add.Location = new System.Drawing.Point(51, 13);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
             this.Add.TabIndex = 0;
@@ -157,14 +161,30 @@
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCancel.Location = new System.Drawing.Point(228, 13);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 1;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // Add_Characteristics
             // 
+            this.AcceptButton = this.Add;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(361, 276);
+            this.AutoScroll = true;
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(361, 218);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Add_Characteristics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add_Characteristics";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -186,6 +206,7 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button Add;
+        private System.Windows.Forms.Button buttonCancel;
 
     }
 }

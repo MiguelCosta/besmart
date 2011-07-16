@@ -46,6 +46,18 @@ namespace Interface
             return false;
         }
 
+        private void buttonGenerateID_Click(object sender, EventArgs e)
+        {
+            int id = Business.ManagementDataBase.next_ID();
+            textBoxID.Text = ""+id;
+        }
+
+        private void buttonGenerateID_Click_1(object sender, EventArgs e)
+        {
+            int id = Business.ManagementDataBase.next_ID();
+            textBoxID.Text = "" + id;
+        }
+
 
     }
 }
