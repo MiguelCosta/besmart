@@ -46,6 +46,12 @@ namespace Interface
             return false;
         }
 
+        public void clean()
+        {
+            textBoxID.Clear();
+            textBoxName.Clear();
+        }
+
         private void buttonGenerateID_Click(object sender, EventArgs e)
         {
             int id = Business.ManagementDataBase.next_ID();

@@ -49,54 +49,115 @@ namespace Interface
 
         private void Add_Click(object sender, EventArgs e)
         {
+            string msg_error = "";
             if (panelCharacteristics.Controls.Contains(num))
             {
-                string name = num.name();
-                int id = num.id();
-                int value = num.value();
-
-                if (id != -1 && value != -1 && name.Equals("") == false)
-                {
-                    Business.Characteristic c = new Business.NumericCharacteristic(id, name, value);
-                    bool b = Business.ManagementDataBase.add_characteristics(c);
-                    if (b)
-                    {
-                        MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    }
-                    else
-                    {
-                        string message = "Error adding.\nPlease check if the ID does not exist yet.";
-                        MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                msg_error = add_characteristics_numeric();
             }
 
 
             if (panelCharacteristics.Controls.Contains(yes_no))
             {
-                string name = yes_no.name();
-                int id = yes_no.id();
-                bool value = yes_no.value();
+                msg_error = add_characteristics_yes_no();
+            }
 
-                if (id != -1 && name.Equals("") == false)
+            if (panelCharacteristics.Controls.Contains(qual))
+            {
+                msg_error = add_characteristics_qualitatice();
+            }
+
+            if (msg_error.Equals("") == false) MessageBox.Show(msg_error, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+
+        private string add_characteristics_numeric()
+        {
+            string msg_error = "";
+            string name = num.name();
+            int id = num.id();
+            int value = num.value();
+
+            if (id == -1) msg_error += "ID value is not correct.\n";
+            if (value == -1) msg_error += "Default Value is not correct.\n";
+            if (name.Equals("")) msg_error += "Name is not correct.\n";
+
+            if (id != -1 && value != -1 && name.Equals("") == false)
+            {
+                Business.Characteristic c = new Business.NumericCharacteristic(id, name, value);
+                bool b = Business.ManagementDataBase.add_characteristics(c);
+                if (b)
                 {
-                    Business.Characteristic c = new Business.YesNoCharacteristic(id, name, value);
+                    MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else
+                {
+                    msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                }
+            }
+
+            return msg_error;
+        }
+
+        private string add_characteristics_yes_no()
+        {
+            string msg_error = "";
+            string name = yes_no.name();
+            int id = yes_no.id();
+            bool value = yes_no.value();
+
+            if (id == -1) msg_error += "ID value is not correct.\n";
+            if (name.Equals("")) msg_error += "Name is not correct.\n";
+
+            if (id != -1 && name.Equals("") == false)
+            {
+                Business.Characteristic c = new Business.YesNoCharacteristic(id, name, value);
+                bool b = Business.ManagementDataBase.add_characteristics(c);
+                if (b)
+                {
+                    MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else
+                {
+                    msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                }
+
+            }
+            return msg_error;
+        }
+
+        private string add_characteristics_qualitatice()
+        {
+            string msg_error = "";
+            string name = qual.name();
+            int id = qual.id();
+
+            if (id == -1) msg_error += "ID value is not correct.\n";
+            if (name.Equals("")) msg_error += "Name is not correct.\n";
+
+            if (id != -1 && name.Equals("") == false)
+            {
+                string result = qual.validateValues();
+
+                // se houver erros
+                if (result.Equals("") == false) msg_error += result;
+                else
+                {
+                    Dictionary<String, Business.Value> value = qual.values();
+                    Business.Characteristic c = new Business.QualitativeCharacteristic(id, name, value);
+
                     bool b = Business.ManagementDataBase.add_characteristics(c);
+
                     if (b)
                     {
                         MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
                     else
                     {
-                        string message = "Error adding.\nPlease check if the ID does not exist yet.";
-                        MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
                     }
-
                 }
-
             }
-            
-
+            return msg_error;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -104,10 +165,17 @@ namespace Interface
             this.Close();
         }
 
-        
+        private void buttonClean_Click(object sender, EventArgs e)
+        {
+            num.clean();
+            qual.clean();
+            yes_no.clean();
+        }
 
-        
 
-        
+
+
+
+
     }
 }

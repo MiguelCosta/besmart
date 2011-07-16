@@ -16,8 +16,6 @@ namespace Interface
             InitializeComponent();
         }
 
-
-        
         public int id()
         {
             string id_t = textBoxID.Text;
@@ -26,10 +24,7 @@ namespace Interface
                 int i = System.Convert.ToInt32(id_t);
                 return i;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Numeric Value incorrect!");
-            }
+            catch (Exception) { }
 
             return -1;
         }
@@ -49,12 +44,21 @@ namespace Interface
                 int i = System.Convert.ToInt32(value_t);
                 return i;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Numeric Value incorrect!");
-            }
+            catch (Exception) { }
 
             return -1;
+        }
+
+        public void clean()
+        {
+            textBoxID.Clear();
+            textBoxName.Clear();
+            textBoxValue.Clear();
+        }
+
+        private void buttonGenerate_Click(object sender, EventArgs e)
+        {
+            textBoxID.Text = ""+ Business.ManagementDataBase.next_ID();
         }
     }
 }

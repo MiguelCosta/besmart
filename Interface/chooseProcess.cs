@@ -110,7 +110,9 @@ namespace Interface
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditSWList editList = new EditSWList();
-            editList.Show();
+            editList.ShowDialog();
+            refreshTableSoftwares();
+            refreshTableCaracteristics();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)

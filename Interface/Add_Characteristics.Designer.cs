@@ -38,6 +38,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Add = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonClean = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -137,23 +138,25 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.Controls.Add(this.Add, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonClean, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 165);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(355, 50);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // Add
             // 
             this.Add.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Add.Location = new System.Drawing.Point(51, 13);
+            this.Add.Location = new System.Drawing.Point(21, 13);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 23);
             this.Add.TabIndex = 0;
@@ -164,13 +167,25 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonCancel.Location = new System.Drawing.Point(228, 13);
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(258, 13);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonClean
+            // 
+            this.buttonClean.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonClean.Location = new System.Drawing.Point(139, 13);
+            this.buttonClean.Name = "buttonClean";
+            this.buttonClean.Size = new System.Drawing.Size(75, 23);
+            this.buttonClean.TabIndex = 2;
+            this.buttonClean.Text = "Clean";
+            this.buttonClean.UseVisualStyleBackColor = true;
+            this.buttonClean.Click += new System.EventHandler(this.buttonClean_Click);
             // 
             // Add_Characteristics
             // 
@@ -207,6 +222,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonClean;
 
     }
 }

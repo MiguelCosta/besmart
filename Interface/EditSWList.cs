@@ -45,41 +45,9 @@ namespace Interface
 
         private void buttonAddCharacteristics_Click(object sender, EventArgs e)
         {
-            /*
-            string m = "Whta type of characteristic do want to insert?\n1 - Boolean\n2 - Numeric\n3 - Qualitative";
-            string r = Microsoft.VisualBasic.Interaction.InputBox(m, "Insert Caracteristics");
-
-            if (r.Equals("1"))
-            {
-                string x = Microsoft.VisualBasic.Interaction.InputBox("What is the name?", "Insert Caracteristics");
-                _tabela_softwares.Columns.Add(x);
-
-                DataView view = new DataView(_tabela_softwares);
-                dataGridViewTabelaSoftware.DataSource = view;
-            }
-
-            if (r.Equals("2"))
-            {
-                string x = Microsoft.VisualBasic.Interaction.InputBox("What is the name?", "Insert Caracteristics");
-                _tabela_softwares.Columns.Add(x);
-
-                DataView view = new DataView(_tabela_softwares);
-                dataGridViewTabelaSoftware.DataSource = view;
-            }
-
-            if (r.Equals("3"))
-            {
-                string x = Microsoft.VisualBasic.Interaction.InputBox("What is the name?\nvalue-valueorder;value-valueorder\nExample:bad-0;good-1\n", "Insert Caracteristics");
-                _tabela_softwares.Columns.Add(x);
-
-                DataView view = new DataView(_tabela_softwares);
-                dataGridViewTabelaSoftware.DataSource = view;
-            }
-             * */
-
             Add_Characteristics a = new Add_Characteristics();
             a.ShowDialog();
-
+            refreshTableSoftwares();
         }
 
         private void buttonAddnew_Click(object sender, EventArgs e)
