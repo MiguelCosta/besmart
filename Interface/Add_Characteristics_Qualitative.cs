@@ -20,7 +20,7 @@ namespace Interface
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
-            int id = Business.ManagementDataBase.next_ID();
+            int id = Business.ManagementDataBase.next_ID_Characteristics();
             textBoxID.Text = "" + id;
         }
 

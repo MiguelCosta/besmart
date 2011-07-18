@@ -96,6 +96,12 @@
     <Compile Include="Add_Characteristics_Yes_No.Designer.cs">
       <DependentUpon>Add_Characteristics_Yes_No.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_Software.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Software.Designer.cs">
+      <DependentUpon>Add_Software.cs</DependentUpon>
+    </Compile>
     <Compile Include="chooseProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     <EmbeddedResource Include="Add_Characteristics_Yes_No.resx">
       <DependentUpon>Add_Characteristics_Yes_No.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Software.resx">
+      <DependentUpon>Add_Software.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="chooseProcess.resx">
       <DependentUpon>chooseProcess.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +181,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Tutorials.resx">
       <DependentUpon>Tutorials.cs</DependentUpon>
@@ -218,6 +228,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Files\Image\Background\uwsp3 %287%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Files\Image\Background\blue bg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

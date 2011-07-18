@@ -150,6 +150,40 @@ namespace Business
             return new DataView(carc);
         }
 
+        public static DataView tableAddSoftware()
+        {
+            DataTable tabela_caracteristicas = new DataTable();
+            tabela_caracteristicas.Columns.Add("Value");
+            tabela_caracteristicas.Columns.Add("ID");
+            tabela_caracteristicas.Columns.Add("Name");
+            tabela_caracteristicas.Columns.Add("Type");
+
+            tabela_caracteristicas.Columns["ID"].ReadOnly = true;
+            tabela_caracteristicas.Columns["Name"].ReadOnly = true;
+            tabela_caracteristicas.Columns["Type"].ReadOnly = true;
+            
+
+            Button b = new Button();
+            b.Text = "Detaisl";
+            int line = 0;
+            foreach (Characteristic c in database.Charac.Values)
+            {
+                string type = "";
+                if (c.GetType().ToString().Equals("Business.NumericCharacteristic")) type = "Numeric";
+                if (c.GetType().ToString().Equals("Business.QualitativeCharacteristic")) type = "Qualitative";
+                if (c.GetType().ToString().Equals("Business.YesNoCharacteristic")) type = "bool";
+
+                tabela_caracteristicas.Rows.Add(null, c.Id, c.Name, type);
+                line++;
+            }
+
+            DataView v = new DataView(tabela_caracteristicas);
+
+            return v;
+        }
+
+
+
         public static void addIdSoftwareSelect(int id)
         {
             ids_dos_softwaresSeleccionados.Add(id);
@@ -199,7 +233,7 @@ namespace Business
         }
 
         // for generate ID
-        public static int next_ID()
+        public static int next_ID_Characteristics()
         {
             int i = 0;
             foreach (int id in database.Charac.Keys)
@@ -210,7 +244,16 @@ namespace Business
             return i+1;
         }
 
+        public static int next_ID_Software()
+        {
+            int i = 0;
+            foreach (int id in database.Software_list.Keys)
+            {
+                if (id > i) i = id;
+            }
 
+            return i + 1;
+        }
 
 
 

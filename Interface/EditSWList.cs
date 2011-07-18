@@ -52,6 +52,8 @@ namespace Interface
 
         private void buttonAddnew_Click(object sender, EventArgs e)
         {
+            Add_Software a = new Add_Software();
+            a.ShowDialog();
         }
     }
 }

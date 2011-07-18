@@ -635,7 +635,7 @@ namespace Interface
 
         private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string url = "C:\\HTML_tutoraials\\AHPtutorial.htm";
+            string url = "..\\Resources\\Files\\Tutorials_html\\AHPtutorial.htm";
             Tutorials t = new Tutorials(url);
             t.Show();
         }

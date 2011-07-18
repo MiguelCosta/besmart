@@ -142,7 +142,9 @@
             // dataGridViewQualitativeValues
             // 
             this.dataGridViewQualitativeValues.AllowUserToOrderColumns = true;
-            this.dataGridViewQualitativeValues.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dataGridViewQualitativeValues.AllowUserToResizeColumns = false;
+            this.dataGridViewQualitativeValues.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewQualitativeValues.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewQualitativeValues.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewQualitativeValues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewQualitativeValues.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

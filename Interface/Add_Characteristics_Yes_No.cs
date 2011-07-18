@@ -51,13 +51,13 @@ namespace Interface
 
         private void buttonGenerateID_Click(object sender, EventArgs e)
         {
-            int id = Business.ManagementDataBase.next_ID();
+            int id = Business.ManagementDataBase.next_ID_Characteristics();
             textBoxID.Text = "" + id;
         }
 
         private void buttonGenerateID_Click_1(object sender, EventArgs e)
         {
-            int id = Business.ManagementDataBase.next_ID();
+            int id = Business.ManagementDataBase.next_ID_Characteristics();
             textBoxID.Text = "" + id;
         }
 

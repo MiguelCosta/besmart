@@ -58,7 +58,7 @@ namespace Interface
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
-            textBoxID.Text = ""+ Business.ManagementDataBase.next_ID();
+            textBoxID.Text = ""+ Business.ManagementDataBase.next_ID_Characteristics();
         }
     }
 }
