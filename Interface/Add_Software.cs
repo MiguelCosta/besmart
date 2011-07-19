@@ -98,8 +98,8 @@ namespace Interface
                 if (c.GetType().ToString().Equals("Business.YesNoCharacteristic"))
                 {
                     DataGridViewComboBoxCell c_value = new DataGridViewComboBoxCell();
-                    c_value.Items.Add(true);
-                    c_value.Items.Add(false);
+                    c_value.Items.Add("True");
+                    c_value.Items.Add("False");
                     c_value.Value = c_value.Items[0];
                     l.Cells.Add(c_value);
                 }
@@ -129,7 +129,7 @@ namespace Interface
 
         }
 
-
+        
         private void dataGridViewCharacteristics_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int col = dataGridViewCharacteristics.CurrentCell.ColumnIndex;
@@ -140,6 +140,12 @@ namespace Interface
             if (col == 4)
             {
                 MessageBox.Show("Falta fazer a janela para apresentar a informação");
+            }
+
+            if (col == 0)
+            {
+
+
             }
 
         }
