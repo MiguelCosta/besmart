@@ -28,6 +28,7 @@ namespace Interface
             refreshTable();
         }
 
+        #region refresh DataGridView
         public void refreshTable()
         {
             DataGridViewTextBoxColumn id = new DataGridViewTextBoxColumn();
@@ -116,8 +117,7 @@ namespace Interface
 
 
         }
-
-
+        #endregion
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
