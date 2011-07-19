@@ -54,6 +54,7 @@ namespace Interface
         {
             Add_Software a = new Add_Software();
             a.ShowDialog();
+            refreshTableSoftwares();
         }
     }
 }

@@ -126,10 +126,10 @@ namespace Interface
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("www.google.com");
         }
 
-        
+
         private void dataGridViewCharacteristics_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int col = dataGridViewCharacteristics.CurrentCell.ColumnIndex;
@@ -154,6 +154,7 @@ namespace Interface
         /// <summary>
         /// Event handler to allow the embedded control to wire
         /// its own event handlers and/or to set desired style
+        /// http://www.sommergyll.com/datagridview-usercontrols/datagridview-with-combobox.htm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -208,6 +209,39 @@ namespace Interface
                 // to be committed in order to be displayed directly.
                 /*cell.Value = cell.Items[0];*/
             }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            string name = textBoxName.Text;
+            int id = System.Convert.ToInt32(textBoxID.Text);
+            string link = textBoxLink.Text;
+
+            Dictionary<int, string> v = new Dictionary<int, string>();
+            foreach (DataGridViewRow line in dataGridViewCharacteristics.Rows)
+            {
+                int i = System.Convert.ToInt32(line.Cells[1].Value.ToString());
+                string value = line.Cells[0].Value.ToString();
+                v.Add(i, value);
+                //MessageBox.Show("ID: "+line.Cells[1].Value.ToString()+" Value: "+line.Cells[0].Value.ToString());
+
+            }
+
+            Business.Software s = new Business.Software(id, name, link, v);
+
+            bool b = Business.ManagementDataBase.add_software(s);
+
+            if (b)
+            {
+                MessageBox.Show("Software added.", "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                // fazer funções para detetar erros
+                string msg_error = "";
+                MessageBox.Show(msg_error, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
 

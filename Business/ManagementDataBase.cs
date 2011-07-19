@@ -232,6 +232,20 @@ namespace Business
             return true;
         }
 
+        public static bool add_software(Business.Software s)
+        {
+            try
+            {
+                database.AddSoftware(s);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         // for generate ID
         public static int next_ID_Characteristics()
         {

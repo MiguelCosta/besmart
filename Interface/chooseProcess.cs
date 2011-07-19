@@ -37,6 +37,7 @@ namespace Interface
             buttonFinish.Enabled = false;
             buttonTestConsitencyAHP.Enabled = false;
             buttonNextChooseSoftwares.Enabled = false;
+            dataGridViewTabelaSoftware.Columns[0].Visible = false;
             // formata as tabelas
             // smart();
         }
@@ -700,6 +701,7 @@ namespace Interface
             labelConsistencyRate.Text = "";
             labelCaracteristicaValueFn.Text = "name";
             tabControlSeparates.SelectedTab = tabPageChooseSoftwares;
+            dataGridViewTabelaSoftware.Columns[0].Visible = true;
 
         }
 
