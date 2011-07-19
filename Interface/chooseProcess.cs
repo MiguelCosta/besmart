@@ -43,6 +43,7 @@ namespace Interface
             // smart();
         }
 
+        #region Refresh Tables
         private void refreshTableSoftwares()
         {
             dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwares(false);
@@ -73,6 +74,7 @@ namespace Interface
             }
         }
 
+        #endregion
 
         private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -92,22 +94,14 @@ namespace Interface
             if (ret == DialogResult.OK)
             {
                 Business.ManagementDataBase.loadObject(filename);
-                
+
                 // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
                 refreshTableSoftwares();
                 refreshTableCaracteristics();
             }
         }
 
-        // exit
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult r = MessageBox.Show("Want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
-            {
-                this.Dispose();
-            }
-        }
+        
 
         private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -154,9 +148,9 @@ namespace Interface
             {
                 // apresenta os softwares seleccionados
                 buttonNextChooseSoftwares_message();
-          
+
                 tabControlSeparates.SelectedTab = tabPageChooseCriteria;
-                
+
                 indexSperate = tabControlSeparates.SelectedIndex;
 
                 progressBar1.Value = 25;
@@ -245,13 +239,7 @@ namespace Interface
             progressBar1.Value = 25;
         }
 
-        private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e)
-        {
-            dataGridViewCaracteristicasPrioridades.DataSource = Business.ManagementDataBase.tableCaracteristicasPrioridades();
-            tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
-            indexSperate = tabControlSeparates.SelectedIndex;
-            progressBar1.Value = 75;
-        }
+        
 
         // ->>>>>>> a partir daqui
 
@@ -390,6 +378,7 @@ namespace Interface
         }
 
 
+        #region Button Definition Weigths
 
         private void buttonCalculateValueFn_Click_1(object sender, EventArgs e)
         {
@@ -400,21 +389,7 @@ namespace Interface
 
             string id_carac = labelCaracteristicaValueFnID.Text;
             tableFilter = Business.ManagementDataBase.decision.filter(id_carac);
-            /*
-            string erro = "nada";
 
-            foreach (KeyValuePair<string, Dictionary<string, int>> p in tableFilter)
-            {
-                erro += "\n" + p.Key;
-                foreach (KeyValuePair<string, int> p2 in p.Value)
-                {
-                    erro += "\n\t" + p2.Key + " " + "int " + p2.Value;
-                }
-
-            }
-            
-            MessageBox.Show(erro);
-            */
             int min = Business.ManagementDataBase.decision.calMin(id_carac, tableFilter);
             int max = Business.ManagementDataBase.decision.calMax(id_carac, tableFilter);
 
@@ -515,6 +490,7 @@ namespace Interface
 
         }
 
+
         private void buttonTestConsitencyAHP_Click(object sender, EventArgs e)
         {
             Dictionary<int, double> matrixC = new Dictionary<int, double>();
@@ -544,6 +520,9 @@ namespace Interface
             buttonFinish.Enabled = true;
         }
 
+        #endregion
+
+        #region Button Finish
         private void buttonFinish_Click(object sender, EventArgs e)
         {
             resultFinal = new Dictionary<int, Dictionary<string, float>>();
@@ -582,6 +561,13 @@ namespace Interface
             progressBar1.Value = 100;
         }
 
+        #endregion
+
+        #region Button Test Concistency
+        
+
+
+
         private void buttonTestCons_Click(object sender, EventArgs e)
         {
             Dictionary<int, double> matrixC = new Dictionary<int, double>();
@@ -609,6 +595,7 @@ namespace Interface
             // activa o botão next
             buttonNextDefinitonWeigths.Enabled = true;
         }
+        #endregion
 
         private void buttonCalcSmart_Click(object sender, EventArgs e)
         {
@@ -640,23 +627,24 @@ namespace Interface
             metodo_fase_1 = "smart";
         }
 
+        #region Button Help
         private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string url = "..\\Resources\\Files\\Tutorials_html\\AHPtutorial.htm";
+            string url = Path.GetFullPath("Files\\Tutorials_html\\AHPtutorial.htm");
             Tutorials t = new Tutorials(url);
             t.Show();
         }
 
         private void sMARTTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string url = "C:\\HTML_tutoraials\\SMARTtutorial.htm";
+            string url = Path.GetFullPath("Files\\Tutorials_html\\SMARTtutorial.htm");
             Tutorials t = new Tutorials(url);
             t.Show();
         }
 
         private void valueFNTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string url = "C:\\HTML_tutoraials\\ValueFntutorial.htm";
+            string url = Path.GetFullPath("Files\\Tutorials_html\\ValueFntutorial.htm");
             Tutorials t = new Tutorials(url);
             t.Show();
         }
@@ -666,7 +654,9 @@ namespace Interface
             AboutBox a = new AboutBox();
             a.Show();
         }
+        #endregion
 
+        #region Start New Comparation
         private void startANewComparationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
@@ -711,6 +701,18 @@ namespace Interface
 
         }
 
+        #endregion
+
+        #region Button Next
+
+        private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e)
+        {
+            dataGridViewCaracteristicasPrioridades.DataSource = Business.ManagementDataBase.tableCaracteristicasPrioridades();
+            tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
+            indexSperate = tabControlSeparates.SelectedIndex;
+            progressBar1.Value = 75;
+        }
+
         private void buttonNextChooseSoftwares_MouseEnter(object sender, EventArgs e)
         {
             buttonNextChooseSoftwares.ForeColor = System.Drawing.Color.Blue;
@@ -721,6 +723,9 @@ namespace Interface
             buttonNextChooseSoftwares.ForeColor = System.Drawing.Color.Black;
         }
 
+        #endregion
+
+        #region Button ViewWebPage
         private void buttonViewWebPage_MouseEnter(object sender, EventArgs e)
         {
             buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Bold);
@@ -732,6 +737,18 @@ namespace Interface
             buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Regular);
             buttonViewWebPage.ForeColor = System.Drawing.Color.Black;
         }
+        #endregion
+
+        #region exit
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+        }
+
 
         private void chooseProcess_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -745,7 +762,7 @@ namespace Interface
                 e.Cancel = true;
             }
         }
-
+        #endregion
 
         private void tabControlSeparates_Click(object sender, EventArgs e)
         {
