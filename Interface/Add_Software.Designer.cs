@@ -229,6 +229,7 @@
             // 
             // dataGridViewCharacteristics
             // 
+            this.dataGridViewCharacteristics.AllowUserToAddRows = false;
             this.dataGridViewCharacteristics.AllowUserToDeleteRows = false;
             this.dataGridViewCharacteristics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCharacteristics.BackgroundColor = System.Drawing.SystemColors.Control;
