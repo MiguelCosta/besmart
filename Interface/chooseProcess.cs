@@ -76,12 +76,7 @@ namespace Interface
 
         #endregion
 
-        private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConsultWebpage cwp = new ConsultWebpage();
-            cwp.Show();
-
-        }
+        
 
         // open file
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,51 +119,7 @@ namespace Interface
             }
         }
 
-        private void buttonNextChooseSoftwares_Click(object sender, EventArgs e)
-        {
-            Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
-
-            foreach (DataGridViewRow linha in dataGridViewTabelaSoftware.Rows)
-            {
-                // seleccionada apenas as linhas que tem o checbox activo
-                if (linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true)
-                {
-                    int id = System.Convert.ToInt32(linha.Cells[1].Value);
-                    string name = linha.Cells[2].Value.ToString();
-
-                    Business.ManagementDataBase.addIdSoftwareSelect(id);
-                }
-            }
-
-            if (Business.ManagementDataBase.totalSoftwareSelect() < 2 || Business.ManagementDataBase.totalSoftwareSelect() > 16)
-            {
-                MessageBox.Show("Select between 2 and 16 softwares!");
-            }
-            else
-            {
-                // apresenta os softwares seleccionados
-                buttonNextChooseSoftwares_message();
-
-                tabControlSeparates.SelectedTab = tabPageChooseCriteria;
-
-                indexSperate = tabControlSeparates.SelectedIndex;
-
-                progressBar1.Value = 25;
-            }
-        }
-
-        // messagem que deve aparecer quando se clica no next e aparece sucesso
-        private void buttonNextChooseSoftwares_message()
-        {
-            string message = "Select Software:\n";
-
-            foreach (Business.Software s in Business.ManagementDataBase.infoSoftware_byID().Values)
-            {
-                message += s.Id + "\t" + s.Name + "\n";
-            }
-
-            MessageBox.Show(message, "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
-        }
+        
 
         private void buttonViewWebPage_Click(object sender, EventArgs e)
         {
@@ -216,21 +167,6 @@ namespace Interface
                 refreshTableAHP();
             }
         }
-
-
-        // messagem que deve aparecer quando se clica no next e aparece sucesso
-        private void buttonNextChooseCriteria_message()
-        {
-            string message = "Select Characteristics:\n";
-
-            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
-            {
-                message += pair.Key + "\t" + pair.Value + "\n";
-            }
-
-            MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
-        }
-
 
 
         private void buttonPreviewDefiniotWeigths_Click(object sender, EventArgs e)
@@ -564,9 +500,6 @@ namespace Interface
         #endregion
 
         #region Button Test Concistency
-        
-
-
 
         private void buttonTestCons_Click(object sender, EventArgs e)
         {
@@ -704,6 +637,65 @@ namespace Interface
         #endregion
 
         #region Button Next
+        // messagem que deve aparecer quando se clica no next e aparece sucesso
+        private void buttonNextChooseCriteria_message()
+        {
+            string message = "Select Characteristics:\n";
+
+            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
+            {
+                message += pair.Key + "\t" + pair.Value + "\n";
+            }
+
+            MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
+
+        private void buttonNextChooseSoftwares_Click(object sender, EventArgs e)
+        {
+            Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
+
+            foreach (DataGridViewRow linha in dataGridViewTabelaSoftware.Rows)
+            {
+                // seleccionada apenas as linhas que tem o checbox activo
+                if (linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true)
+                {
+                    int id = System.Convert.ToInt32(linha.Cells[1].Value);
+                    string name = linha.Cells[2].Value.ToString();
+
+                    Business.ManagementDataBase.addIdSoftwareSelect(id);
+                }
+            }
+
+            if (Business.ManagementDataBase.totalSoftwareSelect() < 2 || Business.ManagementDataBase.totalSoftwareSelect() > 16)
+            {
+                MessageBox.Show("Select between 2 and 16 softwares!");
+            }
+            else
+            {
+                // apresenta os softwares seleccionados
+                buttonNextChooseSoftwares_message();
+
+                tabControlSeparates.SelectedTab = tabPageChooseCriteria;
+
+                indexSperate = tabControlSeparates.SelectedIndex;
+
+                progressBar1.Value = 25;
+            }
+        }
+
+        // messagem que deve aparecer quando se clica no next e aparece sucesso
+        private void buttonNextChooseSoftwares_message()
+        {
+            string message = "Select Software:\n";
+
+            foreach (Business.Software s in Business.ManagementDataBase.infoSoftware_byID().Values)
+            {
+                message += s.Id + "\t" + s.Name + "\n";
+            }
+
+            MessageBox.Show(message, "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
+
 
         private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e)
         {
@@ -725,7 +717,7 @@ namespace Interface
 
         #endregion
 
-        #region Button ViewWebPage
+        #region ViewWebPage
         private void buttonViewWebPage_MouseEnter(object sender, EventArgs e)
         {
             buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Bold);
@@ -736,6 +728,13 @@ namespace Interface
         {
             buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Regular);
             buttonViewWebPage.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultWebpage cwp = new ConsultWebpage();
+            cwp.Show();
+
         }
         #endregion
 
