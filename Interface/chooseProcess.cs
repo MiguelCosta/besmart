@@ -19,6 +19,7 @@ namespace Interface
         public Dictionary<string, float> tabelaSmartNorm;
         public Dictionary<string, float> pesosFinaisClassAHP;
         public string metodo_fase_1 = "smart";
+        int indexSperate = 0;
 
         public Dictionary<int, Dictionary<string, float>> resultFinal;
 
@@ -155,6 +156,8 @@ namespace Interface
                 buttonNextChooseSoftwares_message();
           
                 tabControlSeparates.SelectedTab = tabPageChooseCriteria;
+                
+                indexSperate = tabControlSeparates.SelectedIndex;
 
                 progressBar1.Value = 25;
             }
@@ -213,6 +216,7 @@ namespace Interface
             {
                 buttonNextChooseCriteria_message();
                 tabControlSeparates.SelectedTab = tabPageClassificaoes;
+                indexSperate = tabControlSeparates.SelectedIndex;
                 progressBar1.Value = 50;
                 refreshTableSmart();
                 refreshTableAHP();
@@ -245,6 +249,7 @@ namespace Interface
         {
             dataGridViewCaracteristicasPrioridades.DataSource = Business.ManagementDataBase.tableCaracteristicasPrioridades();
             tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
+            indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 75;
         }
 
@@ -573,6 +578,7 @@ namespace Interface
             dataGridViewFinal.DataSource = view;
 
             tabControlSeparates.SelectedTab = tabPageFinal;
+            indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 100;
         }
 
@@ -739,6 +745,14 @@ namespace Interface
                 e.Cancel = true;
             }
         }
+
+
+        private void tabControlSeparates_Click(object sender, EventArgs e)
+        {
+            // falta o preview
+            tabControlSeparates.SelectedIndex = indexSperate;
+        }
+
 
     }
 }
