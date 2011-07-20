@@ -182,6 +182,20 @@ namespace Business
             return v;
         }
 
+        public static DataView tableFinalWeightAHP()
+        {
+            DataTable pesos = new DataTable();
+            pesos.Columns.Add("ID");
+            pesos.Columns.Add("Weight");
+            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.pesosFinaisClassAHP)
+            {
+                pesos.Rows.Add(pair.Key, pair.Value);
+            }
+
+            return new DataView(pesos);
+
+        }
+
 
 
         public static void addIdSoftwareSelect(int id)
@@ -246,6 +260,7 @@ namespace Business
             return true;
         }
 
+        #region Next ID
         // for generate ID
         public static int next_ID_Characteristics()
         {
@@ -269,11 +284,20 @@ namespace Business
             return i + 1;
         }
 
+        #endregion
 
 
 
+        public static string procuraIdCha(string name)
+        {
+            string r = "";
+            foreach (KeyValuePair<int, string> pair in caracteristicas_escolhidas)
+            {
+                if (pair.Value.Equals(name)) r = "" + pair.Key;
+            }
 
-
+            return r;
+        }
 
 
         // funções de teste

@@ -16,9 +16,6 @@ namespace Interface
 
     public partial class chooseProcess : Form
     {
-        public Dictionary<string, float> tabelaSmartNorm;
-        public Dictionary<string, float> pesosFinaisClassAHP;
-        public string metodo_fase_1 = "smart";
         int indexSperate = 0;
 
         public Dictionary<int, Dictionary<string, float>> resultFinal;
@@ -26,9 +23,6 @@ namespace Interface
         public chooseProcess()
         {
             InitializeComponent();
-
-            // estruturas auxiliares para calculo da decisão
-            tabelaSmartNorm = new Dictionary<string, float>();
 
             // configurações iniciais
             refreshTableSoftwares();
@@ -76,7 +70,7 @@ namespace Interface
 
         #endregion
 
-        
+        #region File
 
         // open file
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,16 +90,6 @@ namespace Interface
             }
         }
 
-        
-
-        private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EditSWList editList = new EditSWList();
-            editList.ShowDialog();
-            refreshTableSoftwares();
-            refreshTableCaracteristics();
-        }
-
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog s = new SaveFileDialog();
@@ -118,78 +102,39 @@ namespace Interface
                 Business.ManagementDataBase.database.saveInObject(name);
             }
         }
+        #endregion
 
-        
-
-        private void buttonViewWebPage_Click(object sender, EventArgs e)
+        #region Edit information
+        private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Business.ManagementDataBase.mostraCaracterísticas();
-
-            //ConsultWebpage cwp = new ConsultWebpage();
-            //cwp.Show();
+            EditSWList editList = new EditSWList();
+            editList.ShowDialog();
+            refreshTableSoftwares();
+            refreshTableCaracteristics();
         }
 
-        private void buttonPreviewToSoftwares_Click(object sender, EventArgs e)
+        #endregion
+
+
+        #region Preivous
+
+        private void buttonPreviousToSoftwares_Click(object sender, EventArgs e)
         {
             tabControlSeparates.SelectedTab = tabPageChooseSoftwares;
             progressBar1.Value = 0;
         }
 
-        private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
-        {
-            // limpar a estrutura
-            Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
-            Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
-
-            // vai a todas as linhas das tabelas ver quais estão seleccionadas
-            foreach (DataGridViewRow linha in dataGridViewCharacteristics.Rows)
-            {
-                if (linha.Cells[0].Value != null)
-                {
-                    int id = System.Convert.ToInt32(linha.Cells[1].Value);
-                    string name = (string)linha.Cells[2].Value;
-                    Business.ManagementDataBase.caracteristicas_escolhidas.Add(id, name);
-                }
-            }
-
-            // condição para se ter de seleccionar pelo menos uma caracteristica
-            if (Business.ManagementDataBase.caracteristicas_escolhidas.Count < 1)
-            {
-                MessageBox.Show("Select at least one characteristics!");
-            }
-            else
-            {
-                buttonNextChooseCriteria_message();
-                tabControlSeparates.SelectedTab = tabPageClassificaoes;
-                indexSperate = tabControlSeparates.SelectedIndex;
-                progressBar1.Value = 50;
-                refreshTableSmart();
-                refreshTableAHP();
-            }
-        }
 
 
-        private void buttonPreviewDefiniotWeigths_Click(object sender, EventArgs e)
+        private void buttonPreviousDefiniotWeigths_Click(object sender, EventArgs e)
         {
             tabControlSeparates.SelectedTab = tabPageChooseCriteria;
             progressBar1.Value = 25;
         }
 
-        
+        #endregion
 
         // ->>>>>>> a partir daqui
-
-        private string procuraIdCha(string name)
-        {
-            string r = "";
-            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
-            {
-                if (pair.Value.Equals(name)) r = "" + pair.Key;
-            }
-
-            return r;
-        }
-
 
         private void buttonCalFinalWe_Click(object sender, EventArgs e)
         {
@@ -203,76 +148,36 @@ namespace Interface
                 else
                 {
                     string name = coluna.Name.ToString();
-                    string idA = procuraIdCha(name);
+                    string idA = Business.ManagementDataBase.procuraIdCha(name);
                     foreach (DataGridViewRow linha in dataGridViewAHP.Rows)
                     {
                         string nameB = linha.Cells[0].Value.ToString();
-                        string idB = procuraIdCha(nameB);
+                        string idB = Business.ManagementDataBase.procuraIdCha(nameB);
                         string pointsStr = linha.Cells[name].Value.ToString();
                         float pointf = (float)System.Convert.ToDouble(pointsStr);
-                        //MessageBox.Show("idA: " + idA + "\tName: " + name + "\nIDB: " + idB + "\tNameB: " + nameB + "\nPoints: " + pointf);
                         Business.ManagementDataBase.decision.registerClassAHP(idA, idB, pointf);
-
                     }
                 }
             }
 
             Dictionary<string, Dictionary<string, float>> tabelaNormAHP = new Dictionary<string, Dictionary<string, float>>();
             tabelaNormAHP = Business.ManagementDataBase.decision.normalizeAHP(Business.ManagementDataBase.decision.TableAHP);
-            pesosFinaisClassAHP = new Dictionary<string, float>();
-            pesosFinaisClassAHP = Business.ManagementDataBase.decision.pesosFinais(tabelaNormAHP);
+            Business.ManagementDataBase.pesosFinaisClassAHP = new Dictionary<string, float>();
+
+            // alterar para a managmente
+            Business.ManagementDataBase.pesosFinaisClassAHP = Business.ManagementDataBase.decision.pesosFinais(tabelaNormAHP);
 
 
-            DataTable pesos = new DataTable();
-            pesos.Columns.Add("ID");
-            pesos.Columns.Add("Weight");
-            foreach (KeyValuePair<string, float> pair in pesosFinaisClassAHP)
-            {
-                pesos.Rows.Add(pair.Key, pair.Value);
-            }
-
-            DataView view = new DataView(pesos);
-            dataGridViewPesosAHP.DataSource = view;
-
-
-            /*
-            foreach (KeyValuePair<string, double> pair in pesosFinaisClassAHP)
-            {
-                MessageBox.Show(pair.Key + "\t" + pair.Value);
-            }*/
+            dataGridViewPesosAHP.DataSource = Business.ManagementDataBase.tableFinalWeightAHP();
 
             // activa o butão de consistência
             buttonTestCons.Enabled = true;
             buttonCalcSmart.Enabled = false;
 
-            metodo_fase_1 = "ahp";
+            Business.ManagementDataBase.metodo_fase_1 = "ahp";
         }
 
 
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int linha = dataGridViewCaracteristicasPrioridades.CurrentRow.Index;
-            if (linha >= 0)
-            {
-                string id = dataGridViewCaracteristicasPrioridades["ID", linha].Value.ToString();
-                string name = dataGridViewCaracteristicasPrioridades["Name", linha].Value.ToString();
-                //MessageBox.Show(id + "\t" + name);
-                labelCaracteristicaValueFn.Text = name;
-                labelCaracteristicaValueFnID.Text = id;
-
-                labelIDAHP.Text = id;
-                labelName_AHP.Text = name;
-
-                refreshTableAHPPriority(name);
-            }
-
-            buttonCalculateValueFn.Enabled = true;
-            buttonCalcPrioAHP.Enabled = true;
-            buttonTestConsitencyAHP.Enabled = false;
-            dataGridViewValueFn.DataSource = null;
-            dataGridViewPesosAHPFinais.DataSource = null;
-        }
 
         private void refreshTableAHPPriority(string nameC)
         {
@@ -297,24 +202,65 @@ namespace Interface
             }
         }
 
-        private void buttonCalculateValueFn_Click(object sender, EventArgs e)
+
+        #region Definition Weigths
+        private void buttonCalcSmart_Click(object sender, EventArgs e)
         {
-            // maximizar
-            if (radioButtonMaximize.Checked)
+            foreach (DataGridViewRow linha in dataGridViewSmart.Rows)
             {
-
+                string idChar = linha.Cells[1].Value.ToString();
+                int points = System.Convert.ToInt32(linha.Cells[0].Value.ToString());
+                Business.ManagementDataBase.decision.registerClass(idChar, points);
             }
 
-            // maximizar
-            if (radioButtonMinimize.Checked)
-            {
+            Business.ManagementDataBase.tabelaSmartNorm.Clear();
+            Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
 
+
+            DataTable pesos = new DataTable();
+            pesos.Columns.Add("ID");
+            pesos.Columns.Add("Weight");
+            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.tabelaSmartNorm)
+            {
+                pesos.Rows.Add(pair.Key, pair.Value);
             }
 
+            DataView view = new DataView(pesos);
+            dataGridViewPesosFinaisSmart.DataSource = view;
+
+            buttonNextDefinitonWeigths.Enabled = true;
+            buttonCalFinalWe.Enabled = false;
+
+            Business.ManagementDataBase.metodo_fase_1 = "smart";
         }
 
+        #endregion
 
-        #region Button Definition Weigths
+        #region Definiton Priorities
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int linha = dataGridViewCaracteristicasPrioridades.CurrentRow.Index;
+            if (linha >= 0)
+            {
+                string id = dataGridViewCaracteristicasPrioridades["ID", linha].Value.ToString();
+                string name = dataGridViewCaracteristicasPrioridades["Name", linha].Value.ToString();
+                //MessageBox.Show(id + "\t" + name);
+                labelCaracteristicaValueFn.Text = name;
+                labelCaracteristicaValueFnID.Text = id;
+
+                labelIDAHP.Text = id;
+                labelName_AHP.Text = name;
+
+                refreshTableAHPPriority(name);
+            }
+
+            buttonCalculateValueFn.Enabled = true;
+            buttonCalcPrioAHP.Enabled = true;
+            buttonTestConsitencyAHP.Enabled = false;
+            dataGridViewValueFn.DataSource = null;
+            dataGridViewPesosAHPFinais.DataSource = null;
+        }
 
         private void buttonCalculateValueFn_Click_1(object sender, EventArgs e)
         {
@@ -368,6 +314,7 @@ namespace Interface
 
 
         }
+
 
         private void buttonCalcPrioAHP_Click(object sender, EventArgs e)
         {
@@ -425,6 +372,78 @@ namespace Interface
             buttonTestConsitencyAHP.Enabled = true;
 
         }
+        #endregion
+
+        #region Button Finish
+        private void buttonFinish_Click(object sender, EventArgs e)
+        {
+            resultFinal = new Dictionary<int, Dictionary<string, float>>();
+            if (Business.ManagementDataBase.metodo_fase_1.Equals("smart"))
+            {
+                resultFinal = Business.ManagementDataBase.decision.analiseFinalSmart(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
+            }
+
+            if (Business.ManagementDataBase.metodo_fase_1.Equals("ahp"))
+            {
+                resultFinal = Business.ManagementDataBase.decision.analiseFinalAHP(Business.ManagementDataBase.pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
+            }
+
+
+            DataTable final = new DataTable();
+            final.Columns.Add("RANK");
+            final.Columns.Add("Software");
+            final.Columns.Add("Priority");
+
+
+            foreach (KeyValuePair<int, Dictionary<string, float>> pair in resultFinal)
+            {
+                Dictionary<string, float> a;
+                resultFinal.TryGetValue(pair.Key, out a);
+                foreach (KeyValuePair<string, float> pair2 in a)
+                {
+                    final.Rows.Add(pair.Key, pair2.Key, pair2.Value);
+                }
+            }
+
+            DataView view = new DataView(final);
+            dataGridViewFinal.DataSource = view;
+
+            tabControlSeparates.SelectedTab = tabPageFinal;
+            indexSperate = tabControlSeparates.SelectedIndex;
+            progressBar1.Value = 100;
+        }
+
+        #endregion
+
+        #region Test Concistency
+
+        private void buttonTestCons_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, double> matrixC = new Dictionary<int, double>();
+            Dictionary<int, double> matrixD = new Dictionary<int, double>();
+
+
+
+            matrixC = Business.ManagementDataBase.decision.calculaMatrizC(Business.ManagementDataBase.decision.TableAHP, Business.ManagementDataBase.pesosFinaisClassAHP);
+            matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, Business.ManagementDataBase.pesosFinaisClassAHP);
+            double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
+
+            if (taxa <= 0.10)
+            {
+                MessageBox.Show("The consistency Rate is good: " + taxa);
+                labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(19)))));
+            }
+            else
+            {
+                MessageBox.Show("The consistency Rate is bad: " + taxa);
+                labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            }
+
+            // actualiza a label com a taxa
+            labelConsistencyRate.Text = "" + taxa;
+            // activa o botão next
+            buttonNextDefinitonWeigths.Enabled = true;
+        }
 
 
         private void buttonTestConsitencyAHP_Click(object sender, EventArgs e)
@@ -455,110 +474,7 @@ namespace Interface
 
             buttonFinish.Enabled = true;
         }
-
         #endregion
-
-        #region Button Finish
-        private void buttonFinish_Click(object sender, EventArgs e)
-        {
-            resultFinal = new Dictionary<int, Dictionary<string, float>>();
-            if (metodo_fase_1.Equals("smart"))
-            {
-                resultFinal = Business.ManagementDataBase.decision.analiseFinalSmart(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
-            }
-
-            if (metodo_fase_1.Equals("ahp"))
-            {
-                resultFinal = Business.ManagementDataBase.decision.analiseFinalAHP(pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
-            }
-
-
-            DataTable final = new DataTable();
-            final.Columns.Add("RANK");
-            final.Columns.Add("Software");
-            final.Columns.Add("Priority");
-
-
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in resultFinal)
-            {
-                Dictionary<string, float> a;
-                resultFinal.TryGetValue(pair.Key, out a);
-                foreach (KeyValuePair<string, float> pair2 in a)
-                {
-                    final.Rows.Add(pair.Key, pair2.Key, pair2.Value);
-                }
-            }
-
-            DataView view = new DataView(final);
-            dataGridViewFinal.DataSource = view;
-
-            tabControlSeparates.SelectedTab = tabPageFinal;
-            indexSperate = tabControlSeparates.SelectedIndex;
-            progressBar1.Value = 100;
-        }
-
-        #endregion
-
-        #region Button Test Concistency
-
-        private void buttonTestCons_Click(object sender, EventArgs e)
-        {
-            Dictionary<int, double> matrixC = new Dictionary<int, double>();
-            Dictionary<int, double> matrixD = new Dictionary<int, double>();
-
-
-
-            matrixC = Business.ManagementDataBase.decision.calculaMatrizC(Business.ManagementDataBase.decision.TableAHP, pesosFinaisClassAHP);
-            matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, pesosFinaisClassAHP);
-            double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
-
-            if (taxa <= 0.10)
-            {
-                MessageBox.Show("The consistency Rate is good: " + taxa);
-                labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(19)))));
-            }
-            else
-            {
-                MessageBox.Show("The consistency Rate is bad: " + taxa);
-                labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            }
-
-            // actualiza a label com a taxa
-            labelConsistencyRate.Text = "" + taxa;
-            // activa o botão next
-            buttonNextDefinitonWeigths.Enabled = true;
-        }
-        #endregion
-
-        private void buttonCalcSmart_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow linha in dataGridViewSmart.Rows)
-            {
-                string idChar = linha.Cells[1].Value.ToString();
-                int points = System.Convert.ToInt32(linha.Cells[0].Value.ToString());
-                Business.ManagementDataBase.decision.registerClass(idChar, points);
-            }
-
-            Business.ManagementDataBase.tabelaSmartNorm.Clear();
-            Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
-
-
-            DataTable pesos = new DataTable();
-            pesos.Columns.Add("ID");
-            pesos.Columns.Add("Weight");
-            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.tabelaSmartNorm)
-            {
-                pesos.Rows.Add(pair.Key, pair.Value);
-            }
-
-            DataView view = new DataView(pesos);
-            dataGridViewPesosFinaisSmart.DataSource = view;
-
-            buttonNextDefinitonWeigths.Enabled = true;
-            buttonCalFinalWe.Enabled = false;
-
-            metodo_fase_1 = "smart";
-        }
 
         #region Button Help
         private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -595,7 +511,7 @@ namespace Interface
             Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
             Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
             Business.ManagementDataBase.tabelaSmartNorm = new Dictionary<string, float>();
-            pesosFinaisClassAHP = new Dictionary<string, float>();
+            Business.ManagementDataBase.pesosFinaisClassAHP = new Dictionary<string, float>();
             refreshTableSoftwares();
             refreshTableCaracteristics();
             Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Clear();
@@ -604,7 +520,7 @@ namespace Interface
             Business.ManagementDataBase.decision.TableAHP.Clear();
             Business.ManagementDataBase.decision.TableResult.Clear();
             Business.ManagementDataBase.tabelaSmartNorm.Clear();
-            pesosFinaisClassAHP.Clear();
+            Business.ManagementDataBase.pesosFinaisClassAHP.Clear();
 
             buttonCalFinalWe.Enabled = true;
             buttonNextChooseSoftwares.Enabled = true;
@@ -637,6 +553,40 @@ namespace Interface
         #endregion
 
         #region Button Next
+
+        private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
+        {
+            // limpar a estrutura
+            Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
+            Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
+
+            // vai a todas as linhas das tabelas ver quais estão seleccionadas
+            foreach (DataGridViewRow linha in dataGridViewCharacteristics.Rows)
+            {
+                if (linha.Cells[0].Value != null)
+                {
+                    int id = System.Convert.ToInt32(linha.Cells[1].Value);
+                    string name = (string)linha.Cells[2].Value;
+                    Business.ManagementDataBase.caracteristicas_escolhidas.Add(id, name);
+                }
+            }
+
+            // condição para se ter de seleccionar pelo menos uma caracteristica
+            if (Business.ManagementDataBase.caracteristicas_escolhidas.Count < 1)
+            {
+                MessageBox.Show("Select at least one characteristics!");
+            }
+            else
+            {
+                buttonNextChooseCriteria_message();
+                tabControlSeparates.SelectedTab = tabPageClassificaoes;
+                indexSperate = tabControlSeparates.SelectedIndex;
+                progressBar1.Value = 50;
+                refreshTableSmart();
+                refreshTableAHP();
+            }
+        }
+
         // messagem que deve aparecer quando se clica no next e aparece sucesso
         private void buttonNextChooseCriteria_message()
         {
@@ -718,6 +668,14 @@ namespace Interface
         #endregion
 
         #region ViewWebPage
+
+        private void buttonViewWebPage_Click(object sender, EventArgs e)
+        {
+            Business.ManagementDataBase.mostraCaracterísticas();
+
+            //ConsultWebpage cwp = new ConsultWebpage();
+            //cwp.Show();
+        }
         private void buttonViewWebPage_MouseEnter(object sender, EventArgs e)
         {
             buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Bold);
@@ -763,12 +721,15 @@ namespace Interface
         }
         #endregion
 
+        #region TabSeparates
         private void tabControlSeparates_Click(object sender, EventArgs e)
         {
-            // falta o preview
+            // falta o Previous
             tabControlSeparates.SelectedIndex = indexSperate;
+            MessageBox.Show("Use the buttons Next and Previous for navigate in process.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        #endregion
 
     }
 }

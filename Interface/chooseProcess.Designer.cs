@@ -64,12 +64,12 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonNextChooseCriteria = new System.Windows.Forms.Button();
-            this.buttonPreviewToSoftwares = new System.Windows.Forms.Button();
+            this.buttonPreviousToSoftwares = new System.Windows.Forms.Button();
             this.tabPageClassificaoes = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonNextDefinitonWeigths = new System.Windows.Forms.Button();
-            this.buttonPreviewDefiniotWeigths = new System.Windows.Forms.Button();
+            this.buttonPreviousDefiniotWeigths = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlSmartAHP = new System.Windows.Forms.TabControl();
             this.tabPageSMART = new System.Windows.Forms.TabPage();
@@ -481,7 +481,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.buttonNextChooseCriteria, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonPreviewToSoftwares, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonPreviousToSoftwares, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 483);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -502,17 +502,17 @@
             this.buttonNextChooseCriteria.UseVisualStyleBackColor = true;
             this.buttonNextChooseCriteria.Click += new System.EventHandler(this.buttonNextChooseCriteria_Click);
             // 
-            // buttonPreviewToSoftwares
+            // buttonPreviousToSoftwares
             // 
-            this.buttonPreviewToSoftwares.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonPreviewToSoftwares.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviewToSoftwares.Location = new System.Drawing.Point(278, 12);
-            this.buttonPreviewToSoftwares.Name = "buttonPreviewToSoftwares";
-            this.buttonPreviewToSoftwares.Size = new System.Drawing.Size(75, 23);
-            this.buttonPreviewToSoftwares.TabIndex = 2;
-            this.buttonPreviewToSoftwares.Text = "< Preview";
-            this.buttonPreviewToSoftwares.UseVisualStyleBackColor = true;
-            this.buttonPreviewToSoftwares.Click += new System.EventHandler(this.buttonPreviewToSoftwares_Click);
+            this.buttonPreviousToSoftwares.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonPreviousToSoftwares.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.buttonPreviousToSoftwares.Location = new System.Drawing.Point(269, 12);
+            this.buttonPreviousToSoftwares.Name = "buttonPreviousToSoftwares";
+            this.buttonPreviousToSoftwares.Size = new System.Drawing.Size(84, 23);
+            this.buttonPreviousToSoftwares.TabIndex = 2;
+            this.buttonPreviousToSoftwares.Text = "< Previous";
+            this.buttonPreviousToSoftwares.UseVisualStyleBackColor = true;
+            this.buttonPreviousToSoftwares.Click += new System.EventHandler(this.buttonPreviousToSoftwares_Click);
             // 
             // tabPageClassificaoes
             // 
@@ -546,7 +546,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Controls.Add(this.buttonNextDefinitonWeigths, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonPreviewDefiniotWeigths, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.buttonPreviousDefiniotWeigths, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 483);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -567,17 +567,17 @@
             this.buttonNextDefinitonWeigths.UseVisualStyleBackColor = true;
             this.buttonNextDefinitonWeigths.Click += new System.EventHandler(this.buttonNextDefinitonWeigths_Click);
             // 
-            // buttonPreviewDefiniotWeigths
+            // buttonPreviousDefiniotWeigths
             // 
-            this.buttonPreviewDefiniotWeigths.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonPreviewDefiniotWeigths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviewDefiniotWeigths.Location = new System.Drawing.Point(278, 12);
-            this.buttonPreviewDefiniotWeigths.Name = "buttonPreviewDefiniotWeigths";
-            this.buttonPreviewDefiniotWeigths.Size = new System.Drawing.Size(75, 23);
-            this.buttonPreviewDefiniotWeigths.TabIndex = 1;
-            this.buttonPreviewDefiniotWeigths.Text = "< Preview";
-            this.buttonPreviewDefiniotWeigths.UseVisualStyleBackColor = true;
-            this.buttonPreviewDefiniotWeigths.Click += new System.EventHandler(this.buttonPreviewDefiniotWeigths_Click);
+            this.buttonPreviousDefiniotWeigths.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonPreviousDefiniotWeigths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.buttonPreviousDefiniotWeigths.Location = new System.Drawing.Point(278, 12);
+            this.buttonPreviousDefiniotWeigths.Name = "buttonPreviousDefiniotWeigths";
+            this.buttonPreviousDefiniotWeigths.Size = new System.Drawing.Size(75, 23);
+            this.buttonPreviousDefiniotWeigths.TabIndex = 1;
+            this.buttonPreviousDefiniotWeigths.Text = "< Previous";
+            this.buttonPreviousDefiniotWeigths.UseVisualStyleBackColor = true;
+            this.buttonPreviousDefiniotWeigths.Click += new System.EventHandler(this.buttonPreviousDefiniotWeigths_Click);
             // 
             // panel1
             // 
@@ -1931,7 +1931,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridViewCharacteristics;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.Button buttonPreviewToSoftwares;
+        private System.Windows.Forms.Button buttonPreviousToSoftwares;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TabPage tabPageDefinitionPriorities;
         private System.Windows.Forms.TabPage tabPageChooseSoftwares;
@@ -1949,7 +1949,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button buttonNextDefinitonWeigths;
-        private System.Windows.Forms.Button buttonPreviewDefiniotWeigths;
+        private System.Windows.Forms.Button buttonPreviousDefiniotWeigths;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel2;
