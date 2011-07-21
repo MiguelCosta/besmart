@@ -61,7 +61,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(389, 282);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(389, 365);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -135,7 +135,7 @@
             this.panelCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCharacteristics.Location = new System.Drawing.Point(3, 53);
             this.panelCharacteristics.Name = "panelCharacteristics";
-            this.panelCharacteristics.Size = new System.Drawing.Size(383, 170);
+            this.panelCharacteristics.Size = new System.Drawing.Size(383, 253);
             this.panelCharacteristics.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -148,7 +148,7 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonClean, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 229);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 312);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -195,17 +195,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackgroundImage = global::Interface.Properties.Resources.uwsp3__7_;
+            this.BackgroundImage = global::Interface.Properties.Resources.logoBeSmart;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(389, 282);
+            this.ClientSize = new System.Drawing.Size(389, 365);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Add_Characteristics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add_Characteristics";
+            this.Text = "Add Characteristic";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
