@@ -68,6 +68,24 @@ namespace Interface
             }
         }
 
+        private void refreshTableAHPPriority(string nameC)
+        {
+
+            dataGridViewAHPPriority.DataSource = Business.ManagementDataBase.refreshTableAHPPriority(nameC);
+
+            int i = 0;
+            int num_ca = Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Count;
+
+            dataGridViewAHPPriority.AllowUserToOrderColumns = false;
+
+            while (i < num_ca)
+            {
+                dataGridViewAHPPriority[i + 1, i].Value = "1";
+                dataGridViewAHPPriority[i + 1, i].ReadOnly = true;
+                i++;
+            }
+        }
+
         #endregion
 
         #region File
@@ -177,30 +195,6 @@ namespace Interface
             Business.ManagementDataBase.metodo_fase_1 = "ahp";
         }
 
-
-
-        private void refreshTableAHPPriority(string nameC)
-        {
-            DataTable pesos = new DataTable();
-            pesos.Columns.Add(nameC);
-            foreach (int id in Business.ManagementDataBase.ids_dos_softwaresSeleccionados)
-            {
-                pesos.Columns.Add("" + id);
-                pesos.Rows.Add("" + id);
-            }
-
-            DataView view = new DataView(pesos);
-            dataGridViewAHPPriority.DataSource = view;
-
-            int i = 0;
-            int num_ca = Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Count;
-
-            while (i < num_ca)
-            {
-                dataGridViewAHPPriority[i + 1, i].Value = "1";
-                i++;
-            }
-        }
 
 
         #region Definition Weigths

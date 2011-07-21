@@ -38,7 +38,7 @@ namespace Interface
             DataGridViewTextBoxColumn name = new DataGridViewTextBoxColumn();
             name.HeaderText = "Name";
             name.Name = "Name";
-            id.ReadOnly = true;
+            name.ReadOnly = true;
             DataGridViewTextBoxColumn type = new DataGridViewTextBoxColumn();
             type.HeaderText = "Type";
             type.Name = "Type";
@@ -87,6 +87,10 @@ namespace Interface
                 if (c.GetType().ToString().Equals("Business.QualitativeCharacteristic"))
                 {
                     DataGridViewComboBoxCell c_value = new DataGridViewComboBoxCell();
+                    c_value.AutoComplete = true;
+                    c_value.DisplayStyleForCurrentCellOnly = true;
+
+                    //c_value.ContentClickUnsharesRow();
                     Business.QualitativeCharacteristic qc = (Business.QualitativeCharacteristic)c;
                     foreach (Business.Value v in qc.Values_A.Values)
                     {
@@ -99,6 +103,9 @@ namespace Interface
                 if (c.GetType().ToString().Equals("Business.YesNoCharacteristic"))
                 {
                     DataGridViewComboBoxCell c_value = new DataGridViewComboBoxCell();
+                    c_value.AutoComplete = true;
+                    c_value.DisplayStyleForCurrentCellOnly = true;
+
                     c_value.Items.Add("True");
                     c_value.Items.Add("False");
                     c_value.Value = c_value.Items[0];
@@ -109,7 +116,7 @@ namespace Interface
                 l.Cells.Add(c_id);
                 l.Cells.Add(c_name);
                 l.Cells.Add(c_type);
-
+                
                 dataGridViewCharacteristics.Rows.Add(l);
 
             }

@@ -196,6 +196,19 @@ namespace Business
 
         }
 
+        public static DataView refreshTableAHPPriority(string nameC)
+        {
+            DataTable pesos = new DataTable();
+            pesos.Columns.Add(nameC);
+            foreach (int id in ids_dos_softwaresSeleccionados)
+            {
+                pesos.Columns.Add("" + id);
+                pesos.Rows.Add("" + id);
+            }
+
+            return new DataView(pesos);
+        }
+
 
 
         public static void addIdSoftwareSelect(int id)
