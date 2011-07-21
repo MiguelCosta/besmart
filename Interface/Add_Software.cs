@@ -106,8 +106,8 @@ namespace Interface
                     c_value.AutoComplete = true;
                     c_value.DisplayStyleForCurrentCellOnly = true;
 
-                    c_value.Items.Add("True");
-                    c_value.Items.Add("False");
+                    c_value.Items.Add("true");
+                    c_value.Items.Add("false");
                     c_value.Value = c_value.Items[0];
                     l.Cells.Add(c_value);
                 }
