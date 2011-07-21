@@ -207,6 +207,7 @@
             this.Name = "Add_Characteristics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Characteristic";
+            this.Load += new System.EventHandler(this.Add_Characteristics_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

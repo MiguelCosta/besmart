@@ -172,6 +172,10 @@ namespace Interface
             yes_no.clean();
         }
 
+        private void Add_Characteristics_Load(object sender, EventArgs e)
+        {
+        }
+
 
 
 

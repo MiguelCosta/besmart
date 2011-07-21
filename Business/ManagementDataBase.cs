@@ -329,5 +329,15 @@ namespace Business
 
         }
 
+
+        public static bool existSoftware(int newNumber)
+        {
+            foreach (int i in database.Software_list.Keys)
+            {
+                if (newNumber == i) return true;
+            }
+            return false;
+        }
+
     }
 }

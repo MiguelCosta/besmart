@@ -46,6 +46,8 @@
             this.dataGridViewCharacteristics = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonClean = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -146,6 +148,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(168, 20);
             this.textBoxID.TabIndex = 2;
+            this.textBoxID.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxID_Validating);
             // 
             // buttonGenerate
             // 
@@ -240,6 +243,7 @@
             this.dataGridViewCharacteristics.Size = new System.Drawing.Size(430, 226);
             this.dataGridViewCharacteristics.TabIndex = 0;
             this.dataGridViewCharacteristics.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristics_CellClick);
+            this.dataGridViewCharacteristics.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewCharacteristics_CellValidating_1);
             // 
             // tableLayoutPanel5
             // 
@@ -247,6 +251,8 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Controls.Add(this.buttonCancel, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonClean, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonAdd, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 341);
@@ -267,17 +273,44 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // buttonClean
+            // 
+            this.buttonClean.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonClean.Location = new System.Drawing.Point(180, 11);
+            this.buttonClean.Name = "buttonClean";
+            this.buttonClean.Size = new System.Drawing.Size(75, 23);
+            this.buttonClean.TabIndex = 1;
+            this.buttonClean.Text = "Clean";
+            this.buttonClean.UseVisualStyleBackColor = true;
+            this.buttonClean.Click += new System.EventHandler(this.buttonClean_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(325, 11);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // Add_Software
             // 
+            this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Interface.Properties.Resources.Logo_Marca_de_água;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(442, 390);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Add_Software";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Software";
@@ -316,5 +349,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCharacteristics;
         private System.Windows.Forms.DataGridView dataGridViewCharacteristics;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonClean;
     }
 }

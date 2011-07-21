@@ -83,6 +83,7 @@ namespace Interface
                     DataGridViewCell c_value;
                     c_value = new DataGridViewTextBoxCell();
                     l.Cells.Add(c_value);
+                    l.ErrorText = "Please enter de value!";
                 }
                 if (c.GetType().ToString().Equals("Business.QualitativeCharacteristic"))
                 {
@@ -116,7 +117,7 @@ namespace Interface
                 l.Cells.Add(c_id);
                 l.Cells.Add(c_name);
                 l.Cells.Add(c_type);
-                
+
                 dataGridViewCharacteristics.Rows.Add(l);
 
             }
@@ -147,12 +148,6 @@ namespace Interface
             if (col == 4)
             {
                 MessageBox.Show("Falta fazer a janela para apresentar a informação");
-            }
-
-            if (col == 0)
-            {
-
-
             }
 
         }
@@ -220,9 +215,21 @@ namespace Interface
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            string msg_error = "";
+            msg_error += nameCorrect();
+            msg_error += idCorrect();
+            msg_error += characteristicsCorrect();
+
+            if (msg_error.Equals("") == false)
+            {
+                MessageBox.Show(msg_error, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string name = textBoxName.Text;
             int id = System.Convert.ToInt32(textBoxID.Text);
-            string link = textBoxLink.Text;
+            string link = "";
+            link += textBoxLink.Text;
 
             Dictionary<int, string> v = new Dictionary<int, string>();
             foreach (DataGridViewRow line in dataGridViewCharacteristics.Rows)
@@ -230,9 +237,8 @@ namespace Interface
                 int i = System.Convert.ToInt32(line.Cells[1].Value.ToString());
                 string value = line.Cells[0].Value.ToString();
                 v.Add(i, value);
-                //MessageBox.Show("ID: "+line.Cells[1].Value.ToString()+" Value: "+line.Cells[0].Value.ToString());
-
             }
+
 
             Business.Software s = new Business.Software(id, name, link, v);
 
@@ -242,14 +248,110 @@ namespace Interface
             {
                 MessageBox.Show("Software added.", "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
+
             else
             {
-                // fazer funções para detetar erros
-                string msg_error = "";
                 MessageBox.Show(msg_error, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
+
+
+        private string nameCorrect()
+        {
+            string name = "";
+            name += textBoxName.Text;
+
+            if (name.Equals("")) return "Please enter the Name!\n";
+
+            return "";
+        }
+
+
+        private string idCorrect()
+        {
+            string id = "";
+            id += textBoxID.Text;
+
+            if (id.Equals("")) return "Please enter the ID!\n";
+
+            return "";
+        }
+
+
+        private string characteristicsCorrect()
+        {
+            foreach (DataGridViewRow l in dataGridViewCharacteristics.Rows)
+            {
+
+                if (l.Cells[0].Value == null) return "Enter Value in line " + l.Index + "!";
+            }
+
+            return "";
+        }
+
+
+        private void dataGridViewCharacteristics_CellValidating_1(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            int c = e.ColumnIndex;
+            int l = e.RowIndex;
+
+            string type = dataGridViewCharacteristics.Rows[l].Cells[3].Value.ToString();
+
+            int newNumber = 0;
+
+            if (type.Equals("Numeric"))
+            {
+                if (!int.TryParse(e.FormattedValue.ToString(), out newNumber))
+                {
+                    dataGridViewCharacteristics.Rows[l].ErrorText = "The Value is not a number!";
+                    MessageBox.Show("The Value is not a number!");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    dataGridViewCharacteristics.Rows[l].ErrorText = null;
+                }
+            }
+
+        }
+
+
+        private void textBoxID_Validating(object sender, CancelEventArgs e)
+        {
+            int newNumber = -1;
+
+            // if empty don't validating
+            if (textBoxID.Text == null || textBoxID.Text.Equals("") == true) return;
+
+            if (!int.TryParse(textBoxID.Text, out newNumber))
+            {
+                MessageBox.Show("The ID is not a number!\nWas changed automatically.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buttonGenerate_Click(null, null);
+                e.Cancel = true;
+            }
+
+            bool exist = Business.ManagementDataBase.existSoftware(newNumber);
+            if (exist)
+            {
+                MessageBox.Show("This ID is already being used!\nWas changed automatically.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buttonGenerate_Click(null, null);
+                e.Cancel = true;
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonClean_Click(object sender, EventArgs e)
+        {
+            textBoxID.Text = "";
+            textBoxName.Text = "";
+            textBoxLink.Text = "";
+        }
+
 
 
     }
