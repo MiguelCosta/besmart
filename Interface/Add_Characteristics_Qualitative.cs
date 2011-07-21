@@ -79,14 +79,18 @@ namespace Interface
 
             foreach (DataGridViewRow line in dataGridViewQualitativeValues.Rows)
             {
+                line.ErrorText = null;
+                
                 // erro se uma das linhas tem uma coluna preenchida e outra não
                 if (line.Cells[0].Value == null && line.Cells[1].Value != null)
                 {
                     s += "In line " + num_line + " insert Value.\n";
+                    line.ErrorText += "\nInsert Value.\n"; 
                     return s;
                 }
                 if (line.Cells[0].Value != null && line.Cells[1].Value == null)
                 {
+                    line.ErrorText += "\nInsert Value Order.\n";
                     s += "In line " + num_line + " insert Value Order.\n";
                     return s;
                 }
