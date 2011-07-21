@@ -14,6 +14,7 @@ namespace Interface
         public Tutorials(string url)
         {
             InitializeComponent();
+            MessageBox.Show(url);
             webBrowser.Navigate(url);
         }
 
