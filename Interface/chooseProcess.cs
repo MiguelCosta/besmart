@@ -474,21 +474,21 @@ namespace Interface
         private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string url = Path.GetFullPath("Files\\Tutorials_html\\AHPtutorial.htm");
-            Tutorials t = new Tutorials(url);
+            View_HTML t = new View_HTML(url);
             t.Show();
         }
 
         private void sMARTTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string url = Path.GetFullPath("Files\\Tutorials_html\\SMARTtutorial.htm");
-            Tutorials t = new Tutorials(url);
+            View_HTML t = new View_HTML(url);
             t.Show();
         }
 
         private void valueFNTutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string url = Path.GetFullPath("Files\\Tutorials_html\\ValueFntutorial.htm");
-            Tutorials t = new Tutorials(url);
+            View_HTML t = new View_HTML(url);
             t.Show();
         }
 

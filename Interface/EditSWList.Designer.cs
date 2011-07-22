@@ -44,19 +44,19 @@
             this.dataGridViewCharacteristicsList = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonEditSoftware = new System.Windows.Forms.Button();
-            this.buttonDeleteSoftware = new System.Windows.Forms.Button();
-            this.buttonEditCharacteristics = new System.Windows.Forms.Button();
             this.buttonDeleteCharacteristics = new System.Windows.Forms.Button();
+            this.buttonEditCharacteristics = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonDeleteSoftware = new System.Windows.Forms.Button();
+            this.buttonEditSoftware = new System.Windows.Forms.Button();
             this.groupBoxCharactList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabelaSoftware)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCharacteristicsList)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxCharactList
@@ -67,7 +67,7 @@
             this.groupBoxCharactList.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxCharactList.Location = new System.Drawing.Point(3, 3);
             this.groupBoxCharactList.Name = "groupBoxCharactList";
-            this.groupBoxCharactList.Size = new System.Drawing.Size(368, 346);
+            this.groupBoxCharactList.Size = new System.Drawing.Size(368, 354);
             this.groupBoxCharactList.TabIndex = 43;
             this.groupBoxCharactList.TabStop = false;
             this.groupBoxCharactList.Text = "Softwares List";
@@ -82,7 +82,7 @@
             this.dataGridViewTabelaSoftware.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -96,7 +96,7 @@
             this.dataGridViewTabelaSoftware.Name = "dataGridViewTabelaSoftware";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -107,7 +107,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
             this.dataGridViewTabelaSoftware.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTabelaSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(362, 323);
+            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(362, 331);
             this.dataGridViewTabelaSoftware.TabIndex = 0;
             this.dataGridViewTabelaSoftware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellClick);
             this.dataGridViewTabelaSoftware.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellEndEdit);
@@ -123,7 +123,7 @@
             this.buttonAddnew.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonAddnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddnew.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddnew.Location = new System.Drawing.Point(113, 4);
+            this.buttonAddnew.Location = new System.Drawing.Point(113, 3);
             this.buttonAddnew.Name = "buttonAddnew";
             this.buttonAddnew.Size = new System.Drawing.Size(142, 25);
             this.buttonAddnew.TabIndex = 0;
@@ -136,7 +136,7 @@
             this.buttonAddCharacteristics.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonAddCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddCharacteristics.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddCharacteristics.Location = new System.Drawing.Point(104, 4);
+            this.buttonAddCharacteristics.Location = new System.Drawing.Point(104, 3);
             this.buttonAddCharacteristics.Name = "buttonAddCharacteristics";
             this.buttonAddCharacteristics.Size = new System.Drawing.Size(159, 25);
             this.buttonAddCharacteristics.TabIndex = 1;
@@ -152,7 +152,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox1.Location = new System.Drawing.Point(377, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(368, 346);
+            this.groupBox1.Size = new System.Drawing.Size(368, 354);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Characteristics List";
@@ -167,7 +167,7 @@
             this.dataGridViewCharacteristicsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -181,7 +181,7 @@
             this.dataGridViewCharacteristicsList.Name = "dataGridViewCharacteristicsList";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -192,7 +192,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Orange;
             this.dataGridViewCharacteristicsList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewCharacteristicsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCharacteristicsList.Size = new System.Drawing.Size(362, 323);
+            this.dataGridViewCharacteristicsList.Size = new System.Drawing.Size(362, 331);
             this.dataGridViewCharacteristicsList.TabIndex = 1;
             this.dataGridViewCharacteristicsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristicsList_CellClick);
             this.dataGridViewCharacteristicsList.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristicsList_CellEndEdit);
@@ -216,27 +216,10 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.2419F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.7581F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.96976F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.03024F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(748, 463);
             this.tableLayoutPanel1.TabIndex = 45;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonDeleteSoftware, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.buttonEditSoftware, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonAddnew, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 355);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(368, 105);
-            this.tableLayoutPanel2.TabIndex = 45;
             // 
             // tableLayoutPanel3
             // 
@@ -246,62 +229,80 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonEditCharacteristics, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.buttonAddCharacteristics, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(377, 355);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(377, 363);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(368, 105);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(368, 97);
             this.tableLayoutPanel3.TabIndex = 46;
-            // 
-            // buttonEditSoftware
-            // 
-            this.buttonEditSoftware.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonEditSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditSoftware.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonEditSoftware.Location = new System.Drawing.Point(113, 38);
-            this.buttonEditSoftware.Name = "buttonEditSoftware";
-            this.buttonEditSoftware.Size = new System.Drawing.Size(142, 25);
-            this.buttonEditSoftware.TabIndex = 1;
-            this.buttonEditSoftware.Text = "Edit Sotfware";
-            this.buttonEditSoftware.UseVisualStyleBackColor = true;
-            // 
-            // buttonDeleteSoftware
-            // 
-            this.buttonDeleteSoftware.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDeleteSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDeleteSoftware.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDeleteSoftware.Location = new System.Drawing.Point(113, 74);
-            this.buttonDeleteSoftware.Name = "buttonDeleteSoftware";
-            this.buttonDeleteSoftware.Size = new System.Drawing.Size(142, 25);
-            this.buttonDeleteSoftware.TabIndex = 2;
-            this.buttonDeleteSoftware.Text = "Delete Sotfware";
-            this.buttonDeleteSoftware.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditCharacteristics
-            // 
-            this.buttonEditCharacteristics.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonEditCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditCharacteristics.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonEditCharacteristics.Location = new System.Drawing.Point(104, 38);
-            this.buttonEditCharacteristics.Name = "buttonEditCharacteristics";
-            this.buttonEditCharacteristics.Size = new System.Drawing.Size(159, 25);
-            this.buttonEditCharacteristics.TabIndex = 2;
-            this.buttonEditCharacteristics.Text = "Edit Characteristics";
-            this.buttonEditCharacteristics.UseVisualStyleBackColor = true;
             // 
             // buttonDeleteCharacteristics
             // 
             this.buttonDeleteCharacteristics.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonDeleteCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteCharacteristics.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDeleteCharacteristics.Location = new System.Drawing.Point(104, 74);
+            this.buttonDeleteCharacteristics.Location = new System.Drawing.Point(104, 68);
             this.buttonDeleteCharacteristics.Name = "buttonDeleteCharacteristics";
             this.buttonDeleteCharacteristics.Size = new System.Drawing.Size(159, 25);
             this.buttonDeleteCharacteristics.TabIndex = 3;
             this.buttonDeleteCharacteristics.Text = "Delete Characteristics";
             this.buttonDeleteCharacteristics.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditCharacteristics
+            // 
+            this.buttonEditCharacteristics.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonEditCharacteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditCharacteristics.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEditCharacteristics.Location = new System.Drawing.Point(104, 35);
+            this.buttonEditCharacteristics.Name = "buttonEditCharacteristics";
+            this.buttonEditCharacteristics.Size = new System.Drawing.Size(159, 25);
+            this.buttonEditCharacteristics.TabIndex = 2;
+            this.buttonEditCharacteristics.Text = "Edit Characteristics";
+            this.buttonEditCharacteristics.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonDeleteSoftware, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.buttonEditSoftware, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonAddnew, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 363);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(368, 97);
+            this.tableLayoutPanel2.TabIndex = 45;
+            // 
+            // buttonDeleteSoftware
+            // 
+            this.buttonDeleteSoftware.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonDeleteSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteSoftware.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDeleteSoftware.Location = new System.Drawing.Point(113, 68);
+            this.buttonDeleteSoftware.Name = "buttonDeleteSoftware";
+            this.buttonDeleteSoftware.Size = new System.Drawing.Size(142, 25);
+            this.buttonDeleteSoftware.TabIndex = 2;
+            this.buttonDeleteSoftware.Text = "Delete Sotfware";
+            this.buttonDeleteSoftware.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditSoftware
+            // 
+            this.buttonEditSoftware.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonEditSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditSoftware.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEditSoftware.Location = new System.Drawing.Point(113, 35);
+            this.buttonEditSoftware.Name = "buttonEditSoftware";
+            this.buttonEditSoftware.Size = new System.Drawing.Size(142, 25);
+            this.buttonEditSoftware.TabIndex = 1;
+            this.buttonEditSoftware.Text = "Edit Sotfware";
+            this.buttonEditSoftware.UseVisualStyleBackColor = true;
+            this.buttonEditSoftware.Click += new System.EventHandler(this.buttonEditSoftware_Click);
             // 
             // EditSWList
             // 
@@ -318,8 +319,8 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCharacteristicsList)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

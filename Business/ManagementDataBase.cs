@@ -310,6 +310,19 @@ namespace Business
             return true;
         }
 
+        public static bool remove_software(int id)
+        {
+            try
+            {
+                database.RemoveSoftware(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
         #region Next ID
         // for generate ID
         public static int next_ID_Characteristics()
@@ -349,6 +362,10 @@ namespace Business
             return r;
         }
 
+        public static Business.Software getSoftware(int id)
+        {
+            return database.getSoftware(id);
+        }
 
         // funções de teste
         // imprimir as características

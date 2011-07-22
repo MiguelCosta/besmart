@@ -103,6 +103,12 @@ namespace Business
             stream.Close();
         }
 
+        public Software getSoftware(int id)
+        {
+            Business.Software s;
+            Software_list.TryGetValue(id, out s);
+            return s;
+        }
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {

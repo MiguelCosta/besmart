@@ -125,6 +125,27 @@ namespace Interface
             }
         }
 
+        private void buttonEditSoftware_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    try
+                    {
+                        int id = System.Convert.ToInt32(line.Cells[1].Value.ToString());
+                        Edit_Software d = new Edit_Software(id);
+                        d.ShowDialog();
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+
+            refreshTableSoftwares();
+        }
+
 
     }
 }

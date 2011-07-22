@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class Tutorials : Form
+    public partial class View_HTML : Form
     {
-        public Tutorials(string url)
+        public View_HTML(string url)
         {
             InitializeComponent();
             //MessageBox.Show(url);

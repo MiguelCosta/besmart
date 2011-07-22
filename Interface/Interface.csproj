@@ -110,17 +110,23 @@
     <Compile Include="ConsultHelp.Designer.cs">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Software.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Software.Designer.cs">
+      <DependentUpon>Edit_Software.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditSWList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditSWList.Designer.cs">
       <DependentUpon>EditSWList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tutorials.cs">
+    <Compile Include="View_HTML.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tutorials.Designer.cs">
-      <DependentUpon>Tutorials.cs</DependentUpon>
+    <Compile Include="View_HTML.Designer.cs">
+      <DependentUpon>View_HTML.cs</DependentUpon>
     </Compile>
     <Compile Include="Init.cs">
       <SubType>Form</SubType>
@@ -160,6 +166,9 @@
     <EmbeddedResource Include="ConsultHelp.resx">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Software.resx">
+      <DependentUpon>Edit_Software.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditSWList.resx">
       <DependentUpon>EditSWList.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,8 +188,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Tutorials.resx">
-      <DependentUpon>Tutorials.cs</DependentUpon>
+    <EmbeddedResource Include="View_HTML.resx">
+      <DependentUpon>View_HTML.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
@@ -233,9 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Files\Image\Background\Logo Marca de água.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Files\Image\Background\logoBeSmart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

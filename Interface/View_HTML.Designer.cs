@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-    partial class Tutorials
+    partial class View_HTML
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tutorials));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_HTML));
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
@@ -41,15 +41,14 @@
             this.webBrowser.Size = new System.Drawing.Size(605, 499);
             this.webBrowser.TabIndex = 0;
             // 
-            // Tutorials
+            // View_HTML
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 499);
             this.Controls.Add(this.webBrowser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Tutorials";
-            this.Text = "Tutorials";
+            this.Name = "View_HTML";
             this.Load += new System.EventHandler(this.Tutorials_Load);
             this.ResumeLayout(false);
 
