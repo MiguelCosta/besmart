@@ -390,6 +390,11 @@ namespace Interface
             fillsInformation();
         }
 
+        private void dataGridViewCharacteristics_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
 
 
     }

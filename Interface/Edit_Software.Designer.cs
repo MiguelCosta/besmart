@@ -244,6 +244,7 @@
             this.dataGridViewCharacteristics.TabIndex = 0;
             this.dataGridViewCharacteristics.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristics_CellClick);
             this.dataGridViewCharacteristics.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewCharacteristics_CellValidating_1);
+            this.dataGridViewCharacteristics.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewCharacteristics_DataError);
             // 
             // tableLayoutPanel5
             // 
