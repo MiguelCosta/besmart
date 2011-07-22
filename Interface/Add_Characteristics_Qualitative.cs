@@ -80,17 +80,17 @@ namespace Interface
             foreach (DataGridViewRow line in dataGridViewQualitativeValues.Rows)
             {
                 line.ErrorText = null;
-                
+
                 // erro se uma das linhas tem uma coluna preenchida e outra não
                 if (line.Cells[0].Value == null && line.Cells[1].Value != null)
                 {
                     s += "In line " + num_line + " insert Value.\n";
-                    line.ErrorText += "\nInsert Value.\n"; 
+                    line.ErrorText += "\nInsert Value.";
                     return s;
                 }
                 if (line.Cells[0].Value != null && line.Cells[1].Value == null)
                 {
-                    line.ErrorText += "\nInsert Value Order.\n";
+                    line.ErrorText += "\nInsert Value Order.";
                     s += "In line " + num_line + " insert Value Order.\n";
                     return s;
                 }
@@ -105,6 +105,7 @@ namespace Interface
                     if (list_names.Contains(name))
                     {
                         s += name + " there more than once.\n";
+                        line.ErrorText += s + "\n";
                         return s;
                     }
                     else list_names.Add(name);
@@ -113,6 +114,7 @@ namespace Interface
                     if (list_classification.Contains(classification))
                     {
                         s += "In Order Value there can be no repeated values​​.\n";
+                        line.ErrorText += "\nIn Order Value there can be no repeated values​​.";
                         return s;
                     }
                     else list_classification.Add(classification);
@@ -120,11 +122,12 @@ namespace Interface
                     // value order não é numerico
                     try
                     {
-                        int c = System.Convert.ToInt32(classification);
+                        System.Convert.ToInt32(classification);
                     }
                     catch (Exception)
                     {
                         s += "In line" + num_line + " Order Value is not numeric.\n";
+                        line.ErrorText += s + "\n";
                         return s;
                     }
 
