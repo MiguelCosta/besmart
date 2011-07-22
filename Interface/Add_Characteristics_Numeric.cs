@@ -45,6 +45,13 @@ namespace Interface
             textBoxName.Text = name;
         }
 
+        public void setEnable(bool enable)
+        {
+            textBoxID.Enabled = enable;
+            textBoxName.Enabled = enable;
+            buttonGenerate.Enabled = enable;
+        }
+
 
         public void clean()
         {

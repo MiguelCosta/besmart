@@ -80,6 +80,14 @@ namespace Interface
             }
         }
 
+        public void setEnable(bool enable)
+        {
+            textBoxID.Enabled = enable;
+            textBoxName.Enabled = enable;
+            buttonGenerate.Enabled = enable;
+            dataGridViewQualitativeValues.ReadOnly = !enable;
+        }
+
         public void clean()
         {
             textBoxID.Clear();

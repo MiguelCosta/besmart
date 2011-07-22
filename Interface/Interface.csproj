@@ -110,6 +110,12 @@
     <Compile Include="ConsultHelp.Designer.cs">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="View_Characteristics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View_Characteristics.Designer.cs">
+      <DependentUpon>View_Characteristics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit_Characteristics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <EmbeddedResource Include="ConsultHelp.resx">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View_Characteristics.resx">
+      <DependentUpon>View_Characteristics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit_Characteristics.resx">
       <DependentUpon>Edit_Characteristics.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,7 +210,6 @@
       <DependentUpon>View_HTML.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

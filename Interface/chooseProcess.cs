@@ -725,5 +725,35 @@ namespace Interface
 
         #endregion
 
+        private void dataGridViewTabelaSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
+        }
+
+        private void dataGridViewTabelaSoftware_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
+        }
+
     }
 }
