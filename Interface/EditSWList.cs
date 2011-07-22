@@ -146,6 +146,32 @@ namespace Interface
             refreshTableSoftwares();
         }
 
+        private void buttonDeleteSoftware_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    try
+                    {
+                        int id = System.Convert.ToInt32(line.Cells[1].Value.ToString());
+                        string msg = "Are you sure you want to remove the software "+id+"?\nThe information can not be recovered.";
+                        DialogResult r = MessageBox.Show(msg, "Delete Software", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            Business.ManagementDataBase.remove_software(id);
+                            MessageBox.Show("Software deleted.", "Delete Software", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+
+            refreshTableSoftwares();
+        }
+
 
     }
 }

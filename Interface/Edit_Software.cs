@@ -282,8 +282,6 @@ namespace Interface
             }
 
 
-            
-
             bool rem = Business.ManagementDataBase.remove_software(id_software);
             bool add = false;
             // vai remover e depois adicionar
@@ -296,10 +294,12 @@ namespace Interface
             if (add && rem)
             {
                 MessageBox.Show("Software edited.", "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Close();
             }
 
             else
             {
+                msg_error += "Please check if the ID is not being used by another sodtware.";
                 MessageBox.Show(msg_error, "Software", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -387,9 +387,7 @@ namespace Interface
 
         private void buttonClean_Click(object sender, EventArgs e)
         {
-            textBoxID.Text = "";
-            textBoxName.Text = "";
-            textBoxLink.Text = "";
+            fillsInformation();
         }
 
 

@@ -290,6 +290,7 @@
             this.buttonDeleteSoftware.TabIndex = 2;
             this.buttonDeleteSoftware.Text = "Delete Sotfware";
             this.buttonDeleteSoftware.UseVisualStyleBackColor = true;
+            this.buttonDeleteSoftware.Click += new System.EventHandler(this.buttonDeleteSoftware_Click);
             // 
             // buttonEditSoftware
             // 
