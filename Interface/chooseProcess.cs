@@ -24,6 +24,11 @@ namespace Interface
         {
             InitializeComponent();
 
+            init();
+        }
+
+        private void init()
+        {
             // configurações iniciais
             refreshTableSoftwares();
             refreshTableCaracteristics();
@@ -33,8 +38,6 @@ namespace Interface
             buttonTestConsitencyAHP.Enabled = false;
             buttonNextChooseSoftwares.Enabled = false;
             dataGridViewTabelaSoftware.Columns[0].Visible = false;
-            // formata as tabelas
-            // smart();
         }
 
         #region Refresh Tables
@@ -751,6 +754,19 @@ namespace Interface
                     line.Selected = false;
                 }
             }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string msg = "Want to create a new Data Base?\nThe information has not saved will be lost.";
+            DialogResult r = MessageBox.Show(msg, "New Data Base", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (r == DialogResult.Yes)
+            {
+                Business.ManagementDataBase.database = new Business.DataBaseUser();
+                init();
+            }
+
         }
 
     }
