@@ -162,7 +162,7 @@
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 0;
-            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.Text = "Save";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.Add_Click);
             // 
