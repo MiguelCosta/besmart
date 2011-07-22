@@ -200,6 +200,7 @@ namespace Interface
             refreshTableCharacteristics();
         }
 
+
         private void buttonDeleteCharacteristics_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow line in dataGridViewCharacteristicsList.Rows)

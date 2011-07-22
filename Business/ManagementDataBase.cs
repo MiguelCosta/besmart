@@ -22,15 +22,23 @@ namespace Business
 
         public static Dictionary<int, Dictionary<string, float>> resultFinal = new Dictionary<int, Dictionary<string, float>>();
 
+        public static Dictionary<int, int> id_characteristics_to_columns = new Dictionary<int, int>();
 
 
         public static DataView tableSoftwares(bool editable)
         {
+            id_characteristics_to_columns = new Dictionary<int, int>();
+
+            int column = 1;
             // actualizar a tabela inicial
             DataTable tabela_softwares = new DataTable();
             tabela_softwares.Columns.Add("ID");
+            column++;
             tabela_softwares.Columns.Add("Name");
+            column++;
             tabela_softwares.Columns.Add("Link");
+            column++;
+
             if (editable == false)
             {
                 tabela_softwares.Columns["ID"].ReadOnly = true;
@@ -38,35 +46,65 @@ namespace Business
                 tabela_softwares.Columns["Link"].ReadOnly = true;
             }
 
+
+
             // adicionar as colunas (nome das caracteristicas)
             foreach (Business.Characteristic c in database.Charac.Values)
             {
+                // adiciona a coluna
                 tabela_softwares.Columns.Add(c.Name);
+
+                // coloca na estrura o id e a coluna correspondente
+                id_characteristics_to_columns.Add(c.Id, column);
+
+                // vai incrementrar a coluna para a caracteristica seguinte
+                column++;
                 if (editable == false)
                 {
                     tabela_softwares.Columns[c.Name].ReadOnly = true;
                 }
             }
 
-            // adiciona as linhas (info dos softwares)
+            //estrutura que faz corresponder a cadar coluna a informação
+
+
+            // coluna na estrutura, o numero da coluna e a informação que tem de estar 
             foreach (Business.Software s in database.Software_list.Values)
             {
-                // coloca todas as caracteristicas numa List
-                List<string> values = new List<string>();
-                values.Add("" + s.Id);
-                values.Add(s.Name);
-                values.Add(s.Link);
-                foreach (string cV in s.Charac.Values)
+                Dictionary<int, string> info = new Dictionary<int, string>();
+                info.Add(1, "" + s.Id);
+                info.Add(2, "" + s.Name);
+                info.Add(3, "" + s.Link);
+
+                // adiciona as caracteristicas
+                foreach (KeyValuePair<int, string> pair in s.Charac)
                 {
-                    values.Add(cV);
+                    int coluna = 0;
+                    id_characteristics_to_columns.TryGetValue(pair.Key, out coluna);
+                    info.Add(coluna, pair.Value);
                 }
+
                 // passa para um array, para ser possivel adicionar uma linha
-                string[] array = values.ToArray();
+                int num_colunas = database.Charac.Count + 3;
+                string[] array = new string[num_colunas];
+
+                // vai colocar por ordem no array o valor de cada coluna
+                for (int i = 0; i < num_colunas; i++)
+                {
+                    string v = ""; 
+                    // a coluna 0 é uma checkbox, logo é +1
+                    info.TryGetValue(i+1, out v);
+                    array[i] = v;
+                }
+
+                // adicona uma linha onde o array que recebe está por ordem crescente de coluna
                 tabela_softwares.Rows.Add(array);
+
             }
 
             return new DataView(tabela_softwares);
         }
+
 
         public static DataView tableSoftwaresSimple()
         {
