@@ -110,6 +110,12 @@
     <Compile Include="ConsultHelp.Designer.cs">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Characteristics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Characteristics.Designer.cs">
+      <DependentUpon>Edit_Characteristics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit_Software.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultHelp.resx">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Characteristics.resx">
+      <DependentUpon>Edit_Characteristics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Software.resx">
       <DependentUpon>Edit_Software.cs</DependentUpon>

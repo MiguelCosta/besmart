@@ -367,6 +367,12 @@ namespace Business
             return database.getSoftware(id);
         }
 
+        public static Business.Characteristic getCharacteristics(int id)
+        {
+
+            return database.getCharacteristics(id);
+        }
+
         // funções de teste
         // imprimir as características
         public static void mostraCaracterísticas()

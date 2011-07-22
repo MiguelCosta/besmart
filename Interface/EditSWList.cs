@@ -172,6 +172,12 @@ namespace Interface
             refreshTableSoftwares();
         }
 
+        private void buttonEditCharacteristics_Click(object sender, EventArgs e)
+        {
+            Edit_Characteristics edit = new Edit_Characteristics(2);
+            edit.ShowDialog();
+        }
+
 
     }
 }

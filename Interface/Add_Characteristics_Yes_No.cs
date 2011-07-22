@@ -35,14 +35,6 @@ namespace Interface
             return textBoxName.Text;
         }
 
-
-        public bool value()
-        {
-            if (radioButtonFalse.Checked) return false;
-            if (radioButtonTrue.Checked) return true;
-            return false;
-        }
-
         public void clean()
         {
             textBoxID.Clear();

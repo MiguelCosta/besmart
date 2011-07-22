@@ -110,6 +110,13 @@ namespace Business
             return s;
         }
 
+        public Business.Characteristic getCharacteristics(int id)
+        {
+            Business.Characteristic c;
+            _charac.TryGetValue(id, out c);
+            return c;
+        }
+
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("User", _user);

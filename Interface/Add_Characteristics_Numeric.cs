@@ -35,25 +35,21 @@ namespace Interface
             return textBoxName.Text;
         }
 
-
-        public int value()
+        public void setId(string id)
         {
-            string value_t = textBoxValue.Text;
-            try
-            {
-                int i = System.Convert.ToInt32(value_t);
-                return i;
-            }
-            catch (Exception) { }
-
-            return -1;
+            textBoxID.Text = id;
         }
+
+        public void setName(string name)
+        {
+            textBoxName.Text = name;
+        }
+
 
         public void clean()
         {
             textBoxID.Clear();
             textBoxName.Clear();
-            textBoxValue.Clear();
         }
 
         private void buttonGenerate_Click(object sender, EventArgs e)

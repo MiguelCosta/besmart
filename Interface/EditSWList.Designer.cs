@@ -261,6 +261,7 @@
             this.buttonEditCharacteristics.TabIndex = 2;
             this.buttonEditCharacteristics.Text = "Edit Characteristics";
             this.buttonEditCharacteristics.UseVisualStyleBackColor = true;
+            this.buttonEditCharacteristics.Click += new System.EventHandler(this.buttonEditCharacteristics_Click);
             // 
             // tableLayoutPanel2
             // 

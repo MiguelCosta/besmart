@@ -9,15 +9,19 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class Add_Characteristics : Form
+    public partial class Edit_Characteristics : Form
     {
         private Add_Characteristics_Numeric num = new Add_Characteristics_Numeric();
         private Add_Characteristics_Yes_No yes_no = new Add_Characteristics_Yes_No();
         private Add_Characteristics_Qualitative qual = new Add_Characteristics_Qualitative();
 
-        public Add_Characteristics()
+        private int id_characteristic;
+
+        public Edit_Characteristics(int id)
         {
             InitializeComponent();
+
+            id_characteristic = id;
 
             // configurações
             num.Dock = DockStyle.Fill;
@@ -25,8 +29,46 @@ namespace Interface
             qual.Dock = DockStyle.Fill;
 
             this.Size = new System.Drawing.Size(this.Size.Width, 300);
+
+            fillInformation();
+
         }
 
+        private void fillInformation()
+        {
+            Business.Characteristic c = Business.ManagementDataBase.getCharacteristics(id_characteristic);
+
+            string t = "";
+            if (c.GetType().ToString().Equals("Business.NumericCharacteristic")) t = "Numeric";
+            if (c.GetType().ToString().Equals("Business.QualitativeCharacteristic")) t = "Qualitative";
+            if (c.GetType().ToString().Equals("Business.YesNoCharacteristic")) t = "Bool";
+
+            if (t.Equals("Numeric"))
+            {
+                radioButtonNumeric.Select();
+                radioButtonQualitative.Enabled = false;
+                radioButtonYesNo.Enabled = false;
+                num.setId(""+c.Id);
+                num.setName(c.Name);
+
+            }
+
+            if (t.Equals("Qualitative"))
+            {
+                radioButtonNumeric.Enabled = false;
+                radioButtonQualitative.Select();
+                radioButtonYesNo.Enabled = false;
+            }
+
+            if (t.Equals("Bool"))
+            {
+                radioButtonNumeric.Enabled = false;
+                radioButtonQualitative.Enabled = false;
+                radioButtonYesNo.Select();
+            }
+
+
+        }
 
         private void radioButtonNumeric_CheckedChanged(object sender, EventArgs e)
         {
@@ -171,14 +213,6 @@ namespace Interface
             qual.clean();
             yes_no.clean();
         }
-
-        private void Add_Characteristics_Load(object sender, EventArgs e)
-        {
-        }
-
-
-
-
 
 
     }
