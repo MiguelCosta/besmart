@@ -88,6 +88,7 @@ namespace Interface
                 if (b)
                 {
                     MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
                 }
                 else
                 {
@@ -115,6 +116,7 @@ namespace Interface
                 if (b)
                 {
                     MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
                 }
                 else
                 {
@@ -150,6 +152,7 @@ namespace Interface
                     if (b)
                     {
                         MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        this.Close();
                     }
                     else
                     {
