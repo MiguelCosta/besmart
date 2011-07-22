@@ -1724,14 +1724,16 @@
             // startANewComparationToolStripMenuItem
             // 
             this.startANewComparationToolStripMenuItem.Name = "startANewComparationToolStripMenuItem";
-            this.startANewComparationToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.startANewComparationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.startANewComparationToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.startANewComparationToolStripMenuItem.Text = "Start a new Comparation";
             this.startANewComparationToolStripMenuItem.Click += new System.EventHandler(this.startANewComparationToolStripMenuItem_Click);
             // 
             // editSoftwareListToolStripMenuItem
             // 
             this.editSoftwareListToolStripMenuItem.Name = "editSoftwareListToolStripMenuItem";
-            this.editSoftwareListToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.editSoftwareListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.editSoftwareListToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.editSoftwareListToolStripMenuItem.Text = "Edit Software List";
             this.editSoftwareListToolStripMenuItem.ToolTipText = "Change the list of software";
             this.editSoftwareListToolStripMenuItem.Click += new System.EventHandler(this.editSoftwareListToolStripMenuItem_Click);
@@ -1739,7 +1741,8 @@
             // viewSoftwareWebpageToolStripMenuItem
             // 
             this.viewSoftwareWebpageToolStripMenuItem.Name = "viewSoftwareWebpageToolStripMenuItem";
-            this.viewSoftwareWebpageToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.viewSoftwareWebpageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.viewSoftwareWebpageToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.viewSoftwareWebpageToolStripMenuItem.Text = "View Software Webpage";
             this.viewSoftwareWebpageToolStripMenuItem.ToolTipText = "Consult the website of the software";
             this.viewSoftwareWebpageToolStripMenuItem.Click += new System.EventHandler(this.viewSoftwareWebpageToolStripMenuItem_Click);
@@ -1760,7 +1763,8 @@
             this.sMARTTutorialToolStripMenuItem,
             this.valueFNTutorialToolStripMenuItem});
             this.tutorialsToolStripMenuItem.Name = "tutorialsToolStripMenuItem";
-            this.tutorialsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.tutorialsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.tutorialsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.tutorialsToolStripMenuItem.Text = "Tutorials";
             this.tutorialsToolStripMenuItem.ToolTipText = "Consult the tutorial of the methods";
             // 
@@ -1791,7 +1795,8 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -1828,7 +1833,8 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
