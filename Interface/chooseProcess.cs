@@ -665,10 +665,8 @@ namespace Interface
 
         private void buttonViewWebPage_Click(object sender, EventArgs e)
         {
-            Business.ManagementDataBase.mostraCaracterísticas();
-
-            //ConsultWebpage cwp = new ConsultWebpage();
-            //cwp.Show();
+            ConsultWebpage cwp = new ConsultWebpage();
+            cwp.Show();
         }
         private void buttonViewWebPage_MouseEnter(object sender, EventArgs e)
         {
