@@ -258,7 +258,7 @@
             this.tabPageChooseSoftwares.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageChooseSoftwares.Size = new System.Drawing.Size(724, 540);
             this.tabPageChooseSoftwares.TabIndex = 0;
-            this.tabPageChooseSoftwares.Text = "Choose Softwares";
+            this.tabPageChooseSoftwares.Text = "Choose Software";
             this.tabPageChooseSoftwares.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3

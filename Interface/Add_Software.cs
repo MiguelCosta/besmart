@@ -255,6 +255,7 @@ namespace Interface
             if (b)
             {
                 MessageBox.Show("Software added.", "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Close();
             }
 
             else
