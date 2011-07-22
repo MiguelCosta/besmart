@@ -110,6 +110,12 @@
     <Compile Include="ConsultHelp.Designer.cs">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportError.Designer.cs">
+      <DependentUpon>ReportError.cs</DependentUpon>
+    </Compile>
     <Compile Include="View_Characteristics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultHelp.resx">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportError.resx">
+      <DependentUpon>ReportError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View_Characteristics.resx">
       <DependentUpon>View_Characteristics.cs</DependentUpon>

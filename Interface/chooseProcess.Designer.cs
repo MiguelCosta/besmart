@@ -168,6 +168,7 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.reportErrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftwares.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -1751,6 +1752,7 @@
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tutorialsToolStripMenuItem,
+            this.reportErrorToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -1848,6 +1850,12 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
+            // 
+            // reportErrorToolStripMenuItem
+            // 
+            this.reportErrorToolStripMenuItem.Name = "reportErrorToolStripMenuItem";
+            this.reportErrorToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.reportErrorToolStripMenuItem.Text = "Report Error";
             // 
             // chooseProcess
             // 
@@ -2065,5 +2073,6 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem reportErrorToolStripMenuItem;
     }
 }
