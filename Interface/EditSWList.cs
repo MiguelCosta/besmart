@@ -16,13 +16,20 @@ namespace Interface
             InitializeComponent();
 
             refreshTableSoftwares();
+            refreshTableCharacteristics();
         }
 
 
 
         private void refreshTableSoftwares()
         {
-            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwares(true) ;
+            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwaresSimple();
+        }
+
+        private void refreshTableCharacteristics()
+        {
+            dataGridViewCharacteristicsList.DataSource = Business.ManagementDataBase.tableCharacteristics();
+
         }
 
 
@@ -56,5 +63,68 @@ namespace Interface
             a.ShowDialog();
             refreshTableSoftwares();
         }
+
+        private void dataGridViewTabelaSoftware_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
+        }
+
+        private void dataGridViewTabelaSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
+
+        }
+
+        private void dataGridViewCharacteristicsList_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewCharacteristicsList.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
+        }
+
+        private void dataGridViewCharacteristicsList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewCharacteristicsList.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
+        }
+
+
     }
 }

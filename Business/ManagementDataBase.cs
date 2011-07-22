@@ -68,6 +68,33 @@ namespace Business
             return new DataView(tabela_softwares);
         }
 
+        public static DataView tableSoftwaresSimple()
+        {
+            // actualizar a tabela inicial
+            DataTable tabela_softwares = new DataTable();
+            tabela_softwares.Columns.Add("ID");
+            tabela_softwares.Columns.Add("Name");
+
+            tabela_softwares.Columns["ID"].ReadOnly = true;
+            tabela_softwares.Columns["Name"].ReadOnly = true;
+
+
+            // adiciona as linhas (info dos softwares)
+            foreach (Business.Software s in database.Software_list.Values)
+            {
+                // coloca todas as caracteristicas numa List
+                List<string> values = new List<string>();
+                values.Add("" + s.Id);
+                values.Add(s.Name);
+
+                // passa para um array, para ser possivel adicionar uma linha
+                string[] array = values.ToArray();
+                tabela_softwares.Rows.Add(array);
+            }
+
+            return new DataView(tabela_softwares);
+        }
+
 
         public static DataView tableSoftwaresWebPage()
         {
@@ -96,9 +123,19 @@ namespace Business
             DataTable tabela_caracteristicas = new DataTable();
             tabela_caracteristicas.Columns.Add("ID");
             tabela_caracteristicas.Columns.Add("Name");
+            tabela_caracteristicas.Columns.Add("Type");
+
+            tabela_caracteristicas.Columns["ID"].ReadOnly = true;
+            tabela_caracteristicas.Columns["Name"].ReadOnly = true;
+            tabela_caracteristicas.Columns["Type"].ReadOnly = true;
+
             foreach (Characteristic c in database.Charac.Values)
             {
-                tabela_caracteristicas.Rows.Add(c.Id, c.Name);
+                string t = "";
+                if (c.GetType().ToString().Equals("Business.NumericCharacteristic")) t = "Numeric";
+                if (c.GetType().ToString().Equals("Business.QualitativeCharacteristic")) t = "Qualitative";
+                if (c.GetType().ToString().Equals("Business.YesNoCharacteristic")) t = "Bool";
+                tabela_caracteristicas.Rows.Add(c.Id, c.Name, t);
             }
 
             return new DataView(tabela_caracteristicas);
@@ -161,7 +198,7 @@ namespace Business
             tabela_caracteristicas.Columns["ID"].ReadOnly = true;
             tabela_caracteristicas.Columns["Name"].ReadOnly = true;
             tabela_caracteristicas.Columns["Type"].ReadOnly = true;
-            
+
 
             Button b = new Button();
             b.Text = "Detaisl";
@@ -283,7 +320,7 @@ namespace Business
                 if (id > i) i = id;
             }
 
-            return i+1;
+            return i + 1;
         }
 
         public static int next_ID_Software()
