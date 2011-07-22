@@ -214,7 +214,7 @@ namespace Interface
                         DialogResult r = MessageBox.Show(msg, "Delete Characteristics", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (r == DialogResult.Yes)
                         {
-                            msg = "Software deleted!";
+                            msg = "Characteristic deleted!";
                             Business.ManagementDataBase.remove_characteristics(id);
                             MessageBox.Show(msg, "Delete Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
