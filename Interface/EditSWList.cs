@@ -55,6 +55,7 @@ namespace Interface
             Add_Characteristics a = new Add_Characteristics();
             a.ShowDialog();
             refreshTableSoftwares();
+            refreshTableCharacteristics();
         }
 
         private void buttonAddnew_Click(object sender, EventArgs e)
@@ -62,6 +63,7 @@ namespace Interface
             Add_Software a = new Add_Software();
             a.ShowDialog();
             refreshTableSoftwares();
+            refreshTableCharacteristics();
         }
 
         private void dataGridViewTabelaSoftware_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -144,6 +146,7 @@ namespace Interface
             }
 
             refreshTableSoftwares();
+            refreshTableCharacteristics();
         }
 
         private void buttonDeleteSoftware_Click(object sender, EventArgs e)
@@ -155,7 +158,7 @@ namespace Interface
                     try
                     {
                         int id = System.Convert.ToInt32(line.Cells[1].Value.ToString());
-                        string msg = "Are you sure you want to remove the software "+id+"?\nThe information can not be recovered.";
+                        string msg = "Are you sure you want to remove the software " + id + "?\nThe information can not be recovered.";
                         DialogResult r = MessageBox.Show(msg, "Delete Software", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (r == DialogResult.Yes)
                         {
@@ -170,12 +173,62 @@ namespace Interface
             }
 
             refreshTableSoftwares();
+            refreshTableCharacteristics();
         }
 
         private void buttonEditCharacteristics_Click(object sender, EventArgs e)
         {
-            Edit_Characteristics edit = new Edit_Characteristics(2);
-            edit.ShowDialog();
+            foreach (DataGridViewRow line in dataGridViewCharacteristicsList.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    try
+                    {
+                        int id = System.Convert.ToInt32(line.Cells[1].Value.ToString());
+                        Edit_Characteristics edit = new Edit_Characteristics(id);
+                        edit.ShowDialog();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error convert to int!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
+            }
+
+            refreshTableSoftwares();
+            refreshTableCharacteristics();
+        }
+
+        private void buttonDeleteCharacteristics_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewCharacteristicsList.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    try
+                    {
+                        int id = System.Convert.ToInt32(line.Cells[1].Value.ToString());
+                        string msg = "Want to remove characteristics " + id + "?";
+                        DialogResult r = MessageBox.Show(msg, "Delete Characteristics", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.Yes)
+                        {
+                            msg = "Software deleted!";
+                            Business.ManagementDataBase.remove_characteristics(id);
+                            MessageBox.Show(msg, "Delete Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error convert to int!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
+
+            }
+
+            refreshTableSoftwares();
+            refreshTableCharacteristics();
         }
 
 

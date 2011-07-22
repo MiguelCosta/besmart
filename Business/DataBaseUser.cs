@@ -92,6 +92,15 @@ namespace Business
         public void RemoveChar(int id)
         {
             _charac.Remove(id);
+            foreach(Software s in _software_list.Values)
+            {
+                try
+                {
+                    s.Charac.Remove(id);
+                }
+                catch (Exception) { }
+            }
+
         }
 
         public void saveInObject(String filename)

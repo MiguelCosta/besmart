@@ -61,6 +61,25 @@ namespace Interface
             return r;
         }
 
+        public void setId(string id)
+        {
+            textBoxID.Text = id;
+        }
+
+        public void setName(string name)
+        {
+            textBoxName.Text = name;
+        }
+
+        public void setValues(int id)
+        {
+            Business.QualitativeCharacteristic c = (Business.QualitativeCharacteristic) Business.ManagementDataBase.getCharacteristics(id);
+            foreach(Business.Value v in c.Values_A.Values)
+            {
+                dataGridViewQualitativeValues.Rows.Add(v.Name, v.Classification);
+            }
+        }
+
         public void clean()
         {
             textBoxID.Clear();

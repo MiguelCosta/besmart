@@ -35,6 +35,16 @@ namespace Interface
             return textBoxName.Text;
         }
 
+        public void setId(string id)
+        {
+            textBoxID.Text = id;
+        }
+
+        public void setName(string name)
+        {
+            textBoxName.Text = name;
+        }
+
         public void clean()
         {
             textBoxID.Clear();

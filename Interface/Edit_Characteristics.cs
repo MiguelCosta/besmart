@@ -30,6 +30,7 @@ namespace Interface
 
             this.Size = new System.Drawing.Size(this.Size.Width, 300);
 
+            // auto preenche a informação
             fillInformation();
 
         }
@@ -48,6 +49,7 @@ namespace Interface
                 radioButtonNumeric.Select();
                 radioButtonQualitative.Enabled = false;
                 radioButtonYesNo.Enabled = false;
+                
                 num.setId(""+c.Id);
                 num.setName(c.Name);
 
@@ -58,6 +60,11 @@ namespace Interface
                 radioButtonNumeric.Enabled = false;
                 radioButtonQualitative.Select();
                 radioButtonYesNo.Enabled = false;
+                
+                qual.setId("" + c.Id);
+                qual.setName(c.Name);
+                qual.setValues(c.Id);
+
             }
 
             if (t.Equals("Bool"))
@@ -65,6 +72,9 @@ namespace Interface
                 radioButtonNumeric.Enabled = false;
                 radioButtonQualitative.Enabled = false;
                 radioButtonYesNo.Select();
+
+                yes_no.setId("" + c.Id);
+                yes_no.setName(c.Name);
             }
 
 
@@ -109,6 +119,7 @@ namespace Interface
             }
 
             if (msg_error.Equals("") == false) MessageBox.Show(msg_error, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.Close();
         }
 
 
@@ -120,20 +131,28 @@ namespace Interface
             int value = 0;
 
             if (id == -1) msg_error += "ID value is not correct.\n";
-            if (value == -1) msg_error += "Default Value is not correct.\n";
             if (name.Equals("")) msg_error += "Name is not correct.\n";
 
-            if (id != -1 && value != -1 && name.Equals("") == false)
+            if (id != -1 && name.Equals("") == false)
             {
-                Business.Characteristic c = new Business.NumericCharacteristic(id, name, value);
-                bool b = Business.ManagementDataBase.add_characteristics(c);
-                if (b)
+                string msg = "The characteristics will be edited. The software will lose these attributes. Want Continue?";
+                DialogResult r = MessageBox.Show(msg, "Edit Characteristics", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r == DialogResult.Yes)
                 {
-                    MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
-                }
-                else
-                {
-                    msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                    bool rem = Business.ManagementDataBase.remove_characteristics(id);
+                    if (rem)
+                    {
+                        Business.Characteristic c = new Business.NumericCharacteristic(id, name, value);
+                        bool b = Business.ManagementDataBase.add_characteristics(c);
+                        if (b)
+                        {
+                            MessageBox.Show("Characteristics edited.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else
+                        {
+                            msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                        }
+                    }
                 }
             }
 
@@ -152,15 +171,26 @@ namespace Interface
 
             if (id != -1 && name.Equals("") == false)
             {
-                Business.Characteristic c = new Business.YesNoCharacteristic(id, name, value);
-                bool b = Business.ManagementDataBase.add_characteristics(c);
-                if (b)
+                string msg = "The characteristics will be edited. The software will lose these attributes. Want Continue?";
+                DialogResult r = MessageBox.Show(msg, "Edit Characteristics", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r == DialogResult.Yes)
                 {
-                    MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
-                }
-                else
-                {
-                    msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                    // remove e depois insere
+                    bool rem = Business.ManagementDataBase.remove_characteristics(id);
+                    // se removeu, vai inserir
+                    if (rem)
+                    {
+                        Business.Characteristic c = new Business.YesNoCharacteristic(id, name, value);
+                        bool b = Business.ManagementDataBase.add_characteristics(c);
+                        if (b)
+                        {
+                            MessageBox.Show("Characteristics edited.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                        else
+                        {
+                            msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                        }
+                    }
                 }
 
             }
@@ -178,24 +208,33 @@ namespace Interface
 
             if (id != -1 && name.Equals("") == false)
             {
-                string result = qual.validateValues();
-
-                // se houver erros
-                if (result.Equals("") == false) msg_error += result;
-                else
+                string msg = "The characteristics will be edited. The software will lose these attributes. Want Continue?";
+                DialogResult r = MessageBox.Show(msg, "Edit Characteristics", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r == DialogResult.Yes)
                 {
-                    Dictionary<String, Business.Value> value = qual.values();
-                    Business.Characteristic c = new Business.QualitativeCharacteristic(id, name, value);
+                    string result = qual.validateValues();
 
-                    bool b = Business.ManagementDataBase.add_characteristics(c);
-
-                    if (b)
-                    {
-                        MessageBox.Show("Characteristics added.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    }
+                    // se houver erros
+                    if (result.Equals("") == false) msg_error += result;
                     else
                     {
-                        msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                        bool rem = Business.ManagementDataBase.remove_characteristics(id);
+                        if (rem)
+                        {
+                            Dictionary<String, Business.Value> value = qual.values();
+                            Business.Characteristic c = new Business.QualitativeCharacteristic(id, name, value);
+
+                            bool b = Business.ManagementDataBase.add_characteristics(c);
+
+                            if (b)
+                            {
+                                MessageBox.Show("Characteristics edited.", "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            }
+                            else
+                            {
+                                msg_error += "Error adding.\nPlease check if the ID does not exist yet.\n";
+                            }
+                        }
                     }
                 }
             }

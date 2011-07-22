@@ -323,6 +323,20 @@ namespace Business
             return true;
         }
 
+        public static bool remove_characteristics(int id)
+        {
+            try
+            {
+                database.RemoveChar(id);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
         #region Next ID
         // for generate ID
         public static int next_ID_Characteristics()

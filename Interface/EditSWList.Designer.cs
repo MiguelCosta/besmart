@@ -249,6 +249,7 @@
             this.buttonDeleteCharacteristics.TabIndex = 3;
             this.buttonDeleteCharacteristics.Text = "Delete Characteristics";
             this.buttonDeleteCharacteristics.UseVisualStyleBackColor = true;
+            this.buttonDeleteCharacteristics.Click += new System.EventHandler(this.buttonDeleteCharacteristics_Click);
             // 
             // buttonEditCharacteristics
             // 
