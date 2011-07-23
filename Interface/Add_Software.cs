@@ -77,13 +77,12 @@ namespace Interface
                 c_type.Value = t;
 
                 //value
-
                 if (c.GetType().ToString().Equals("Business.NumericCharacteristic"))
                 {
                     DataGridViewCell c_value;
                     c_value = new DataGridViewTextBoxCell();
                     l.Cells.Add(c_value);
-                    l.ErrorText = "Please enter de value!";
+                    l.ErrorText = "Please enter a value!";
                 }
                 if (c.GetType().ToString().Equals("Business.QualitativeCharacteristic"))
                 {
