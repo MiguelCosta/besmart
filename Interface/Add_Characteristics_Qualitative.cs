@@ -16,6 +16,10 @@ namespace Interface
         {
             InitializeComponent();
 
+
+            string msg = "Please describe the rating scale for your  new qualitative characteristic.";
+            label_info.Text = msg;
+
         }
 
         private void buttonGenerate_Click(object sender, EventArgs e)

@@ -189,7 +189,16 @@ namespace Interface
 
             if (col == 4)
             {
-                MessageBox.Show("Falta fazer a janela para apresentar a informação");
+                try
+                {
+                    string id_s = dataGridViewCharacteristics.Rows[lin].Cells[1].Value.ToString();
+                    int id = System.Convert.ToInt32(id_s);
+                    View_Characteristics v = new View_Characteristics(id);
+                    v.ShowDialog();
+                }
+                catch (Exception)
+                {
+                }
             }
 
         }
@@ -349,7 +358,7 @@ namespace Interface
 
             int newNumber = 0;
 
-            if (type.Equals("Numeric"))
+            if (type.Equals("Numeric") && c == 0)
             {
                 if (!int.TryParse(e.FormattedValue.ToString(), out newNumber))
                 {

@@ -1856,6 +1856,7 @@
             this.reportErrorToolStripMenuItem.Name = "reportErrorToolStripMenuItem";
             this.reportErrorToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.reportErrorToolStripMenuItem.Text = "Report Error";
+            this.reportErrorToolStripMenuItem.Click += new System.EventHandler(this.reportErrorToolStripMenuItem_Click);
             // 
             // chooseProcess
             // 

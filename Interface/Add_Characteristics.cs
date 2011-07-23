@@ -25,26 +25,36 @@ namespace Interface
             qual.Dock = DockStyle.Fill;
 
             this.Size = new System.Drawing.Size(this.Size.Width, 300);
+
         }
 
 
         private void radioButtonNumeric_CheckedChanged(object sender, EventArgs e)
         {
-            panelCharacteristics.Controls.Clear();
-            panelCharacteristics.Controls.Add(num);
+            if (radioButtonNumeric.Checked == true)
+            {
+                panelCharacteristics.Controls.Clear();
+                panelCharacteristics.Controls.Add(num);
+            }
 
         }
 
         private void radioButtonQualitative_CheckedChanged(object sender, EventArgs e)
         {
-            panelCharacteristics.Controls.Clear();
-            panelCharacteristics.Controls.Add(qual);
+            if (radioButtonQualitative.Checked == true)
+            {
+                panelCharacteristics.Controls.Clear();
+                panelCharacteristics.Controls.Add(qual);
+            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            panelCharacteristics.Controls.Clear();
-            panelCharacteristics.Controls.Add(yes_no);
+            if (radioButton3.Checked == true)
+            {
+                panelCharacteristics.Controls.Clear();
+                panelCharacteristics.Controls.Add(yes_no);
+            }
         }
 
         private void Add_Click(object sender, EventArgs e)

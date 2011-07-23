@@ -39,6 +39,7 @@
             this.dataGridViewQualitativeValues = new System.Windows.Forms.DataGridView();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValueOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label_info = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -128,14 +129,16 @@
             this.tableLayoutPanel2.AutoScroll = true;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.dataGridViewQualitativeValues, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dataGridViewQualitativeValues, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label_info, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(395, 170);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
@@ -151,10 +154,10 @@
             this.Value,
             this.ValueOrder});
             this.dataGridViewQualitativeValues.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewQualitativeValues.Location = new System.Drawing.Point(3, 68);
+            this.dataGridViewQualitativeValues.Location = new System.Drawing.Point(3, 98);
             this.dataGridViewQualitativeValues.Name = "dataGridViewQualitativeValues";
-            this.dataGridViewQualitativeValues.Size = new System.Drawing.Size(389, 99);
-            this.dataGridViewQualitativeValues.TabIndex = 2;
+            this.dataGridViewQualitativeValues.Size = new System.Drawing.Size(389, 69);
+            this.dataGridViewQualitativeValues.TabIndex = 3;
             // 
             // Value
             // 
@@ -166,6 +169,16 @@
             this.ValueOrder.HeaderText = "Value Order";
             this.ValueOrder.MaxInputLength = 2;
             this.ValueOrder.Name = "ValueOrder";
+            // 
+            // label_info
+            // 
+            this.label_info.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_info.AutoSize = true;
+            this.label_info.Location = new System.Drawing.Point(185, 73);
+            this.label_info.Name = "label_info";
+            this.label_info.Size = new System.Drawing.Size(24, 13);
+            this.label_info.TabIndex = 4;
+            this.label_info.Text = "info";
             // 
             // Add_Characteristics_Qualitative
             // 
@@ -181,6 +194,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQualitativeValues)).EndInit();
             this.ResumeLayout(false);
 
@@ -199,6 +213,7 @@
         private System.Windows.Forms.DataGridView dataGridViewQualitativeValues;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueOrder;
+        private System.Windows.Forms.Label label_info;
 
     }
 }
