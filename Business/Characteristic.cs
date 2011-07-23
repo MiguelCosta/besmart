@@ -63,7 +63,7 @@ namespace Business
             set { _name = value; }
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("Id", _id);
             info.AddValue("Name", _name);

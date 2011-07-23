@@ -58,9 +58,12 @@ namespace Business
             else _state = true;
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        public override void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
-            base.GetObjectData(info, ctxt);
+
+            //base.GetObjectData(info, ctxt);
+            info.AddValue("Id", _id);
+            info.AddValue("Name", _name);
             info.AddValue("State", _state);
         }
         
