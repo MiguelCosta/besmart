@@ -234,7 +234,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ReportError";
-            this.Text = "Report Error / Sugesition";
+            this.Text = "Report Error / Suggestion";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
