@@ -24,7 +24,11 @@ namespace Interface
 
             message.From = new System.Net.Mail.MailAddress("miguelpintodacosta@gmail.com");
             message.To.Add("miguelpintodacosta@gmail.com");
+            //message.To.Add("anaisamp@gmail.com");
+            //message.To.Add("tiagoalvesabreu@gmail.com");
+            //message.To.Add("emanspace@gmail.com");
             message.To.Add("besmart.software@gmail.com");
+
             message.Subject = "[beSmart] " + textBoxSubject.Text;
 
             try
