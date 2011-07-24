@@ -18,10 +18,13 @@ namespace Interface
 
         private void sendEmail()
         {
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+
             System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
 
             message.From = new System.Net.Mail.MailAddress("miguelpintodacosta@gmail.com");
             message.To.Add("miguelpintodacosta@gmail.com");
+            message.To.Add("besmart.software@gmail.com");
             message.Subject = "[beSmart] " + textBoxSubject.Text;
 
             try
@@ -31,22 +34,45 @@ namespace Interface
             }
             catch (Exception) { }
 
-            message.Body = richTextBoxBody.Text;
+            string body = "FROM: " + textBoxFrom.Text;
+            body += "\n\n\n";
+            body += richTextBoxBody.Text;
+            message.Body = body;
 
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
 
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential("miguelpintodacosta@gmail.com", "");
-            smtp.Send(message);
+            smtp.Credentials = new System.Net.NetworkCredential("besmart.software@gmail.com", "li4grupo13");
 
-            MessageBox.Show("Send!");
+            try
+            {
+                smtp.Timeout = 15;
+                smtp.Send(message);
+                this.Cursor = System.Windows.Forms.Cursors.Default;
+                MessageBox.Show("Send!");
+                
+            }
+            catch (Exception e)
+            {
+                this.Cursor = System.Windows.Forms.Cursors.Default;
+                MessageBox.Show(e.Message);
+            }
+
+            this.Cursor = System.Windows.Forms.Cursors.Default;
 
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
             sendEmail();
+        }
+
+        private void buttonSelectFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog o = new OpenFileDialog();
+            o.ShowDialog();
+            textBoxAttach.Text = o.FileName;
         }
     }
 }

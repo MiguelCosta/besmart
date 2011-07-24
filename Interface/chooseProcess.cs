@@ -772,7 +772,7 @@ namespace Interface
         private void reportErrorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ReportError r = new ReportError();
-            r.ShowDialog();
+            r.Show();
         }
 
     }
