@@ -18,6 +18,7 @@ namespace Interface
 
         private void sendEmail()
         {
+            buttonSend.Text = "Sending...";
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
 
             System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
@@ -64,6 +65,7 @@ namespace Interface
             }
 
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            buttonSend.Text = "Send";
 
         }
 

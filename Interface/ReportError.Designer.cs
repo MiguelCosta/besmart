@@ -75,9 +75,9 @@
             // buttonSend
             // 
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSend.Location = new System.Drawing.Point(350, 334);
+            this.buttonSend.Location = new System.Drawing.Point(334, 334);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 21);
+            this.buttonSend.Size = new System.Drawing.Size(91, 21);
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
@@ -120,31 +120,33 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.Controls.Add(this.textBoxAttach, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonSelectFile, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(416, 28);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // textBoxAttach
             // 
+            this.textBoxAttach.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBoxAttach.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
             this.textBoxAttach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAttach.Location = new System.Drawing.Point(3, 3);
             this.textBoxAttach.Name = "textBoxAttach";
-            this.textBoxAttach.Size = new System.Drawing.Size(202, 20);
+            this.textBoxAttach.Size = new System.Drawing.Size(306, 20);
             this.textBoxAttach.TabIndex = 0;
             // 
             // buttonSelectFile
             // 
-            this.buttonSelectFile.Location = new System.Drawing.Point(211, 3);
+            this.buttonSelectFile.Location = new System.Drawing.Point(315, 3);
             this.buttonSelectFile.Name = "buttonSelectFile";
-            this.buttonSelectFile.Size = new System.Drawing.Size(109, 22);
+            this.buttonSelectFile.Size = new System.Drawing.Size(95, 22);
             this.buttonSelectFile.TabIndex = 1;
             this.buttonSelectFile.Text = "Choose File...";
             this.buttonSelectFile.UseVisualStyleBackColor = true;
@@ -177,6 +179,8 @@
             // 
             // textBoxSubject
             // 
+            this.textBoxSubject.AccessibleDescription = "Insert subject of message";
+            this.textBoxSubject.AccessibleName = "Subject";
             this.textBoxSubject.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxSubject.Location = new System.Drawing.Point(3, 27);
             this.textBoxSubject.Name = "textBoxSubject";
@@ -246,6 +250,8 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxFrom;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
@@ -258,7 +264,6 @@
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.RichTextBox richTextBoxBody;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxFrom;
+        
     }
 }
