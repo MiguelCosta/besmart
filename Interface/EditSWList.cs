@@ -15,15 +15,15 @@ namespace Interface
         {
             InitializeComponent();
 
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 
 
 
-        private void refreshTableSoftwares()
+        private void refreshTableSoftware()
         {
-            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwaresSimple();
+            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwareSimple();
         }
 
         private void refreshTableCharacteristics()
@@ -54,7 +54,7 @@ namespace Interface
         {
             Add_Characteristics a = new Add_Characteristics();
             a.ShowDialog();
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 
@@ -62,7 +62,7 @@ namespace Interface
         {
             Add_Software a = new Add_Software();
             a.ShowDialog();
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 
@@ -145,7 +145,7 @@ namespace Interface
                 }
             }
 
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 
@@ -172,7 +172,7 @@ namespace Interface
                 }
             }
 
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 
@@ -196,7 +196,7 @@ namespace Interface
                 }
             }
 
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 
@@ -228,7 +228,7 @@ namespace Interface
 
             }
 
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCharacteristics();
         }
 

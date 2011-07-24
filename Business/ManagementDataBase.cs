@@ -13,7 +13,7 @@ namespace Business
     public static class ManagementDataBase
     {
         public static Business.DataBaseUser database = new DataBaseUser();
-        public static List<int> ids_dos_softwaresSeleccionados = new List<int>();
+        public static List<int> ids_dos_SoftwareSeleccionados = new List<int>();
         public static Dictionary<int, string> caracteristicas_escolhidas = new Dictionary<int, string>();
         public static Business.DecisionSuport decision = new DecisionSuport();
         public static Dictionary<string, float> tabelaSmartNorm = new Dictionary<string, float>();
@@ -25,25 +25,25 @@ namespace Business
         public static Dictionary<int, int> id_characteristics_to_columns = new Dictionary<int, int>();
 
 
-        public static DataView tableSoftwares(bool editable)
+        public static DataView tableSoftware(bool editable)
         {
             id_characteristics_to_columns = new Dictionary<int, int>();
 
             int column = 1;
             // actualizar a tabela inicial
-            DataTable tabela_softwares = new DataTable();
-            tabela_softwares.Columns.Add("ID");
+            DataTable tabela_Software = new DataTable();
+            tabela_Software.Columns.Add("ID");
             column++;
-            tabela_softwares.Columns.Add("Name");
+            tabela_Software.Columns.Add("Name");
             column++;
-            tabela_softwares.Columns.Add("Link");
+            tabela_Software.Columns.Add("Link");
             column++;
 
             if (editable == false)
             {
-                tabela_softwares.Columns["ID"].ReadOnly = true;
-                tabela_softwares.Columns["Name"].ReadOnly = true;
-                tabela_softwares.Columns["Link"].ReadOnly = true;
+                tabela_Software.Columns["ID"].ReadOnly = true;
+                tabela_Software.Columns["Name"].ReadOnly = true;
+                tabela_Software.Columns["Link"].ReadOnly = true;
             }
 
 
@@ -52,7 +52,7 @@ namespace Business
             foreach (Business.Characteristic c in database.Charac.Values)
             {
                 // adiciona a coluna
-                tabela_softwares.Columns.Add(c.Name);
+                tabela_Software.Columns.Add(c.Name);
 
                 // coloca na estrura o id e a coluna correspondente
                 id_characteristics_to_columns.Add(c.Id, column);
@@ -61,7 +61,7 @@ namespace Business
                 column++;
                 if (editable == false)
                 {
-                    tabela_softwares.Columns[c.Name].ReadOnly = true;
+                    tabela_Software.Columns[c.Name].ReadOnly = true;
                 }
             }
 
@@ -98,26 +98,26 @@ namespace Business
                 }
 
                 // adicona uma linha onde o array que recebe está por ordem crescente de coluna
-                tabela_softwares.Rows.Add(array);
+                tabela_Software.Rows.Add(array);
 
             }
 
-            return new DataView(tabela_softwares);
+            return new DataView(tabela_Software);
         }
 
 
-        public static DataView tableSoftwaresSimple()
+        public static DataView tableSoftwareSimple()
         {
             // actualizar a tabela inicial
-            DataTable tabela_softwares = new DataTable();
-            tabela_softwares.Columns.Add("ID");
-            tabela_softwares.Columns.Add("Name");
+            DataTable tabela_Software = new DataTable();
+            tabela_Software.Columns.Add("ID");
+            tabela_Software.Columns.Add("Name");
 
-            tabela_softwares.Columns["ID"].ReadOnly = true;
-            tabela_softwares.Columns["Name"].ReadOnly = true;
+            tabela_Software.Columns["ID"].ReadOnly = true;
+            tabela_Software.Columns["Name"].ReadOnly = true;
 
 
-            // adiciona as linhas (info dos softwares)
+            // adiciona as linhas (info dos Software)
             foreach (Business.Software s in database.Software_list.Values)
             {
                 // coloca todas as caracteristicas numa List
@@ -127,19 +127,19 @@ namespace Business
 
                 // passa para um array, para ser possivel adicionar uma linha
                 string[] array = values.ToArray();
-                tabela_softwares.Rows.Add(array);
+                tabela_Software.Rows.Add(array);
             }
 
-            return new DataView(tabela_softwares);
+            return new DataView(tabela_Software);
         }
 
 
-        public static DataView tableSoftwaresWebPage()
+        public static DataView tableSoftwareWebPage()
         {
-            DataTable tabela_softwares = new DataTable();
-            tabela_softwares.Columns.Add("ID");
-            tabela_softwares.Columns.Add("Name");
-            tabela_softwares.Columns.Add("Link");
+            DataTable tabela_Software = new DataTable();
+            tabela_Software.Columns.Add("ID");
+            tabela_Software.Columns.Add("Name");
+            tabela_Software.Columns.Add("Link");
 
             foreach (Business.Software s in database.Software_list.Values)
             {
@@ -149,10 +149,10 @@ namespace Business
                 values.Add(s.Link);
 
                 string[] array = values.ToArray();
-                tabela_softwares.Rows.Add(array);
+                tabela_Software.Rows.Add(array);
             }
 
-            return new DataView(tabela_softwares);
+            return new DataView(tabela_Software);
         }
 
 
@@ -275,7 +275,7 @@ namespace Business
         {
             DataTable pesos = new DataTable();
             pesos.Columns.Add(nameC);
-            foreach (int id in ids_dos_softwaresSeleccionados)
+            foreach (int id in ids_dos_SoftwareSeleccionados)
             {
                 pesos.Columns.Add("" + id);
                 pesos.Rows.Add("" + id);
@@ -286,15 +286,15 @@ namespace Business
 
 
 
-        public static void addIdSoftwareSelect(int id)
+        public static void addIdSoftwareelect(int id)
         {
-            ids_dos_softwaresSeleccionados.Add(id);
+            ids_dos_SoftwareSeleccionados.Add(id);
 
         }
 
-        public static int totalSoftwareSelect()
+        public static int totalSoftwareelect()
         {
-            return ids_dos_softwaresSeleccionados.Count;
+            return ids_dos_SoftwareSeleccionados.Count;
         }
 
         public static int totalCharacteristcSelect()
@@ -315,7 +315,7 @@ namespace Business
         // info software select
         public static Dictionary<int, Software> infoSoftware_byID()
         {
-            return database.infoSoftware_byID(ids_dos_softwaresSeleccionados);
+            return database.infoSoftware_byID(ids_dos_SoftwareSeleccionados);
         }
 
 

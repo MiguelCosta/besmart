@@ -60,14 +60,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(chooseProcess));
             this.tabControlSeparates = new System.Windows.Forms.TabControl();
-            this.tabPageChooseSoftwares = new System.Windows.Forms.TabPage();
+            this.tabPageChooseSoftware = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxCharactList = new System.Windows.Forms.GroupBox();
             this.dataGridViewTabelaSoftware = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonNextChooseSoftwares = new System.Windows.Forms.Button();
+            this.buttonNextChooseSoftware = new System.Windows.Forms.Button();
             this.buttonViewWebPage = new System.Windows.Forms.Button();
+            this.label_info1 = new System.Windows.Forms.Label();
             this.tabPageChooseCriteria = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -75,7 +76,7 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonNextChooseCriteria = new System.Windows.Forms.Button();
-            this.buttonPreviousToSoftwares = new System.Windows.Forms.Button();
+            this.buttonPreviousToSoftware = new System.Windows.Forms.Button();
             this.tabPageClassificaoes = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -157,9 +158,12 @@
             this.dataGridViewFinal = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startANewComparationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,17 +174,14 @@
             this.aHPTutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sMARTTutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valueFNTutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportErrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.reportErrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlSeparates.SuspendLayout();
-            this.tabPageChooseSoftwares.SuspendLayout();
+            this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBoxCharactList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabelaSoftware)).BeginInit();
@@ -246,7 +247,7 @@
             // tabControlSeparates
             // 
             this.tabControlSeparates.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControlSeparates.Controls.Add(this.tabPageChooseSoftwares);
+            this.tabControlSeparates.Controls.Add(this.tabPageChooseSoftware);
             this.tabControlSeparates.Controls.Add(this.tabPageChooseCriteria);
             this.tabControlSeparates.Controls.Add(this.tabPageClassificaoes);
             this.tabControlSeparates.Controls.Add(this.tabPageDefinitionPriorities);
@@ -260,46 +261,46 @@
             this.tabControlSeparates.TabIndex = 0;
             this.tabControlSeparates.Click += new System.EventHandler(this.tabControlSeparates_Click);
             // 
-            // tabPageChooseSoftwares
+            // tabPageChooseSoftware
             // 
-            this.tabPageChooseSoftwares.Controls.Add(this.tableLayoutPanel3);
-            this.tabPageChooseSoftwares.Location = new System.Drawing.Point(4, 25);
-            this.tabPageChooseSoftwares.Name = "tabPageChooseSoftwares";
-            this.tabPageChooseSoftwares.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageChooseSoftwares.Size = new System.Drawing.Size(724, 540);
-            this.tabPageChooseSoftwares.TabIndex = 0;
-            this.tabPageChooseSoftwares.Text = "Choose Software";
-            this.tabPageChooseSoftwares.UseVisualStyleBackColor = true;
+            this.tabPageChooseSoftware.Controls.Add(this.tableLayoutPanel3);
+            this.tabPageChooseSoftware.Location = new System.Drawing.Point(4, 25);
+            this.tabPageChooseSoftware.Name = "tabPageChooseSoftware";
+            this.tabPageChooseSoftware.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageChooseSoftware.Size = new System.Drawing.Size(724, 540);
+            this.tabPageChooseSoftware.TabIndex = 0;
+            this.tabPageChooseSoftware.Text = "Choose Software";
+            this.tabPageChooseSoftware.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.groupBoxCharactList, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label_info1, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(718, 534);
             this.tableLayoutPanel3.TabIndex = 48;
             // 
             // groupBoxCharactList
             // 
-            this.groupBoxCharactList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxCharactList.Controls.Add(this.dataGridViewTabelaSoftware);
+            this.groupBoxCharactList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxCharactList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxCharactList.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxCharactList.Location = new System.Drawing.Point(3, 3);
             this.groupBoxCharactList.Name = "groupBoxCharactList";
-            this.groupBoxCharactList.Size = new System.Drawing.Size(712, 474);
+            this.groupBoxCharactList.Size = new System.Drawing.Size(712, 429);
             this.groupBoxCharactList.TabIndex = 42;
             this.groupBoxCharactList.TabStop = false;
-            this.groupBoxCharactList.Text = "Softwares List";
+            this.groupBoxCharactList.Text = "Software List";
             // 
             // dataGridViewTabelaSoftware
             // 
@@ -313,7 +314,7 @@
             this.dataGridViewTabelaSoftware.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -324,7 +325,7 @@
             this.Column3});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -335,7 +336,7 @@
             this.dataGridViewTabelaSoftware.Name = "dataGridViewTabelaSoftware";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -346,7 +347,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
             this.dataGridViewTabelaSoftware.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTabelaSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(706, 451);
+            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(706, 406);
             this.dataGridViewTabelaSoftware.StandardTab = true;
             this.dataGridViewTabelaSoftware.TabIndex = 0;
             this.dataGridViewTabelaSoftware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellClick);
@@ -365,36 +366,36 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.buttonNextChooseSoftwares, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.buttonNextChooseSoftware, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonViewWebPage, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 483);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 488);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(712, 48);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(712, 43);
             this.tableLayoutPanel4.TabIndex = 43;
             // 
-            // buttonNextChooseSoftwares
+            // buttonNextChooseSoftware
             // 
-            this.buttonNextChooseSoftwares.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonNextChooseSoftwares.AutoSize = true;
-            this.buttonNextChooseSoftwares.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextChooseSoftwares.Location = new System.Drawing.Point(359, 11);
-            this.buttonNextChooseSoftwares.Name = "buttonNextChooseSoftwares";
-            this.buttonNextChooseSoftwares.Size = new System.Drawing.Size(75, 26);
-            this.buttonNextChooseSoftwares.TabIndex = 0;
-            this.buttonNextChooseSoftwares.Text = "Next   >";
-            this.buttonNextChooseSoftwares.UseVisualStyleBackColor = true;
-            this.buttonNextChooseSoftwares.Click += new System.EventHandler(this.buttonNextChooseSoftwares_Click);
-            this.buttonNextChooseSoftwares.MouseEnter += new System.EventHandler(this.buttonNextChooseSoftwares_MouseEnter);
-            this.buttonNextChooseSoftwares.MouseLeave += new System.EventHandler(this.buttonNextChooseSoftwares_MouseLeave);
+            this.buttonNextChooseSoftware.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonNextChooseSoftware.AutoSize = true;
+            this.buttonNextChooseSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNextChooseSoftware.Location = new System.Drawing.Point(359, 8);
+            this.buttonNextChooseSoftware.Name = "buttonNextChooseSoftware";
+            this.buttonNextChooseSoftware.Size = new System.Drawing.Size(75, 26);
+            this.buttonNextChooseSoftware.TabIndex = 0;
+            this.buttonNextChooseSoftware.Text = "Next   >";
+            this.buttonNextChooseSoftware.UseVisualStyleBackColor = true;
+            this.buttonNextChooseSoftware.Click += new System.EventHandler(this.buttonNextChooseSoftware_Click);
+            this.buttonNextChooseSoftware.MouseEnter += new System.EventHandler(this.buttonNextChooseSoftware_MouseEnter);
+            this.buttonNextChooseSoftware.MouseLeave += new System.EventHandler(this.buttonNextChooseSoftware_MouseLeave);
             // 
             // buttonViewWebPage
             // 
             this.buttonViewWebPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonViewWebPage.AutoSize = true;
-            this.buttonViewWebPage.Location = new System.Drawing.Point(210, 11);
+            this.buttonViewWebPage.Location = new System.Drawing.Point(210, 9);
             this.buttonViewWebPage.Name = "buttonViewWebPage";
             this.buttonViewWebPage.Size = new System.Drawing.Size(143, 25);
             this.buttonViewWebPage.TabIndex = 1;
@@ -403,6 +404,17 @@
             this.buttonViewWebPage.Click += new System.EventHandler(this.buttonViewWebPage_Click);
             this.buttonViewWebPage.MouseEnter += new System.EventHandler(this.buttonViewWebPage_MouseEnter);
             this.buttonViewWebPage.MouseLeave += new System.EventHandler(this.buttonViewWebPage_MouseLeave);
+            // 
+            // label_info1
+            // 
+            this.label_info1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_info1.AutoSize = true;
+            this.label_info1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label_info1.Location = new System.Drawing.Point(344, 453);
+            this.label_info1.Name = "label_info1";
+            this.label_info1.Size = new System.Drawing.Size(30, 13);
+            this.label_info1.TabIndex = 44;
+            this.label_info1.Text = "info1";
             // 
             // tabPageChooseCriteria
             // 
@@ -501,7 +513,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.buttonNextChooseCriteria, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonPreviousToSoftwares, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonPreviousToSoftware, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 483);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -522,17 +534,17 @@
             this.buttonNextChooseCriteria.UseVisualStyleBackColor = true;
             this.buttonNextChooseCriteria.Click += new System.EventHandler(this.buttonNextChooseCriteria_Click);
             // 
-            // buttonPreviousToSoftwares
+            // buttonPreviousToSoftware
             // 
-            this.buttonPreviousToSoftwares.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonPreviousToSoftwares.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviousToSoftwares.Location = new System.Drawing.Point(269, 12);
-            this.buttonPreviousToSoftwares.Name = "buttonPreviousToSoftwares";
-            this.buttonPreviousToSoftwares.Size = new System.Drawing.Size(84, 23);
-            this.buttonPreviousToSoftwares.TabIndex = 2;
-            this.buttonPreviousToSoftwares.Text = "< Previous";
-            this.buttonPreviousToSoftwares.UseVisualStyleBackColor = true;
-            this.buttonPreviousToSoftwares.Click += new System.EventHandler(this.buttonPreviousToSoftwares_Click);
+            this.buttonPreviousToSoftware.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonPreviousToSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.buttonPreviousToSoftware.Location = new System.Drawing.Point(269, 12);
+            this.buttonPreviousToSoftware.Name = "buttonPreviousToSoftware";
+            this.buttonPreviousToSoftware.Size = new System.Drawing.Size(84, 23);
+            this.buttonPreviousToSoftware.TabIndex = 2;
+            this.buttonPreviousToSoftware.Text = "< Previous";
+            this.buttonPreviousToSoftware.UseVisualStyleBackColor = true;
+            this.buttonPreviousToSoftware.Click += new System.EventHandler(this.buttonPreviousToSoftware_Click);
             // 
             // tabPageClassificaoes
             // 
@@ -1766,6 +1778,20 @@
             this.dataBaseToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.dataBaseToolStripMenuItem.Text = "DataBase";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
@@ -1792,6 +1818,11 @@
             this.saveAsToolStripMenuItem.Text = "Save as...";
             this.saveAsToolStripMenuItem.ToolTipText = "Save as database to a file";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -1856,7 +1887,7 @@
             this.valueFNTutorialToolStripMenuItem});
             this.tutorialsToolStripMenuItem.Name = "tutorialsToolStripMenuItem";
             this.tutorialsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.tutorialsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.tutorialsToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.tutorialsToolStripMenuItem.Text = "Tutorials";
             this.tutorialsToolStripMenuItem.ToolTipText = "Consult the tutorial of the methods";
             // 
@@ -1884,11 +1915,19 @@
             this.valueFNTutorialToolStripMenuItem.ToolTipText = "Consult the tutorial of ValueFN method";
             this.valueFNTutorialToolStripMenuItem.Click += new System.EventHandler(this.valueFNTutorialToolStripMenuItem_Click);
             // 
+            // reportErrorToolStripMenuItem
+            // 
+            this.reportErrorToolStripMenuItem.Name = "reportErrorToolStripMenuItem";
+            this.reportErrorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.reportErrorToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.reportErrorToolStripMenuItem.Text = "Report Error / Suggestion";
+            this.reportErrorToolStripMenuItem.Click += new System.EventHandler(this.reportErrorToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -1922,32 +1961,6 @@
             this.panelTab.Size = new System.Drawing.Size(732, 569);
             this.panelTab.TabIndex = 48;
             // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
-            // 
-            // reportErrorToolStripMenuItem
-            // 
-            this.reportErrorToolStripMenuItem.Name = "reportErrorToolStripMenuItem";
-            this.reportErrorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.reportErrorToolStripMenuItem.Text = "Report Error / Sugestion";
-            this.reportErrorToolStripMenuItem.Click += new System.EventHandler(this.reportErrorToolStripMenuItem_Click);
-            // 
             // chooseProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1964,8 +1977,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.chooseProcess_FormClosing);
             this.tabControlSeparates.ResumeLayout(false);
-            this.tabPageChooseSoftwares.ResumeLayout(false);
+            this.tabPageChooseSoftware.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.groupBoxCharactList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabelaSoftware)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -2071,16 +2085,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridViewCharacteristics;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.Button buttonPreviousToSoftwares;
+        private System.Windows.Forms.Button buttonPreviousToSoftware;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TabPage tabPageDefinitionPriorities;
-        private System.Windows.Forms.TabPage tabPageChooseSoftwares;
+        private System.Windows.Forms.TabPage tabPageChooseSoftware;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBoxCharactList;
         private System.Windows.Forms.DataGridView dataGridViewTabelaSoftware;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button buttonNextChooseSoftwares;
+        private System.Windows.Forms.Button buttonNextChooseSoftware;
         private System.Windows.Forms.Button buttonViewWebPage;
         private System.Windows.Forms.Panel panelProgress;
         private System.Windows.Forms.Panel panelTab;
@@ -2165,5 +2179,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem reportErrorToolStripMenuItem;
+        private System.Windows.Forms.Label label_info1;
     }
 }

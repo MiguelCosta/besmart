@@ -138,7 +138,7 @@ namespace Business
         {
             StringBuilder s = new StringBuilder("DATA BASE\n");
             s.Append(User.toString());
-            s.Append("\n\nSOFTWARES:\n");
+            s.Append("\n\nSoftware:\n");
             foreach (Software soft in _software_list.Values)
             {
                 s.Append(soft.toString());
@@ -154,13 +154,13 @@ namespace Business
 
 
         // quero o id do software com todas as caracteristicas associadas
-        public Dictionary<string, Dictionary<string, int>> softwaresWithCaracteristics(List<int> ids_softwares)
+        public Dictionary<string, Dictionary<string, int>> SoftwareWithCaracteristics(List<int> ids_Software)
         {
             // resultado
             Dictionary<string, Dictionary<string, int>> r = new Dictionary<string, Dictionary<string, int>>();
 
-            // tenho de ir a todos os softwares da lista
-            foreach (int id_s in ids_softwares)
+            // tenho de ir a todos os Software da lista
+            foreach (int id_s in ids_Software)
             {
                 // vou buscar um software com um id da lista
                 Software s = null;
@@ -245,7 +245,7 @@ namespace Business
         }
 
 
-        // devolve os softwares de uma list de ids
+        // devolve os Software de uma list de ids
         public Dictionary<int, Software> infoSoftware_byID(List<int> ids)
         {
             Dictionary<int, Software> r = new Dictionary<int, Software>();

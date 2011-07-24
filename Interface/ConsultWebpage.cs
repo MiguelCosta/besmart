@@ -20,7 +20,7 @@ namespace Interface
 
         public void refreshTable()
         {
-            dataGridViewSimpleSoftware.DataSource = Business.ManagementDataBase.tableSoftwaresWebPage();
+            dataGridViewSimpleSoftware.DataSource = Business.ManagementDataBase.tableSoftwareWebPage();
         }
 
         private void ConsultWebpage_FormClosing(Object sender, FormClosingEventArgs e) 

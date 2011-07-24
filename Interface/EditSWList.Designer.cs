@@ -70,7 +70,7 @@
             this.groupBoxCharactList.Size = new System.Drawing.Size(368, 354);
             this.groupBoxCharactList.TabIndex = 43;
             this.groupBoxCharactList.TabStop = false;
-            this.groupBoxCharactList.Text = "Softwares List";
+            this.groupBoxCharactList.Text = "Software List";
             // 
             // dataGridViewTabelaSoftware
             // 

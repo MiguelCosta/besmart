@@ -30,20 +30,27 @@ namespace Interface
         private void init()
         {
             // configurações iniciais
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCaracteristics();
             buttonTestCons.Enabled = false;
             buttonNextDefinitonWeigths.Enabled = false;
             buttonFinish.Enabled = false;
             buttonTestConsitencyAHP.Enabled = false;
-            buttonNextChooseSoftwares.Enabled = false;
+            buttonNextChooseSoftware.Enabled = false;
             dataGridViewTabelaSoftware.Columns[0].Visible = false;
+
+            string info1 = "";
+            info1 += "For new Comparation: ";
+            info1 += "\n1 - Software -> Start New Comparation (Ctrl+N)";
+            info1 += "\n2 - Choose between 2 up 16 software you want to be part of the decision process.";
+            info1 += "\n3 - Click Next.";
+            label_info1.Text = info1;
         }
 
         #region Refresh Tables
-        private void refreshTableSoftwares()
+        private void refreshTableSoftware()
         {
-            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftwares(false);
+            dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftware(false);
         }
 
         private void refreshTableCaracteristics()
@@ -77,7 +84,7 @@ namespace Interface
             dataGridViewAHPPriority.DataSource = Business.ManagementDataBase.refreshTableAHPPriority(nameC);
 
             int i = 0;
-            int num_ca = Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Count;
+            int num_ca = Business.ManagementDataBase.ids_dos_SoftwareSeleccionados.Count;
 
             dataGridViewAHPPriority.AllowUserToOrderColumns = false;
 
@@ -106,7 +113,7 @@ namespace Interface
                 Business.ManagementDataBase.loadObject(filename);
 
                 // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
-                refreshTableSoftwares();
+                refreshTableSoftware();
                 refreshTableCaracteristics();
             }
         }
@@ -130,7 +137,7 @@ namespace Interface
         {
             EditSWList editList = new EditSWList();
             editList.ShowDialog();
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCaracteristics();
         }
 
@@ -139,9 +146,9 @@ namespace Interface
 
         #region Preivous
 
-        private void buttonPreviousToSoftwares_Click(object sender, EventArgs e)
+        private void buttonPreviousToSoftware_Click(object sender, EventArgs e)
         {
-            tabControlSeparates.SelectedTab = tabPageChooseSoftwares;
+            tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             progressBar1.Value = 0;
         }
 
@@ -262,7 +269,7 @@ namespace Interface
         private void buttonCalculateValueFn_Click_1(object sender, EventArgs e)
         {
             buttonCalcPrioAHP.Enabled = false;
-            Business.ManagementDataBase.decision.TableSW = Business.ManagementDataBase.database.softwaresWithCaracteristics(Business.ManagementDataBase.ids_dos_softwaresSeleccionados);
+            Business.ManagementDataBase.decision.TableSW = Business.ManagementDataBase.database.SoftwareWithCaracteristics(Business.ManagementDataBase.ids_dos_SoftwareSeleccionados);
 
             Dictionary<string, Dictionary<string, int>> tableFilter = new Dictionary<string, Dictionary<string, int>>();
 
@@ -505,13 +512,13 @@ namespace Interface
         #region Start New Comparation
         private void startANewComparationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
+            Business.ManagementDataBase.ids_dos_SoftwareSeleccionados = new List<int>();
             Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
             Business.ManagementDataBase.tabelaSmartNorm = new Dictionary<string, float>();
             Business.ManagementDataBase.pesosFinaisClassAHP = new Dictionary<string, float>();
-            refreshTableSoftwares();
+            refreshTableSoftware();
             refreshTableCaracteristics();
-            Business.ManagementDataBase.ids_dos_softwaresSeleccionados.Clear();
+            Business.ManagementDataBase.ids_dos_SoftwareSeleccionados.Clear();
             Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
             Business.ManagementDataBase.decision.TableCH.Clear();
             Business.ManagementDataBase.decision.TableAHP.Clear();
@@ -520,7 +527,7 @@ namespace Interface
             Business.ManagementDataBase.pesosFinaisClassAHP.Clear();
 
             buttonCalFinalWe.Enabled = true;
-            buttonNextChooseSoftwares.Enabled = true;
+            buttonNextChooseSoftware.Enabled = true;
             buttonCalcSmart.Enabled = true;
             buttonTestCons.Enabled = false;
             buttonCalculateValueFn.Enabled = true;
@@ -542,7 +549,7 @@ namespace Interface
             labelCaracteristicaValueFnID.Text = "ID";
             labelConsistencyRate.Text = "";
             labelCaracteristicaValueFn.Text = "name";
-            tabControlSeparates.SelectedTab = tabPageChooseSoftwares;
+            tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             dataGridViewTabelaSoftware.Columns[0].Visible = true;
 
         }
@@ -597,9 +604,9 @@ namespace Interface
             MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
         }
 
-        private void buttonNextChooseSoftwares_Click(object sender, EventArgs e)
+        private void buttonNextChooseSoftware_Click(object sender, EventArgs e)
         {
-            Business.ManagementDataBase.ids_dos_softwaresSeleccionados = new List<int>();
+            Business.ManagementDataBase.ids_dos_SoftwareSeleccionados = new List<int>();
 
             foreach (DataGridViewRow linha in dataGridViewTabelaSoftware.Rows)
             {
@@ -609,18 +616,18 @@ namespace Interface
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     string name = linha.Cells[2].Value.ToString();
 
-                    Business.ManagementDataBase.addIdSoftwareSelect(id);
+                    Business.ManagementDataBase.addIdSoftwareelect(id);
                 }
             }
 
-            if (Business.ManagementDataBase.totalSoftwareSelect() < 2 || Business.ManagementDataBase.totalSoftwareSelect() > 16)
+            if (Business.ManagementDataBase.totalSoftwareelect() < 2 || Business.ManagementDataBase.totalSoftwareelect() > 16)
             {
-                MessageBox.Show("Select between 2 and 16 softwares!");
+                MessageBox.Show("Select between 2 and 16 Software!");
             }
             else
             {
-                // apresenta os softwares seleccionados
-                buttonNextChooseSoftwares_message();
+                // apresenta os Software seleccionados
+                buttonNextChooseSoftware_message();
 
                 tabControlSeparates.SelectedTab = tabPageChooseCriteria;
 
@@ -631,7 +638,7 @@ namespace Interface
         }
 
         // messagem que deve aparecer quando se clica no next e aparece sucesso
-        private void buttonNextChooseSoftwares_message()
+        private void buttonNextChooseSoftware_message()
         {
             string message = "Select Software:\n";
 
@@ -652,14 +659,14 @@ namespace Interface
             progressBar1.Value = 75;
         }
 
-        private void buttonNextChooseSoftwares_MouseEnter(object sender, EventArgs e)
+        private void buttonNextChooseSoftware_MouseEnter(object sender, EventArgs e)
         {
-            buttonNextChooseSoftwares.ForeColor = System.Drawing.Color.Blue;
+            buttonNextChooseSoftware.ForeColor = System.Drawing.Color.Blue;
         }
 
-        private void buttonNextChooseSoftwares_MouseLeave(object sender, EventArgs e)
+        private void buttonNextChooseSoftware_MouseLeave(object sender, EventArgs e)
         {
-            buttonNextChooseSoftwares.ForeColor = System.Drawing.Color.Black;
+            buttonNextChooseSoftware.ForeColor = System.Drawing.Color.Black;
         }
 
         #endregion

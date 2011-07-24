@@ -62,7 +62,7 @@
             this.label2.Size = new System.Drawing.Size(224, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "beSMART is a software for decision problems \r\nbased on a multicriteria evaluation" +
-                " and \r\nprioritization of decision support softwares.";
+                " and \r\nprioritization of decision support Software.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -89,7 +89,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 13);
             this.label6.TabIndex = 6;
-            this.label6.Text = "1. Choose the softwares";
+            this.label6.Text = "1. Choose the Software";
             // 
             // label8
             // 
