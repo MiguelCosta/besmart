@@ -48,6 +48,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonClean = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.label_info = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -63,13 +64,15 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelAddSofware_characteristics, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelAddSofware_characteristics, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label_info, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
@@ -89,7 +92,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 53);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -211,9 +214,9 @@
             this.panelAddSofware_characteristics.AutoSize = true;
             this.panelAddSofware_characteristics.Controls.Add(this.tableLayoutPanelCharacteristics);
             this.panelAddSofware_characteristics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAddSofware_characteristics.Location = new System.Drawing.Point(3, 103);
+            this.panelAddSofware_characteristics.Location = new System.Drawing.Point(3, 153);
             this.panelAddSofware_characteristics.Name = "panelAddSofware_characteristics";
-            this.panelAddSofware_characteristics.Size = new System.Drawing.Size(436, 232);
+            this.panelAddSofware_characteristics.Size = new System.Drawing.Size(436, 182);
             this.panelAddSofware_characteristics.TabIndex = 1;
             // 
             // tableLayoutPanelCharacteristics
@@ -227,7 +230,7 @@
             this.tableLayoutPanelCharacteristics.RowCount = 1;
             this.tableLayoutPanelCharacteristics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelCharacteristics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelCharacteristics.Size = new System.Drawing.Size(436, 232);
+            this.tableLayoutPanelCharacteristics.Size = new System.Drawing.Size(436, 182);
             this.tableLayoutPanelCharacteristics.TabIndex = 0;
             // 
             // dataGridViewCharacteristics
@@ -240,7 +243,7 @@
             this.dataGridViewCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCharacteristics.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCharacteristics.Name = "dataGridViewCharacteristics";
-            this.dataGridViewCharacteristics.Size = new System.Drawing.Size(430, 226);
+            this.dataGridViewCharacteristics.Size = new System.Drawing.Size(430, 176);
             this.dataGridViewCharacteristics.TabIndex = 0;
             this.dataGridViewCharacteristics.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristics_CellClick);
             this.dataGridViewCharacteristics.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewCharacteristics_CellValidating_1);
@@ -295,6 +298,17 @@
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // label_info
+            // 
+            this.label_info.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_info.AutoSize = true;
+            this.label_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label_info.Location = new System.Drawing.Point(209, 18);
+            this.label_info.Name = "label_info";
+            this.label_info.Size = new System.Drawing.Size(24, 13);
+            this.label_info.TabIndex = 3;
+            this.label_info.Text = "info";
             // 
             // Add_Software
             // 
@@ -351,5 +365,6 @@
         private System.Windows.Forms.DataGridView dataGridViewCharacteristics;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonClean;
+        private System.Windows.Forms.Label label_info;
     }
 }

@@ -174,6 +174,7 @@
             // 
             this.label_info.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_info.AutoSize = true;
+            this.label_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label_info.Location = new System.Drawing.Point(185, 73);
             this.label_info.Name = "label_info";
             this.label_info.Size = new System.Drawing.Size(24, 13);

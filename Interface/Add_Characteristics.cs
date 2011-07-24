@@ -24,7 +24,10 @@ namespace Interface
             yes_no.Dock = DockStyle.Fill;
             qual.Dock = DockStyle.Fill;
 
-            this.Size = new System.Drawing.Size(this.Size.Width, 300);
+            string info = "To add a new characteristic please select its type and fill in its name and identification.";
+            label_info.Text = info;
+
+            this.Size = new System.Drawing.Size(500, 400);
 
         }
 

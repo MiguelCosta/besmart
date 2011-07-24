@@ -40,6 +40,7 @@
             this.Add = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonClean = new System.Windows.Forms.Button();
+            this.label_info = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -52,12 +53,14 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelCharacteristics, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panelCharacteristics, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label_info, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
@@ -133,9 +136,9 @@
             this.panelCharacteristics.AutoScroll = true;
             this.panelCharacteristics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelCharacteristics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCharacteristics.Location = new System.Drawing.Point(3, 53);
+            this.panelCharacteristics.Location = new System.Drawing.Point(3, 103);
             this.panelCharacteristics.Name = "panelCharacteristics";
-            this.panelCharacteristics.Size = new System.Drawing.Size(383, 253);
+            this.panelCharacteristics.Size = new System.Drawing.Size(383, 203);
             this.panelCharacteristics.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -189,6 +192,17 @@
             this.buttonClean.UseVisualStyleBackColor = true;
             this.buttonClean.Click += new System.EventHandler(this.buttonClean_Click);
             // 
+            // label_info
+            // 
+            this.label_info.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_info.AutoSize = true;
+            this.label_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label_info.Location = new System.Drawing.Point(182, 68);
+            this.label_info.Name = "label_info";
+            this.label_info.Size = new System.Drawing.Size(24, 13);
+            this.label_info.TabIndex = 3;
+            this.label_info.Text = "info";
+            // 
             // Add_Characteristics
             // 
             this.AcceptButton = this.Add;
@@ -209,6 +223,7 @@
             this.Text = "Add Characteristic";
             this.Load += new System.EventHandler(this.Add_Characteristics_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -230,6 +245,7 @@
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonClean;
+        private System.Windows.Forms.Label label_info;
 
     }
 }

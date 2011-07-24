@@ -24,6 +24,8 @@ namespace Interface
             new DataGridViewEditingControlShowingEventHandler
                 (dataGridViewCharacteristics_EditingControlShowing);
 
+            string info = "To add a new software please fill in its name, identification and webpage. Then, you should classify its characteristics at Value field.";
+            label_info.Text = info;
 
             refreshTable();
         }
