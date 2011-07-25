@@ -202,6 +202,7 @@ namespace Business
         {
             DataTable pesos = new DataTable();
             pesos.Columns.Add("Best Software");
+            pesos.Columns["Best Software"].ReadOnly = true;
             foreach (string name in caracteristicas_escolhidas.Values)
             {
                 pesos.Columns.Add(name);

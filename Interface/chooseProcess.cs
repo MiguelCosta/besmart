@@ -102,6 +102,7 @@ namespace Interface
 
         private void refreshTableAHP()
         {
+            dataGridViewAHP.DataBindings.Clear();
             dataGridViewAHP.DataSource = Business.ManagementDataBase.tableAHP();
 
             int i = 0;
@@ -113,11 +114,18 @@ namespace Interface
                 dataGridViewAHP[i + 1, i].Value = "1";
                 i++;
             }
+
+            for (i = 0; i < dataGridViewAHP.ColumnCount; i++)
+            {
+                dataGridViewAHP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            
         }
 
         private void refreshTableAHPPriority(string nameC)
         {
-
+            dataGridViewAHPPriority.DataBindings.Clear();
             dataGridViewAHPPriority.DataSource = Business.ManagementDataBase.refreshTableAHPPriority(nameC);
 
             int i = 0;
@@ -915,6 +923,7 @@ namespace Interface
         }
 
         #endregion
+
 
 
 
