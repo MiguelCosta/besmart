@@ -87,8 +87,6 @@
             this.tabControlSmartAHP = new System.Windows.Forms.TabControl();
             this.tabPageSMART = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCalcSmart = new System.Windows.Forms.Button();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewSmart = new System.Windows.Forms.DataGridView();
             this.Weights = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -202,7 +200,6 @@
             this.tabControlSmartAHP.SuspendLayout();
             this.tabPageSMART.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmart)).BeginInit();
             this.tableLayoutPanel16.SuspendLayout();
@@ -672,42 +669,17 @@
             // 
             this.tableLayoutPanel11.ColumnCount = 1;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel12, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 0, 2);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 0, 1);
             this.tableLayoutPanel11.Controls.Add(this.label_DefinitionOfWeightsSmart, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 3;
+            this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(698, 394);
             this.tableLayoutPanel11.TabIndex = 6;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 1;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel12.Controls.Add(this.buttonCalcSmart, 0, 0);
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 53);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 1;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(692, 28);
-            this.tableLayoutPanel12.TabIndex = 0;
-            // 
-            // buttonCalcSmart
-            // 
-            this.buttonCalcSmart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCalcSmart.Location = new System.Drawing.Point(3, 3);
-            this.buttonCalcSmart.Name = "buttonCalcSmart";
-            this.buttonCalcSmart.Size = new System.Drawing.Size(686, 22);
-            this.buttonCalcSmart.TabIndex = 5;
-            this.buttonCalcSmart.Text = "Calculate Final Weights";
-            this.buttonCalcSmart.UseVisualStyleBackColor = true;
-            this.buttonCalcSmart.Click += new System.EventHandler(this.buttonCalcSmart_Click);
             // 
             // tableLayoutPanel13
             // 
@@ -717,11 +689,11 @@
             this.tableLayoutPanel13.Controls.Add(this.dataGridViewSmart, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel16, 1, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 87);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 53);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(692, 304);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(692, 338);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
             // dataGridViewSmart
@@ -764,7 +736,7 @@
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSmart.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewSmart.Size = new System.Drawing.Size(513, 298);
+            this.dataGridViewSmart.Size = new System.Drawing.Size(513, 332);
             this.dataGridViewSmart.TabIndex = 8;
             this.dataGridViewSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmart_CellEndEdit);
             this.dataGridViewSmart.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSmart_CellValidating);
@@ -786,7 +758,7 @@
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.70588F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(167, 298);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(167, 332);
             this.tableLayoutPanel16.TabIndex = 9;
             // 
             // dataGridViewPesosFinaisSmart
@@ -806,17 +778,17 @@
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPesosFinaisSmart.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewPesosFinaisSmart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPesosFinaisSmart.Location = new System.Drawing.Point(3, 66);
+            this.dataGridViewPesosFinaisSmart.Location = new System.Drawing.Point(3, 74);
             this.dataGridViewPesosFinaisSmart.Name = "dataGridViewPesosFinaisSmart";
             this.dataGridViewPesosFinaisSmart.ReadOnly = true;
-            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(161, 229);
+            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(161, 255);
             this.dataGridViewPesosFinaisSmart.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 23);
+            this.label3.Location = new System.Drawing.Point(14, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 16);
             this.label3.TabIndex = 11;
@@ -2062,7 +2034,6 @@
             this.tabPageSMART.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
-            this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmart)).EndInit();
             this.tableLayoutPanel16.ResumeLayout(false);
@@ -2182,7 +2153,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Button buttonCalFinalWe;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.DataGridView dataGridViewSmart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weights;
@@ -2237,7 +2207,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
         private System.Windows.Forms.DataGridView dataGridViewFinal;
         private System.Windows.Forms.Button buttonTestCons;
-        private System.Windows.Forms.Button buttonCalcSmart;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem startANewComparationToolStripMenuItem;

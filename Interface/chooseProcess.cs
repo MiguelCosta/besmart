@@ -237,45 +237,10 @@ namespace Interface
 
             // activa o butão de consistência
             buttonTestCons.Enabled = true;
-            buttonCalcSmart.Enabled = false;
 
             Business.ManagementDataBase.metodo_fase_1 = "ahp";
         }
 
-
-
-        #region Definition Weigths
-        private void buttonCalcSmart_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow linha in dataGridViewSmart.Rows)
-            {
-                string idChar = linha.Cells[1].Value.ToString();
-                int points = System.Convert.ToInt32(linha.Cells[0].Value.ToString());
-                Business.ManagementDataBase.decision.registerClass(idChar, points);
-            }
-
-            Business.ManagementDataBase.tabelaSmartNorm.Clear();
-            Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
-
-
-            DataTable pesos = new DataTable();
-            pesos.Columns.Add("ID");
-            pesos.Columns.Add("Weight");
-            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.tabelaSmartNorm)
-            {
-                pesos.Rows.Add(pair.Key, pair.Value);
-            }
-
-            DataView view = new DataView(pesos);
-            dataGridViewPesosFinaisSmart.DataSource = view;
-
-            buttonNextDefinitonWeigths.Enabled = true;
-            buttonCalFinalWe.Enabled = false;
-
-            Business.ManagementDataBase.metodo_fase_1 = "smart";
-        }
-
-        #endregion
 
         #region Definiton Priorities
 
@@ -565,7 +530,6 @@ namespace Interface
 
             buttonCalFinalWe.Enabled = true;
             buttonNextChooseSoftware.Enabled = true;
-            buttonCalcSmart.Enabled = true;
             buttonTestCons.Enabled = false;
             buttonCalculateValueFn.Enabled = true;
             buttonTestConsitencyAHP.Enabled = false;
@@ -820,7 +784,7 @@ namespace Interface
         }
 
 
-        #region Definition of Weights
+        #region Definition of Weights Smart
         private void dataGridViewSmart_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             int c = e.ColumnIndex;
@@ -841,7 +805,16 @@ namespace Interface
                 }
                 else
                 {
-                    dataGridViewSmart.Rows[l].ErrorText = null;
+                    if (newNumber < 10)
+                    {
+                        dataGridViewSmart.Rows[l].ErrorText = "The value can not be less than 10.";
+                        MessageBox.Show("The value can not be less than 10.");
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dataGridViewSmart.Rows[l].ErrorText = null;
+                    }
                 }
             }
 
@@ -876,6 +849,12 @@ namespace Interface
                     return;
                 }
                 else { line.ErrorText = null; }
+
+                if (n < 10)
+                {
+                    line.ErrorText = "The value can not be less than 10.";
+                    return;
+                }
             }
 
             // para remover possiveis erros que ainda existam
@@ -936,6 +915,8 @@ namespace Interface
         }
 
         #endregion
+
+
 
 
     }
