@@ -405,33 +405,6 @@ namespace Interface
 
         #region Test Concistency
 
-        private void buttonTestCons_Click(object sender, EventArgs e)
-        {
-            Dictionary<int, double> matrixC = new Dictionary<int, double>();
-            Dictionary<int, double> matrixD = new Dictionary<int, double>();
-
-            matrixC = Business.ManagementDataBase.decision.calculaMatrizC(Business.ManagementDataBase.decision.TableAHP, Business.ManagementDataBase.pesosFinaisClassAHP);
-            matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, Business.ManagementDataBase.pesosFinaisClassAHP);
-            double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
-
-            if (taxa <= 0.10)
-            {
-                MessageBox.Show("The consistency Rate is good: " + taxa);
-                labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(19)))));
-            }
-            else
-            {
-                MessageBox.Show("The consistency Rate is bad: " + taxa);
-                labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            }
-
-            // actualiza a label com a taxa
-            labelConsistencyRate.Text = "" + taxa;
-            // activa o botão next
-            buttonNextDefinitonWeigths.Enabled = true;
-        }
-
-
         private void buttonTestConsitencyAHP_Click(object sender, EventArgs e)
         {
             Dictionary<int, double> matrixC = new Dictionary<int, double>();
