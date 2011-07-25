@@ -668,15 +668,6 @@ namespace Interface
             progressBar1.Value = 75;
         }
 
-        private void buttonNextChooseSoftware_MouseEnter(object sender, EventArgs e)
-        {
-            buttonNextChooseSoftware.ForeColor = System.Drawing.Color.Blue;
-        }
-
-        private void buttonNextChooseSoftware_MouseLeave(object sender, EventArgs e)
-        {
-            buttonNextChooseSoftware.ForeColor = System.Drawing.Color.Black;
-        }
 
         #endregion
 
@@ -686,17 +677,6 @@ namespace Interface
         {
             ConsultWebpage cwp = new ConsultWebpage();
             cwp.Show();
-        }
-        private void buttonViewWebPage_MouseEnter(object sender, EventArgs e)
-        {
-            buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Bold);
-            buttonViewWebPage.ForeColor = System.Drawing.Color.Blue;
-        }
-
-        private void buttonViewWebPage_MouseLeave(object sender, EventArgs e)
-        {
-            buttonViewWebPage.Font = new Font(buttonViewWebPage.Font, FontStyle.Regular);
-            buttonViewWebPage.ForeColor = System.Drawing.Color.Black;
         }
 
         private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)

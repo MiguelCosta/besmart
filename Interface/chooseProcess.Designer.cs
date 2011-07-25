@@ -391,8 +391,6 @@
             this.buttonNextChooseSoftware.Text = "Next   >";
             this.buttonNextChooseSoftware.UseVisualStyleBackColor = true;
             this.buttonNextChooseSoftware.Click += new System.EventHandler(this.buttonNextChooseSoftware_Click);
-            this.buttonNextChooseSoftware.MouseEnter += new System.EventHandler(this.buttonNextChooseSoftware_MouseEnter);
-            this.buttonNextChooseSoftware.MouseLeave += new System.EventHandler(this.buttonNextChooseSoftware_MouseLeave);
             // 
             // buttonViewWebPage
             // 
@@ -405,8 +403,6 @@
             this.buttonViewWebPage.Text = "View Software WebPage";
             this.buttonViewWebPage.UseVisualStyleBackColor = true;
             this.buttonViewWebPage.Click += new System.EventHandler(this.buttonViewWebPage_Click);
-            this.buttonViewWebPage.MouseEnter += new System.EventHandler(this.buttonViewWebPage_MouseEnter);
-            this.buttonViewWebPage.MouseLeave += new System.EventHandler(this.buttonViewWebPage_MouseLeave);
             // 
             // label_info1
             // 
