@@ -32,7 +32,6 @@ namespace Interface
             // configurações iniciais
             refreshTableSoftware();
             refreshTableCaracteristics();
-            buttonTestCons.Enabled = false;
             buttonNextDefinitonWeigths.Enabled = false;
             buttonFinish.Enabled = false;
             buttonTestConsitencyAHP.Enabled = false;
@@ -98,29 +97,6 @@ namespace Interface
                 line.ErrorText = "Please insert a value.";
             }
 
-        }
-
-        private void refreshTableAHP()
-        {
-            dataGridViewAHP.DataBindings.Clear();
-            dataGridViewAHP.DataSource = Business.ManagementDataBase.tableAHP();
-
-            int i = 0;
-            int num_ca = Business.ManagementDataBase.totalCharacteristcSelect();
-
-            // 
-            while (i < num_ca)
-            {
-                dataGridViewAHP[i + 1, i].Value = "1";
-                i++;
-            }
-
-            for (i = 0; i < dataGridViewAHP.ColumnCount; i++)
-            {
-                dataGridViewAHP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
-
-            
         }
 
         private void refreshTableAHPPriority(string nameC)
@@ -243,8 +219,6 @@ namespace Interface
 
             dataGridViewPesosAHP.DataSource = Business.ManagementDataBase.tableFinalWeightAHP();
 
-            // activa o butão de consistência
-            buttonTestCons.Enabled = true;
 
             Business.ManagementDataBase.metodo_fase_1 = "ahp";
         }
@@ -436,8 +410,6 @@ namespace Interface
             Dictionary<int, double> matrixC = new Dictionary<int, double>();
             Dictionary<int, double> matrixD = new Dictionary<int, double>();
 
-
-
             matrixC = Business.ManagementDataBase.decision.calculaMatrizC(Business.ManagementDataBase.decision.TableAHP, Business.ManagementDataBase.pesosFinaisClassAHP);
             matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, Business.ManagementDataBase.pesosFinaisClassAHP);
             double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
@@ -536,9 +508,7 @@ namespace Interface
             Business.ManagementDataBase.tabelaSmartNorm.Clear();
             Business.ManagementDataBase.pesosFinaisClassAHP.Clear();
 
-            buttonCalFinalWe.Enabled = true;
             buttonNextChooseSoftware.Enabled = true;
-            buttonTestCons.Enabled = false;
             buttonCalculateValueFn.Enabled = true;
             buttonTestConsitencyAHP.Enabled = false;
             buttonCalcPrioAHP.Enabled = true;
@@ -889,7 +859,6 @@ namespace Interface
             dataGridViewPesosFinaisSmart.DataSource = Business.ManagementDataBase.tableFinalWeightSmart();
 
             buttonNextDefinitonWeigths.Enabled = true;
-            buttonCalFinalWe.Enabled = false;
 
             if (tabControlSmartAHP.SelectedIndex == 0)
             {
@@ -904,8 +873,257 @@ namespace Interface
 
         #endregion
 
+        #region Definition of Weights AHP
+        private void refreshTableAHP()
+        {
+            dataGridViewAHP.DataBindings.Clear();
+            dataGridViewAHP.DataSource = Business.ManagementDataBase.tableAHP();
+
+            int i = 0;
+            int num_ca = Business.ManagementDataBase.totalCharacteristcSelect();
+
+            // 
+            while (i < num_ca)
+            {
+                dataGridViewAHP[i + 1, i].Value = "1";
+                dataGridViewAHP[i + 1, i].ReadOnly = true;
+                i++;
+            }
+
+            for (i = 0; i < dataGridViewAHP.ColumnCount; i++)
+            {
+                dataGridViewAHP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            colorTableAHP();
+        }
+
+        private void dataGridViewAHP_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            verifyTableAHP();
+        }
+
+        private void dataGridViewAHP_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            verifyTableAHP();
+        }
+
+        private void verifyTableAHP()
+        {
+            // vai a todas as linhas
+            foreach (DataGridViewRow line in dataGridViewAHP.Rows)
+            {
+                // vai a cada célula da linha
+                foreach (DataGridViewCell c in line.Cells)
+                {
+                    int column = c.ColumnIndex;
+                    int row = c.RowIndex;
+
+                    // se dif = 1 é diagonal, se >1 é acima da diagonal, se < 1 abaixo da diagonal
+                    int dif = column - row;
+
+                    // se for diagonal fica a 1
+                    if (dif == 1)
+                    {
+                        dataGridViewAHP.Rows[row].Cells[column].Value = "1";
+                        dataGridViewAHP.Rows[row].Cells[column].ReadOnly = true;
+                    }
+
+                    // para a digonal superior
+                    if (column >= 1 && dif > 1)
+                    {
+                        // verifica se está preenchida
+                        if (c.Value != null && c.Value.ToString().Equals("") == false)
+                        {
+                            // pega no valor da célula e cria o novo
+                            string v = c.Value.ToString();
+                            string v1 = "1/" + v;
+
+                            float v_float = stringToFloat(v);
+                            float v1_float = 1 / v_float;
+                            // apaga os valores
+                            dataGridViewAHP.Rows[row].Cells[column].Value = null;
+                            dataGridViewAHP.Rows[column - 1].Cells[row + 1].Value = null;
+                            // coloca o valor na célula correspondente
+                            dataGridViewAHP.Rows[row].Cells[column].Value = v_float;
+                            dataGridViewAHP.Rows[column - 1].Cells[row + 1].Value = v1_float;
+                        }
+
+                    }
+
+                    // para a digonal inferior não permite alterar
+                    if (dif < 1)
+                    {
+                        dataGridViewAHP.Rows[row].Cells[column].ReadOnly = true;
+                    }
+
+                }
+
+            }
+
+            // altera as cores da tabela
+            colorTableAHP();
+            caulatePesosAHP();
+            
+        }
+
+        private void colorTableAHP()
+        {
+            // vai a todas as linhas
+            foreach (DataGridViewRow line in dataGridViewAHP.Rows)
+            {
+                // vai a cada célula da linha
+                foreach (DataGridViewCell c in line.Cells)
+                {
+                    int column = c.ColumnIndex;
+                    int row = c.RowIndex;
+                    // se dif = 1 é diagonal, se >1 é acima da diagonal, se < 1 abaixo da diagonal
+                    int dif = column - row;
+
+                    // para a digonal superior
+                    if (column >= 1 && dif > 1)
+                    {
+                        dataGridViewAHP.Rows[row].Cells[column].Style.BackColor = Color.Gold;
+                        // verifica se está preenchida
+                        if (c.Value != null && c.Value.ToString().Equals("") == false)
+                        {
+                            int r = 0;
+                            int g = 255;
+                            int b = 18;
+                            dataGridViewAHP.Rows[row].Cells[column].Style.BackColor = System.Drawing.Color.FromArgb(r, g, b);
+                        }
+                    }
+
+                    // para a digonal inferior e diagonal
+                    if (column >= 1 && dif <= 1)
+                    {
+                        int r = 0;
+                        int g = 170;
+                        int b = 255;
+                        dataGridViewAHP.Rows[row].Cells[column].Style.BackColor = System.Drawing.Color.FromArgb(r, g, b);
+                    }
+
+                    // para a 1ª coluna
+                    if (column == 0)
+                    {
+                        int r = 222;
+                        int g = 222;
+                        int b = 222;
+                        dataGridViewAHP.Rows[row].Cells[column].Style.BackColor = System.Drawing.Color.FromArgb(r, g, b);
+                    }
+
+                }
+
+            }
+
+        }
+
+        private void caulatePesosAHP()
+        {
+            // verifica se pode calcular
+            foreach (DataGridViewRow line in dataGridViewAHP.Rows)
+            {
+                foreach (DataGridViewCell cell in line.Cells)
+                {
+                    // para não verificar a primeira coluna
+                    if (cell.ColumnIndex > 0)
+                    {
+                        float v = stringToFloat(cell.Value.ToString());
+                        // se não for float ou estiver a 0 faz return
+                        if (v == -1 || v == 0) return;
+                    }
+
+                }
+
+            }
+
+            // vai calcular
+            int flag = 0;   // para a preira coluna
+            foreach (DataGridViewColumn coluna in dataGridViewAHP.Columns)
+            {
+                if (flag == 0)
+                {
+                    flag = 1;
+                }
+                else
+                {
+                    string name = coluna.Name.ToString();
+                    string idA = Business.ManagementDataBase.procuraIdCha(name);
+                    foreach (DataGridViewRow linha in dataGridViewAHP.Rows)
+                    {
+                        string nameB = linha.Cells[0].Value.ToString();
+                        string idB = Business.ManagementDataBase.procuraIdCha(nameB);
+                        string pointsStr = linha.Cells[name].Value.ToString();
+                        float pointf = stringToFloat(pointsStr);
+                        Business.ManagementDataBase.decision.registerClassAHP(idA, idB, pointf);
+                    }
+                }
+            }
+
+            Dictionary<string, Dictionary<string, float>> tabelaNormAHP = new Dictionary<string, Dictionary<string, float>>();
+            tabelaNormAHP = Business.ManagementDataBase.decision.normalizeAHP(Business.ManagementDataBase.decision.TableAHP);
+            Business.ManagementDataBase.pesosFinaisClassAHP = new Dictionary<string, float>();
+
+            // alterar para a managmente
+            Business.ManagementDataBase.pesosFinaisClassAHP = Business.ManagementDataBase.decision.pesosFinais(tabelaNormAHP);
 
 
+            dataGridViewPesosAHP.DataSource = Business.ManagementDataBase.tableFinalWeightAHP();
+
+            Business.ManagementDataBase.metodo_fase_1 = "ahp";
+            label_DefinitionOfWeigths.Text = "Currently AHP method chosen.";
+            testConsistency();
+
+        }
+
+        private void testConsistency()
+        {
+            try
+            {
+                Dictionary<int, double> matrixC = new Dictionary<int, double>();
+                Dictionary<int, double> matrixD = new Dictionary<int, double>();
+
+                matrixC = Business.ManagementDataBase.decision.calculaMatrizC(Business.ManagementDataBase.decision.TableAHP, Business.ManagementDataBase.pesosFinaisClassAHP);
+                matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, Business.ManagementDataBase.pesosFinaisClassAHP);
+                double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
+
+                if (taxa <= 0.10)
+                {
+                    int r = 0;
+                    int g = 255;
+                    int b = 78;
+                    labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(r, g, b);
+                }
+                else
+                {
+                    int r = 255;
+                    int g = 27;
+                    int b = 0;
+                    labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(r, g, b);
+                }
+
+                // actualiza a label com a taxa
+                labelConsistencyRate.Text = "" + taxa;
+                // activa o botão next
+                buttonNextDefinitonWeigths.Enabled = true;
+            }
+            catch (Exception) { }
+
+        }
+        #endregion
+
+
+        // funções uteis
+        private float stringToFloat(string s)
+        {
+            float r = -1;
+            float.TryParse(s, out r);
+            return r;
+        }
+
+
+
+        
 
 
     }
