@@ -39,12 +39,44 @@ namespace Interface
             buttonNextChooseSoftware.Enabled = false;
             dataGridViewTabelaSoftware.Columns[0].Visible = false;
 
+            info();
+        }
+
+
+        private void info()
+        {
             string info1 = "";
             info1 += "For new Comparation: ";
             info1 += "\n1 - Software -> Start New Comparation (Ctrl+N)";
             info1 += "\n2 - Choose between 2 up 16 software you want to be part of the decision process.";
             info1 += "\n3 - Click Next.";
             label_info1.Text = info1;
+
+            string infoChooseCriteria = "";
+            infoChooseCriteria += "Choose at least one characteristic to be classified.";
+            label_infoChooseCriteria.Text = infoChooseCriteria;
+
+            string definitionOfWeigths = "";
+            definitionOfWeigths += "Here you have to define the weights for each characteristic you selected before.";
+            definitionOfWeigths += "\nChoose between Smart and AHP method. To learn how the methods work , see the tutorials in Help menu.";
+            label_DefinitionOfWeigths.Text = definitionOfWeigths;
+
+            string definitionOfWeightsSmart = "";
+            definitionOfWeightsSmart += "Please give 10 points to the  characteristic you consider the least important. To other characteristics give the points according to the first ranked (feature which gave 10 points).";
+            definitionOfWeightsSmart += "\nThen click Calculate Final Weights button to get a  table with normalized values.";
+            definitionOfWeightsSmart += "\nFinally press next button.";
+            label_DefinitionOfWeightsSmart.Text = definitionOfWeightsSmart;
+
+            string definitionOfWeightsAHP = "";
+            definitionOfWeightsAHP += "This table pretends to describe the relation between all characteristics chosen.";
+            definitionOfWeightsAHP += "\nThe main diagonal of the table associates the same two characteristics, so  is automatically filled.";
+            definitionOfWeightsAHP += "\nHere you have to  fill the part of the table below the main diagonal, and give points to each criterion concerning other.";
+            definitionOfWeightsAHP += "\nYou may adopt your own scale or consider  the scale described in AHP Tutorial.";
+            definitionOfWeightsAHP += "\nAlso, fill the part of the table above the main diagonal with the inverse values previously assigned.";
+            definitionOfWeightsAHP += "\nThen click Calculate Final Weights button to get a  table with normalized values, named final weight matrix. After that, is estimated the consistency rate of  this matrix clicking in Test Consistency";
+            definitionOfWeightsAHP += "\nIf the value of consistency is good (written in green), you can proceed. If the consistency is bad (written in red), you should change the values to get a better result, or proceed anyway.";
+            definitionOfWeightsAHP += "\nFinally press next button.";
+            label_DefinitionOfWeightsAHP.Text = definitionOfWeightsAHP;
         }
 
         #region Refresh Tables
@@ -61,6 +93,11 @@ namespace Interface
         private void refreshTableSmart()
         {
             dataGridViewSmart.DataSource = Business.ManagementDataBase.tableSmart();
+            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
+            {
+                line.ErrorText = "Please insert a value.";
+            }
+
         }
 
         private void refreshTableAHP()
@@ -727,8 +764,8 @@ namespace Interface
         private void tabControlSeparates_Click(object sender, EventArgs e)
         {
             // falta o Previous
-            tabControlSeparates.SelectedIndex = indexSperate;
-            MessageBox.Show("Use the buttons Next and Previous for navigate in process.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //tabControlSeparates.SelectedIndex = indexSperate;
+            //MessageBox.Show("Use the buttons Next and Previous for navigate in process.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion
@@ -781,6 +818,125 @@ namespace Interface
             ReportError r = new ReportError();
             r.Show();
         }
+
+
+        #region Definition of Weights
+        private void dataGridViewSmart_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            int c = e.ColumnIndex;
+            int l = e.RowIndex;
+
+            int newNumber = 0;
+
+            if (dataGridViewSmart.Rows[l].Cells[0].Value == null /*|| dataGridViewSmart.CurrentCell.Value.ToString().Equals("") == true*/) return;
+
+            if (c == 0)
+            {
+                if (!int.TryParse(e.FormattedValue.ToString(), out newNumber))
+                {
+                    dataGridViewSmart.Rows[l].ErrorText = "The Value is not a number!";
+                    MessageBox.Show("The Value is not a number!");
+                    e.Cancel = true;
+                    return;
+                }
+                else
+                {
+                    dataGridViewSmart.Rows[l].ErrorText = null;
+                }
+            }
+
+            verifyTableSmart();
+
+        }
+
+
+        private void dataGridViewSmart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            verifyTableSmart();
+        }
+
+
+        // verifica se está tudo preenchido e calcula os pesos
+        private void verifyTableSmart()
+        {
+            // se estiver alguma coisa vazia não faz mais nada
+            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
+            {
+                int n = 0;
+                if (line.Cells[0].Value == null)
+                {
+                    line.ErrorText = "Please insert a value.";
+                    return;
+                }
+                else { line.ErrorText = null; }
+
+                if (!int.TryParse(line.Cells[0].Value.ToString(), out n))
+                {
+                    line.ErrorText = "The Value is not a number!";
+                    return;
+                }
+                else { line.ErrorText = null; }
+            }
+
+            // para remover possiveis erros que ainda existam
+            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
+            {
+                line.ErrorText = null;
+            }
+
+            // para verificar se existe um 10
+            int num_10 = 0;
+            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
+            {
+                try
+                {
+                    int v = -1;
+                    int.TryParse(line.Cells[0].Value.ToString(), out v);
+                    if (v == 10) num_10++;
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+
+            // se não existir altera a msg
+            if (num_10 != 1)
+            {
+                label_DefinitionOfWeigths.Text = "Assign 10 to a characteristics.";
+                return;
+            }
+
+
+            // para fazer os calulos
+            foreach (DataGridViewRow linha in dataGridViewSmart.Rows)
+            {
+                string idChar = linha.Cells[1].Value.ToString();
+                int points = System.Convert.ToInt32(linha.Cells[0].Value.ToString());
+                Business.ManagementDataBase.decision.registerClass(idChar, points);
+            }
+
+            Business.ManagementDataBase.tabelaSmartNorm.Clear();
+            Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
+
+            dataGridViewPesosFinaisSmart.DataSource = Business.ManagementDataBase.tableFinalWeightSmart();
+
+            buttonNextDefinitonWeigths.Enabled = true;
+            buttonCalFinalWe.Enabled = false;
+
+            if (tabControlSmartAHP.SelectedIndex == 0)
+            {
+                Business.ManagementDataBase.metodo_fase_1 = "smart";
+
+                string inf = "Currently smart method chosen.";
+                label_DefinitionOfWeigths.Text = inf;
+
+            }
+
+        }
+
+        #endregion
+
 
     }
 }

@@ -271,6 +271,19 @@ namespace Business
 
         }
 
+        public static DataView tableFinalWeightSmart()
+        {
+            DataTable pesos = new DataTable();
+            pesos.Columns.Add("ID");
+            pesos.Columns.Add("Weight");
+            foreach (KeyValuePair<string, float> pair in tabelaSmartNorm)
+            {
+                pesos.Rows.Add(pair.Key, pair.Value);
+            }
+
+            return new DataView(pesos);
+        }
+
         public static DataView refreshTableAHPPriority(string nameC)
         {
             DataTable pesos = new DataTable();
