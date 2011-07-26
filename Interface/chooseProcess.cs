@@ -17,6 +17,9 @@ namespace Interface
     public partial class chooseProcess : Form
     {
         int indexSperate = 0;
+        int selectCharacteristics_row = 0;
+        string selectCharacteristics_id = "";
+
 
         public Dictionary<int, Dictionary<string, float>> resultFinal;
 
@@ -76,6 +79,19 @@ namespace Interface
             definitionOfWeightsAHP += "\nIf the value of consistency is good (written in green), you can proceed. If the consistency is bad (written in red), you should change the values to get a better result, or proceed anyway.";
             definitionOfWeightsAHP += "\nFinally press next button.";
             label_DefinitionOfWeightsAHP.Text = definitionOfWeightsAHP;
+
+
+            string definitionOfPriorities = "";
+            definitionOfPriorities += "Here you have to define the priorities for each characteristic you selected before.";
+            definitionOfPriorities += "\nFirst select the desired criterion from the table, and press Select Characteristic button. Then, choose between ValueFn and AHP method. You must do this for each characteristic.";
+            definitionOfPriorities += "\nWhen all criteria are classified, you can finish the process pressing the Finish button.";
+            definitionOfPriorities += "\nTo learn how the methods work , see the tutorials in Help menu.";
+            label_DefinitionOfPriorities.Text = definitionOfPriorities;
+
+            string definitionOfPriotitiesValueFn = "";
+            definitionOfPriotitiesValueFn += "Select the option as you want to maximize or minimize the criterion.";
+            definitionOfPriotitiesValueFn += "\nThen press the Calculate button to get the values of the priorities.";
+            label_DefinitionOfPrioritiesValueFn.Text = definitionOfPriotitiesValueFn;
         }
 
         #region Refresh Tables
@@ -97,24 +113,6 @@ namespace Interface
                 line.ErrorText = "Please insert a value.";
             }
 
-        }
-
-        private void refreshTableAHPPriority(string nameC)
-        {
-            dataGridViewAHPPriority.DataBindings.Clear();
-            dataGridViewAHPPriority.DataSource = Business.ManagementDataBase.refreshTableAHPPriority(nameC);
-
-            int i = 0;
-            int num_ca = Business.ManagementDataBase.ids_dos_SoftwareSeleccionados.Count;
-
-            dataGridViewAHPPriority.AllowUserToOrderColumns = false;
-
-            while (i < num_ca)
-            {
-                dataGridViewAHPPriority[i + 1, i].Value = "1";
-                dataGridViewAHPPriority[i + 1, i].ReadOnly = true;
-                i++;
-            }
         }
 
         #endregion
@@ -224,46 +222,70 @@ namespace Interface
         }
 
 
-        #region Definiton Priorities
+        #region Definiton Priorities ValueFN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int linha = dataGridViewCaracteristicasPrioridades.CurrentRow.Index;
-            if (linha >= 0)
-            {
-                string id = dataGridViewCaracteristicasPrioridades["ID", linha].Value.ToString();
-                string name = dataGridViewCaracteristicasPrioridades["Name", linha].Value.ToString();
-                //MessageBox.Show(id + "\t" + name);
-                labelCaracteristicaValueFn.Text = name;
-                labelCaracteristicaValueFnID.Text = id;
-
-                labelIDAHP.Text = id;
-                labelName_AHP.Text = name;
-
-                refreshTableAHPPriority(name);
-            }
-
-            buttonCalculateValueFn.Enabled = true;
-            buttonCalcPrioAHP.Enabled = true;
-            buttonTestConsitencyAHP.Enabled = false;
-            dataGridViewValueFn.DataSource = null;
-            dataGridViewPesosAHPFinais.DataSource = null;
+            calculataDefinitionOfPriorities();
         }
 
-        private void buttonCalculateValueFn_Click_1(object sender, EventArgs e)
+        private void calculataDefinitionOfPriorities()
         {
-            buttonCalcPrioAHP.Enabled = false;
+            // para não incrementar sempre a caracteristica seleccionada
+            if (selectCharacteristics_row < dataGridViewCaracteristicasPrioridades.RowCount)
+            {
+                // vai seleccionando a linha que deve
+                dataGridViewCaracteristicasPrioridades.Rows[selectCharacteristics_row].Selected = true;
+
+                selectCharacteristics_id = dataGridViewCaracteristicasPrioridades["ID", selectCharacteristics_row].Value.ToString();
+                string name = dataGridViewCaracteristicasPrioridades["Name", selectCharacteristics_row].Value.ToString();
+
+                // label com a caracteristica que está seleccionada
+                label_Definition_of_Priorities_CharacteristicsSelect.Text = selectCharacteristics_id + " - " + name;
+
+                // seleccionada a caracteristica minimize
+                radioButtonMinimize.Select();
+
+                //********//
+                // outras label mas para remover
+                labelName_AHP.Text = name;
+                //********//
+
+                refreshTableAHPPriority(name);
+
+                buttonCalcPrioAHP.Enabled = true;
+                buttonTestConsitencyAHP.Enabled = false;
+                dataGridViewValueFn.DataSource = null;
+                dataGridViewPesosAHPFinais.DataSource = null;
+
+                // tab do ValueFn
+                tabControlPrioridadesFinais.SelectedIndex = 0;
+                calculateValueFn();
+
+                // para a seguir ir seleccionar outra linha
+                selectCharacteristics_row++;
+            }
+
+            // se estiver igual ou maior é porque não tem mais linhas
+            if (selectCharacteristics_row >= dataGridViewCaracteristicasPrioridades.RowCount)
+            {
+                buttonSelectCaracteristicsNext.Enabled = false;
+                buttonFinish.Enabled = true;
+            }
+
+        }
+
+        private void calculateValueFn()
+        {
             Business.ManagementDataBase.decision.TableSW = Business.ManagementDataBase.database.SoftwareWithCaracteristics(Business.ManagementDataBase.ids_dos_SoftwareSeleccionados);
 
             Dictionary<string, Dictionary<string, int>> tableFilter = new Dictionary<string, Dictionary<string, int>>();
 
-            string id_carac = labelCaracteristicaValueFnID.Text;
-            tableFilter = Business.ManagementDataBase.decision.filter(id_carac);
+            //string id_carac = labelCaracteristicaValueFnID.Text;
+            tableFilter = Business.ManagementDataBase.decision.filter(selectCharacteristics_id);
 
-            int min = Business.ManagementDataBase.decision.calMin(id_carac, tableFilter);
-            int max = Business.ManagementDataBase.decision.calMax(id_carac, tableFilter);
-
-            //MessageBox.Show("Min: " + min + "\tMax: " + max);
+            int min = Business.ManagementDataBase.decision.calMin(selectCharacteristics_id, tableFilter);
+            int max = Business.ManagementDataBase.decision.calMax(selectCharacteristics_id, tableFilter);
 
             Dictionary<string, float> aux = new Dictionary<string, float>();
             // maximizar
@@ -279,7 +301,7 @@ namespace Interface
                 aux = Business.ManagementDataBase.decision.calValueMin(min, max, tableFilter);
             }
 
-            Business.ManagementDataBase.decision.registerPriority(id_carac, aux);
+            Business.ManagementDataBase.decision.registerPriority(selectCharacteristics_id, aux);
 
             DataTable prioridades = new DataTable();
             prioridades.Columns.Add("ID");
@@ -287,7 +309,7 @@ namespace Interface
 
             Dictionary<string, float> a;
 
-            Business.ManagementDataBase.decision.TableResult.TryGetValue(id_carac, out a);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
             foreach (KeyValuePair<string, float> pair2 in a)
             {
                 prioridades.Rows.Add(pair2.Key, pair2.Value);
@@ -298,15 +320,136 @@ namespace Interface
             DataView view = new DataView(prioridades);
             dataGridViewValueFn.DataSource = view;
 
-            buttonFinish.Enabled = true;
+        }
 
+        private void radioButtonMinimize_CheckedChanged(object sender, EventArgs e)
+        {
+            calculateValueFn();
+        }
+
+        private void radioButtonMaximize_CheckedChanged(object sender, EventArgs e)
+        {
+            calculateValueFn();
+        }
+
+        #endregion
+
+        #region Definiton Priorities AHP
+        private void dataGridViewAHPPriority_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            verifyTableAHPPriorities();
+        }
+
+        private void dataGridViewAHPPriority_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            verifyTableAHPPriorities();
+        }
+
+        private void refreshTableAHPPriority(string nameC)
+        {
+            dataGridViewAHPPriority.DataBindings.Clear();
+            dataGridViewAHPPriority.DataSource = Business.ManagementDataBase.refreshTableAHPPriority(nameC);
+
+            int i = 0;
+            int num_ca = Business.ManagementDataBase.ids_dos_SoftwareSeleccionados.Count;
+
+            dataGridViewAHPPriority.AllowUserToOrderColumns = false;
+
+            while (i < num_ca)
+            {
+                dataGridViewAHPPriority[i + 1, i].Value = "1";
+                dataGridViewAHPPriority[i + 1, i].ReadOnly = true;
+                i++;
+            }
+
+            for (i = 0; i < dataGridViewAHPPriority.ColumnCount; i++)
+            {
+                dataGridViewAHPPriority.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            colorTableAHPPriorities();
+        }
+
+        private void verifyTableAHPPriorities()
+        {
+            // vai a todas as linhas
+            foreach (DataGridViewRow line in dataGridViewAHPPriority.Rows)
+            {
+                // vai a cada célula da linha
+                foreach (DataGridViewCell c in line.Cells)
+                {
+                    int column = c.ColumnIndex;
+                    int row = c.RowIndex;
+
+                    // se dif = 1 é diagonal, se >1 é acima da diagonal, se < 1 abaixo da diagonal
+                    int dif = column - row;
+
+                    // se for diagonal fica a 1
+                    if (dif == 1)
+                    {
+                        dataGridViewAHPPriority.Rows[row].Cells[column].Value = "1";
+                        dataGridViewAHPPriority.Rows[row].Cells[column].ReadOnly = true;
+                    }
+
+                    // para a digonal superior
+                    if (column >= 1 && dif > 1)
+                    {
+                        // verifica se está preenchida
+                        if (c.Value != null && c.Value.ToString().Equals("") == false)
+                        {
+                            // pega no valor da célula e cria o novo
+                            string v = c.Value.ToString();
+                            string v1 = "1/" + v;
+
+                            float v_float = stringToFloat(v);
+                            float v1_float = 1 / v_float;
+                            // apaga os valores
+                            dataGridViewAHPPriority.Rows[row].Cells[column].Value = null;
+                            dataGridViewAHPPriority.Rows[column - 1].Cells[row + 1].Value = null;
+                            // coloca o valor na célula correspondente
+                            dataGridViewAHPPriority.Rows[row].Cells[column].Value = v_float;
+                            dataGridViewAHPPriority.Rows[column - 1].Cells[row + 1].Value = v1_float;
+                        }
+
+                    }
+
+                    // para a digonal inferior não permite alterar
+                    if (dif < 1)
+                    {
+                        dataGridViewAHPPriority.Rows[row].Cells[column].ReadOnly = true;
+                    }
+
+                }
+
+            }
+
+            // altera as cores da tabela
+            colorTableAHPPriorities();
+            calculateAHPPriorities(); ;
 
         }
 
-
-        private void buttonCalcPrioAHP_Click(object sender, EventArgs e)
+        private void calculateAHPPriorities()
         {
-            buttonCalculateValueFn.Enabled = false;
+            // verifica se pode calcular
+            foreach (DataGridViewRow line in dataGridViewAHPPriority.Rows)
+            {
+                foreach (DataGridViewCell cell in line.Cells)
+                {
+                    // para não verificar a primeira coluna
+                    if (cell.ColumnIndex > 0)
+                    {
+                        float v = stringToFloat(cell.Value.ToString());
+                        // se não for float ou estiver a 0 faz return
+                        if (v == -1 || v == 0) return;
+                    }
+
+                }
+
+            }
+
+
+            // para não ler a primeira coluna
             int flag = 0;
             foreach (DataGridViewColumn coluna in dataGridViewAHPPriority.Columns)
             {
@@ -324,7 +467,7 @@ namespace Interface
                         string pointsStr = linha.Cells[idSofA].Value.ToString();
                         float pointf = (float)System.Convert.ToDouble(pointsStr);
                         //MessageBox.Show("idA: " + idA + "\tName: " + name + "\nIDB: " + idB + "\tNameB: " + nameB + "\nPoints: " + pointf);
-                        Business.ManagementDataBase.decision.registerPriorAHP(labelIDAHP.Text, idSofA, idSofB, pointf);
+                        Business.ManagementDataBase.decision.registerPriorAHP(selectCharacteristics_id, idSofA, idSofB, pointf);
 
                     }
                 }
@@ -340,7 +483,140 @@ namespace Interface
 
             Dictionary<string, float> a;
 
-            Business.ManagementDataBase.decision.TableResult.TryGetValue(labelIDAHP.Text, out a);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
+            foreach (KeyValuePair<string, float> pair2 in a)
+            {
+                prioridades.Rows.Add(pair2.Key, pair2.Value);
+            }
+
+            DataView view = new DataView(prioridades);
+            dataGridViewPesosAHPFinais.DataSource = view;
+
+            // activa o butão de consistência
+            buttonTestConsitencyAHP.Enabled = true;
+
+            calculateTestConcistencyAHPPriorities();
+
+        }
+
+        private void calculateTestConcistencyAHPPriorities()
+        {
+            // é chamada na calculateAHPPriorities
+
+            Dictionary<int, double> matrixC = new Dictionary<int, double>();
+            Dictionary<int, double> matrixD = new Dictionary<int, double>();
+            Dictionary<string, Dictionary<string, float>> aux;
+            Dictionary<string, float> aux1;
+            Business.ManagementDataBase.decision.TablePriorAHP.TryGetValue(selectCharacteristics_id, out aux);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out aux1);
+            matrixC = Business.ManagementDataBase.decision.calculaMatrizC(aux, aux1);
+            matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, aux1);
+            double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
+
+            if (taxa <= 0.10)
+            {
+                //MessageBox.Show("The consistency Rate is good: " + taxa);
+                labelAHPPrioCons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(19)))));
+            }
+            else
+            {
+                //MessageBox.Show("The consistency Rate is bad: " + taxa);
+                labelAHPPrioCons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            }
+
+            // actualiza a label com a taxa
+            labelAHPPrioCons.Text = "" + taxa;
+        }
+
+        private void colorTableAHPPriorities()
+        {
+            // vai a todas as linhas
+            foreach (DataGridViewRow line in dataGridViewAHPPriority.Rows)
+            {
+                // vai a cada célula da linha
+                foreach (DataGridViewCell c in line.Cells)
+                {
+                    int column = c.ColumnIndex;
+                    int row = c.RowIndex;
+                    // se dif = 1 é diagonal, se >1 é acima da diagonal, se < 1 abaixo da diagonal
+                    int dif = column - row;
+
+                    // para a digonal superior
+                    if (column >= 1 && dif > 1)
+                    {
+                        dataGridViewAHPPriority.Rows[row].Cells[column].Style.BackColor = Color.Gold;
+                        // verifica se está preenchida
+                        if (c.Value != null && c.Value.ToString().Equals("") == false)
+                        {
+                            int r = 0;
+                            int g = 255;
+                            int b = 18;
+                            dataGridViewAHPPriority.Rows[row].Cells[column].Style.BackColor = System.Drawing.Color.FromArgb(r, g, b);
+                        }
+                    }
+
+                    // para a digonal inferior e diagonal
+                    if (column >= 1 && dif <= 1)
+                    {
+                        int r = 0;
+                        int g = 170;
+                        int b = 255;
+                        dataGridViewAHPPriority.Rows[row].Cells[column].Style.BackColor = System.Drawing.Color.FromArgb(r, g, b);
+                    }
+
+                    // para a 1ª coluna
+                    if (column == 0)
+                    {
+                        int r = 222;
+                        int g = 222;
+                        int b = 222;
+                        dataGridViewAHPPriority.Rows[row].Cells[column].Style.BackColor = System.Drawing.Color.FromArgb(r, g, b);
+                    }
+
+                }
+
+            }
+
+        }
+
+        #endregion
+
+        private void buttonCalcPrioAHP_Click(object sender, EventArgs e)
+        {
+            int flag = 0;
+            foreach (DataGridViewColumn coluna in dataGridViewAHPPriority.Columns)
+            {
+                if (flag == 0)
+                {
+                    flag = 1;
+                }
+                else
+                {
+                    string idSofA = coluna.Name.ToString();
+                    foreach (DataGridViewRow linha in dataGridViewAHPPriority.Rows)
+                    {
+                        string idSofB = linha.Cells[0].Value.ToString();
+                        //MessageBox.Show(idSofB);
+                        string pointsStr = linha.Cells[idSofA].Value.ToString();
+                        float pointf = (float)System.Convert.ToDouble(pointsStr);
+                        //MessageBox.Show("idA: " + idA + "\tName: " + name + "\nIDB: " + idB + "\tNameB: " + nameB + "\nPoints: " + pointf);
+                        Business.ManagementDataBase.decision.registerPriorAHP(selectCharacteristics_id, idSofA, idSofB, pointf);
+
+                    }
+                }
+            }
+
+            Dictionary<string, Dictionary<string, Dictionary<string, float>>> tabelaNormAHP = new Dictionary<string, Dictionary<string, Dictionary<string, float>>>();
+            tabelaNormAHP = Business.ManagementDataBase.decision.normalizePriorityAHP(Business.ManagementDataBase.decision.TablePriorAHP);
+            Business.ManagementDataBase.decision.pesosPriorFinais(tabelaNormAHP);
+
+            DataTable prioridades = new DataTable();
+            prioridades.Columns.Add("ID");
+            prioridades.Columns.Add("Priority");
+
+            Dictionary<string, float> a;
+
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
             foreach (KeyValuePair<string, float> pair2 in a)
             {
                 prioridades.Rows.Add(pair2.Key, pair2.Value);
@@ -360,7 +636,8 @@ namespace Interface
             buttonTestConsitencyAHP.Enabled = true;
 
         }
-        #endregion
+
+        
 
         #region Button Finish
         private void buttonFinish_Click(object sender, EventArgs e)
@@ -405,14 +682,15 @@ namespace Interface
 
         #region Test Concistency
 
+        // apagar
         private void buttonTestConsitencyAHP_Click(object sender, EventArgs e)
         {
             Dictionary<int, double> matrixC = new Dictionary<int, double>();
             Dictionary<int, double> matrixD = new Dictionary<int, double>();
             Dictionary<string, Dictionary<string, float>> aux;
             Dictionary<string, float> aux1;
-            Business.ManagementDataBase.decision.TablePriorAHP.TryGetValue(labelIDAHP.Text, out aux);
-            Business.ManagementDataBase.decision.TableResult.TryGetValue(labelIDAHP.Text, out aux1);
+            Business.ManagementDataBase.decision.TablePriorAHP.TryGetValue(selectCharacteristics_id, out aux);
+            Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out aux1);
             matrixC = Business.ManagementDataBase.decision.calculaMatrizC(aux, aux1);
             matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, aux1);
             double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
@@ -430,8 +708,6 @@ namespace Interface
 
             // actualiza a label com a taxa
             labelAHPPrioCons.Text = "" + taxa;
-
-            buttonFinish.Enabled = true;
         }
         #endregion
 
@@ -482,7 +758,6 @@ namespace Interface
             Business.ManagementDataBase.pesosFinaisClassAHP.Clear();
 
             buttonNextChooseSoftware.Enabled = true;
-            buttonCalculateValueFn.Enabled = true;
             buttonTestConsitencyAHP.Enabled = false;
             buttonCalcPrioAHP.Enabled = true;
 
@@ -496,11 +771,8 @@ namespace Interface
             progressBar1.Value = 0;
 
             labelAHPPrioCons.Text = "consitencia";
-            labelIDAHP.Text = "ID";
             labelName_AHP.Text = "name";
-            labelCaracteristicaValueFnID.Text = "ID";
             labelConsistencyRate.Text = "";
-            labelCaracteristicaValueFn.Text = "name";
             tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             dataGridViewTabelaSoftware.Columns[0].Visible = true;
 
@@ -609,6 +881,9 @@ namespace Interface
             tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 75;
+
+            // selecciona a 1º caracteistica da tabela
+            button2_Click(null, null);
         }
 
 
@@ -937,7 +1212,7 @@ namespace Interface
             // altera as cores da tabela
             colorTableAHP();
             caulatePesosAHP();
-            
+
         }
 
         private void colorTableAHP()
@@ -1096,7 +1371,15 @@ namespace Interface
 
 
 
-        
+
+
+
+
+
+
+
+
+
 
 
     }

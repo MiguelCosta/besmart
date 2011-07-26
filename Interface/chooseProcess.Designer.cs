@@ -112,33 +112,21 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewCaracteristicasPrioridades = new System.Windows.Forms.DataGridView();
-            this.buttonSelectCaracteristics = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_Definition_of_Priorities_CharacteristicsSelect = new System.Windows.Forms.Label();
             this.tabControlPrioridadesFinais = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCalculateValueFn = new System.Windows.Forms.Button();
             this.radioButtonMaximize = new System.Windows.Forms.RadioButton();
             this.radioButtonMinimize = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelCaracteristicaValueFnID = new System.Windows.Forms.Label();
-            this.labelCaracteristicaValueFn = new System.Windows.Forms.Label();
             this.dataGridViewValueFn = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCalcPrioAHP = new System.Windows.Forms.Button();
             this.buttonTestConsitencyAHP = new System.Windows.Forms.Button();
-            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.labelIDAHP = new System.Windows.Forms.Label();
             this.tableLayoutPanel30 = new System.Windows.Forms.TableLayoutPanel();
             this.label33 = new System.Windows.Forms.Label();
             this.labelName_AHP = new System.Windows.Forms.Label();
@@ -150,6 +138,11 @@
             this.labelAHPPrioCons = new System.Windows.Forms.Label();
             this.dataGridViewPesosAHPFinais = new System.Windows.Forms.DataGridView();
             this.dataGridViewAHPPriority = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewCaracteristicasPrioridades = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSelectCaracteristicsNext = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonFinish = new System.Windows.Forms.Button();
             this.tabPageFinal = new System.Windows.Forms.TabPage();
@@ -179,6 +172,9 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_DefinitionOfPriorities = new System.Windows.Forms.Label();
+            this.label_DefinitionOfPrioritiesValueFn = new System.Windows.Forms.Label();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -215,25 +211,24 @@
             this.panel2.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCaracteristicasPrioridades)).BeginInit();
             this.panel3.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
             this.tabControlPrioridadesFinais.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
-            this.tableLayoutPanel21.SuspendLayout();
-            this.tableLayoutPanel22.SuspendLayout();
-            this.tableLayoutPanel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValueFn)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
-            this.tableLayoutPanel29.SuspendLayout();
             this.tableLayoutPanel30.SuspendLayout();
             this.tableLayoutPanel26.SuspendLayout();
             this.tableLayoutPanel27.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesosAHPFinais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAHPPriority)).BeginInit();
+            this.tableLayoutPanel33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCaracteristicasPrioridades)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tabPageFinal.SuspendLayout();
             this.tableLayoutPanel31.SuspendLayout();
@@ -241,6 +236,7 @@
             this.menuStrip1.SuspendLayout();
             this.panelProgress.SuspendLayout();
             this.panelTab.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlSeparates
@@ -256,7 +252,7 @@
             this.tabControlSeparates.Multiline = true;
             this.tabControlSeparates.Name = "tabControlSeparates";
             this.tabControlSeparates.SelectedIndex = 0;
-            this.tabControlSeparates.Size = new System.Drawing.Size(732, 569);
+            this.tabControlSeparates.Size = new System.Drawing.Size(769, 569);
             this.tabControlSeparates.TabIndex = 0;
             this.tabControlSeparates.Click += new System.EventHandler(this.tabControlSeparates_Click);
             // 
@@ -266,7 +262,7 @@
             this.tabPageChooseSoftware.Location = new System.Drawing.Point(4, 25);
             this.tabPageChooseSoftware.Name = "tabPageChooseSoftware";
             this.tabPageChooseSoftware.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageChooseSoftware.Size = new System.Drawing.Size(724, 540);
+            this.tabPageChooseSoftware.Size = new System.Drawing.Size(761, 540);
             this.tabPageChooseSoftware.TabIndex = 0;
             this.tabPageChooseSoftware.Text = "Choose Software";
             this.tabPageChooseSoftware.UseVisualStyleBackColor = true;
@@ -285,7 +281,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(718, 534);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel3.TabIndex = 48;
             // 
             // groupBoxCharactList
@@ -296,7 +292,7 @@
             this.groupBoxCharactList.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxCharactList.Location = new System.Drawing.Point(3, 3);
             this.groupBoxCharactList.Name = "groupBoxCharactList";
-            this.groupBoxCharactList.Size = new System.Drawing.Size(712, 429);
+            this.groupBoxCharactList.Size = new System.Drawing.Size(749, 429);
             this.groupBoxCharactList.TabIndex = 42;
             this.groupBoxCharactList.TabStop = false;
             this.groupBoxCharactList.Text = "Software List";
@@ -346,7 +342,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
             this.dataGridViewTabelaSoftware.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTabelaSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(706, 406);
+            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(743, 406);
             this.dataGridViewTabelaSoftware.StandardTab = true;
             this.dataGridViewTabelaSoftware.TabIndex = 0;
             this.dataGridViewTabelaSoftware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellClick);
@@ -372,7 +368,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(712, 43);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(749, 43);
             this.tableLayoutPanel4.TabIndex = 43;
             // 
             // buttonNextChooseSoftware
@@ -380,7 +376,7 @@
             this.buttonNextChooseSoftware.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonNextChooseSoftware.AutoSize = true;
             this.buttonNextChooseSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextChooseSoftware.Location = new System.Drawing.Point(359, 8);
+            this.buttonNextChooseSoftware.Location = new System.Drawing.Point(377, 8);
             this.buttonNextChooseSoftware.Name = "buttonNextChooseSoftware";
             this.buttonNextChooseSoftware.Size = new System.Drawing.Size(75, 26);
             this.buttonNextChooseSoftware.TabIndex = 0;
@@ -392,7 +388,7 @@
             // 
             this.buttonViewWebPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonViewWebPage.AutoSize = true;
-            this.buttonViewWebPage.Location = new System.Drawing.Point(210, 9);
+            this.buttonViewWebPage.Location = new System.Drawing.Point(228, 9);
             this.buttonViewWebPage.Name = "buttonViewWebPage";
             this.buttonViewWebPage.Size = new System.Drawing.Size(143, 25);
             this.buttonViewWebPage.TabIndex = 1;
@@ -405,7 +401,7 @@
             this.label_info1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_info1.AutoSize = true;
             this.label_info1.BackColor = System.Drawing.Color.Yellow;
-            this.label_info1.Location = new System.Drawing.Point(344, 453);
+            this.label_info1.Location = new System.Drawing.Point(362, 453);
             this.label_info1.Name = "label_info1";
             this.label_info1.Size = new System.Drawing.Size(30, 13);
             this.label_info1.TabIndex = 44;
@@ -419,7 +415,7 @@
             this.tabPageChooseCriteria.Location = new System.Drawing.Point(4, 25);
             this.tabPageChooseCriteria.Name = "tabPageChooseCriteria";
             this.tabPageChooseCriteria.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageChooseCriteria.Size = new System.Drawing.Size(724, 540);
+            this.tabPageChooseCriteria.Size = new System.Drawing.Size(761, 540);
             this.tabPageChooseCriteria.TabIndex = 1;
             this.tabPageChooseCriteria.Text = "Choose Criteria";
             this.tabPageChooseCriteria.UseVisualStyleBackColor = true;
@@ -438,7 +434,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(718, 534);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // groupBox1
@@ -449,7 +445,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(712, 429);
+            this.groupBox1.Size = new System.Drawing.Size(749, 429);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criteria List";
@@ -493,7 +489,7 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewCharacteristics.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewCharacteristics.Size = new System.Drawing.Size(706, 406);
+            this.dataGridViewCharacteristics.Size = new System.Drawing.Size(743, 406);
             this.dataGridViewCharacteristics.TabIndex = 1;
             // 
             // dataGridViewCheckBoxColumn1
@@ -516,14 +512,14 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(712, 43);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(749, 43);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // buttonNextChooseCriteria
             // 
             this.buttonNextChooseCriteria.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonNextChooseCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextChooseCriteria.Location = new System.Drawing.Point(359, 9);
+            this.buttonNextChooseCriteria.Location = new System.Drawing.Point(377, 9);
             this.buttonNextChooseCriteria.Name = "buttonNextChooseCriteria";
             this.buttonNextChooseCriteria.Size = new System.Drawing.Size(75, 25);
             this.buttonNextChooseCriteria.TabIndex = 1;
@@ -535,7 +531,7 @@
             // 
             this.buttonPreviousToSoftware.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonPreviousToSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviousToSoftware.Location = new System.Drawing.Point(269, 10);
+            this.buttonPreviousToSoftware.Location = new System.Drawing.Point(287, 10);
             this.buttonPreviousToSoftware.Name = "buttonPreviousToSoftware";
             this.buttonPreviousToSoftware.Size = new System.Drawing.Size(84, 23);
             this.buttonPreviousToSoftware.TabIndex = 2;
@@ -548,7 +544,7 @@
             this.label_infoChooseCriteria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_infoChooseCriteria.AutoSize = true;
             this.label_infoChooseCriteria.BackColor = System.Drawing.Color.Yellow;
-            this.label_infoChooseCriteria.Location = new System.Drawing.Point(344, 453);
+            this.label_infoChooseCriteria.Location = new System.Drawing.Point(362, 453);
             this.label_infoChooseCriteria.Name = "label_infoChooseCriteria";
             this.label_infoChooseCriteria.Size = new System.Drawing.Size(30, 13);
             this.label_infoChooseCriteria.TabIndex = 4;
@@ -560,7 +556,7 @@
             this.tabPageClassificaoes.Location = new System.Drawing.Point(4, 25);
             this.tabPageClassificaoes.Name = "tabPageClassificaoes";
             this.tabPageClassificaoes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClassificaoes.Size = new System.Drawing.Size(724, 540);
+            this.tabPageClassificaoes.Size = new System.Drawing.Size(761, 540);
             this.tabPageClassificaoes.TabIndex = 2;
             this.tabPageClassificaoes.Text = "Definition of Weights";
             this.tabPageClassificaoes.UseVisualStyleBackColor = true;
@@ -579,7 +575,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(718, 534);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // tableLayoutPanel6
@@ -594,14 +590,14 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(712, 43);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(749, 43);
             this.tableLayoutPanel6.TabIndex = 7;
             // 
             // buttonNextDefinitonWeigths
             // 
             this.buttonNextDefinitonWeigths.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonNextDefinitonWeigths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextDefinitonWeigths.Location = new System.Drawing.Point(359, 10);
+            this.buttonNextDefinitonWeigths.Location = new System.Drawing.Point(377, 10);
             this.buttonNextDefinitonWeigths.Name = "buttonNextDefinitonWeigths";
             this.buttonNextDefinitonWeigths.Size = new System.Drawing.Size(75, 23);
             this.buttonNextDefinitonWeigths.TabIndex = 0;
@@ -614,7 +610,7 @@
             this.buttonPreviousDefiniotWeigths.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonPreviousDefiniotWeigths.BackColor = System.Drawing.SystemColors.Control;
             this.buttonPreviousDefiniotWeigths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviousDefiniotWeigths.Location = new System.Drawing.Point(268, 10);
+            this.buttonPreviousDefiniotWeigths.Location = new System.Drawing.Point(286, 10);
             this.buttonPreviousDefiniotWeigths.Name = "buttonPreviousDefiniotWeigths";
             this.buttonPreviousDefiniotWeigths.Size = new System.Drawing.Size(85, 23);
             this.buttonPreviousDefiniotWeigths.TabIndex = 1;
@@ -628,7 +624,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(712, 429);
+            this.panel1.Size = new System.Drawing.Size(749, 429);
             this.panel1.TabIndex = 6;
             // 
             // tabControlSmartAHP
@@ -641,7 +637,7 @@
             this.tabControlSmartAHP.Name = "tabControlSmartAHP";
             this.tabControlSmartAHP.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControlSmartAHP.SelectedIndex = 0;
-            this.tabControlSmartAHP.Size = new System.Drawing.Size(712, 429);
+            this.tabControlSmartAHP.Size = new System.Drawing.Size(749, 429);
             this.tabControlSmartAHP.TabIndex = 0;
             this.tabControlSmartAHP.Tag = "";
             // 
@@ -653,7 +649,7 @@
             this.tabPageSMART.Location = new System.Drawing.Point(4, 25);
             this.tabPageSMART.Name = "tabPageSMART";
             this.tabPageSMART.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSMART.Size = new System.Drawing.Size(704, 400);
+            this.tabPageSMART.Size = new System.Drawing.Size(741, 400);
             this.tabPageSMART.TabIndex = 0;
             this.tabPageSMART.Text = "SMART";
             this.tabPageSMART.UseVisualStyleBackColor = true;
@@ -671,7 +667,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(698, 394);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(735, 394);
             this.tableLayoutPanel11.TabIndex = 6;
             // 
             // tableLayoutPanel13
@@ -686,7 +682,7 @@
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(692, 338);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(729, 338);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
             // dataGridViewSmart
@@ -729,7 +725,7 @@
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSmart.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewSmart.Size = new System.Drawing.Size(513, 332);
+            this.dataGridViewSmart.Size = new System.Drawing.Size(540, 332);
             this.dataGridViewSmart.TabIndex = 8;
             this.dataGridViewSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmart_CellEndEdit);
             this.dataGridViewSmart.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSmart_CellValidating);
@@ -746,12 +742,12 @@
             this.tableLayoutPanel16.Controls.Add(this.dataGridViewPesosFinaisSmart, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(522, 3);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(549, 3);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.70588F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(167, 332);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(177, 332);
             this.tableLayoutPanel16.TabIndex = 9;
             // 
             // dataGridViewPesosFinaisSmart
@@ -774,14 +770,14 @@
             this.dataGridViewPesosFinaisSmart.Location = new System.Drawing.Point(3, 74);
             this.dataGridViewPesosFinaisSmart.Name = "dataGridViewPesosFinaisSmart";
             this.dataGridViewPesosFinaisSmart.ReadOnly = true;
-            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(161, 255);
+            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(171, 255);
             this.dataGridViewPesosFinaisSmart.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 27);
+            this.label3.Location = new System.Drawing.Point(19, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 16);
             this.label3.TabIndex = 11;
@@ -793,7 +789,7 @@
             this.label_DefinitionOfWeightsSmart.AutoSize = true;
             this.label_DefinitionOfWeightsSmart.BackColor = System.Drawing.Color.Yellow;
             this.label_DefinitionOfWeightsSmart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfWeightsSmart.Location = new System.Drawing.Point(271, 18);
+            this.label_DefinitionOfWeightsSmart.Location = new System.Drawing.Point(289, 18);
             this.label_DefinitionOfWeightsSmart.Name = "label_DefinitionOfWeightsSmart";
             this.label_DefinitionOfWeightsSmart.Size = new System.Drawing.Size(156, 13);
             this.label_DefinitionOfWeightsSmart.TabIndex = 2;
@@ -806,7 +802,7 @@
             this.tabPageAHP.Location = new System.Drawing.Point(4, 25);
             this.tabPageAHP.Name = "tabPageAHP";
             this.tabPageAHP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAHP.Size = new System.Drawing.Size(704, 400);
+            this.tabPageAHP.Size = new System.Drawing.Size(741, 400);
             this.tabPageAHP.TabIndex = 1;
             this.tabPageAHP.Text = "AHP";
             this.tabPageAHP.UseVisualStyleBackColor = true;
@@ -824,7 +820,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(698, 394);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(735, 394);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // tableLayoutPanel14
@@ -839,7 +835,7 @@
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(692, 278);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(729, 278);
             this.tableLayoutPanel14.TabIndex = 1;
             // 
             // dataGridViewAHP
@@ -880,7 +876,7 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewAHP.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewAHP.Size = new System.Drawing.Size(513, 272);
+            this.dataGridViewAHP.Size = new System.Drawing.Size(540, 272);
             this.dataGridViewAHP.TabIndex = 8;
             this.dataGridViewAHP.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAHP_CellEndEdit);
             this.dataGridViewAHP.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewAHP_CellValidating);
@@ -893,13 +889,13 @@
             this.tableLayoutPanel15.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.dataGridViewPesosAHP, 0, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(522, 3);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(549, 3);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(167, 272);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(177, 272);
             this.tableLayoutPanel15.TabIndex = 9;
             // 
             // tableLayoutPanel17
@@ -914,7 +910,7 @@
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(161, 36);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(171, 36);
             this.tableLayoutPanel17.TabIndex = 13;
             // 
             // label4
@@ -922,7 +918,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(16, 1);
+            this.label4.Location = new System.Drawing.Point(21, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 0;
@@ -933,7 +929,7 @@
             this.labelConsistencyRate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelConsistencyRate.AutoSize = true;
             this.labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.labelConsistencyRate.Location = new System.Drawing.Point(80, 19);
+            this.labelConsistencyRate.Location = new System.Drawing.Point(85, 19);
             this.labelConsistencyRate.Name = "labelConsistencyRate";
             this.labelConsistencyRate.Size = new System.Drawing.Size(0, 16);
             this.labelConsistencyRate.TabIndex = 1;
@@ -942,7 +938,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 12);
+            this.label2.Location = new System.Drawing.Point(15, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 16);
             this.label2.TabIndex = 0;
@@ -967,7 +963,7 @@
             this.dataGridViewPesosAHP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPesosAHP.Location = new System.Drawing.Point(3, 43);
             this.dataGridViewPesosAHP.Name = "dataGridViewPesosAHP";
-            this.dataGridViewPesosAHP.Size = new System.Drawing.Size(161, 184);
+            this.dataGridViewPesosAHP.Size = new System.Drawing.Size(171, 184);
             this.dataGridViewPesosAHP.TabIndex = 1;
             // 
             // panel4
@@ -977,7 +973,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(692, 104);
+            this.panel4.Size = new System.Drawing.Size(729, 104);
             this.panel4.TabIndex = 2;
             // 
             // tableLayoutPanel32
@@ -991,7 +987,7 @@
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
             this.tableLayoutPanel32.RowCount = 1;
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(692, 104);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(729, 104);
             this.tableLayoutPanel32.TabIndex = 3;
             // 
             // label_DefinitionOfWeightsAHP
@@ -1000,7 +996,7 @@
             this.label_DefinitionOfWeightsAHP.AutoSize = true;
             this.label_DefinitionOfWeightsAHP.BackColor = System.Drawing.Color.Yellow;
             this.label_DefinitionOfWeightsAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfWeightsAHP.Location = new System.Drawing.Point(273, 45);
+            this.label_DefinitionOfWeightsAHP.Location = new System.Drawing.Point(291, 45);
             this.label_DefinitionOfWeightsAHP.Name = "label_DefinitionOfWeightsAHP";
             this.label_DefinitionOfWeightsAHP.Size = new System.Drawing.Size(146, 13);
             this.label_DefinitionOfWeightsAHP.TabIndex = 2;
@@ -1011,7 +1007,7 @@
             this.label_DefinitionOfWeigths.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_DefinitionOfWeigths.AutoSize = true;
             this.label_DefinitionOfWeigths.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfWeigths.Location = new System.Drawing.Point(297, 453);
+            this.label_DefinitionOfWeigths.Location = new System.Drawing.Point(315, 453);
             this.label_DefinitionOfWeigths.Name = "label_DefinitionOfWeigths";
             this.label_DefinitionOfWeigths.Size = new System.Drawing.Size(124, 13);
             this.label_DefinitionOfWeigths.TabIndex = 8;
@@ -1023,7 +1019,7 @@
             this.tabPageDefinitionPriorities.Location = new System.Drawing.Point(4, 25);
             this.tabPageDefinitionPriorities.Name = "tabPageDefinitionPriorities";
             this.tabPageDefinitionPriorities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDefinitionPriorities.Size = new System.Drawing.Size(724, 540);
+            this.tabPageDefinitionPriorities.Size = new System.Drawing.Size(761, 540);
             this.tabPageDefinitionPriorities.TabIndex = 3;
             this.tabPageDefinitionPriorities.Text = "Definition of Priorities";
             this.tabPageDefinitionPriorities.UseVisualStyleBackColor = true;
@@ -1040,7 +1036,7 @@
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(718, 534);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // panel2
@@ -1051,113 +1047,75 @@
             this.panel2.Controls.Add(this.tableLayoutPanel18);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(712, 474);
+            this.panel2.Size = new System.Drawing.Size(749, 474);
             this.panel2.TabIndex = 7;
             // 
             // tableLayoutPanel18
             // 
             this.tableLayoutPanel18.ColumnCount = 1;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 0, 1);
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Controls.Add(this.label_DefinitionOfPriorities, 0, 1);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 2;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.7643F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.23569F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(712, 474);
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(749, 474);
             this.tableLayoutPanel18.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(444, 64);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Set priorities or weights for each software within each criterion. \r\n\r\nFor each c" +
-    "riterion is necessary to define the method to use to set priorities,\r\nusing Valu" +
-    "eFn or AHP.";
             // 
             // tableLayoutPanel19
             // 
             this.tableLayoutPanel19.ColumnCount = 2;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.82456F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.17544F));
-            this.tableLayoutPanel19.Controls.Add(this.dataGridViewCaracteristicasPrioridades, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.buttonSelectCaracteristics, 0, 1);
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel19.Controls.Add(this.tableLayoutPanel33, 0, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 91);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 2;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(706, 380);
+            this.tableLayoutPanel19.RowCount = 1;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(743, 418);
             this.tableLayoutPanel19.TabIndex = 1;
-            // 
-            // dataGridViewCaracteristicasPrioridades
-            // 
-            this.dataGridViewCaracteristicasPrioridades.AllowUserToAddRows = false;
-            this.dataGridViewCaracteristicasPrioridades.AllowUserToDeleteRows = false;
-            this.dataGridViewCaracteristicasPrioridades.AllowUserToResizeRows = false;
-            this.dataGridViewCaracteristicasPrioridades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewCaracteristicasPrioridades.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dataGridViewCaracteristicasPrioridades.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCaracteristicasPrioridades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewCaracteristicasPrioridades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCaracteristicasPrioridades.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridViewCaracteristicasPrioridades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewCaracteristicasPrioridades.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewCaracteristicasPrioridades.Name = "dataGridViewCaracteristicasPrioridades";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCaracteristicasPrioridades.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridViewCaracteristicasPrioridades.Size = new System.Drawing.Size(204, 336);
-            this.dataGridViewCaracteristicasPrioridades.TabIndex = 0;
-            // 
-            // buttonSelectCaracteristics
-            // 
-            this.buttonSelectCaracteristics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSelectCaracteristics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonSelectCaracteristics.Location = new System.Drawing.Point(3, 345);
-            this.buttonSelectCaracteristics.Name = "buttonSelectCaracteristics";
-            this.buttonSelectCaracteristics.Size = new System.Drawing.Size(204, 32);
-            this.buttonSelectCaracteristics.TabIndex = 2;
-            this.buttonSelectCaracteristics.Text = "Select Charcteristic";
-            this.buttonSelectCaracteristics.UseVisualStyleBackColor = true;
-            this.buttonSelectCaracteristics.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.tabControlPrioridadesFinais);
+            this.panel3.Controls.Add(this.tableLayoutPanel12);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(213, 3);
+            this.panel3.Location = new System.Drawing.Point(303, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(490, 336);
+            this.panel3.Size = new System.Drawing.Size(437, 412);
             this.panel3.TabIndex = 4;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Controls.Add(this.label_Definition_of_Priorities_CharacteristicsSelect, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.tabControlPrioridadesFinais, 0, 1);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 2;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(435, 410);
+            this.tableLayoutPanel12.TabIndex = 5;
+            // 
+            // label_Definition_of_Priorities_CharacteristicsSelect
+            // 
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_Definition_of_Priorities_CharacteristicsSelect.AutoSize = true;
+            this.label_Definition_of_Priorities_CharacteristicsSelect.BackColor = System.Drawing.Color.GreenYellow;
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Location = new System.Drawing.Point(50, 16);
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Name = "label_Definition_of_Priorities_CharacteristicsSelect";
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Size = new System.Drawing.Size(334, 18);
+            this.label_Definition_of_Priorities_CharacteristicsSelect.TabIndex = 5;
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Text = "label_Definition of Priorities_CharacteristicsSelect";
             // 
             // tabControlPrioridadesFinais
             // 
@@ -1165,10 +1123,10 @@
             this.tabControlPrioridadesFinais.Controls.Add(this.tabPage1);
             this.tabControlPrioridadesFinais.Controls.Add(this.tabPage2);
             this.tabControlPrioridadesFinais.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPrioridadesFinais.Location = new System.Drawing.Point(0, 0);
+            this.tabControlPrioridadesFinais.Location = new System.Drawing.Point(3, 53);
             this.tabControlPrioridadesFinais.Name = "tabControlPrioridadesFinais";
             this.tabControlPrioridadesFinais.SelectedIndex = 0;
-            this.tabControlPrioridadesFinais.Size = new System.Drawing.Size(488, 334);
+            this.tabControlPrioridadesFinais.Size = new System.Drawing.Size(429, 354);
             this.tabControlPrioridadesFinais.TabIndex = 4;
             // 
             // tabPage1
@@ -1177,153 +1135,53 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(480, 305);
+            this.tabPage1.Size = new System.Drawing.Size(421, 325);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ValueFn";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel20
             // 
+            this.tableLayoutPanel20.AutoScroll = true;
             this.tableLayoutPanel20.ColumnCount = 1;
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Controls.Add(this.tableLayoutPanel21, 0, 0);
-            this.tableLayoutPanel20.Controls.Add(this.dataGridViewValueFn, 0, 1);
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel20.Controls.Add(this.label_DefinitionOfPrioritiesValueFn, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.dataGridViewValueFn, 0, 2);
+            this.tableLayoutPanel20.Controls.Add(this.tableLayoutPanel21, 0, 1);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 2;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.31624F));
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.68376F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(474, 299);
+            this.tableLayoutPanel20.RowCount = 3;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(415, 319);
             this.tableLayoutPanel20.TabIndex = 0;
-            // 
-            // tableLayoutPanel21
-            // 
-            this.tableLayoutPanel21.ColumnCount = 2;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.24903F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.75097F));
-            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel22, 1, 0);
-            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel23, 0, 0);
-            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 1;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(468, 111);
-            this.tableLayoutPanel21.TabIndex = 0;
-            // 
-            // tableLayoutPanel22
-            // 
-            this.tableLayoutPanel22.ColumnCount = 1;
-            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Controls.Add(this.buttonCalculateValueFn, 0, 2);
-            this.tableLayoutPanel22.Controls.Add(this.radioButtonMaximize, 0, 1);
-            this.tableLayoutPanel22.Controls.Add(this.radioButtonMinimize, 0, 0);
-            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(228, 3);
-            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
-            this.tableLayoutPanel22.RowCount = 3;
-            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(237, 105);
-            this.tableLayoutPanel22.TabIndex = 0;
-            // 
-            // buttonCalculateValueFn
-            // 
-            this.buttonCalculateValueFn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCalculateValueFn.Location = new System.Drawing.Point(3, 71);
-            this.buttonCalculateValueFn.Name = "buttonCalculateValueFn";
-            this.buttonCalculateValueFn.Size = new System.Drawing.Size(231, 31);
-            this.buttonCalculateValueFn.TabIndex = 2;
-            this.buttonCalculateValueFn.Text = "Calulate";
-            this.buttonCalculateValueFn.UseVisualStyleBackColor = true;
-            this.buttonCalculateValueFn.Click += new System.EventHandler(this.buttonCalculateValueFn_Click_1);
             // 
             // radioButtonMaximize
             // 
             this.radioButtonMaximize.AutoSize = true;
-            this.radioButtonMaximize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonMaximize.Location = new System.Drawing.Point(3, 37);
+            this.radioButtonMaximize.Location = new System.Drawing.Point(207, 3);
             this.radioButtonMaximize.Name = "radioButtonMaximize";
-            this.radioButtonMaximize.Size = new System.Drawing.Size(231, 28);
+            this.radioButtonMaximize.Size = new System.Drawing.Size(68, 17);
             this.radioButtonMaximize.TabIndex = 0;
             this.radioButtonMaximize.TabStop = true;
             this.radioButtonMaximize.Text = "Maximize";
             this.radioButtonMaximize.UseVisualStyleBackColor = true;
+            this.radioButtonMaximize.CheckedChanged += new System.EventHandler(this.radioButtonMaximize_CheckedChanged);
             // 
             // radioButtonMinimize
             // 
+            this.radioButtonMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonMinimize.AutoSize = true;
-            this.radioButtonMinimize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonMinimize.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonMinimize.Location = new System.Drawing.Point(136, 3);
             this.radioButtonMinimize.Name = "radioButtonMinimize";
-            this.radioButtonMinimize.Size = new System.Drawing.Size(231, 28);
+            this.radioButtonMinimize.Size = new System.Drawing.Size(65, 17);
             this.radioButtonMinimize.TabIndex = 1;
             this.radioButtonMinimize.TabStop = true;
             this.radioButtonMinimize.Text = "Minimize";
             this.radioButtonMinimize.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel23
-            // 
-            this.tableLayoutPanel23.ColumnCount = 2;
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.tableLayoutPanel23.Controls.Add(this.label8, 0, 1);
-            this.tableLayoutPanel23.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel23.Controls.Add(this.labelCaracteristicaValueFnID, 1, 0);
-            this.tableLayoutPanel23.Controls.Add(this.labelCaracteristicaValueFn, 1, 1);
-            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
-            this.tableLayoutPanel23.RowCount = 2;
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(219, 105);
-            this.tableLayoutPanel23.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(62, 72);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Name: ";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(81, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(28, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "ID: ";
-            // 
-            // labelCaracteristicaValueFnID
-            // 
-            this.labelCaracteristicaValueFnID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelCaracteristicaValueFnID.AutoSize = true;
-            this.labelCaracteristicaValueFnID.Location = new System.Drawing.Point(115, 19);
-            this.labelCaracteristicaValueFnID.Name = "labelCaracteristicaValueFnID";
-            this.labelCaracteristicaValueFnID.Size = new System.Drawing.Size(18, 13);
-            this.labelCaracteristicaValueFnID.TabIndex = 2;
-            this.labelCaracteristicaValueFnID.Text = "ID";
-            // 
-            // labelCaracteristicaValueFn
-            // 
-            this.labelCaracteristicaValueFn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelCaracteristicaValueFn.AutoSize = true;
-            this.labelCaracteristicaValueFn.Location = new System.Drawing.Point(115, 72);
-            this.labelCaracteristicaValueFn.Name = "labelCaracteristicaValueFn";
-            this.labelCaracteristicaValueFn.Size = new System.Drawing.Size(33, 13);
-            this.labelCaracteristicaValueFn.TabIndex = 1;
-            this.labelCaracteristicaValueFn.Text = "name";
+            this.radioButtonMinimize.CheckedChanged += new System.EventHandler(this.radioButtonMinimize_CheckedChanged);
             // 
             // dataGridViewValueFn
             // 
@@ -1333,35 +1191,37 @@
             this.dataGridViewValueFn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewValueFn.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dataGridViewValueFn.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewValueFn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewValueFn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewValueFn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewValueFn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewValueFn.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewValueFn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewValueFn.Location = new System.Drawing.Point(3, 120);
+            this.dataGridViewValueFn.Location = new System.Drawing.Point(3, 133);
             this.dataGridViewValueFn.Name = "dataGridViewValueFn";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewValueFn.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewValueFn.Size = new System.Drawing.Size(468, 176);
+            this.dataGridViewValueFn.ReadOnly = true;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewValueFn.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridViewValueFn.RowHeadersVisible = false;
+            this.dataGridViewValueFn.Size = new System.Drawing.Size(409, 183);
             this.dataGridViewValueFn.TabIndex = 1;
             // 
             // tabPage2
@@ -1370,7 +1230,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(480, 305);
+            this.tabPage2.Size = new System.Drawing.Size(421, 325);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "AHP";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1387,7 +1247,7 @@
             this.tableLayoutPanel24.RowCount = 2;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(474, 299);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(415, 319);
             this.tableLayoutPanel24.TabIndex = 0;
             // 
             // tableLayoutPanel25
@@ -1398,7 +1258,6 @@
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel25.Controls.Add(this.buttonCalcPrioAHP, 0, 1);
             this.tableLayoutPanel25.Controls.Add(this.buttonTestConsitencyAHP, 1, 1);
-            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel29, 0, 0);
             this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel30, 1, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 3);
@@ -1406,16 +1265,16 @@
             this.tableLayoutPanel25.RowCount = 2;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(468, 68);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(409, 73);
             this.tableLayoutPanel25.TabIndex = 0;
             // 
             // buttonCalcPrioAHP
             // 
             this.buttonCalcPrioAHP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonCalcPrioAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcPrioAHP.Location = new System.Drawing.Point(3, 38);
+            this.buttonCalcPrioAHP.Location = new System.Drawing.Point(3, 43);
             this.buttonCalcPrioAHP.Name = "buttonCalcPrioAHP";
-            this.buttonCalcPrioAHP.Size = new System.Drawing.Size(228, 27);
+            this.buttonCalcPrioAHP.Size = new System.Drawing.Size(198, 27);
             this.buttonCalcPrioAHP.TabIndex = 0;
             this.buttonCalcPrioAHP.Text = "Calculate Final Priority";
             this.buttonCalcPrioAHP.UseVisualStyleBackColor = true;
@@ -1425,49 +1284,13 @@
             // 
             this.buttonTestConsitencyAHP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonTestConsitencyAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonTestConsitencyAHP.Location = new System.Drawing.Point(237, 38);
+            this.buttonTestConsitencyAHP.Location = new System.Drawing.Point(207, 43);
             this.buttonTestConsitencyAHP.Name = "buttonTestConsitencyAHP";
-            this.buttonTestConsitencyAHP.Size = new System.Drawing.Size(228, 27);
+            this.buttonTestConsitencyAHP.Size = new System.Drawing.Size(199, 27);
             this.buttonTestConsitencyAHP.TabIndex = 1;
             this.buttonTestConsitencyAHP.Text = "Test Concistency";
             this.buttonTestConsitencyAHP.UseVisualStyleBackColor = true;
             this.buttonTestConsitencyAHP.Click += new System.EventHandler(this.buttonTestConsitencyAHP_Click);
-            // 
-            // tableLayoutPanel29
-            // 
-            this.tableLayoutPanel29.ColumnCount = 2;
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel29.Controls.Add(this.labelIDAHP, 1, 0);
-            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
-            this.tableLayoutPanel29.RowCount = 1;
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(228, 29);
-            this.tableLayoutPanel29.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(83, 8);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "ID: ";
-            // 
-            // labelIDAHP
-            // 
-            this.labelIDAHP.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelIDAHP.AutoSize = true;
-            this.labelIDAHP.Location = new System.Drawing.Point(117, 8);
-            this.labelIDAHP.Name = "labelIDAHP";
-            this.labelIDAHP.Size = new System.Drawing.Size(15, 13);
-            this.labelIDAHP.TabIndex = 1;
-            this.labelIDAHP.Text = "id";
             // 
             // tableLayoutPanel30
             // 
@@ -1477,11 +1300,11 @@
             this.tableLayoutPanel30.Controls.Add(this.label33, 0, 0);
             this.tableLayoutPanel30.Controls.Add(this.labelName_AHP, 1, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(237, 3);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(207, 3);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 1;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(228, 29);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(199, 34);
             this.tableLayoutPanel30.TabIndex = 3;
             // 
             // label33
@@ -1489,7 +1312,7 @@
             this.label33.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(64, 8);
+            this.label33.Location = new System.Drawing.Point(49, 10);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(47, 13);
             this.label33.TabIndex = 0;
@@ -1499,7 +1322,7 @@
             // 
             this.labelName_AHP.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelName_AHP.AutoSize = true;
-            this.labelName_AHP.Location = new System.Drawing.Point(117, 8);
+            this.labelName_AHP.Location = new System.Drawing.Point(102, 10);
             this.labelName_AHP.Name = "labelName_AHP";
             this.labelName_AHP.Size = new System.Drawing.Size(33, 13);
             this.labelName_AHP.TabIndex = 1;
@@ -1513,11 +1336,11 @@
             this.tableLayoutPanel26.Controls.Add(this.tableLayoutPanel27, 1, 0);
             this.tableLayoutPanel26.Controls.Add(this.dataGridViewAHPPriority, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(3, 77);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(3, 82);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(468, 219);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(409, 234);
             this.tableLayoutPanel26.TabIndex = 1;
             // 
             // tableLayoutPanel27
@@ -1528,20 +1351,20 @@
             this.tableLayoutPanel27.Controls.Add(this.tableLayoutPanel28, 0, 2);
             this.tableLayoutPanel27.Controls.Add(this.dataGridViewPesosAHPFinais, 0, 1);
             this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel27.Location = new System.Drawing.Point(237, 3);
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(207, 3);
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             this.tableLayoutPanel27.RowCount = 3;
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(228, 213);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(199, 228);
             this.tableLayoutPanel27.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(63, 9);
+            this.label9.Location = new System.Drawing.Point(49, 10);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 13);
             this.label9.TabIndex = 1;
@@ -1554,12 +1377,12 @@
             this.tableLayoutPanel28.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel28.Controls.Add(this.labelAHPPrioCons, 0, 1);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(3, 183);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(3, 196);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 2;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(222, 27);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(193, 29);
             this.tableLayoutPanel28.TabIndex = 2;
             // 
             // label10
@@ -1567,9 +1390,9 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(46, 0);
+            this.label10.Location = new System.Drawing.Point(32, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(129, 13);
+            this.label10.Size = new System.Drawing.Size(129, 14);
             this.label10.TabIndex = 1;
             this.label10.Text = "Consistency Rate";
             // 
@@ -1577,7 +1400,7 @@
             // 
             this.labelAHPPrioCons.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelAHPPrioCons.AutoSize = true;
-            this.labelAHPPrioCons.Location = new System.Drawing.Point(78, 13);
+            this.labelAHPPrioCons.Location = new System.Drawing.Point(63, 15);
             this.labelAHPPrioCons.Name = "labelAHPPrioCons";
             this.labelAHPPrioCons.Size = new System.Drawing.Size(66, 13);
             this.labelAHPPrioCons.TabIndex = 2;
@@ -1590,6 +1413,43 @@
             this.dataGridViewPesosAHPFinais.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPesosAHPFinais.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dataGridViewPesosAHPFinais.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPesosAHPFinais.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewPesosAHPFinais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPesosAHPFinais.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridViewPesosAHPFinais.Location = new System.Drawing.Point(3, 37);
+            this.dataGridViewPesosAHPFinais.Name = "dataGridViewPesosAHPFinais";
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPesosAHPFinais.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewPesosAHPFinais.Size = new System.Drawing.Size(193, 120);
+            this.dataGridViewPesosAHPFinais.TabIndex = 3;
+            // 
+            // dataGridViewAHPPriority
+            // 
+            this.dataGridViewAHPPriority.AllowUserToAddRows = false;
+            this.dataGridViewAHPPriority.AllowUserToDeleteRows = false;
+            this.dataGridViewAHPPriority.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAHPPriority.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dataGridViewAHPPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1597,8 +1457,8 @@
             dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPesosAHPFinais.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridViewPesosAHPFinais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAHPPriority.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridViewAHPPriority.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1606,9 +1466,10 @@
             dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPesosAHPFinais.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridViewPesosAHPFinais.Location = new System.Drawing.Point(3, 34);
-            this.dataGridViewPesosAHPFinais.Name = "dataGridViewPesosAHPFinais";
+            this.dataGridViewAHPPriority.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dataGridViewAHPPriority.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewAHPPriority.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewAHPPriority.Name = "dataGridViewAHPPriority";
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1616,16 +1477,36 @@
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPesosAHPFinais.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridViewPesosAHPFinais.Size = new System.Drawing.Size(222, 120);
-            this.dataGridViewPesosAHPFinais.TabIndex = 3;
+            this.dataGridViewAHPPriority.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.dataGridViewAHPPriority.Size = new System.Drawing.Size(198, 228);
+            this.dataGridViewAHPPriority.TabIndex = 1;
+            this.dataGridViewAHPPriority.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAHPPriority_CellEndEdit);
+            this.dataGridViewAHPPriority.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewAHPPriority_CellValidating);
             // 
-            // dataGridViewAHPPriority
+            // tableLayoutPanel33
             // 
-            this.dataGridViewAHPPriority.AllowUserToAddRows = false;
-            this.dataGridViewAHPPriority.AllowUserToDeleteRows = false;
-            this.dataGridViewAHPPriority.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dataGridViewAHPPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel33.AutoScroll = true;
+            this.tableLayoutPanel33.ColumnCount = 1;
+            this.tableLayoutPanel33.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel33.Controls.Add(this.dataGridViewCaracteristicasPrioridades, 0, 0);
+            this.tableLayoutPanel33.Controls.Add(this.tableLayoutPanel10, 0, 1);
+            this.tableLayoutPanel33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel33.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel33.Name = "tableLayoutPanel33";
+            this.tableLayoutPanel33.RowCount = 2;
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(294, 412);
+            this.tableLayoutPanel33.TabIndex = 5;
+            // 
+            // dataGridViewCaracteristicasPrioridades
+            // 
+            this.dataGridViewCaracteristicasPrioridades.AllowUserToAddRows = false;
+            this.dataGridViewCaracteristicasPrioridades.AllowUserToDeleteRows = false;
+            this.dataGridViewCaracteristicasPrioridades.AllowUserToResizeRows = false;
+            this.dataGridViewCaracteristicasPrioridades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewCaracteristicasPrioridades.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dataGridViewCaracteristicasPrioridades.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1633,8 +1514,8 @@
             dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAHPPriority.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridViewAHPPriority.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCaracteristicasPrioridades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.dataGridViewCaracteristicasPrioridades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1642,10 +1523,12 @@
             dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAHPPriority.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridViewAHPPriority.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewAHPPriority.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewAHPPriority.Name = "dataGridViewAHPPriority";
+            this.dataGridViewCaracteristicasPrioridades.DefaultCellStyle = dataGridViewCellStyle26;
+            this.dataGridViewCaracteristicasPrioridades.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCaracteristicasPrioridades.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewCaracteristicasPrioridades.MultiSelect = false;
+            this.dataGridViewCaracteristicasPrioridades.Name = "dataGridViewCaracteristicasPrioridades";
+            this.dataGridViewCaracteristicasPrioridades.ReadOnly = true;
             dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1653,9 +1536,47 @@
             dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAHPPriority.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
-            this.dataGridViewAHPPriority.Size = new System.Drawing.Size(228, 213);
-            this.dataGridViewAHPPriority.TabIndex = 1;
+            this.dataGridViewCaracteristicasPrioridades.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            this.dataGridViewCaracteristicasPrioridades.RowHeadersVisible = false;
+            this.dataGridViewCaracteristicasPrioridades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCaracteristicasPrioridades.Size = new System.Drawing.Size(288, 155);
+            this.dataGridViewCaracteristicasPrioridades.TabIndex = 0;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.buttonSelectCaracteristicsNext, 1, 0);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(49, 164);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(196, 34);
+            this.tableLayoutPanel10.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 28);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Previous";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // buttonSelectCaracteristicsNext
+            // 
+            this.buttonSelectCaracteristicsNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelectCaracteristicsNext.Location = new System.Drawing.Point(101, 3);
+            this.buttonSelectCaracteristicsNext.Name = "buttonSelectCaracteristicsNext";
+            this.buttonSelectCaracteristicsNext.Size = new System.Drawing.Size(92, 28);
+            this.buttonSelectCaracteristicsNext.TabIndex = 2;
+            this.buttonSelectCaracteristicsNext.Text = "Next";
+            this.buttonSelectCaracteristicsNext.UseVisualStyleBackColor = true;
+            this.buttonSelectCaracteristicsNext.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel8
             // 
@@ -1668,13 +1589,13 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(712, 48);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(749, 48);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // buttonFinish
             // 
             this.buttonFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFinish.Location = new System.Drawing.Point(359, 3);
+            this.buttonFinish.Location = new System.Drawing.Point(377, 3);
             this.buttonFinish.Name = "buttonFinish";
             this.buttonFinish.Size = new System.Drawing.Size(75, 23);
             this.buttonFinish.TabIndex = 0;
@@ -1688,7 +1609,7 @@
             this.tabPageFinal.Location = new System.Drawing.Point(4, 25);
             this.tabPageFinal.Name = "tabPageFinal";
             this.tabPageFinal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFinal.Size = new System.Drawing.Size(724, 540);
+            this.tabPageFinal.Size = new System.Drawing.Size(761, 540);
             this.tabPageFinal.TabIndex = 4;
             this.tabPageFinal.Text = "Final Results";
             this.tabPageFinal.UseVisualStyleBackColor = true;
@@ -1703,7 +1624,7 @@
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(718, 534);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel31.TabIndex = 0;
             // 
             // dataGridViewFinal
@@ -1731,7 +1652,7 @@
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewFinal.DefaultCellStyle = dataGridViewCellStyle29;
-            this.dataGridViewFinal.Location = new System.Drawing.Point(124, 166);
+            this.dataGridViewFinal.Location = new System.Drawing.Point(142, 166);
             this.dataGridViewFinal.Name = "dataGridViewFinal";
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
@@ -1752,7 +1673,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(732, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(769, 24);
             this.menuStrip1.TabIndex = 46;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1932,7 +1853,7 @@
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressBar1.Location = new System.Drawing.Point(0, 8);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(732, 23);
+            this.progressBar1.Size = new System.Drawing.Size(769, 23);
             this.progressBar1.TabIndex = 47;
             // 
             // panelProgress
@@ -1941,7 +1862,7 @@
             this.panelProgress.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelProgress.Location = new System.Drawing.Point(0, 593);
             this.panelProgress.Name = "panelProgress";
-            this.panelProgress.Size = new System.Drawing.Size(732, 31);
+            this.panelProgress.Size = new System.Drawing.Size(769, 31);
             this.panelProgress.TabIndex = 47;
             // 
             // panelTab
@@ -1950,15 +1871,53 @@
             this.panelTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTab.Location = new System.Drawing.Point(0, 24);
             this.panelTab.Name = "panelTab";
-            this.panelTab.Size = new System.Drawing.Size(732, 569);
+            this.panelTab.Size = new System.Drawing.Size(769, 569);
             this.panelTab.TabIndex = 48;
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 2;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Controls.Add(this.radioButtonMaximize, 1, 0);
+            this.tableLayoutPanel21.Controls.Add(this.radioButtonMinimize, 0, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 103);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 1;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(409, 24);
+            this.tableLayoutPanel21.TabIndex = 2;
+            // 
+            // label_DefinitionOfPriorities
+            // 
+            this.label_DefinitionOfPriorities.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_DefinitionOfPriorities.AutoSize = true;
+            this.label_DefinitionOfPriorities.BackColor = System.Drawing.Color.Yellow;
+            this.label_DefinitionOfPriorities.Location = new System.Drawing.Point(312, 442);
+            this.label_DefinitionOfPriorities.Name = "label_DefinitionOfPriorities";
+            this.label_DefinitionOfPriorities.Size = new System.Drawing.Size(124, 13);
+            this.label_DefinitionOfPriorities.TabIndex = 9;
+            this.label_DefinitionOfPriorities.Text = "info_DefinitionOfPriorities";
+            // 
+            // label_DefinitionOfPrioritiesValueFn
+            // 
+            this.label_DefinitionOfPrioritiesValueFn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_DefinitionOfPrioritiesValueFn.AutoSize = true;
+            this.label_DefinitionOfPrioritiesValueFn.BackColor = System.Drawing.Color.Yellow;
+            this.label_DefinitionOfPrioritiesValueFn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(118, 43);
+            this.label_DefinitionOfPrioritiesValueFn.Name = "label_DefinitionOfPrioritiesValueFn";
+            this.label_DefinitionOfPrioritiesValueFn.Size = new System.Drawing.Size(178, 13);
+            this.label_DefinitionOfPrioritiesValueFn.TabIndex = 3;
+            this.label_DefinitionOfPrioritiesValueFn.Text = "label_Definition_of_PrioritiesValueFn";
             // 
             // chooseProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(732, 624);
+            this.ClientSize = new System.Drawing.Size(769, 624);
             this.Controls.Add(this.panelTab);
             this.Controls.Add(this.panelProgress);
             this.Controls.Add(this.menuStrip1);
@@ -2014,22 +1973,17 @@
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCaracteristicasPrioridades)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.tabControlPrioridadesFinais.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel21.ResumeLayout(false);
-            this.tableLayoutPanel22.ResumeLayout(false);
-            this.tableLayoutPanel22.PerformLayout();
-            this.tableLayoutPanel23.ResumeLayout(false);
-            this.tableLayoutPanel23.PerformLayout();
+            this.tableLayoutPanel20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValueFn)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel24.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
-            this.tableLayoutPanel29.ResumeLayout(false);
-            this.tableLayoutPanel29.PerformLayout();
             this.tableLayoutPanel30.ResumeLayout(false);
             this.tableLayoutPanel30.PerformLayout();
             this.tableLayoutPanel26.ResumeLayout(false);
@@ -2039,6 +1993,9 @@
             this.tableLayoutPanel28.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesosAHPFinais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAHPPriority)).EndInit();
+            this.tableLayoutPanel33.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCaracteristicasPrioridades)).EndInit();
+            this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tabPageFinal.ResumeLayout(false);
             this.tableLayoutPanel31.ResumeLayout(false);
@@ -2047,6 +2004,8 @@
             this.menuStrip1.PerformLayout();
             this.panelProgress.ResumeLayout(false);
             this.panelTab.ResumeLayout(false);
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2100,7 +2059,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonFinish;
         private System.Windows.Forms.TabControl tabControlSmartAHP;
         private System.Windows.Forms.TabPage tabPageAHP;
@@ -2124,21 +2082,15 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
         private System.Windows.Forms.DataGridView dataGridViewCaracteristicasPrioridades;
-        private System.Windows.Forms.Button buttonSelectCaracteristics;
+        private System.Windows.Forms.Button buttonSelectCaracteristicsNext;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControlPrioridadesFinais;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
-        private System.Windows.Forms.Button buttonCalculateValueFn;
         private System.Windows.Forms.RadioButton radioButtonMaximize;
         private System.Windows.Forms.RadioButton radioButtonMinimize;
         private System.Windows.Forms.DataGridView dataGridViewValueFn;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label labelCaracteristicaValueFn;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
-        private System.Windows.Forms.Label labelCaracteristicaValueFnID;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
@@ -2148,10 +2100,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonCalcPrioAHP;
         private System.Windows.Forms.Button buttonTestConsitencyAHP;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel30;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label labelIDAHP;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label labelName_AHP;
         private System.Windows.Forms.DataGridView dataGridViewAHPPriority;
@@ -2160,8 +2109,6 @@
         private System.Windows.Forms.TabPage tabPageFinal;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
         private System.Windows.Forms.DataGridView dataGridViewFinal;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem startANewComparationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -2174,5 +2121,13 @@
         private System.Windows.Forms.Label label_DefinitionOfWeightsAHP;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel32;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.Label label_Definition_of_Priorities_CharacteristicsSelect;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel33;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.Label label_DefinitionOfPriorities;
+        private System.Windows.Forms.Label label_DefinitionOfPrioritiesValueFn;
     }
 }
