@@ -60,10 +60,15 @@ namespace Interface.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap blue_bg {
+        /// <summary>
+        ///   Looks up a localized string similar to For new Comparation: 
+        ///1 - Software -&gt; Start New Comparation (Ctrl+N)
+        ///2 - Choose between 2 up 16 software you want to be part of the decision process.
+        ///3 - Click Next..
+        /// </summary>
+        internal static string label_info_ChooseSoftware {
             get {
-                object obj = ResourceManager.GetObject("blue bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("label_info_ChooseSoftware", resourceCulture);
             }
         }
         
@@ -71,6 +76,13 @@ namespace Interface.Properties {
             get {
                 object obj = ResourceManager.GetObject("Logo Marca de água", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon logoBeSmart {
+            get {
+                object obj = ResourceManager.GetObject("logoBeSmart", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
