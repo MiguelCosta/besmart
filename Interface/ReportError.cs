@@ -18,6 +18,12 @@ namespace Interface
 
         private void sendEmail()
         {
+            if (textBoxFrom.Text.Equals(""))
+            {
+                MessageBox.Show("From empty!");
+                return;
+            }
+
             buttonSend.Text = "Sending...";
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
 
@@ -30,7 +36,7 @@ namespace Interface
             //message.To.Add("emanspace@gmail.com");
             message.To.Add("besmart.software@gmail.com");
 
-            message.Subject = "[beSmart] " + textBoxSubject.Text;
+            message.Subject = "[beSmart] Report Error/Suggestion";
 
             try
             {
@@ -40,7 +46,8 @@ namespace Interface
             catch (Exception) { }
 
             string body = "FROM: " + textBoxFrom.Text;
-            body += "\n\n\n";
+            body += "SUBJECT: " + textBoxSubject.Text;
+            body += "\n\n_____________________________________________________\n\n";
             body += richTextBoxBody.Text;
             message.Body = body;
 
@@ -56,7 +63,7 @@ namespace Interface
                 smtp.Send(message);
                 this.Cursor = System.Windows.Forms.Cursors.Default;
                 MessageBox.Show("Send!");
-                
+
             }
             catch (Exception e)
             {
