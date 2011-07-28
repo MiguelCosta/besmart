@@ -43,9 +43,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 8);
@@ -62,7 +62,7 @@
             this.label2.Size = new System.Drawing.Size(224, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "beSMART is a software for decision problems \r\nbased on a multicriteria evaluation" +
-                " and \r\nprioritization of decision support Software.";
+    " and \r\nprioritization of decision support Software.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -87,7 +87,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(233, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 13);
+            this.label6.Size = new System.Drawing.Size(118, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "1. Choose the Software";
             // 
@@ -134,6 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 232);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label9);
@@ -146,6 +147,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Init";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "beSMART Software";

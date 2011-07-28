@@ -9,6 +9,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using ZedGraph;
+using System.Collections;
 
 
 namespace Interface
@@ -19,14 +21,14 @@ namespace Interface
         int indexSperate = 0;
         int selectCharacteristics_row = 0;
         string selectCharacteristics_id = "";
+        Init inicial = new Init();
 
-
-        public Dictionary<int, Dictionary<string, float>> resultFinal;
+        public bool close = false;
 
         public chooseProcess()
         {
             InitializeComponent();
-
+            
             init();
         }
 
@@ -41,6 +43,11 @@ namespace Interface
             dataGridViewTabelaSoftware.Columns[0].Visible = false;
 
             info();
+
+            inicial.ShowDialog();
+
+            if (close == true) this.Dispose();
+
         }
 
         private void info()
@@ -264,7 +271,7 @@ namespace Interface
         #region Button Preivous
 
         private void buttonPreviousToSoftware_Click(object sender, EventArgs e)
-        {   
+        {
             tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 0;
@@ -289,31 +296,35 @@ namespace Interface
         #region Button Finish
         private void buttonFinish_Click(object sender, EventArgs e)
         {
-            resultFinal = new Dictionary<int, Dictionary<string, float>>();
+            Business.ManagementDataBase.resultFinal = new Dictionary<int, Dictionary<string, float>>();
             if (Business.ManagementDataBase.metodo_fase_1.Equals("smart"))
             {
-                resultFinal = Business.ManagementDataBase.decision.analiseFinalSmart(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
+                Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinalSmart(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
             }
 
             if (Business.ManagementDataBase.metodo_fase_1.Equals("ahp"))
             {
-                resultFinal = Business.ManagementDataBase.decision.analiseFinalAHP(Business.ManagementDataBase.pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
+                Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinalAHP(Business.ManagementDataBase.pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
             }
 
 
             DataTable final = new DataTable();
             final.Columns.Add("RANK");
             final.Columns.Add("Software");
+            final.Columns.Add("Name");
             final.Columns.Add("Priority");
 
 
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in resultFinal)
+            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
             {
                 Dictionary<string, float> a;
-                resultFinal.TryGetValue(pair.Key, out a);
+                Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
                 foreach (KeyValuePair<string, float> pair2 in a)
                 {
-                    final.Rows.Add(pair.Key, pair2.Key, pair2.Value);
+                    int id_Soft = 0;
+                    int.TryParse(pair2.Key, out id_Soft);
+                    Business.Software s = Business.ManagementDataBase.getSoftware(id_Soft);
+                    final.Rows.Add(pair.Key, pair2.Key, s.Name, pair2.Value);
                 }
             }
 
@@ -323,9 +334,173 @@ namespace Interface
             tabControlSeparates.SelectedTab = tabPageFinal;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 100;
+
+            graph();
         }
 
+        private void graph()
+        {
+            // limpa o gráfico
+            zedGraphControlRankingFinal.GraphPane.CurveList.Clear();
+
+            GraphPane myPane = zedGraphControlRankingFinal.GraphPane;
+
+            // títulos
+            myPane.Title.Text = "Final Ranking";
+            myPane.XAxis.Title.Text = "Software Name";
+            myPane.YAxis.Title.Text = "Priority";
+
+            /*AQUI É ONDE EU DEFINO O QUE APARECE NO EIXO DOS XX. DEFINO QUE LÁ APARECE TEXTO E PASSO UM ARRAY
+             * DE STRINGS COM AS CENAS QUE SÃO LÁ COLOCADAS. NO CASO, É O NOME DOS SOFTWARES. ACHO QUE É FAZIVEL */
+            myPane.XAxis.Type = AxisType.Text; //defino o tipo pra texto
+            string[] labels = graphXX();
+            myPane.XAxis.Scale.TextLabels = labels; //digo que as labels são as que estão no array que declarei em cima
+            
+            myPane.XAxis.Type = AxisType.Text;
+
+            PointPairList list = graphYY();
+            BarItem barra = myPane.AddBar("Priority", list, Color.Blue);
+            barra.Bar.Fill = new Fill(Color.Blue);
+            barra.Bar.Border.GradientFill.IsScaled = true;
+
+            myPane.Chart.Fill = new Fill(Color.YellowGreen, Color.LightGoldenrodYellow, 45F);
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            zedGraphControlRankingFinal.AxisChange();
+        }
+
+        private string[] graphXX()
+        {
+            // coloca o nome dos softwares num array de strings
+            ArrayList list = new ArrayList();
+
+            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
+            {
+                Dictionary<string, float> a;
+                Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
+                foreach (KeyValuePair<string, float> pair2 in a)
+                {
+                    int id_Soft = 0;
+                    int.TryParse(pair2.Key, out id_Soft);
+                    Business.Software s = Business.ManagementDataBase.getSoftware(id_Soft);
+                    list.Add(s.Name);
+                }
+            }
+
+
+            string[] x = new string[list.Count];
+
+            int pos = 0;
+            foreach (string v in list)
+            {
+                x[pos] = v;
+                pos++;
+            }
+
+
+            return x;
+        }
+
+        private PointPairList graphYY()
+        {
+            PointPairList list = new PointPairList();
+
+            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
+            {
+                Dictionary<string, float> a;
+                Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
+                foreach (KeyValuePair<string, float> pair2 in a)
+                {
+                    list.Add(0, pair2.Value);
+                }
+            }
+
+            return list;
+        }
+       
         #endregion
+
+
+        private void graphDetails()
+        {
+            // limpa o gráfico
+            zedGraphControlRankingFinal.GraphPane.CurveList.Clear();
+
+            GraphPane myPane = zedGraphControlRankingFinal.GraphPane;
+
+            // títulos
+            myPane.Title.Text = "Final Ranking";
+            myPane.XAxis.Title.Text = "Software Name";
+            myPane.YAxis.Title.Text = "Priority";
+
+            /*AQUI É ONDE EU DEFINO O QUE APARECE NO EIXO DOS XX. DEFINO QUE LÁ APARECE TEXTO E PASSO UM ARRAY
+             * DE STRINGS COM AS CENAS QUE SÃO LÁ COLOCADAS. NO CASO, É O NOME DOS SOFTWARES. ACHO QUE É FAZIVEL */
+            myPane.XAxis.Type = AxisType.Text; //defino o tipo pra texto
+            string[] labels = graphXXDetails();
+            myPane.XAxis.Scale.TextLabels = labels; //digo que as labels são as que estão no array que declarei em cima
+
+            myPane.XAxis.Type = AxisType.Text;
+
+            PointPairList list = graphYYDetails(GraphPane myPane);
+            BarItem barra = myPane.AddBar("Priority", list, Color.Blue);
+            barra.Bar.Fill = new Fill(Color.Blue);
+            barra.Bar.Border.GradientFill.IsScaled = true;
+
+            myPane.Chart.Fill = new Fill(Color.YellowGreen, Color.LightGoldenrodYellow, 45F);
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            zedGraphControlRankingFinal.AxisChange();
+        }
+
+        private string[] graphXXDetails()
+        {
+            // coloca o nome dos softwares num array de strings
+            ArrayList list = new ArrayList();
+
+            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
+            {
+                Dictionary<string, float> a;
+                Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
+                foreach (KeyValuePair<string, float> pair2 in a)
+                {
+                    int id_Soft = 0;
+                    int.TryParse(pair2.Key, out id_Soft);
+                    Business.Software s = Business.ManagementDataBase.getSoftware(id_Soft);
+                    list.Add(s.Name);
+                }
+            }
+
+
+            string[] x = new string[list.Count];
+
+            int pos = 0;
+            foreach (string v in list)
+            {
+                x[pos] = v;
+                pos++;
+            }
+
+
+            return x;
+        }
+
+        private PointPairList graphYYDetails(GraphPane myPane)
+        {
+            int i = 0;
+
+            PointPairList list = new PointPairList();
+
+            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
+            {
+                Dictionary<string, float> a;
+                Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
+                foreach (KeyValuePair<string, float> pair2 in a)
+                {
+                    list.Add(0, pair2.Value);
+                }
+            }
+
+            return list;
+        }
+
 
         #region Button Help
         private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -552,6 +727,10 @@ namespace Interface
         }
 
 
+        private void dataGridViewPesosFinaisSmart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
         // verifica se está tudo preenchido e calcula os pesos
         private void verifyTableSmart()
         {
@@ -635,6 +814,7 @@ namespace Interface
             }
 
         }
+
 
         #endregion
 
@@ -1287,6 +1467,9 @@ namespace Interface
         }
 
         #endregion
+
+
+        
 
 
     }

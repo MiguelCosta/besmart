@@ -18,10 +18,6 @@ namespace Interface
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Show welcome
-            Init welcome = new Init();
-            Application.Run(welcome);
-
             // Show main windows
             chooseProcess cp = new chooseProcess();
             Application.Run(cp);

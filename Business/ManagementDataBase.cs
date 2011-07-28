@@ -298,8 +298,6 @@ namespace Business
             return new DataView(pesos);
         }
 
-
-
         public static void addIdSoftwareelect(int id)
         {
             ids_dos_SoftwareSeleccionados.Add(id);

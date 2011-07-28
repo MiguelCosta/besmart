@@ -24,10 +24,7 @@ namespace Interface
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-
-            MessageBox.Show("Welcome!");
             this.Dispose();
-
         }
 
 

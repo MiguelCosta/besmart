@@ -88,11 +88,11 @@
             this.tabPageSMART = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewSmart = new System.Windows.Forms.DataGridView();
-            this.Weights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewPesosFinaisSmart = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridViewSmart = new System.Windows.Forms.DataGridView();
+            this.Weights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label_DefinitionOfWeightsSmart = new System.Windows.Forms.Label();
             this.tabPageAHP = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -142,10 +142,14 @@
             this.buttonSelectCharacteristicsPrevious = new System.Windows.Forms.Button();
             this.buttonSelectCaracteristicsNext = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonPreviousDefinitionOfPriorities = new System.Windows.Forms.Button();
             this.buttonFinish = new System.Windows.Forms.Button();
             this.tabPageFinal = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewFinal = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.zedGraphControlRankingFinal = new ZedGraph.ZedGraphControl();
+            this.buttonStartNewComparation = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,7 +174,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
-            this.buttonPreviousDefinitionOfPriorities = new System.Windows.Forms.Button();
+            this.zedGraphControlRankingDetails = new ZedGraph.ZedGraphControl();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -190,9 +194,9 @@
             this.tabPageSMART.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmart)).BeginInit();
             this.tableLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesosFinaisSmart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmart)).BeginInit();
             this.tabPageAHP.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -228,6 +232,7 @@
             this.tabPageFinal.SuspendLayout();
             this.tableLayoutPanel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinal)).BeginInit();
+            this.tableLayoutPanel22.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelProgress.SuspendLayout();
             this.panelTab.SuspendLayout();
@@ -667,10 +672,10 @@
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.ColumnCount = 2;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel13.Controls.Add(this.dataGridViewSmart, 0, 0);
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.17558F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.82442F));
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel16, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.dataGridViewSmart, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 53);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
@@ -679,69 +684,20 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(729, 338);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
-            // dataGridViewSmart
-            // 
-            this.dataGridViewSmart.AllowUserToAddRows = false;
-            this.dataGridViewSmart.AllowUserToDeleteRows = false;
-            this.dataGridViewSmart.AllowUserToResizeRows = false;
-            this.dataGridViewSmart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSmart.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dataGridViewSmart.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSmart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewSmart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSmart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Weights});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSmart.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewSmart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSmart.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridViewSmart.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewSmart.Name = "dataGridViewSmart";
-            this.dataGridViewSmart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSmart.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewSmart.Size = new System.Drawing.Size(540, 332);
-            this.dataGridViewSmart.TabIndex = 8;
-            this.dataGridViewSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmart_CellEndEdit);
-            this.dataGridViewSmart.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSmart_CellValidating);
-            // 
-            // Weights
-            // 
-            this.Weights.HeaderText = "Weights";
-            this.Weights.Name = "Weights";
-            // 
             // tableLayoutPanel16
             // 
+            this.tableLayoutPanel16.AutoScroll = true;
             this.tableLayoutPanel16.ColumnCount = 1;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Controls.Add(this.dataGridViewPesosFinaisSmart, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(549, 3);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(499, 3);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 2;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.70588F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(177, 332);
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(227, 332);
             this.tableLayoutPanel16.TabIndex = 9;
             // 
             // dataGridViewPesosFinaisSmart
@@ -752,30 +708,81 @@
             this.dataGridViewPesosFinaisSmart.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dataGridViewPesosFinaisSmart.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewPesosFinaisSmart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPesosFinaisSmart.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPesosFinaisSmart.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewPesosFinaisSmart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPesosFinaisSmart.Location = new System.Drawing.Point(3, 74);
+            this.dataGridViewPesosFinaisSmart.Location = new System.Drawing.Point(3, 23);
             this.dataGridViewPesosFinaisSmart.Name = "dataGridViewPesosFinaisSmart";
             this.dataGridViewPesosFinaisSmart.ReadOnly = true;
-            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(171, 255);
+            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(221, 306);
             this.dataGridViewPesosFinaisSmart.TabIndex = 10;
+            this.dataGridViewPesosFinaisSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPesosFinaisSmart_CellEndEdit);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 27);
+            this.label3.Location = new System.Drawing.Point(44, 2);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 16);
             this.label3.TabIndex = 11;
             this.label3.Text = "Final Weight Table";
+            // 
+            // dataGridViewSmart
+            // 
+            this.dataGridViewSmart.AllowUserToAddRows = false;
+            this.dataGridViewSmart.AllowUserToDeleteRows = false;
+            this.dataGridViewSmart.AllowUserToResizeRows = false;
+            this.dataGridViewSmart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSmart.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dataGridViewSmart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSmart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewSmart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSmart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Weights});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSmart.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewSmart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSmart.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridViewSmart.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewSmart.Name = "dataGridViewSmart";
+            this.dataGridViewSmart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSmart.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewSmart.Size = new System.Drawing.Size(490, 332);
+            this.dataGridViewSmart.TabIndex = 8;
+            this.dataGridViewSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmart_CellEndEdit);
+            this.dataGridViewSmart.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSmart_CellValidating);
+            // 
+            // Weights
+            // 
+            this.Weights.HeaderText = "Weights";
+            this.Weights.Name = "Weights";
             // 
             // label_DefinitionOfWeightsSmart
             // 
@@ -1566,6 +1573,18 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(749, 48);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
+            // buttonPreviousDefinitionOfPriorities
+            // 
+            this.buttonPreviousDefinitionOfPriorities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPreviousDefinitionOfPriorities.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.buttonPreviousDefinitionOfPriorities.Location = new System.Drawing.Point(287, 3);
+            this.buttonPreviousDefinitionOfPriorities.Name = "buttonPreviousDefinitionOfPriorities";
+            this.buttonPreviousDefinitionOfPriorities.Size = new System.Drawing.Size(84, 23);
+            this.buttonPreviousDefinitionOfPriorities.TabIndex = 3;
+            this.buttonPreviousDefinitionOfPriorities.Text = "< Previous";
+            this.buttonPreviousDefinitionOfPriorities.UseVisualStyleBackColor = true;
+            this.buttonPreviousDefinitionOfPriorities.Click += new System.EventHandler(this.buttonDefinitionOfPriorities_Click);
+            // 
             // buttonFinish
             // 
             this.buttonFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1593,11 +1612,15 @@
             this.tableLayoutPanel31.ColumnCount = 1;
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel31.Controls.Add(this.dataGridViewFinal, 0, 0);
+            this.tableLayoutPanel31.Controls.Add(this.tableLayoutPanel22, 0, 1);
+            this.tableLayoutPanel31.Controls.Add(this.buttonStartNewComparation, 0, 2);
             this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel31.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
-            this.tableLayoutPanel31.RowCount = 1;
+            this.tableLayoutPanel31.RowCount = 3;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel31.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel31.TabIndex = 0;
             // 
@@ -1626,7 +1649,7 @@
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewFinal.DefaultCellStyle = dataGridViewCellStyle29;
-            this.dataGridViewFinal.Location = new System.Drawing.Point(142, 166);
+            this.dataGridViewFinal.Location = new System.Drawing.Point(142, 22);
             this.dataGridViewFinal.Name = "dataGridViewFinal";
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
@@ -1638,6 +1661,51 @@
             this.dataGridViewFinal.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewFinal.Size = new System.Drawing.Size(470, 201);
             this.dataGridViewFinal.TabIndex = 0;
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 2;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.Controls.Add(this.zedGraphControlRankingFinal, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.zedGraphControlRankingDetails, 1, 0);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(3, 248);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 1;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(749, 244);
+            this.tableLayoutPanel22.TabIndex = 1;
+            // 
+            // zedGraphControlRankingFinal
+            // 
+            this.zedGraphControlRankingFinal.BackgroundImage = global::Interface.Properties.Resources.Logo_Marca_de_água;
+            this.zedGraphControlRankingFinal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zedGraphControlRankingFinal.IsEnableHZoom = false;
+            this.zedGraphControlRankingFinal.IsEnableVZoom = false;
+            this.zedGraphControlRankingFinal.IsSynchronizeXAxes = true;
+            this.zedGraphControlRankingFinal.IsSynchronizeYAxes = true;
+            this.zedGraphControlRankingFinal.Location = new System.Drawing.Point(3, 3);
+            this.zedGraphControlRankingFinal.Name = "zedGraphControlRankingFinal";
+            this.zedGraphControlRankingFinal.ScrollGrace = 0D;
+            this.zedGraphControlRankingFinal.ScrollMaxX = 0D;
+            this.zedGraphControlRankingFinal.ScrollMaxY = 0D;
+            this.zedGraphControlRankingFinal.ScrollMaxY2 = 0D;
+            this.zedGraphControlRankingFinal.ScrollMinX = 0D;
+            this.zedGraphControlRankingFinal.ScrollMinY = 0D;
+            this.zedGraphControlRankingFinal.ScrollMinY2 = 0D;
+            this.zedGraphControlRankingFinal.Size = new System.Drawing.Size(368, 238);
+            this.zedGraphControlRankingFinal.TabIndex = 2;
+            // 
+            // buttonStartNewComparation
+            // 
+            this.buttonStartNewComparation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonStartNewComparation.Location = new System.Drawing.Point(305, 503);
+            this.buttonStartNewComparation.Name = "buttonStartNewComparation";
+            this.buttonStartNewComparation.Size = new System.Drawing.Size(144, 23);
+            this.buttonStartNewComparation.TabIndex = 2;
+            this.buttonStartNewComparation.Text = "Start New Comparation";
+            this.buttonStartNewComparation.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -1848,17 +1916,20 @@
             this.panelTab.Size = new System.Drawing.Size(769, 569);
             this.panelTab.TabIndex = 48;
             // 
-            // buttonPreviousDefinitionOfPriorities
+            // zedGraphControlRankingDetails
             // 
-            this.buttonPreviousDefinitionOfPriorities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPreviousDefinitionOfPriorities.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviousDefinitionOfPriorities.Location = new System.Drawing.Point(287, 3);
-            this.buttonPreviousDefinitionOfPriorities.Name = "buttonPreviousDefinitionOfPriorities";
-            this.buttonPreviousDefinitionOfPriorities.Size = new System.Drawing.Size(84, 23);
-            this.buttonPreviousDefinitionOfPriorities.TabIndex = 3;
-            this.buttonPreviousDefinitionOfPriorities.Text = "< Previous";
-            this.buttonPreviousDefinitionOfPriorities.UseVisualStyleBackColor = true;
-            this.buttonPreviousDefinitionOfPriorities.Click += new System.EventHandler(this.buttonDefinitionOfPriorities_Click);
+            this.zedGraphControlRankingDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zedGraphControlRankingDetails.Location = new System.Drawing.Point(377, 3);
+            this.zedGraphControlRankingDetails.Name = "zedGraphControlRankingDetails";
+            this.zedGraphControlRankingDetails.ScrollGrace = 0D;
+            this.zedGraphControlRankingDetails.ScrollMaxX = 0D;
+            this.zedGraphControlRankingDetails.ScrollMaxY = 0D;
+            this.zedGraphControlRankingDetails.ScrollMaxY2 = 0D;
+            this.zedGraphControlRankingDetails.ScrollMinX = 0D;
+            this.zedGraphControlRankingDetails.ScrollMinY = 0D;
+            this.zedGraphControlRankingDetails.ScrollMinY2 = 0D;
+            this.zedGraphControlRankingDetails.Size = new System.Drawing.Size(369, 238);
+            this.zedGraphControlRankingDetails.TabIndex = 3;
             // 
             // chooseProcess
             // 
@@ -1899,10 +1970,10 @@
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             this.tableLayoutPanel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmart)).EndInit();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesosFinaisSmart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmart)).EndInit();
             this.tabPageAHP.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
@@ -1947,6 +2018,7 @@
             this.tabPageFinal.ResumeLayout(false);
             this.tableLayoutPanel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinal)).EndInit();
+            this.tableLayoutPanel22.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelProgress.ResumeLayout(false);
@@ -2048,7 +2120,6 @@
         private System.Windows.Forms.Label labelAHPPrioCons;
         private System.Windows.Forms.TabPage tabPageFinal;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
-        private System.Windows.Forms.DataGridView dataGridViewFinal;
         private System.Windows.Forms.ToolStripMenuItem startANewComparationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -2070,5 +2141,10 @@
         private System.Windows.Forms.Label label_DefinitionOfPriorities;
         private System.Windows.Forms.Label label_DefinitionOfPrioritiesValueFn;
         private System.Windows.Forms.Button buttonPreviousDefinitionOfPriorities;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private ZedGraph.ZedGraphControl zedGraphControlRankingFinal;
+        private System.Windows.Forms.DataGridView dataGridViewFinal;
+        private System.Windows.Forms.Button buttonStartNewComparation;
+        private ZedGraph.ZedGraphControl zedGraphControlRankingDetails;
     }
 }
