@@ -440,7 +440,7 @@ namespace Interface
 
             myPane.XAxis.Type = AxisType.Text;
 
-            PointPairList list = graphYYDetails(GraphPane myPane);
+            PointPairList list = graphYYDetails(myPane);
             BarItem barra = myPane.AddBar("Priority", list, Color.Blue);
             barra.Bar.Fill = new Fill(Color.Blue);
             barra.Bar.Border.GradientFill.IsScaled = true;
@@ -484,17 +484,19 @@ namespace Interface
 
         private PointPairList graphYYDetails(GraphPane myPane)
         {
-            int i = 0;
+            myPane.BarSettings.Type = BarType.Stack;
 
             PointPairList list = new PointPairList();
 
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
+            Dictionary<string, float> a;
+
+            foreach (int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys)
             {
-                Dictionary<string, float> a;
-                Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
+                MessageBox.Show("c");
+                Business.ManagementDataBase.decision.TableResult.TryGetValue(""+c, out a);
                 foreach (KeyValuePair<string, float> pair2 in a)
                 {
-                    list.Add(0, pair2.Value);
+
                 }
             }
 
