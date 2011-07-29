@@ -354,6 +354,8 @@ namespace Interface
             myPane.XAxis.Title.Text = "Software Name";
             myPane.YAxis.Title.Text = "Priority";
 
+            myPane.Legend.IsVisible = false;
+
             myPane.XAxis.Type = AxisType.Text;
             string[] labels = graphXX();
             myPane.XAxis.Scale.TextLabels = labels;
@@ -434,6 +436,9 @@ namespace Interface
             myPane2.Title.Text = "Final Ranking";
             myPane2.XAxis.Title.Text = "Software Name";
             myPane2.YAxis.Title.Text = "Priority";
+
+            myPane2.Legend.Position = LegendPos.BottomCenter;
+            myPane2.Legend.FontSpec.Size = 15;
 
             myPane2.XAxis.Type = AxisType.Text;
             string[] labels = graphXXDetails();
