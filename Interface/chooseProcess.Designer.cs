@@ -1953,9 +1953,10 @@
             // dataGridViewFinalDetails
             // 
             this.dataGridViewFinalDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFinalDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFinalDetails.Location = new System.Drawing.Point(377, 3);
             this.dataGridViewFinalDetails.Name = "dataGridViewFinalDetails";
-            this.dataGridViewFinalDetails.Size = new System.Drawing.Size(319, 177);
+            this.dataGridViewFinalDetails.Size = new System.Drawing.Size(369, 203);
             this.dataGridViewFinalDetails.TabIndex = 1;
             // 
             // chooseProcess

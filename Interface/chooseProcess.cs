@@ -332,7 +332,7 @@ namespace Interface
             dataGridViewFinal.DataSource = view;
 
             dataGridViewFinalDetails.DataBindings.Clear();
-            //dataGridViewFinalDetails.DataSource = Business.ManagementDataBase.tableFinalCompose();
+            dataGridViewFinalDetails.DataSource = Business.ManagementDataBase.tableFinalCompose();
 
             tabControlSeparates.SelectedTab = tabPageFinal;
             indexSperate = tabControlSeparates.SelectedIndex;
@@ -421,6 +421,7 @@ namespace Interface
 
         #endregion
 
+        #region Graph Details
 
         private void graphDetails()
         {
@@ -484,8 +485,6 @@ namespace Interface
         {
             myPane.BarSettings.Type = BarType.Stack;
 
-            Dictionary<string, float> a;
-
             foreach (int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys)
             {
                 MessageBox.Show("" + c);
@@ -495,8 +494,8 @@ namespace Interface
 
                 Business.Characteristic ch = Business.ManagementDataBase.getCharacteristics(c);
 
-                BarItem barra = myPane.AddBar(ch.Name, list, Color.Blue);
-                barra.Bar.Fill = new Fill(Color.Blue);
+                BarItem barra = myPane.AddBar(ch.Name, list, CreateRandomColor());
+                barra.Bar.Fill = new Fill(CreateRandomColor());
 
             }
 
@@ -532,6 +531,7 @@ namespace Interface
             return list;
         }
 
+        #endregion
 
         #region Button Help
         private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1496,6 +1496,16 @@ namespace Interface
             float.TryParse(s, out r);
             return r;
         }
+
+
+        private Color CreateRandomColor()
+        {
+            Random randonGen = new Random();
+            Color randomColor = Color.FromArgb(randonGen.Next(255), randonGen.Next(255), randonGen.Next(255));
+
+            return randomColor;
+        }
+
 
         #endregion
 
