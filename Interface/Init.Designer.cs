@@ -50,19 +50,19 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(387, 29);
+            this.label1.Size = new System.Drawing.Size(366, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to beSMART Software";
+            this.label1.Text = "Welcome to beSmart Software";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(182, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 39);
+            this.label2.Size = new System.Drawing.Size(230, 39);
             this.label2.TabIndex = 2;
-            this.label2.Text = "beSMART is a software for decision problems \r\nbased on a multicriteria evaluation" +
-    " and \r\nprioritization of decision support Software.";
+            this.label2.Text = "beSMART is an software for decision problems \r\nbased on a multicriteria evaluatio" +
+    "n and \r\nprioritization of decision support software.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -87,9 +87,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(233, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 13);
+            this.label6.Size = new System.Drawing.Size(147, 13);
             this.label6.TabIndex = 6;
-            this.label6.Text = "1. Choose the Software";
+            this.label6.Text = "1. Choose the set of Software";
             // 
             // label8
             // 
@@ -105,9 +105,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(180, 161);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(219, 13);
+            this.label9.Size = new System.Drawing.Size(224, 13);
             this.label9.TabIndex = 9;
-            this.label9.Text = "3. Choose the multicriteria method to be used";
+            this.label9.Text = "3. Choose the multicriteria methods to be used";
             // 
             // buttonLogin
             // 

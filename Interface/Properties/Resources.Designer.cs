@@ -60,6 +60,41 @@ namespace Interface.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Best1 {
+            get {
+                object obj = ResourceManager.GetObject("Best1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Edit1 {
+            get {
+                object obj = ResourceManager.GetObject("Edit1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Edit2 {
+            get {
+                object obj = ResourceManager.GetObject("Edit2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Help1 {
+            get {
+                object obj = ResourceManager.GetObject("Help1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Information1 {
+            get {
+                object obj = ResourceManager.GetObject("Information1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to For new Comparation: 
         ///1 - Software -&gt; Start New Comparation (Ctrl+N)
@@ -86,9 +121,37 @@ namespace Interface.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap uwsp3__7_ {
+        internal static System.Drawing.Bitmap Mail1 {
             get {
-                object obj = ResourceManager.GetObject("uwsp3 (7)", resourceCulture);
+                object obj = ResourceManager.GetObject("Mail1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap New1 {
+            get {
+                object obj = ResourceManager.GetObject("New1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Open1 {
+            get {
+                object obj = ResourceManager.GetObject("Open1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap save1 {
+            get {
+                object obj = ResourceManager.GetObject("save1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap WebBrowser1 {
+            get {
+                object obj = ResourceManager.GetObject("WebBrowser1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

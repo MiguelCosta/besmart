@@ -70,17 +70,17 @@ namespace Interface
 
             string definitionOfWeightsSmart = "";
             definitionOfWeightsSmart += "Please give 10 points to the  characteristic you consider the least important. To other characteristics give the points according to the first ranked (feature which gave 10 points).";
-            definitionOfWeightsSmart += "\nThen click Calculate Final Weights button to get a  table with normalized values.";
+            definitionOfWeightsSmart += "\nThen is calculated the final weights and got a  table with normalized values.";
             definitionOfWeightsSmart += "\nFinally press next button.";
             label_DefinitionOfWeightsSmart.Text = definitionOfWeightsSmart;
 
             string definitionOfWeightsAHP = "";
             definitionOfWeightsAHP += "This table pretends to describe the relation between all characteristics chosen.";
             definitionOfWeightsAHP += "\nThe main diagonal of the table associates the same two characteristics, so  is automatically filled.";
-            definitionOfWeightsAHP += "\nHere you have to  fill the part of the table below the main diagonal, and give points to each criterion concerning other.";
+            definitionOfWeightsAHP += "\nHere you have to  fill in the part of the table above the main diagonal, and give points to each criterion concerning other.";
             definitionOfWeightsAHP += "\nYou may adopt your own scale or consider  the scale described in AHP Tutorial.";
-            definitionOfWeightsAHP += "\nAlso, fill the part of the table above the main diagonal with the inverse values previously assigned.";
-            definitionOfWeightsAHP += "\nThen click Calculate Final Weights button to get a  table with normalized values, named final weight matrix. After that, is estimated the consistency rate of  this matrix clicking in Test Consistency";
+            definitionOfWeightsAHP += "\nThe part of the table below the main diagonal is automatically fill in  with the inverse values previously assigned.";
+            definitionOfWeightsAHP += "\nThen is calculate final weights and got a  table with normalized values, named final weight matrix. After that, is estimated the consistency rate of  this matrix.";
             definitionOfWeightsAHP += "\nIf the value of consistency is good (written in green), you can proceed. If the consistency is bad (written in red), you should change the values to get a better result, or proceed anyway.";
             definitionOfWeightsAHP += "\nFinally press next button.";
             label_DefinitionOfWeightsAHP.Text = definitionOfWeightsAHP;
@@ -88,15 +88,21 @@ namespace Interface
 
             string definitionOfPriorities = "";
             definitionOfPriorities += "Here you have to define the priorities for each characteristic you selected before.";
-            definitionOfPriorities += "\nFirst select the desired criterion from the table, and press Select Characteristic button. Then, choose between ValueFn and AHP method. You must do this for each characteristic.";
+            definitionOfPriorities += "\nFirst select the desired criterion from the table. Then, choose between ValueFn and AHP method. You must do this for each characteristic.";
             definitionOfPriorities += "\nWhen all criteria are classified, you can finish the process pressing the Finish button.";
             definitionOfPriorities += "\nTo learn how the methods work , see the tutorials in Help menu.";
             label_DefinitionOfPriorities.Text = definitionOfPriorities;
 
             string definitionOfPriotitiesValueFn = "";
-            definitionOfPriotitiesValueFn += "Select the option as you want to maximize or minimize the criterion.";
-            definitionOfPriotitiesValueFn += "\nThen press the Calculate button to get the values of the priorities.";
+            definitionOfPriotitiesValueFn += "Select the option as you want to maximize or minimize the criterion to get the values of the priorities.";
             label_DefinitionOfPrioritiesValueFn.Text = definitionOfPriotitiesValueFn;
+
+            string definitionOfPrioritiesAHP = "";
+            definitionOfPrioritiesAHP += "The table pretends to describe the relation between all characteristics chosen.";
+            definitionOfPrioritiesAHP += "The main diagonal of the table associates the same two characteristics, so  is automatically filled.";
+            definitionOfPrioritiesAHP += "Here you have to  fill the part of the table above the main diagonal, and give points to each criterion concerning other.";
+            definitionOfPrioritiesAHP += "You may adopt your own scale or consider  the scale described in AHP Tutorial.";
+            label_DefinitionOfPrioritiesAHP.Text = definitionOfPrioritiesAHP;
         }
 
         #region Refresh Tables
@@ -263,6 +269,8 @@ namespace Interface
             selectCharacteristics_row = 0;
             buttonSelectCharacteristicsNext_Click(null, null);
             buttonSelectCaracteristicsNext.Enabled = true;
+
+            dataGridViewListSelectSoftware.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
         }
 
 
@@ -310,8 +318,8 @@ namespace Interface
 
             DataTable final = new DataTable();
             final.Columns.Add("RANK");
-            final.Columns.Add("Software");
-            final.Columns.Add("Name");
+            final.Columns.Add("Software ID");
+            final.Columns.Add("Software Name");
             final.Columns.Add("Priority");
 
 
@@ -340,7 +348,97 @@ namespace Interface
 
             graph();
             graphDetails();
+
+            labelBestSoftware();
+
+            configTableFinal();
+            configTableFinalDetails();
         }
+
+        private void labelBestSoftware()
+        {
+            foreach (DataGridViewRow line in dataGridViewFinal.Rows)
+            {
+                if (line.Cells[0].Value.ToString().Equals("1"))
+                {
+                    labelBestSoftwareName.Text = line.Cells[2].Value.ToString();
+                    return;
+                }
+            }
+        }
+
+        private void configTableFinal()
+        {
+            foreach (DataGridViewRow line in dataGridViewFinal.Rows)
+            {
+                if (line.Cells[0].Value.ToString().Equals("1"))
+                {
+                    foreach (DataGridViewCell c in line.Cells)
+                    {
+                        c.Style.BackColor = Color.Yellow;
+                    }
+                }
+
+                float f1;
+                float.TryParse(line.Cells[3].Value.ToString(), out f1);
+
+                f1 = f1 * 100;
+
+                line.Cells[3].Value = f1.ToString("0.00") + " %";
+            }
+
+
+        }
+
+        private void configTableFinalDetails()
+        {
+            // cores das caracteristicas
+            foreach (DataGridViewRow line in dataGridViewFinalDetails.Rows)
+            {
+                if (line.Cells[1].Value.ToString().Equals(""))
+                {
+                    foreach (DataGridViewCell c in line.Cells)
+                    {
+                        c.Style.BackColor = Color.Black;
+                        c.Style.ForeColor = System.Drawing.Color.White;
+                    }
+                }
+            }
+
+            // nomes dos softwares
+            foreach (DataGridViewRow line in dataGridViewFinalDetails.Rows)
+            {
+                if (line.Cells[1].Value.ToString().Equals("") == false)
+                {
+                    int id;
+                    int.TryParse(line.Cells[1].Value.ToString(), out id);
+                    Business.Software s = Business.ManagementDataBase.getSoftware(id);
+                    dataGridViewFinalDetails.Rows[line.Index].Cells[1].Value = s.Name;
+
+                    float f1, f2;
+                    float.TryParse(line.Cells[2].Value.ToString(), out f1);
+                    float.TryParse(line.Cells[3].Value.ToString(), out f2);
+
+                    f1 = f1 * 100;
+                    f2 = f2 * 100;
+
+                    line.Cells[2].Value = f1.ToString("0.00") + " %";
+                    line.Cells[3].Value = f2.ToString("0.00") + " %";
+                }
+
+            }
+
+
+
+
+
+        }
+
+        private void dataGridViewFinalDetails_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+
 
         #endregion
 
@@ -618,6 +716,11 @@ namespace Interface
             tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             dataGridViewTabelaSoftware.Columns[0].Visible = true;
 
+        }
+
+        private void buttonStartNewComparation_Click(object sender, EventArgs e)
+        {
+             startANewComparationToolStripMenuItem_Click(null, null);
         }
 
         #endregion
@@ -1568,6 +1671,11 @@ namespace Interface
 
 
         #endregion
+
+
+
+
+
 
 
 

@@ -133,6 +133,33 @@ namespace Business
             return new DataView(tabela_Software);
         }
 
+        public static DataView tableSoftwareSelectSimple()
+        {
+            // actualizar a tabela inicial
+            DataTable tabela_Software = new DataTable();
+            tabela_Software.Columns.Add("ID");
+            tabela_Software.Columns.Add("Name");
+
+            tabela_Software.Columns["ID"].ReadOnly = true;
+            tabela_Software.Columns["Name"].ReadOnly = true;
+
+
+            // adiciona as linhas (info dos Software)
+            foreach (int id_s in ids_dos_SoftwareSeleccionados)
+            {
+                Software s = getSoftware(id_s);
+                // coloca todas as caracteristicas numa List
+                List<string> values = new List<string>();
+                values.Add("" + s.Id);
+                values.Add(s.Name);
+
+                // passa para um array, para ser possivel adicionar uma linha
+                string[] array = values.ToArray();
+                tabela_Software.Rows.Add(array);
+            }
+
+            return new DataView(tabela_Software);
+        }
 
         public static DataView tableSoftwareWebPage()
         {
@@ -189,9 +216,6 @@ namespace Business
             tabelaFinalComposta.Columns.Add("Calculations");
 
             tabelaFinalComposta.Columns["Characteristic"].ReadOnly = true;
-            tabelaFinalComposta.Columns["Software"].ReadOnly = true;
-            tabelaFinalComposta.Columns["Prioridades"].ReadOnly = true;
-            tabelaFinalComposta.Columns["Calculations"].ReadOnly = true;
 
             foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.decision.TableResultWeight) 
             {

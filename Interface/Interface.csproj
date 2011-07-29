@@ -302,6 +302,16 @@
     <None Include="Resources\logoBeSmart.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Files\Image\Information1.png" />
+    <None Include="bin\Debug\Files\Image\Best1.png" />
+    <None Include="bin\Debug\Files\Image\New1.png" />
+    <None Include="bin\Debug\Files\Image\WebBrowser1.png" />
+    <None Include="bin\Debug\Files\Image\Edit2.png" />
+    <None Include="bin\Debug\Files\Image\Mail1.png" />
+    <None Include="bin\Debug\Files\Image\Edit1.png" />
+    <None Include="bin\Debug\Files\Image\Open1.png" />
+    <None Include="bin\Debug\Files\Image\Help1.png" />
+    <None Include="bin\Debug\Files\Image\save1.png" />
     <None Include="bin\Debug\Files\Tutorials_html\AHPtutorial.htm" />
     <Content Include="logoBeSmart.ico" />
   </ItemGroup>
