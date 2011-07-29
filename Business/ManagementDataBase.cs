@@ -195,14 +195,18 @@ namespace Business
 
             foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.decision.TableResultWeight) 
             {
-                tabelaFinalComposta.Rows.Add(pair.Key, "", pair.Value, "");
+                tabelaFinalComposta.Rows.Add(pair.Key, "", pair.Value + "*", "");
                 foreach (KeyValuePair<string, Dictionary<string,float>> pair1 in Business.ManagementDataBase.decision.TableResult)
                 {
-                    foreach (KeyValuePair<string, float> pair2 in pair1.Value)
+                    if (pair.Key.Equals(pair1.Key))
                     {
-                        tabelaFinalComposta.Rows.Add(pair1.Key,pair2.Key,pair2.Value,"Meter Contas");
-                    }
+                        foreach (KeyValuePair<string, float> pair2 in pair1.Value)
+                        {
 
+                            tabelaFinalComposta.Rows.Add(pair1.Key, pair2.Key, pair2.Value, "Meter Contas");
+
+                        }
+                    }
                 }
             }
 
