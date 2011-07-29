@@ -1922,7 +1922,12 @@
             // 
             // zedGraphControlRankingDetails
             // 
+            this.zedGraphControlRankingDetails.BackgroundImage = global::Interface.Properties.Resources.Logo_Marca_de_água;
             this.zedGraphControlRankingDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zedGraphControlRankingDetails.IsEnableHZoom = false;
+            this.zedGraphControlRankingDetails.IsEnableVZoom = false;
+            this.zedGraphControlRankingDetails.IsSynchronizeXAxes = true;
+            this.zedGraphControlRankingDetails.IsSynchronizeYAxes = true;
             this.zedGraphControlRankingDetails.Location = new System.Drawing.Point(377, 3);
             this.zedGraphControlRankingDetails.Name = "zedGraphControlRankingDetails";
             this.zedGraphControlRankingDetails.ScrollGrace = 0D;

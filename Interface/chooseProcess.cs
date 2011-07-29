@@ -428,25 +428,30 @@ namespace Interface
             // limpa o gráfico
             zedGraphControlRankingDetails.GraphPane.CurveList.Clear();
 
-            GraphPane myPane = zedGraphControlRankingDetails.GraphPane;
+            GraphPane myPane2 = zedGraphControlRankingDetails.GraphPane;
 
             // títulos
-            myPane.Title.Text = "Final Ranking";
-            myPane.XAxis.Title.Text = "Software Name";
-            myPane.YAxis.Title.Text = "Priority";
+            myPane2.Title.Text = "Final Ranking";
+            myPane2.XAxis.Title.Text = "Software Name";
+            myPane2.YAxis.Title.Text = "Priority";
 
-            myPane.XAxis.Type = AxisType.Text;
+            myPane2.XAxis.Type = AxisType.Text;
             string[] labels = graphXXDetails();
-            myPane.XAxis.Scale.TextLabels = labels;
+            myPane2.XAxis.Scale.TextLabels = labels;
 
-            myPane.XAxis.Type = AxisType.Text;
+            myPane2.XAxis.Type = AxisType.Text;
 
-            graphYYDetails(myPane);
+            graphYYDetails(myPane2);
 
-            myPane.Chart.Fill = new Fill(Color.YellowGreen, Color.LightGoldenrodYellow, 45F);
-            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            myPane2.Chart.Fill = new Fill(Color.YellowGreen, Color.LightGoldenrodYellow, 45F);
+            myPane2.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
 
-            zedGraphControlRankingDetails.AxisChange();
+            //myPane2.AxisChange();
+
+            zedGraphControlRankingDetails.GraphPane.AxisChange();
+            //zedGraphControlRankingDetails.Show();
+            //zedGraphControlRankingDetails.AxisChange();
+            //zedGraphControlRankingDetails.SetScrollRangeFromData();
         }
 
         private string[] graphXXDetails()
@@ -487,15 +492,16 @@ namespace Interface
 
             foreach (int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys)
             {
-                MessageBox.Show("" + c);
                 PointPairList list = new PointPairList();
 
                 list = graphYYDetailsAux("" + c);
 
                 Business.Characteristic ch = Business.ManagementDataBase.getCharacteristics(c);
 
-                BarItem barra = myPane.AddBar(ch.Name, list, CreateRandomColor());
-                barra.Bar.Fill = new Fill(CreateRandomColor());
+                Color color = CreateRandomColor();
+                
+                BarItem barra = myPane.AddBar(ch.Name, list, color);
+                barra.Bar.Fill = new Fill(color);
 
             }
 
@@ -1501,10 +1507,16 @@ namespace Interface
         private Color CreateRandomColor()
         {
             Random randonGen = new Random();
-            Color randomColor = Color.FromArgb(randonGen.Next(255), randonGen.Next(255), randonGen.Next(255));
+
+            int r = randonGen.Next(0, 255);
+            int g = randonGen.Next(0, 255);
+            int b = randonGen.Next(0, 255);
+
+            Color randomColor = Color.FromArgb(r, g, b);
 
             return randomColor;
         }
+
 
 
         #endregion
