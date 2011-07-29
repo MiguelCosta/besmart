@@ -202,8 +202,8 @@ namespace Business
                     {
                         foreach (KeyValuePair<string, float> pair2 in pair1.Value)
                         {
-
-                            tabelaFinalComposta.Rows.Add(pair1.Key, pair2.Key, pair2.Value, "Meter Contas");
+                            float resultado = pair.Value * pair2.Value;
+                            tabelaFinalComposta.Rows.Add(pair1.Key, pair2.Key, pair2.Value, resultado);
 
                         }
                     }
