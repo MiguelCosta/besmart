@@ -332,7 +332,7 @@ namespace Interface
             dataGridViewFinal.DataSource = view;
 
             dataGridViewFinalDetails.DataBindings.Clear();
-            dataGridViewFinalDetails.DataSource = Business.ManagementDataBase.tableFinalCompose();
+            //dataGridViewFinalDetails.DataSource = Business.ManagementDataBase.tableFinalCompose();
 
             tabControlSeparates.SelectedTab = tabPageFinal;
             indexSperate = tabControlSeparates.SelectedIndex;
@@ -493,7 +493,9 @@ namespace Interface
 
                 list = graphYYDetailsAux("" + c);
 
-                BarItem barra = myPane.AddBar("" + c, list, Color.Blue);
+                Business.Characteristic ch = Business.ManagementDataBase.getCharacteristics(c);
+
+                BarItem barra = myPane.AddBar(ch.Name, list, Color.Blue);
                 barra.Bar.Fill = new Fill(Color.Blue);
 
             }
@@ -520,7 +522,8 @@ namespace Interface
                     foreach (KeyValuePair<string, float> pair in a)
                     {
                         // se o ID for igual ao que id do software que procuramos vai adicionar
-                        if(pair.Key.Equals(pair_r.Key)) list.Add(0,pair_r.Value);
+                        // divide para dar no máximo 1
+                        if(pair.Key.Equals(pair_r.Key)) list.Add(0,pair_r.Value/Business.ManagementDataBase.caracteristicas_escolhidas.Count);
                     }
                 }
 
