@@ -539,7 +539,7 @@ namespace Interface
                         {
                             // se o ID for igual ao que id do software que procuramos vai adicionar
                             // multiplica pelo peso que essa caracteristica tem
-                            float p = pair_r.Value * resultWeight;
+                            float p = pair.Value * resultWeight;
                             list.Add(0, p);
                         }
                     }
@@ -548,12 +548,6 @@ namespace Interface
 
 
             return list;
-        }
-
-        private void graphYYDetailsAuxA(string id_c)
-        {
-
-            return;
         }
 
         #endregion
@@ -1538,10 +1532,11 @@ namespace Interface
 
         private Color myColor(int i)
         {
+            int num = 21;
             Color[] colors = {   Color.Blue, 
                                  Color.Red, 
                                  Color.Green, 
-                                 Color.Gray, 
+                                 Color.Orange, 
                                  Color.Cyan, 
                                  Color.Gold, 
                                  Color.LightPink,
@@ -1554,8 +1549,15 @@ namespace Interface
                                  Color.Salmon,
                                  Color.Sienna,
                                  Color.MediumSeaGreen,
-                                 Color.DarkSeaGreen
+                                 Color.DarkSeaGreen,
+                                 Color.DarkRed,
+                                 Color.Gainsboro,
+                                 Color.LimeGreen,
+                                 Color.Maroon
                              };
+
+            // se não tiver o indice no array de cores
+            if (i >= num) return CreateRandomColor();
 
             return colors[i];
         }

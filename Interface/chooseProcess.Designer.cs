@@ -1632,8 +1632,7 @@
             // 
             this.dataGridViewFinal.AllowUserToAddRows = false;
             this.dataGridViewFinal.AllowUserToDeleteRows = false;
-            this.dataGridViewFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridViewFinal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewFinal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewFinal.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dataGridViewFinal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1653,7 +1652,8 @@
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewFinal.DefaultCellStyle = dataGridViewCellStyle29;
-            this.dataGridViewFinal.Location = new System.Drawing.Point(3, 4);
+            this.dataGridViewFinal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewFinal.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewFinal.Name = "dataGridViewFinal";
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
@@ -1663,7 +1663,7 @@
             dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewFinal.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
-            this.dataGridViewFinal.Size = new System.Drawing.Size(368, 201);
+            this.dataGridViewFinal.Size = new System.Drawing.Size(368, 203);
             this.dataGridViewFinal.TabIndex = 0;
             // 
             // tableLayoutPanel22
