@@ -495,6 +495,9 @@ namespace Interface
         {
             myPane.BarSettings.Type = BarType.Stack;
 
+            // vai buscar uma cor
+            int color = 0;
+
             foreach (int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys)
             {
                 PointPairList list = new PointPairList();
@@ -503,11 +506,9 @@ namespace Interface
 
                 Business.Characteristic ch = Business.ManagementDataBase.getCharacteristics(c);
 
-                Color color = CreateRandomColor();
-                
-                BarItem barra = myPane.AddBar(ch.Name, list, color);
-                barra.Bar.Fill = new Fill(color);
-
+                BarItem barra = myPane.AddBar(ch.Name, list, myColor(color));
+                barra.Bar.Fill = new Fill(myColor(color));
+                color++;
             }
 
             return;
@@ -517,29 +518,42 @@ namespace Interface
         {
             PointPairList list = new PointPairList();
 
-            Dictionary<int, Dictionary<string, float>> resultFinal = new Dictionary<int, Dictionary<string, float>>();
+            float resultWeight;
+
+            // vai buscar o peso da caracteristica
+            Business.ManagementDataBase.decision.TableResultWeight.TryGetValue(id_c, out resultWeight);
 
             // vou a todos os softwares (string) -> necessário para o resultado ser ordenado
             foreach (Dictionary<string, float> v1 in Business.ManagementDataBase.resultFinal.Values)
             {
+                // este for é necessário apesar de a tabela final de tanking ter apenas um valor aqui...
                 foreach (KeyValuePair<string, float> pair_r in v1)
                 {
-
-                    // depois vou a TableResulta à respectiva caracteristica buscar o peso dos softwares
+                    // depois vou a TableResult à respectiva caracteristica buscar o peso dos softwares
                     Dictionary<string, float> a;
                     Business.ManagementDataBase.decision.TableResult.TryGetValue(id_c, out a);
 
                     foreach (KeyValuePair<string, float> pair in a)
                     {
-                        // se o ID for igual ao que id do software que procuramos vai adicionar
-                        // divide para dar no máximo 1
-                        if(pair.Key.Equals(pair_r.Key)) list.Add(0,pair_r.Value/Business.ManagementDataBase.caracteristicas_escolhidas.Count);
+                        if (pair.Key.Equals(pair_r.Key))
+                        {
+                            // se o ID for igual ao que id do software que procuramos vai adicionar
+                            // multiplica pelo peso que essa caracteristica tem
+                            float p = pair_r.Value * resultWeight;
+                            list.Add(0, p);
+                        }
                     }
                 }
-
             }
 
+
             return list;
+        }
+
+        private void graphYYDetailsAuxA(string id_c)
+        {
+
+            return;
         }
 
         #endregion
@@ -1522,6 +1536,29 @@ namespace Interface
             return randomColor;
         }
 
+        private Color myColor(int i)
+        {
+            Color[] colors = {   Color.Blue, 
+                                 Color.Red, 
+                                 Color.Green, 
+                                 Color.Gray, 
+                                 Color.Cyan, 
+                                 Color.Gold, 
+                                 Color.LightPink,
+                                 Color.Orange,
+                                 Color.White,
+                                 Color.Violet,
+                                 Color.Yellow,
+                                 Color.Navy,
+                                 Color.MistyRose,
+                                 Color.Salmon,
+                                 Color.Sienna,
+                                 Color.MediumSeaGreen,
+                                 Color.DarkSeaGreen
+                             };
+
+            return colors[i];
+        }
 
 
         #endregion
