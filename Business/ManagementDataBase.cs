@@ -212,7 +212,7 @@ namespace Business
             DataTable tabelaFinalComposta = new DataTable();
             tabelaFinalComposta.Columns.Add("Characteristic");
             tabelaFinalComposta.Columns.Add("Software");
-            tabelaFinalComposta.Columns.Add("Prioridades");
+            tabelaFinalComposta.Columns.Add("Priority");
             tabelaFinalComposta.Columns.Add("Calculations");
 
             tabelaFinalComposta.Columns["Characteristic"].ReadOnly = true;
