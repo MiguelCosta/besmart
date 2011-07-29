@@ -297,15 +297,8 @@ namespace Interface
         private void buttonFinish_Click(object sender, EventArgs e)
         {
             Business.ManagementDataBase.resultFinal = new Dictionary<int, Dictionary<string, float>>();
-            if (Business.ManagementDataBase.metodo_fase_1.Equals("smart"))
-            {
-                Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinalSmart(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
-            }
+            Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinal(Business.ManagementDataBase.decision.TableResultWeight, Business.ManagementDataBase.decision.TableResult);
 
-            if (Business.ManagementDataBase.metodo_fase_1.Equals("ahp"))
-            {
-                Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinalAHP(Business.ManagementDataBase.pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
-            }
 
 
             DataTable final = new DataTable();
@@ -567,7 +560,6 @@ namespace Interface
         {
             Business.ManagementDataBase.ids_dos_SoftwareSeleccionados = new List<int>();
             Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
-            Business.ManagementDataBase.tabelaSmartNorm = new Dictionary<string, float>();
             Business.ManagementDataBase.pesosFinaisClassAHP = new Dictionary<string, float>();
             refreshTableSoftware();
             refreshTableCaracteristics();
@@ -576,7 +568,6 @@ namespace Interface
             Business.ManagementDataBase.decision.TableCH.Clear();
             Business.ManagementDataBase.decision.TableAHP.Clear();
             Business.ManagementDataBase.decision.TableResult.Clear();
-            Business.ManagementDataBase.tabelaSmartNorm.Clear();
             Business.ManagementDataBase.pesosFinaisClassAHP.Clear();
 
             buttonNextChooseSoftware.Enabled = true;
@@ -828,8 +819,7 @@ namespace Interface
                 Business.ManagementDataBase.decision.registerClass(idChar, points);
             }
 
-            Business.ManagementDataBase.tabelaSmartNorm.Clear();
-            Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
+            Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
 
             dataGridViewPesosFinaisSmart.DataSource = Business.ManagementDataBase.tableFinalWeightSmart();
 
@@ -1036,8 +1026,7 @@ namespace Interface
                 }
             }
 
-            Dictionary<string, Dictionary<string, float>> tabelaNormAHP = new Dictionary<string, Dictionary<string, float>>();
-            tabelaNormAHP = Business.ManagementDataBase.decision.normalizeAHP(Business.ManagementDataBase.decision.TableAHP);
+            Business.ManagementDataBase.decision.normalizeAHP(Business.ManagementDataBase.decision.TableAHP);
             Business.ManagementDataBase.pesosFinaisClassAHP = new Dictionary<string, float>();
 
             // alterar para a managmente
