@@ -179,8 +179,43 @@ namespace Business
             return new DataView(tabela_caracteristicas);
 
         }
+        
+        public static DataView tableFinalCompose() 
+        {
+            DataTable tabelaFinalComposta = new DataTable();
+            tabelaFinalComposta.Columns.Add("Characteristic");
+            tabelaFinalComposta.Columns.Add("Software");
+            tabelaFinalComposta.Columns.Add("Prioridades");
+            tabelaFinalComposta.Columns.Add("Calculations");
+
+            tabelaFinalComposta.Columns["Characteristic"].ReadOnly = true;
+            tabelaFinalComposta.Columns["Software"].ReadOnly = true;
+            tabelaFinalComposta.Columns["Prioridades"].ReadOnly = true;
+            tabelaFinalComposta.Columns["Calculations"].ReadOnly = true;
+
+            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.decision.TableResultWeight) 
+            {
+                tabelaFinalComposta.Rows.Add(pair.Key,"",pair.Value,"");
+
+            
+            
+            }
 
 
+
+            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.pesosFinaisClassAHP)
+            {
+                pesos.Rows.Add(pair.Key, pair.Value);
+            }
+
+
+
+
+
+
+            return new DataView(tabelaFinalComposta);
+        }
+        
         public static DataView tableSmart()
         {
             DataTable pesos = new DataTable();
