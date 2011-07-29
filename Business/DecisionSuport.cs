@@ -14,6 +14,7 @@ namespace Business
         private Dictionary<String, Dictionary<String, float>> _tableAHP;
         private Dictionary<String, Dictionary<String, float>> _tableResult;
         private Dictionary<String, Dictionary<String, Dictionary<String, float>>> _tablePriorAHP;
+        Dictionary<String, float> _tableResultWeight;
         Dictionary<int, double> _matrizIndicesAleatorios;
 
         public DecisionSuport()
@@ -25,6 +26,7 @@ namespace Business
             _tableAHP = new Dictionary<string, Dictionary<string, float>>();
             _tableResult = new Dictionary<string, Dictionary<string, float>>();
             _tablePriorAHP = new Dictionary<string, Dictionary<string, Dictionary<string, float>>>();
+            _tableResultWeight = new Dictionary<string, float>();
             _matrizIndicesAleatorios = new Dictionary<int, double>();
 
             // Matriz de Indices aleatórios de Saaty
@@ -85,6 +87,12 @@ namespace Business
             set { _tableResult = value; }
         }
 
+        public Dictionary<string,  float> TableResultWeight
+        {
+            get { return _tableResultWeight; }
+            set { _tableResultWeight = value; }
+        }
+
         public Dictionary<string, Dictionary<string, Dictionary<string, float>>> TablePriorAHP
         {
             get { return _tablePriorAHP; }
@@ -109,9 +117,10 @@ namespace Business
 
         public Dictionary<String, float> normalizeSMART(Dictionary<string, int> tableCH)
         {
-            Dictionary<String, float> smartNorm = new Dictionary<string, float>();
+            
             int valor;
             int total = 0;
+            _tableResultWeight.Clear();
             foreach (String id in tableCH.Keys)
             {
                 tableCH.TryGetValue(id, out valor);
@@ -122,11 +131,11 @@ namespace Business
             {
                 tableCH.TryGetValue(id, out valor);
                 resultado = (float)valor / (float)total;
-                smartNorm.Add(id, resultado);
+                _tableResultWeight.Add(id, resultado);
             }
 
 
-            return smartNorm;
+            return _tableResultWeight;
         }
 
         // regista os resultados
@@ -222,12 +231,11 @@ namespace Business
             Dictionary<String, float> tableCorrespondencia;
             Dictionary<String, float> tableAuxiliar = new Dictionary<string, float>();
             Dictionary<String, float> tableAuxiliar1;
-            Dictionary<String, float> tablePesosFinais = new Dictionary<string, float>();
             Dictionary<String, Dictionary<String, float>> tableNormalInverted = new Dictionary<string, Dictionary<string, float>>();
 
             float valor;
             int numCar = 0;
-
+            _tableResultWeight.Clear();
             //inverter a tabela normalizada ou seja trocar as caracteristicas de <idCharA,<idcharB,valor>> para <idCharB,<idcharA,valor>>
             foreach (String idCharA in tableNorma.Keys)
             {
@@ -278,10 +286,10 @@ namespace Business
 
                 tableAuxiliar1.TryGetValue(id, out valor);
 
-                tablePesosFinais.Add(id, (valor / numCar));
+                _tableResultWeight.Add(id, (valor / numCar));
             }
 
-            return tablePesosFinais;
+            return _tableResultWeight;
         }
 
 
