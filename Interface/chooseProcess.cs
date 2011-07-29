@@ -28,7 +28,7 @@ namespace Interface
         public chooseProcess()
         {
             InitializeComponent();
-            
+
             init();
         }
 
@@ -336,6 +336,7 @@ namespace Interface
             progressBar1.Value = 100;
 
             graph();
+            graphDetails();
         }
 
         private void graph()
@@ -350,12 +351,10 @@ namespace Interface
             myPane.XAxis.Title.Text = "Software Name";
             myPane.YAxis.Title.Text = "Priority";
 
-            /*AQUI É ONDE EU DEFINO O QUE APARECE NO EIXO DOS XX. DEFINO QUE LÁ APARECE TEXTO E PASSO UM ARRAY
-             * DE STRINGS COM AS CENAS QUE SÃO LÁ COLOCADAS. NO CASO, É O NOME DOS SOFTWARES. ACHO QUE É FAZIVEL */
-            myPane.XAxis.Type = AxisType.Text; //defino o tipo pra texto
+            myPane.XAxis.Type = AxisType.Text;
             string[] labels = graphXX();
-            myPane.XAxis.Scale.TextLabels = labels; //digo que as labels são as que estão no array que declarei em cima
-            
+            myPane.XAxis.Scale.TextLabels = labels;
+
             myPane.XAxis.Type = AxisType.Text;
 
             PointPairList list = graphYY();
@@ -416,38 +415,34 @@ namespace Interface
 
             return list;
         }
-       
+
         #endregion
 
 
         private void graphDetails()
         {
             // limpa o gráfico
-            zedGraphControlRankingFinal.GraphPane.CurveList.Clear();
+            zedGraphControlRankingDetails.GraphPane.CurveList.Clear();
 
-            GraphPane myPane = zedGraphControlRankingFinal.GraphPane;
+            GraphPane myPane = zedGraphControlRankingDetails.GraphPane;
 
             // títulos
             myPane.Title.Text = "Final Ranking";
             myPane.XAxis.Title.Text = "Software Name";
             myPane.YAxis.Title.Text = "Priority";
 
-            /*AQUI É ONDE EU DEFINO O QUE APARECE NO EIXO DOS XX. DEFINO QUE LÁ APARECE TEXTO E PASSO UM ARRAY
-             * DE STRINGS COM AS CENAS QUE SÃO LÁ COLOCADAS. NO CASO, É O NOME DOS SOFTWARES. ACHO QUE É FAZIVEL */
-            myPane.XAxis.Type = AxisType.Text; //defino o tipo pra texto
+            myPane.XAxis.Type = AxisType.Text;
             string[] labels = graphXXDetails();
-            myPane.XAxis.Scale.TextLabels = labels; //digo que as labels são as que estão no array que declarei em cima
+            myPane.XAxis.Scale.TextLabels = labels;
 
             myPane.XAxis.Type = AxisType.Text;
 
-            PointPairList list = graphYYDetails(myPane);
-            BarItem barra = myPane.AddBar("Priority", list, Color.Blue);
-            barra.Bar.Fill = new Fill(Color.Blue);
-            barra.Bar.Border.GradientFill.IsScaled = true;
+            graphYYDetails(myPane);
 
             myPane.Chart.Fill = new Fill(Color.YellowGreen, Color.LightGoldenrodYellow, 45F);
             myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
-            zedGraphControlRankingFinal.AxisChange();
+
+            zedGraphControlRankingDetails.AxisChange();
         }
 
         private string[] graphXXDetails()
@@ -482,22 +477,50 @@ namespace Interface
             return x;
         }
 
-        private PointPairList graphYYDetails(GraphPane myPane)
+        private void graphYYDetails(GraphPane myPane)
         {
             myPane.BarSettings.Type = BarType.Stack;
-
-            PointPairList list = new PointPairList();
 
             Dictionary<string, float> a;
 
             foreach (int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys)
             {
-                MessageBox.Show("c");
-                Business.ManagementDataBase.decision.TableResult.TryGetValue(""+c, out a);
-                foreach (KeyValuePair<string, float> pair2 in a)
+                MessageBox.Show("" + c);
+                PointPairList list = new PointPairList();
+
+                list = graphYYDetailsAux("" + c);
+
+                BarItem barra = myPane.AddBar("" + c, list, Color.Blue);
+                barra.Bar.Fill = new Fill(Color.Blue);
+
+            }
+
+            return;
+        }
+
+        private PointPairList graphYYDetailsAux(string id_c)
+        {
+            PointPairList list = new PointPairList();
+
+            Dictionary<int, Dictionary<string, float>> resultFinal = new Dictionary<int, Dictionary<string, float>>();
+
+            // vou a todos os softwares (string) -> necessário para o resultado ser ordenado
+            foreach (Dictionary<string, float> v1 in Business.ManagementDataBase.resultFinal.Values)
+            {
+                foreach (KeyValuePair<string, float> pair_r in v1)
                 {
 
+                    // depois vou a TableResulta à respectiva caracteristica buscar o peso dos softwares
+                    Dictionary<string, float> a;
+                    Business.ManagementDataBase.decision.TableResult.TryGetValue(id_c, out a);
+
+                    foreach (KeyValuePair<string, float> pair in a)
+                    {
+                        // se o ID for igual ao que id do software que procuramos vai adicionar
+                        if(pair.Key.Equals(pair_r.Key)) list.Add(0,pair_r.Value);
+                    }
                 }
+
             }
 
             return list;
@@ -1471,7 +1494,7 @@ namespace Interface
         #endregion
 
 
-        
+
 
 
     }
