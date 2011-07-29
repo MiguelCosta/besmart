@@ -342,6 +342,10 @@ namespace Interface
             graphDetails();
         }
 
+        #endregion
+
+        #region Graph Final
+
         private void graph()
         {
             // limpa o gráfico
@@ -423,7 +427,7 @@ namespace Interface
 
         #endregion
 
-        #region Graph Details
+        #region Graph Final Details
 
         private void graphDetails()
         {
