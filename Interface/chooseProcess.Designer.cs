@@ -1632,12 +1632,13 @@
             // 
             this.dataGridViewFinal.AllowUserToAddRows = false;
             this.dataGridViewFinal.AllowUserToDeleteRows = false;
-            this.dataGridViewFinal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewFinal.AllowUserToResizeRows = false;
+            this.dataGridViewFinal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFinal.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dataGridViewFinal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1655,14 +1656,15 @@
             this.dataGridViewFinal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFinal.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewFinal.Name = "dataGridViewFinal";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewFinal.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            this.dataGridViewFinal.RowHeadersVisible = false;
             this.dataGridViewFinal.Size = new System.Drawing.Size(368, 203);
             this.dataGridViewFinal.TabIndex = 0;
             // 
@@ -1957,6 +1959,9 @@
             // 
             // dataGridViewFinalDetails
             // 
+            this.dataGridViewFinalDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewFinalDetails.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewFinalDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewFinalDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFinalDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFinalDetails.Location = new System.Drawing.Point(377, 3);
