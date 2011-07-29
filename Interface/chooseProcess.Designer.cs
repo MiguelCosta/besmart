@@ -175,6 +175,8 @@
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
             this.zedGraphControlRankingDetails = new ZedGraph.ZedGraphControl();
+            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewFinalDetails = new System.Windows.Forms.DataGridView();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -236,6 +238,8 @@
             this.menuStrip1.SuspendLayout();
             this.panelProgress.SuspendLayout();
             this.panelTab.SuspendLayout();
+            this.tableLayoutPanel23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinalDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlSeparates
@@ -1611,15 +1615,15 @@
             // 
             this.tableLayoutPanel31.ColumnCount = 1;
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel31.Controls.Add(this.dataGridViewFinal, 0, 0);
             this.tableLayoutPanel31.Controls.Add(this.tableLayoutPanel22, 0, 1);
             this.tableLayoutPanel31.Controls.Add(this.buttonStartNewComparation, 0, 2);
+            this.tableLayoutPanel31.Controls.Add(this.tableLayoutPanel23, 0, 0);
             this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel31.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 3;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel31.Size = new System.Drawing.Size(755, 534);
             this.tableLayoutPanel31.TabIndex = 0;
@@ -1649,7 +1653,7 @@
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewFinal.DefaultCellStyle = dataGridViewCellStyle29;
-            this.dataGridViewFinal.Location = new System.Drawing.Point(142, 22);
+            this.dataGridViewFinal.Location = new System.Drawing.Point(3, 4);
             this.dataGridViewFinal.Name = "dataGridViewFinal";
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
@@ -1659,7 +1663,7 @@
             dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewFinal.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
-            this.dataGridViewFinal.Size = new System.Drawing.Size(470, 201);
+            this.dataGridViewFinal.Size = new System.Drawing.Size(368, 201);
             this.dataGridViewFinal.TabIndex = 0;
             // 
             // tableLayoutPanel22
@@ -1670,11 +1674,11 @@
             this.tableLayoutPanel22.Controls.Add(this.zedGraphControlRankingFinal, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.zedGraphControlRankingDetails, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(3, 248);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(3, 218);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(749, 244);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(749, 274);
             this.tableLayoutPanel22.TabIndex = 1;
             // 
             // zedGraphControlRankingFinal
@@ -1694,7 +1698,7 @@
             this.zedGraphControlRankingFinal.ScrollMinX = 0D;
             this.zedGraphControlRankingFinal.ScrollMinY = 0D;
             this.zedGraphControlRankingFinal.ScrollMinY2 = 0D;
-            this.zedGraphControlRankingFinal.Size = new System.Drawing.Size(368, 238);
+            this.zedGraphControlRankingFinal.Size = new System.Drawing.Size(368, 268);
             this.zedGraphControlRankingFinal.TabIndex = 2;
             // 
             // buttonStartNewComparation
@@ -1928,8 +1932,31 @@
             this.zedGraphControlRankingDetails.ScrollMinX = 0D;
             this.zedGraphControlRankingDetails.ScrollMinY = 0D;
             this.zedGraphControlRankingDetails.ScrollMinY2 = 0D;
-            this.zedGraphControlRankingDetails.Size = new System.Drawing.Size(369, 238);
+            this.zedGraphControlRankingDetails.Size = new System.Drawing.Size(369, 268);
             this.zedGraphControlRankingDetails.TabIndex = 3;
+            // 
+            // tableLayoutPanel23
+            // 
+            this.tableLayoutPanel23.ColumnCount = 2;
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.Controls.Add(this.dataGridViewFinal, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.dataGridViewFinalDetails, 1, 0);
+            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
+            this.tableLayoutPanel23.RowCount = 1;
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(749, 209);
+            this.tableLayoutPanel23.TabIndex = 3;
+            // 
+            // dataGridViewFinalDetails
+            // 
+            this.dataGridViewFinalDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFinalDetails.Location = new System.Drawing.Point(377, 3);
+            this.dataGridViewFinalDetails.Name = "dataGridViewFinalDetails";
+            this.dataGridViewFinalDetails.Size = new System.Drawing.Size(319, 177);
+            this.dataGridViewFinalDetails.TabIndex = 1;
             // 
             // chooseProcess
             // 
@@ -2023,6 +2050,8 @@
             this.menuStrip1.PerformLayout();
             this.panelProgress.ResumeLayout(false);
             this.panelTab.ResumeLayout(false);
+            this.tableLayoutPanel23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinalDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2146,5 +2175,7 @@
         private System.Windows.Forms.DataGridView dataGridViewFinal;
         private System.Windows.Forms.Button buttonStartNewComparation;
         private ZedGraph.ZedGraphControl zedGraphControlRankingDetails;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
+        private System.Windows.Forms.DataGridView dataGridViewFinalDetails;
     }
 }

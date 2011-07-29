@@ -331,6 +331,9 @@ namespace Interface
             DataView view = new DataView(final);
             dataGridViewFinal.DataSource = view;
 
+            dataGridViewFinalDetails.DataBindings.Clear();
+            dataGridViewFinalDetails.DataSource = Business.ManagementDataBase.tableFinalCompose();
+
             tabControlSeparates.SelectedTab = tabPageFinal;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 100;
