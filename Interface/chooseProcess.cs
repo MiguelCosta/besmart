@@ -720,6 +720,11 @@ namespace Interface
             t.Show();
         }
 
+        private void webPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://code.google.com/p/besmart/");
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox a = new AboutBox();
@@ -1811,6 +1816,8 @@ namespace Interface
         }
 
         #endregion
+
+
 
 
 

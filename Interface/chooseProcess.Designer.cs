@@ -46,6 +46,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -64,9 +67,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(chooseProcess));
             this.tabControlSeparates = new System.Windows.Forms.TabControl();
             this.tabPageChooseSoftware = new System.Windows.Forms.TabPage();
@@ -129,11 +129,13 @@
             this.tabControlPrioridadesFinais = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_DefinitionOfPrioritiesValueFn = new System.Windows.Forms.Label();
             this.dataGridViewValueFn = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.radioButtonMaximize = new System.Windows.Forms.RadioButton();
             this.radioButtonMinimize = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_DefinitionOfPrioritiesValueFn = new System.Windows.Forms.Label();
+            this.dataGridViewListSelectSoftware2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
@@ -196,20 +198,21 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.smartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aHPDefinitionOfWeightsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aHPDefinitionOfPrioritiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.finalResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportErrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
-            this.smartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aHPDefinitionOfWeightsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aHPDefinitionOfPrioritiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.finalResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewListSelectSoftware2 = new System.Windows.Forms.DataGridView();
+            this.webPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -253,6 +256,8 @@
             this.tableLayoutPanel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValueFn)).BeginInit();
             this.tableLayoutPanel21.SuspendLayout();
+            this.tableLayoutPanel34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSelectSoftware2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
@@ -278,8 +283,6 @@
             this.menuStrip1.SuspendLayout();
             this.panelProgress.SuspendLayout();
             this.panelTab.SuspendLayout();
-            this.tableLayoutPanel34.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSelectSoftware2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlSeparates
@@ -1219,18 +1222,6 @@
             this.tableLayoutPanel20.Size = new System.Drawing.Size(481, 337);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
-            // label_DefinitionOfPrioritiesValueFn
-            // 
-            this.label_DefinitionOfPrioritiesValueFn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label_DefinitionOfPrioritiesValueFn.AutoSize = true;
-            this.label_DefinitionOfPrioritiesValueFn.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfPrioritiesValueFn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(243, 50);
-            this.label_DefinitionOfPrioritiesValueFn.Name = "label_DefinitionOfPrioritiesValueFn";
-            this.label_DefinitionOfPrioritiesValueFn.Size = new System.Drawing.Size(178, 13);
-            this.label_DefinitionOfPrioritiesValueFn.TabIndex = 3;
-            this.label_DefinitionOfPrioritiesValueFn.Text = "label_Definition_of_PrioritiesValueFn";
-            // 
             // dataGridViewValueFn
             // 
             this.dataGridViewValueFn.AllowUserToAddRows = false;
@@ -1269,7 +1260,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewValueFn.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewValueFn.RowHeadersVisible = false;
-            this.dataGridViewValueFn.Size = new System.Drawing.Size(475, 231);
+            this.dataGridViewValueFn.Size = new System.Drawing.Size(475, 181);
             this.dataGridViewValueFn.TabIndex = 1;
             // 
             // tableLayoutPanel21
@@ -1311,6 +1302,74 @@
             this.radioButtonMinimize.Text = "Minimize";
             this.radioButtonMinimize.UseVisualStyleBackColor = true;
             this.radioButtonMinimize.CheckedChanged += new System.EventHandler(this.radioButtonMinimize_CheckedChanged);
+            // 
+            // tableLayoutPanel34
+            // 
+            this.tableLayoutPanel34.ColumnCount = 2;
+            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel34.Controls.Add(this.label_DefinitionOfPrioritiesValueFn, 1, 0);
+            this.tableLayoutPanel34.Controls.Add(this.dataGridViewListSelectSoftware2, 0, 0);
+            this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel34.Name = "tableLayoutPanel34";
+            this.tableLayoutPanel34.RowCount = 1;
+            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(475, 114);
+            this.tableLayoutPanel34.TabIndex = 3;
+            // 
+            // label_DefinitionOfPrioritiesValueFn
+            // 
+            this.label_DefinitionOfPrioritiesValueFn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_DefinitionOfPrioritiesValueFn.AutoSize = true;
+            this.label_DefinitionOfPrioritiesValueFn.BackColor = System.Drawing.Color.Yellow;
+            this.label_DefinitionOfPrioritiesValueFn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(243, 50);
+            this.label_DefinitionOfPrioritiesValueFn.Name = "label_DefinitionOfPrioritiesValueFn";
+            this.label_DefinitionOfPrioritiesValueFn.Size = new System.Drawing.Size(178, 13);
+            this.label_DefinitionOfPrioritiesValueFn.TabIndex = 3;
+            this.label_DefinitionOfPrioritiesValueFn.Text = "label_Definition_of_PrioritiesValueFn";
+            // 
+            // dataGridViewListSelectSoftware2
+            // 
+            this.dataGridViewListSelectSoftware2.AllowUserToAddRows = false;
+            this.dataGridViewListSelectSoftware2.AllowUserToDeleteRows = false;
+            this.dataGridViewListSelectSoftware2.AllowUserToResizeRows = false;
+            this.dataGridViewListSelectSoftware2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewListSelectSoftware2.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewListSelectSoftware2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewListSelectSoftware2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewListSelectSoftware2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewListSelectSoftware2.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridViewListSelectSoftware2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewListSelectSoftware2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewListSelectSoftware2.Name = "dataGridViewListSelectSoftware2";
+            this.dataGridViewListSelectSoftware2.ReadOnly = true;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewListSelectSoftware2.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewListSelectSoftware2.RowHeadersVisible = false;
+            this.dataGridViewListSelectSoftware2.Size = new System.Drawing.Size(184, 108);
+            this.dataGridViewListSelectSoftware2.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -2060,7 +2119,10 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tutorialsToolStripMenuItem,
             this.examplesToolStripMenuItem,
+            this.toolStripSeparator8,
             this.reportErrorToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.webPageToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
@@ -2191,6 +2253,46 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(305, 6);
             // 
+            // smartToolStripMenuItem
+            // 
+            this.smartToolStripMenuItem.Name = "smartToolStripMenuItem";
+            this.smartToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
+            this.smartToolStripMenuItem.Text = "Smart - Definition Of Weights";
+            this.smartToolStripMenuItem.Click += new System.EventHandler(this.smartToolStripMenuItem_Click);
+            // 
+            // aHPDefinitionOfWeightsToolStripMenuItem
+            // 
+            this.aHPDefinitionOfWeightsToolStripMenuItem.Name = "aHPDefinitionOfWeightsToolStripMenuItem";
+            this.aHPDefinitionOfWeightsToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
+            this.aHPDefinitionOfWeightsToolStripMenuItem.Text = "AHP - Definition Of Weights";
+            this.aHPDefinitionOfWeightsToolStripMenuItem.Click += new System.EventHandler(this.aHPDefinitionOfWeightsToolStripMenuItem_Click);
+            // 
+            // vlaueFNDefinitionOfPrioritiesToolStripMenuItem
+            // 
+            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Name = "vlaueFNDefinitionOfPrioritiesToolStripMenuItem";
+            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
+            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Text = "VlaueFN - Definition Of Priorities";
+            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Click += new System.EventHandler(this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem_Click);
+            // 
+            // aHPDefinitionOfPrioritiesToolStripMenuItem
+            // 
+            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Name = "aHPDefinitionOfPrioritiesToolStripMenuItem";
+            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
+            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Text = "AHP - Definition Of Priorities";
+            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Click += new System.EventHandler(this.aHPDefinitionOfPrioritiesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(305, 6);
+            // 
+            // finalResultsToolStripMenuItem
+            // 
+            this.finalResultsToolStripMenuItem.Name = "finalResultsToolStripMenuItem";
+            this.finalResultsToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
+            this.finalResultsToolStripMenuItem.Text = "Final Results";
+            this.finalResultsToolStripMenuItem.Click += new System.EventHandler(this.finalResultsToolStripMenuItem_Click);
+            // 
             // reportErrorToolStripMenuItem
             // 
             this.reportErrorToolStripMenuItem.Image = global::Interface.Properties.Resources.Mail1;
@@ -2238,101 +2340,22 @@
             this.panelTab.Size = new System.Drawing.Size(835, 589);
             this.panelTab.TabIndex = 48;
             // 
-            // smartToolStripMenuItem
+            // webPageToolStripMenuItem
             // 
-            this.smartToolStripMenuItem.Name = "smartToolStripMenuItem";
-            this.smartToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
-            this.smartToolStripMenuItem.Text = "Smart - Definition Of Weights";
-            this.smartToolStripMenuItem.Click += new System.EventHandler(this.smartToolStripMenuItem_Click);
+            this.webPageToolStripMenuItem.Name = "webPageToolStripMenuItem";
+            this.webPageToolStripMenuItem.Size = new System.Drawing.Size(314, 26);
+            this.webPageToolStripMenuItem.Text = "Web Page";
+            this.webPageToolStripMenuItem.Click += new System.EventHandler(this.webPageToolStripMenuItem_Click);
             // 
-            // aHPDefinitionOfWeightsToolStripMenuItem
+            // toolStripSeparator7
             // 
-            this.aHPDefinitionOfWeightsToolStripMenuItem.Name = "aHPDefinitionOfWeightsToolStripMenuItem";
-            this.aHPDefinitionOfWeightsToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
-            this.aHPDefinitionOfWeightsToolStripMenuItem.Text = "AHP - Definition Of Weights";
-            this.aHPDefinitionOfWeightsToolStripMenuItem.Click += new System.EventHandler(this.aHPDefinitionOfWeightsToolStripMenuItem_Click);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(311, 6);
             // 
-            // vlaueFNDefinitionOfPrioritiesToolStripMenuItem
+            // toolStripSeparator8
             // 
-            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Name = "vlaueFNDefinitionOfPrioritiesToolStripMenuItem";
-            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
-            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Text = "VlaueFN - Definition Of Priorities";
-            this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem.Click += new System.EventHandler(this.vlaueFNDefinitionOfPrioritiesToolStripMenuItem_Click);
-            // 
-            // aHPDefinitionOfPrioritiesToolStripMenuItem
-            // 
-            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Name = "aHPDefinitionOfPrioritiesToolStripMenuItem";
-            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
-            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Text = "AHP - Definition Of Priorities";
-            this.aHPDefinitionOfPrioritiesToolStripMenuItem.Click += new System.EventHandler(this.aHPDefinitionOfPrioritiesToolStripMenuItem_Click);
-            // 
-            // finalResultsToolStripMenuItem
-            // 
-            this.finalResultsToolStripMenuItem.Name = "finalResultsToolStripMenuItem";
-            this.finalResultsToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
-            this.finalResultsToolStripMenuItem.Text = "Final Results";
-            this.finalResultsToolStripMenuItem.Click += new System.EventHandler(this.finalResultsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(305, 6);
-            // 
-            // tableLayoutPanel34
-            // 
-            this.tableLayoutPanel34.ColumnCount = 2;
-            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel34.Controls.Add(this.label_DefinitionOfPrioritiesValueFn, 1, 0);
-            this.tableLayoutPanel34.Controls.Add(this.dataGridViewListSelectSoftware2, 0, 0);
-            this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel34.Name = "tableLayoutPanel34";
-            this.tableLayoutPanel34.RowCount = 1;
-            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(475, 114);
-            this.tableLayoutPanel34.TabIndex = 3;
-            // 
-            // dataGridViewListSelectSoftware2
-            // 
-            this.dataGridViewListSelectSoftware2.AllowUserToAddRows = false;
-            this.dataGridViewListSelectSoftware2.AllowUserToDeleteRows = false;
-            this.dataGridViewListSelectSoftware2.AllowUserToResizeRows = false;
-            this.dataGridViewListSelectSoftware2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewListSelectSoftware2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewListSelectSoftware2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewListSelectSoftware2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridViewListSelectSoftware2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewListSelectSoftware2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridViewListSelectSoftware2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewListSelectSoftware2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewListSelectSoftware2.Name = "dataGridViewListSelectSoftware2";
-            this.dataGridViewListSelectSoftware2.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewListSelectSoftware2.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewListSelectSoftware2.RowHeadersVisible = false;
-            this.dataGridViewListSelectSoftware2.Size = new System.Drawing.Size(184, 108);
-            this.dataGridViewListSelectSoftware2.TabIndex = 1;
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(311, 6);
             // 
             // chooseProcess
             // 
@@ -2404,6 +2427,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewValueFn)).EndInit();
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel21.PerformLayout();
+            this.tableLayoutPanel34.ResumeLayout(false);
+            this.tableLayoutPanel34.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSelectSoftware2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel24.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
@@ -2434,9 +2460,6 @@
             this.menuStrip1.PerformLayout();
             this.panelProgress.ResumeLayout(false);
             this.panelTab.ResumeLayout(false);
-            this.tableLayoutPanel34.ResumeLayout(false);
-            this.tableLayoutPanel34.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSelectSoftware2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2586,5 +2609,8 @@
         private System.Windows.Forms.ToolStripMenuItem finalResultsToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel34;
         private System.Windows.Forms.DataGridView dataGridViewListSelectSoftware2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem webPageToolStripMenuItem;
     }
 }
