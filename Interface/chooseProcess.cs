@@ -246,6 +246,25 @@ namespace Interface
                 }
             }
 
+
+            // verifica se os softwares tem todas as caracteristicas preenchidas
+            foreach (int id_s in Business.ManagementDataBase.ids_dos_SoftwareSeleccionados)
+            {
+                Business.Software s = Business.ManagementDataBase.getSoftware(id_s);
+
+                foreach (int id_c in Business.ManagementDataBase.database.Charac.Keys)
+                {
+                    if (!s.Charac.ContainsKey(id_c))
+                    {
+                        string msg = "The software selected not all characteristics are completed!\nPlease edit the information in: Software-> Edit Software List.";
+                        MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+            }
+
+
             if (Business.ManagementDataBase.totalSoftwareelect() < 2 || Business.ManagementDataBase.totalSoftwareelect() > 16)
             {
                 MessageBox.Show("Select between 2 and 16 Software!");
@@ -290,7 +309,7 @@ namespace Interface
             buttonSelectCaracteristicsNext.Enabled = true;
 
             dataGridViewListSelectSoftware.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
-            dataGridViewListSoftware2.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
+            dataGridViewListSelectSoftware2.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
         }
 
 
@@ -424,6 +443,7 @@ namespace Interface
                     }
                     float f3;
                     float.TryParse(line.Cells[2].Value.ToString(), out f3);
+                    f3 = f3 * 100;
                     line.Cells[2].Value = f3.ToString("0.00") + " %";
                 }
             }
@@ -451,9 +471,10 @@ namespace Interface
 
             }
 
-
-
-
+            for (int i = 0; i < dataGridViewFinalDetails.ColumnCount; i++)
+            {
+                dataGridViewFinalDetails.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
 
         }
 
@@ -745,7 +766,7 @@ namespace Interface
 
         private void buttonStartNewComparation_Click(object sender, EventArgs e)
         {
-             startANewComparationToolStripMenuItem_Click(null, null);
+            startANewComparationToolStripMenuItem_Click(null, null);
         }
 
         #endregion
@@ -832,7 +853,7 @@ namespace Interface
             }
         }
 
-        
+
 
         #endregion
 

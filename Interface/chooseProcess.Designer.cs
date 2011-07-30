@@ -209,7 +209,7 @@
             this.finalResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewListSoftware2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewListSelectSoftware2 = new System.Windows.Forms.DataGridView();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -279,7 +279,7 @@
             this.panelProgress.SuspendLayout();
             this.panelTab.SuspendLayout();
             this.tableLayoutPanel34.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSoftware2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSelectSoftware2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlSeparates
@@ -1213,9 +1213,9 @@
             this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 3;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(481, 337);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
@@ -1225,7 +1225,7 @@
             this.label_DefinitionOfPrioritiesValueFn.AutoSize = true;
             this.label_DefinitionOfPrioritiesValueFn.BackColor = System.Drawing.Color.Yellow;
             this.label_DefinitionOfPrioritiesValueFn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(243, 40);
+            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(243, 50);
             this.label_DefinitionOfPrioritiesValueFn.Name = "label_DefinitionOfPrioritiesValueFn";
             this.label_DefinitionOfPrioritiesValueFn.Size = new System.Drawing.Size(178, 13);
             this.label_DefinitionOfPrioritiesValueFn.TabIndex = 3;
@@ -1257,7 +1257,7 @@
             dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewValueFn.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewValueFn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewValueFn.Location = new System.Drawing.Point(3, 133);
+            this.dataGridViewValueFn.Location = new System.Drawing.Point(3, 153);
             this.dataGridViewValueFn.Name = "dataGridViewValueFn";
             this.dataGridViewValueFn.ReadOnly = true;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1269,7 +1269,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewValueFn.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewValueFn.RowHeadersVisible = false;
-            this.dataGridViewValueFn.Size = new System.Drawing.Size(475, 201);
+            this.dataGridViewValueFn.Size = new System.Drawing.Size(475, 231);
             this.dataGridViewValueFn.TabIndex = 1;
             // 
             // tableLayoutPanel21
@@ -1280,7 +1280,7 @@
             this.tableLayoutPanel21.Controls.Add(this.radioButtonMaximize, 1, 0);
             this.tableLayoutPanel21.Controls.Add(this.radioButtonMinimize, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 103);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 123);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -2284,23 +2284,23 @@
             this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel34.Controls.Add(this.label_DefinitionOfPrioritiesValueFn, 1, 0);
-            this.tableLayoutPanel34.Controls.Add(this.dataGridViewListSoftware2, 0, 0);
+            this.tableLayoutPanel34.Controls.Add(this.dataGridViewListSelectSoftware2, 0, 0);
             this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             this.tableLayoutPanel34.RowCount = 1;
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(475, 94);
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(475, 114);
             this.tableLayoutPanel34.TabIndex = 3;
             // 
-            // dataGridViewListSoftware2
+            // dataGridViewListSelectSoftware2
             // 
-            this.dataGridViewListSoftware2.AllowUserToAddRows = false;
-            this.dataGridViewListSoftware2.AllowUserToDeleteRows = false;
-            this.dataGridViewListSoftware2.AllowUserToResizeRows = false;
-            this.dataGridViewListSoftware2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewListSoftware2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewListSoftware2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewListSelectSoftware2.AllowUserToAddRows = false;
+            this.dataGridViewListSelectSoftware2.AllowUserToDeleteRows = false;
+            this.dataGridViewListSelectSoftware2.AllowUserToResizeRows = false;
+            this.dataGridViewListSelectSoftware2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewListSelectSoftware2.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewListSelectSoftware2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2308,8 +2308,8 @@
             dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewListSoftware2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridViewListSoftware2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListSelectSoftware2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewListSelectSoftware2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2317,11 +2317,11 @@
             dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewListSoftware2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridViewListSoftware2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewListSoftware2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewListSoftware2.Name = "dataGridViewListSoftware2";
-            this.dataGridViewListSoftware2.ReadOnly = true;
+            this.dataGridViewListSelectSoftware2.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridViewListSelectSoftware2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewListSelectSoftware2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewListSelectSoftware2.Name = "dataGridViewListSelectSoftware2";
+            this.dataGridViewListSelectSoftware2.ReadOnly = true;
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2329,10 +2329,10 @@
             dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Orange;
             dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewListSoftware2.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewListSoftware2.RowHeadersVisible = false;
-            this.dataGridViewListSoftware2.Size = new System.Drawing.Size(184, 88);
-            this.dataGridViewListSoftware2.TabIndex = 1;
+            this.dataGridViewListSelectSoftware2.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewListSelectSoftware2.RowHeadersVisible = false;
+            this.dataGridViewListSelectSoftware2.Size = new System.Drawing.Size(184, 108);
+            this.dataGridViewListSelectSoftware2.TabIndex = 1;
             // 
             // chooseProcess
             // 
@@ -2436,7 +2436,7 @@
             this.panelTab.ResumeLayout(false);
             this.tableLayoutPanel34.ResumeLayout(false);
             this.tableLayoutPanel34.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSoftware2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListSelectSoftware2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2585,6 +2585,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem finalResultsToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel34;
-        private System.Windows.Forms.DataGridView dataGridViewListSoftware2;
+        private System.Windows.Forms.DataGridView dataGridViewListSelectSoftware2;
     }
 }
