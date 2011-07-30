@@ -23,13 +23,34 @@ namespace Interface
         string selectCharacteristics_id = "";
         Init inicial = new Init();
 
-        public chooseProcess()
+        string _file;
+
+        public chooseProcess(string file)
         {
             InitializeComponent();
 
             init();
 
+            _file = file;
+
+            openFile();
+
             inicial.ShowDialog();
+        }
+
+        private void openFile()
+        {
+            try
+            {
+                Business.ManagementDataBase.loadObject(_file);
+
+                // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
+                refreshTableSoftware();
+                refreshTableCaracteristics();
+            }
+            catch (Exception) { }
+
+
         }
 
         private void init()
@@ -126,11 +147,18 @@ namespace Interface
 
             if (ret == DialogResult.OK)
             {
-                Business.ManagementDataBase.loadObject(filename);
+                try
+                {
+                    Business.ManagementDataBase.loadObject(filename);
 
-                // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
-                refreshTableSoftware();
-                refreshTableCaracteristics();
+                    // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
+                    refreshTableSoftware();
+                    refreshTableCaracteristics();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error Open File", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

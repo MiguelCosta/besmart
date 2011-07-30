@@ -109,7 +109,7 @@ namespace Interface.Properties {
         
         internal static System.Drawing.Bitmap Logo_Marca_de_água {
             get {
-                object obj = ResourceManager.GetObject("Logo Marca de água", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo_Marca_de_água", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
