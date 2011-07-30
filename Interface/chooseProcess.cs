@@ -23,13 +23,13 @@ namespace Interface
         string selectCharacteristics_id = "";
         Init inicial = new Init();
 
-        public bool close = false;
-
         public chooseProcess()
         {
             InitializeComponent();
 
             init();
+
+            inicial.ShowDialog();
         }
 
         private void init()
@@ -43,10 +43,6 @@ namespace Interface
             dataGridViewTabelaSoftware.Columns[0].Visible = false;
 
             info();
-
-            inicial.ShowDialog();
-
-            if (close == true) this.Dispose();
 
         }
 
@@ -163,6 +159,29 @@ namespace Interface
 
         #endregion
 
+        #region New Data Base
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string msg = "Want to create a new Data Base?\nThe information has not saved will be lost.";
+            DialogResult r = MessageBox.Show(msg, "New Data Base", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (r == DialogResult.Yes)
+            {
+                Business.ManagementDataBase.database = new Business.DataBaseUser();
+                init();
+            }
+
+        }
+        #endregion
+
+        #region Report/suggestion
+        private void reportErrorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportError r = new ReportError();
+            r.Show();
+        }
+        #endregion
+
         #region Button Next
 
         private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
@@ -271,6 +290,7 @@ namespace Interface
             buttonSelectCaracteristicsNext.Enabled = true;
 
             dataGridViewListSelectSoftware.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
+            dataGridViewListSoftware2.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
         }
 
 
@@ -402,6 +422,9 @@ namespace Interface
                         c.Style.BackColor = Color.Black;
                         c.Style.ForeColor = System.Drawing.Color.White;
                     }
+                    float f3;
+                    float.TryParse(line.Cells[2].Value.ToString(), out f3);
+                    line.Cells[2].Value = f3.ToString("0.00") + " %";
                 }
             }
 
@@ -716,6 +739,8 @@ namespace Interface
             tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             dataGridViewTabelaSoftware.Columns[0].Visible = true;
 
+            indexSperate = tabControlSeparates.SelectedIndex;
+
         }
 
         private void buttonStartNewComparation_Click(object sender, EventArgs e)
@@ -807,23 +832,41 @@ namespace Interface
             }
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string msg = "Want to create a new Data Base?\nThe information has not saved will be lost.";
-            DialogResult r = MessageBox.Show(msg, "New Data Base", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+        
 
-            if (r == DialogResult.Yes)
+        #endregion
+
+        #region Choose Characteristics
+
+        private void dataGridViewCharacteristics_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow line in dataGridViewCharacteristics.Rows)
             {
-                Business.ManagementDataBase.database = new Business.DataBaseUser();
-                init();
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
             }
 
         }
 
-        private void reportErrorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dataGridViewCharacteristics_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            ReportError r = new ReportError();
-            r.Show();
+            foreach (DataGridViewRow line in dataGridViewCharacteristics.Rows)
+            {
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
+                {
+                    line.Selected = true;
+                }
+                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
+                {
+                    line.Selected = false;
+                }
+            }
         }
 
         #endregion
@@ -1672,11 +1715,81 @@ namespace Interface
 
         #endregion
 
+        #region Examples
+        private void insertSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=sw-z_DPLmtU&hd=1");
+            v.Show();
+        }
+
+        private void editSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=UxkwyXp0nJ8&hd=1");
+            v.Show();
+        }
+
+        private void deleteSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=_6QIwx7LCQY&hd=1");
+            v.Show();
+        }
+
+        private void addCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=N4PNLXoIkYY&hd=1");
+            v.Show();
+        }
 
 
+        private void editCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=WwABhgbziuY&hd=1");
+            v.Show();
+        }
 
+        private void deleteCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=RNpqN7e2jIc&hd=1");
+            v.Show();
+        }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=PRp_X6ipmvI&hd=1");
+            v.Show();
+        }
 
+        private void smartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=1Kgjc6NWbKk&hd=1");
+            v.Show();
+        }
+
+        private void aHPDefinitionOfWeightsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=9R4fZMcOwCw&hd=1");
+            v.Show();
+        }
+
+        private void vlaueFNDefinitionOfPrioritiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=Z9qJZoVOI4U&hd=1");
+            v.Show();
+        }
+
+        private void aHPDefinitionOfPrioritiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=jBMBio4vaJI&hd=1");
+            v.Show();
+        }
+
+        private void finalResultsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=BQbI6LMaYRY&hd=1");
+            v.Show();
+        }
+
+        #endregion
 
 
 
