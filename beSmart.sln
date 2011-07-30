@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{969B6A81-759A-460E-83CE-BA98AC328019}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{34545A84-AD67-4FD4-9E78-E23D5991B499}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup beSmart", "Setup\Setup.vdproj", "{C779F89F-C07E-4759-A478-15731F49B667}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +21,10 @@ Global
 		{969B6A81-759A-460E-83CE-BA98AC328019}.Debug|x86.Build.0 = Debug|x86
 		{969B6A81-759A-460E-83CE-BA98AC328019}.Release|x86.ActiveCfg = Release|x86
 		{969B6A81-759A-460E-83CE-BA98AC328019}.Release|x86.Build.0 = Release|x86
-		{34545A84-AD67-4FD4-9E78-E23D5991B499}.Debug|x86.ActiveCfg = Debug
-		{34545A84-AD67-4FD4-9E78-E23D5991B499}.Release|x86.ActiveCfg = Release
+		{C779F89F-C07E-4759-A478-15731F49B667}.Debug|x86.ActiveCfg = Debug
+		{C779F89F-C07E-4759-A478-15731F49B667}.Debug|x86.Build.0 = Debug
+		{C779F89F-C07E-4759-A478-15731F49B667}.Release|x86.ActiveCfg = Release
+		{C779F89F-C07E-4759-A478-15731F49B667}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
