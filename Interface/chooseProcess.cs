@@ -454,7 +454,7 @@ namespace Interface
                 line.Cells[3].Value = f1.ToString("0.00") + " %";
             }
 
-
+            dataGridViewFinal.ReadOnly = true;
         }
 
         private void configTableFinalDetails()
@@ -504,6 +504,7 @@ namespace Interface
                 dataGridViewFinalDetails.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
+            dataGridViewFinalDetails.ReadOnly = true;
         }
 
         private void dataGridViewFinalDetails_DataError(object sender, DataGridViewDataErrorEventArgs e)
