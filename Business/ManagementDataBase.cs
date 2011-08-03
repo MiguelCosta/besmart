@@ -210,6 +210,7 @@ namespace Business
         public static DataView tableFinalCompose() 
         {
             DataTable tabelaFinalComposta = new DataTable();
+            tabelaFinalComposta.Clear();
             tabelaFinalComposta.Columns.Add("Characteristic");
             tabelaFinalComposta.Columns.Add("Software");
             tabelaFinalComposta.Columns.Add("Priority");
@@ -219,6 +220,7 @@ namespace Business
 
             foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.decision.TableResultWeight) 
             {
+
                 tabelaFinalComposta.Rows.Add(pair.Key, "", pair.Value, "");
                 foreach (KeyValuePair<string, Dictionary<string,float>> pair1 in Business.ManagementDataBase.decision.TableResult)
                 {
@@ -233,7 +235,6 @@ namespace Business
                     }
                 }
             }
-
 
             return new DataView(tabelaFinalComposta);
         }

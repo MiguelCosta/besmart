@@ -221,7 +221,7 @@ namespace Interface
             // vai a todas as linhas das tabelas ver quais estão seleccionadas
             foreach (DataGridViewRow linha in dataGridViewCharacteristics.Rows)
             {
-                if (linha.Cells[0].Value != null)
+                if (linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true)
                 {
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     string name = (string)linha.Cells[2].Value;
@@ -929,6 +929,7 @@ namespace Interface
 
         private void refreshTableSmart()
         {
+            dataGridViewPesosFinaisSmart.DataBindings.Clear();
             dataGridViewSmart.DataSource = Business.ManagementDataBase.tableSmart();
             foreach (DataGridViewRow line in dataGridViewSmart.Rows)
             {
@@ -1044,6 +1045,7 @@ namespace Interface
 
 
             // para fazer os calulos
+            Business.ManagementDataBase.decision.TableCH.Clear();
             foreach (DataGridViewRow linha in dataGridViewSmart.Rows)
             {
                 string idChar = linha.Cells[1].Value.ToString();
@@ -1075,6 +1077,7 @@ namespace Interface
         #region Definition of Weights AHP
         private void refreshTableAHP()
         {
+            dataGridViewPesosAHP.DataBindings.Clear();
             dataGridViewAHP.DataBindings.Clear();
             dataGridViewAHP.DataSource = Business.ManagementDataBase.tableAHP();
 
