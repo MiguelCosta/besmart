@@ -2225,7 +2225,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:beSmart"
         "ProductCode" = "8:{1F9E05BF-5619-4CF4-B3C7-ADB4FD6E564A}"
-        "PackageCode" = "8:{92389634-5A79-45CB-A802-C5838346B843}"
+        "PackageCode" = "8:{A57A2A93-8CAD-4AD1-A85A-A3E2B0AEFAE6}"
         "UpgradeCode" = "8:{8FCAC515-A74F-40D0-A1B9-66D0468A4B52}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
