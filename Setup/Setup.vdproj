@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0FAF275B687A4B3F90C8BE5B8C3860C8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1351009ADD7046F49C192A021EAE5CC2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -327,12 +333,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E724A0CC1FBA483B965AA51C5A64D56E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_EBDABCBBF3774AB0A55BFF66CFF779BE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -537,6 +537,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -593,6 +606,26 @@
             "TargetName" = "8:image001.gif"
             "Tag" = "8:"
             "Folder" = "8:_84A9F63A1887468A8E016793194572E8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0FAF275B687A4B3F90C8BE5B8C3860C8"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\..\\Desktop\\beSmart\\DataBaseDefault.beSmart"
+            "TargetName" = "8:DataBaseDefault.beSmart"
+            "Tag" = "8:"
+            "Folder" = "8:_177877FE8ABE435399F20BAA23742AD1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1721,26 +1754,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E724A0CC1FBA483B965AA51C5A64D56E"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\..\\..\\Desktop\\DataBaseDefault.beSmart"
-            "TargetName" = "8:DataBaseDefault.beSmart"
-            "Tag" = "8:"
-            "Folder" = "8:_177877FE8ABE435399F20BAA23742AD1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EBDABCBBF3774AB0A55BFF66CFF779BE"
             {
             "SourcePath" = "8:..\\..\\Files\\Tutorials_html\\ValueFntutorial.htm"
@@ -2211,15 +2224,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:beSmart"
-        "ProductCode" = "8:{2923FE7D-5EB3-4746-927D-4C141F8C64ED}"
-        "PackageCode" = "8:{5161E27B-E5EA-4F6B-84EE-EC0BF80D3A53}"
+        "ProductCode" = "8:{1F9E05BF-5619-4CF4-B3C7-ADB4FD6E564A}"
+        "PackageCode" = "8:{92389634-5A79-45CB-A802-C5838346B843}"
         "UpgradeCode" = "8:{8FCAC515-A74F-40D0-A1B9-66D0468A4B52}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "InstallAllUsers" = "11:TRUE"
+        "ProductVersion" = "8:1.0.4"
         "Manufacturer" = "8:beSmart"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://code.google.com/p/besmart/"
@@ -2332,15 +2345,15 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_105539C3274F4C688F98E88973C0690F"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_08C80F3F7FA4478B96DB7403128E3266"
             {
-            "Name" = "8:beSmart DataBaseDefault"
+            "Name" = "8:Shortcut to DataBaseDefault.beSmart"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_E724A0CC1FBA483B965AA51C5A64D56E"
+            "Target" = "8:_0FAF275B687A4B3F90C8BE5B8C3860C8"
             "Folder" = "8:_2F56DE14694E40D98DBD09A87259B283"
             "WorkingFolder" = "8:_177877FE8ABE435399F20BAA23742AD1"
             "Icon" = "8:_E723ABB88F9844A5981393C97A62A943"
@@ -2374,15 +2387,15 @@
             "Icon" = "8:_E723ABB88F9844A5981393C97A62A943"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B9330598220C41009D044C17FD95FDFB"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F41685EA9D53453BB1F1FA82DD4BDCEA"
             {
-            "Name" = "8:beSmart DataBaseDefault"
+            "Name" = "8:Shortcut to DataBaseDefault.beSmart"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_E724A0CC1FBA483B965AA51C5A64D56E"
+            "Target" = "8:_0FAF275B687A4B3F90C8BE5B8C3860C8"
             "Folder" = "8:_6FA8A87970594395859E9F189DE6B465"
             "WorkingFolder" = "8:_177877FE8ABE435399F20BAA23742AD1"
             "Icon" = "8:_E723ABB88F9844A5981393C97A62A943"

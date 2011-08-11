@@ -240,6 +240,7 @@ namespace Interface
                 tabControlSeparates.SelectedTab = tabPageClassificaoes;
                 indexSperate = tabControlSeparates.SelectedIndex;
                 progressBar1.Value = 50;
+                buttonNextDefinitonWeigths.Enabled = false;
                 refreshTableSmart();
                 refreshTableAHP();
             }
@@ -1038,7 +1039,7 @@ namespace Interface
             }
 
             // se não existir altera a msg
-            if (num_10 != 1)
+            if (num_10 < 1)
             {
                 label_DefinitionOfWeigths.Text = "Assign 10 to a characteristics.";
                 return;
