@@ -11,7 +11,8 @@
     <RootNamespace>Interface</RootNamespace>
     <AssemblyName>beSmart</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\Miguel\Desktop\install\</PublishUrl>
@@ -83,9 +84,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZedGraph, Version=5.0.9.41461, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\..\..\toolkits\dlls\zedgraph_dll_v5.0.9\ZedGraph.dll</HintPath>
+    <Reference Include="ZedGraph">
+      <HintPath>..\Files\DLL\zedgraph_dll_v5.0.9\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph.Web">
+      <HintPath>..\Files\DLL\zedgraph_dll_v5.0.9\ZedGraph.Web.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +139,11 @@
     </Compile>
     <Compile Include="ConsultHelp.Designer.cs">
       <DependentUpon>ConsultHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReportError.cs">
       <SubType>Form</SubType>
@@ -234,14 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="View_HTML.resx">
       <DependentUpon>View_HTML.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +305,16 @@
     <None Include="Resources\logoBeSmart.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WebBrowser1.png" />
+    <None Include="Resources\Open1.png" />
+    <None Include="Resources\save1.png" />
+    <None Include="Resources\Mail1.png" />
+    <None Include="Resources\New1.png" />
+    <None Include="Resources\Help1.png" />
+    <None Include="Resources\Information1.png" />
+    <None Include="Resources\Edit1.png" />
+    <None Include="Resources\Edit2.png" />
+    <None Include="Resources\Best1.png" />
     <None Include="bin\Debug\Files\Image\Background\Logo Marca de água.png" />
     <None Include="bin\Debug\Files\Image\Information1.png" />
     <None Include="bin\Debug\Files\Image\Best1.png" />
