@@ -956,7 +956,7 @@ namespace Business
             Dictionary<int, double> matrixCNorm = new Dictionary<int, double>();
             double total = 0;
             double valor;
-
+                    
             foreach (int id in matrixC.Keys)
             {
                 matrixC.TryGetValue(id, out valor);
