@@ -9,28 +9,27 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
-// só para testar o TSF
 
 namespace teste
 {
     /// <summary>
-    /// Summary description for CodedUITest1
+    /// Summary description for CodedUITest2
     /// </summary>
     [CodedUITest]
-    public class test2_LoadFileExample
+    public class CodedUITest2
     {
-        public test2_LoadFileExample()
+        public CodedUITest2()
         {
         }
 
         [TestMethod]
-        public void _2_LoadFileExample()
+        public void CodedUITestMethod1()
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             // For more information on generated code, see http://go.microsoft.com/fwlink/?LinkId=179463
-            this.UIMap.LoadFileExample();
-            this.UIMap.LoadFileExample_2();
-            this.UIMap.LoadFileExample_3();
+            this.UIMap.tttttt();
+            this.UIMap.tttttttt();
+            this.UIMap.tttttttttt();
         }
 
         #region Additional test attributes

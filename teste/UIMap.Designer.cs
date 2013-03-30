@@ -18,6 +18,7 @@ namespace teste
     using System.Windows.Input;
     using Microsoft.VisualStudio.TestTools.UITest.Extension;
     using Microsoft.VisualStudio.TestTools.UITesting;
+    using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
     using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
@@ -212,6 +213,172 @@ namespace teste
             Assert.AreEqual(this.LoadFileExample_3ExpectedValues.UINextButtonEnabled, uINextButton.Enabled, "O botão \"Next\" não devia estar activo.");
         }
         
+        /// <summary>
+        /// aaaa - Use 'aaaaParams' to pass parameters into this method.
+        /// </summary>
+        public void aaaa()
+        {
+            #region Variable Declarations
+            WinButton uIEnterButton = this.UIBeSMARTSoftwareWindow.UIEnterWindow.UIEnterButton;
+            WinMenuItem uIOpenMenuItem = this.UIBeSMARTSoftwareWindow.UIMenuStrip1MenuBar.UIDataBaseMenuItem.UIOpenMenuItem;
+            WinEdit uINomeEdit = this.UIAbrirWindow.UIItemWindow.UINovobeSmartListItem.UINomeEdit;
+            WinButton uIAbrirButton = this.UIAbrirWindow.UIAbrirWindow1.UIAbrirButton;
+            WinCell uIHttpelectreiisoftwarCell = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha4Row.UIHttpelectreiisoftwarCell;
+            WinCell uIHttpwwwlamsadedauphiCell = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha15Row.UIHttpwwwlamsadedauphiCell;
+            WinButton uIViewSoftwareWebPageButton = this.UIBeSMARTSoftwareWindow.UIViewSoftwareWebPageWindow.UIViewSoftwareWebPageButton;
+            WinCell uILogicalDecisionsCell = this.UIBeSMARTSoftwareConsuWindow.UIDataGridViewSimpleSoWindow.UIDataGridViewTable.UILinha8Row.UILogicalDecisionsCell;
+            WinWindow uIBeSMARTSoftwareConsuWindow = this.UIBeSMARTSoftwareConsuWindow;
+            #endregion
+
+            // Launch '%USERPROFILE%\Documents\Projetos\beSmart\trunk\Interface\bin\Debug\beSmart.exe'
+            ApplicationUnderTest uIBeSMARTSoftwareWindow = ApplicationUnderTest.Launch(this.aaaaParams.UIBeSMARTSoftwareWindowExePath, this.aaaaParams.UIBeSMARTSoftwareWindowAlternateExePath);
+
+            // Click 'Enter' button
+            Mouse.Click(uIEnterButton, new Point(132, 20));
+
+            // Click 'DataBase' -> 'Open' menu item
+            Mouse.Click(uIOpenMenuItem, new Point(78, 8));
+
+            // Click 'Nome' text box
+            Mouse.Click(uINomeEdit, new Point(29, 12));
+
+            // Click '&Abrir' button
+            Mouse.Click(uIAbrirButton, new Point(36, 14));
+
+            // Click 'http://electre-ii.software.informer.com/' cell
+            Mouse.Click(uIHttpelectreiisoftwarCell, new Point(51, 15));
+
+            // Click 'http://www.lamsade.dauphine.fr/english/software.ht...' cell
+            Mouse.Click(uIHttpwwwlamsadedauphiCell, new Point(225, 18));
+
+            // Click 'View Software WebPage' button
+            Mouse.Click(uIViewSoftwareWebPageButton, new Point(92, 7));
+
+            // Click 'Logical Decisions' cell
+            Mouse.Click(uILogicalDecisionsCell, new Point(58, 8));
+
+            // Double-Click 'Logical Decisions' cell
+            Mouse.DoubleClick(uILogicalDecisionsCell, new Point(58, 8));
+
+            // Maximize window 'beSMART Software | Consult Software Webpage'
+            uIBeSMARTSoftwareConsuWindow.Maximized = this.aaaaParams.UIBeSMARTSoftwareConsuWindowMaximized;
+        }
+        
+        /// <summary>
+        /// aaaaa - Use 'aaaaaExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void aaaaa()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uILOGICALDECISIONSHyperlink = this.UIBeSMARTSoftwareConsuWindow.UIItemClient.UILOGICALDECISIONSSoftDocument.UISitetitleCustom.UILOGICALDECISIONSHyperlink;
+            #endregion
+
+            // Verify that the 'HelpText' property of 'LOGICAL DECISIONS' link equals 'LOGICAL DECISIONS'
+            Assert.AreEqual(this.aaaaaExpectedValues.UILOGICALDECISIONSHyperlinkHelpText, uILOGICALDECISIONSHyperlink.HelpText, "não é igual");
+        }
+        
+        /// <summary>
+        /// tttttt - Use 'ttttttParams' to pass parameters into this method.
+        /// </summary>
+        public void tttttt()
+        {
+            #region Variable Declarations
+            WinButton uIEnterButton = this.UIBeSMARTSoftwareWindow.UIEnterWindow.UIEnterButton;
+            #endregion
+
+            // Launch '%USERPROFILE%\Documents\Projetos\beSmart\trunk\Interface\bin\Debug\beSmart.exe'
+            ApplicationUnderTest uIBeSMARTSoftwareWindow = ApplicationUnderTest.Launch(this.ttttttParams.UIBeSMARTSoftwareWindowExePath, this.ttttttParams.UIBeSMARTSoftwareWindowAlternateExePath);
+
+            // Click 'Enter' button
+            Mouse.Click(uIEnterButton, new Point(32, 11));
+        }
+        
+        /// <summary>
+        /// tttttttt - Use 'ttttttttExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void tttttttt()
+        {
+            #region Variable Declarations
+            WinButton uIViewSoftwareWebPageButton = this.UIBeSMARTSoftwareWindow.UIViewSoftwareWebPageWindow.UIViewSoftwareWebPageButton;
+            #endregion
+
+            // Verify that the 'DisplayText' property of 'View Software WebPage' button equals 'View Software WebPage'
+            Assert.AreEqual(this.ttttttttExpectedValues.UIViewSoftwareWebPageButtonDisplayText, uIViewSoftwareWebPageButton.DisplayText, "Não igual o texto");
+        }
+        
+        /// <summary>
+        /// tttttttttt - Use 'ttttttttttParams' to pass parameters into this method.
+        /// </summary>
+        public void tttttttttt()
+        {
+            #region Variable Declarations
+            WinMenuItem uIOpenMenuItem = this.UIBeSMARTSoftwareWindow.UIMenuStrip1MenuBar.UIDataBaseMenuItem.UIOpenMenuItem;
+            WinEdit uINomeEdit = this.UIAbrirWindow.UIItemWindow.UINovobeSmartListItem.UINomeEdit;
+            WinButton uIAbrirButton = this.UIAbrirWindow.UIAbrirWindow1.UIAbrirButton;
+            WinCell uIPrimeDecionsCell = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha12Row.UIPrimeDecionsCell;
+            WinCell uITrueCell = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha16Row.UITrueCell;
+            WinCell uITrueCell1 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha20Row.UITrueCell;
+            WinCell uITrueCell2 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha13Row.UITrueCell;
+            WinCell uITrueCell3 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha10Row.UITrueCell;
+            WinCell uITrueCell4 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha6Row.UITrueCell;
+            WinCell uIGoodCell = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha4Row.UIGoodCell;
+            WinMenuItem uIStartanewComparationMenuItem = this.UIBeSMARTSoftwareWindow.UIMenuStrip1MenuBar.UISoftwareMenuItem.UIStartanewComparationMenuItem;
+            WinCell uIFalseCell = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha0Row.UIFalseCell;
+            WinCell uIFalseCell1 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha7Row.UIFalseCell;
+            WinCell uIFalseCell2 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha10Row1.UIFalseCell;
+            WinCell uIFalseCell3 = this.UIBeSMARTSoftwareWindow.UIDataGridViewTabelaSoWindow.UIDataGridViewTable.UILinha13Row1.UIFalseCell;
+            WinButton uINextButton = this.UIBeSMARTSoftwareWindow.UINextWindow.UINextButton;
+            #endregion
+
+            // Click 'DataBase' -> 'Open' menu item
+            Mouse.Click(uIOpenMenuItem, new Point(73, 25));
+
+            // Click 'Nome' text box
+            Mouse.Click(uINomeEdit, new Point(57, 9));
+
+            // Click '&Abrir' button
+            Mouse.Click(uIAbrirButton, new Point(20, 15));
+
+            // Click 'Prime Decions' cell
+            Mouse.Click(uIPrimeDecionsCell, new Point(153, 15));
+
+            // Click 'true' cell
+            Mouse.Click(uITrueCell, new Point(123, 11));
+
+            // Click 'true' cell
+            Mouse.Click(uITrueCell1, new Point(92, 4));
+
+            // Click 'true' cell
+            Mouse.Click(uITrueCell2, new Point(57, 21));
+
+            // Click 'true' cell
+            Mouse.Click(uITrueCell3, new Point(45, 0));
+
+            // Click 'true' cell
+            Mouse.Click(uITrueCell4, new Point(20, 11));
+
+            // Click 'good' cell
+            Mouse.Click(uIGoodCell, new Point(101, 2));
+
+            // Click 'Software' -> 'Start a new Comparation' menu item
+            Mouse.Click(uIStartanewComparationMenuItem, new Point(33, 7));
+
+            // Select 'False' cell
+            uIFalseCell.Checked = this.ttttttttttParams.UIFalseCellChecked;
+
+            // Select 'False' cell
+            uIFalseCell1.Checked = this.ttttttttttParams.UIFalseCellChecked1;
+
+            // Select 'False' cell
+            uIFalseCell2.Checked = this.ttttttttttParams.UIFalseCellChecked2;
+
+            // Select 'False' cell
+            uIFalseCell3.Checked = this.ttttttttttParams.UIFalseCellChecked3;
+
+            // Click 'Next >' button
+            Mouse.Click(uINextButton, new Point(72, 16));
+        }
+        
         #region Properties
         public virtual Open_part1_EnterBtnParams Open_part1_EnterBtnParams
         {
@@ -297,6 +464,66 @@ namespace teste
             }
         }
         
+        public virtual aaaaParams aaaaParams
+        {
+            get
+            {
+                if ((this.maaaaParams == null))
+                {
+                    this.maaaaParams = new aaaaParams();
+                }
+                return this.maaaaParams;
+            }
+        }
+        
+        public virtual aaaaaExpectedValues aaaaaExpectedValues
+        {
+            get
+            {
+                if ((this.maaaaaExpectedValues == null))
+                {
+                    this.maaaaaExpectedValues = new aaaaaExpectedValues();
+                }
+                return this.maaaaaExpectedValues;
+            }
+        }
+        
+        public virtual ttttttParams ttttttParams
+        {
+            get
+            {
+                if ((this.mttttttParams == null))
+                {
+                    this.mttttttParams = new ttttttParams();
+                }
+                return this.mttttttParams;
+            }
+        }
+        
+        public virtual ttttttttExpectedValues ttttttttExpectedValues
+        {
+            get
+            {
+                if ((this.mttttttttExpectedValues == null))
+                {
+                    this.mttttttttExpectedValues = new ttttttttExpectedValues();
+                }
+                return this.mttttttttExpectedValues;
+            }
+        }
+        
+        public virtual ttttttttttParams ttttttttttParams
+        {
+            get
+            {
+                if ((this.mttttttttttParams == null))
+                {
+                    this.mttttttttttParams = new ttttttttttParams();
+                }
+                return this.mttttttttttParams;
+            }
+        }
+        
         public UIBeSMARTSoftwareWindow UIBeSMARTSoftwareWindow
         {
             get
@@ -320,6 +547,18 @@ namespace teste
                 return this.mUIAbrirWindow;
             }
         }
+        
+        public UIBeSMARTSoftwareConsuWindow UIBeSMARTSoftwareConsuWindow
+        {
+            get
+            {
+                if ((this.mUIBeSMARTSoftwareConsuWindow == null))
+                {
+                    this.mUIBeSMARTSoftwareConsuWindow = new UIBeSMARTSoftwareConsuWindow();
+                }
+                return this.mUIBeSMARTSoftwareConsuWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -337,9 +576,21 @@ namespace teste
         
         private LoadFileExample_3ExpectedValues mLoadFileExample_3ExpectedValues;
         
+        private aaaaParams maaaaParams;
+        
+        private aaaaaExpectedValues maaaaaExpectedValues;
+        
+        private ttttttParams mttttttParams;
+        
+        private ttttttttExpectedValues mttttttttExpectedValues;
+        
+        private ttttttttttParams mttttttttttParams;
+        
         private UIBeSMARTSoftwareWindow mUIBeSMARTSoftwareWindow;
         
         private UIAbrirWindow mUIAbrirWindow;
+        
+        private UIBeSMARTSoftwareConsuWindow mUIBeSMARTSoftwareConsuWindow;
         #endregion
     }
     
@@ -559,6 +810,111 @@ namespace teste
         #endregion
     }
     
+    /// <summary>
+    /// Parameters to be passed into 'aaaa'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class aaaaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Launch '%USERPROFILE%\Documents\Projetos\beSmart\trunk\Interface\bin\Debug\beSmart.exe'
+        /// </summary>
+        public string UIBeSMARTSoftwareWindowExePath = "C:\\Users\\Miguel\\Documents\\Projetos\\beSmart\\trunk\\Interface\\bin\\Debug\\beSmart.exe";
+        
+        /// <summary>
+        /// Launch '%USERPROFILE%\Documents\Projetos\beSmart\trunk\Interface\bin\Debug\beSmart.exe'
+        /// </summary>
+        public string UIBeSMARTSoftwareWindowAlternateExePath = "%USERPROFILE%\\Documents\\Projetos\\beSmart\\trunk\\Interface\\bin\\Debug\\beSmart.exe";
+        
+        /// <summary>
+        /// Maximize window 'beSMART Software | Consult Software Webpage'
+        /// </summary>
+        public bool UIBeSMARTSoftwareConsuWindowMaximized = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'aaaaa'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class aaaaaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'HelpText' property of 'LOGICAL DECISIONS' link equals 'LOGICAL DECISIONS'
+        /// </summary>
+        public string UILOGICALDECISIONSHyperlinkHelpText = "LOGICAL DECISIONS";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'tttttt'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class ttttttParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Launch '%USERPROFILE%\Documents\Projetos\beSmart\trunk\Interface\bin\Debug\beSmart.exe'
+        /// </summary>
+        public string UIBeSMARTSoftwareWindowExePath = "C:\\Users\\Miguel\\Documents\\Projetos\\beSmart\\trunk\\Interface\\bin\\Debug\\beSmart.exe";
+        
+        /// <summary>
+        /// Launch '%USERPROFILE%\Documents\Projetos\beSmart\trunk\Interface\bin\Debug\beSmart.exe'
+        /// </summary>
+        public string UIBeSMARTSoftwareWindowAlternateExePath = "%USERPROFILE%\\Documents\\Projetos\\beSmart\\trunk\\Interface\\bin\\Debug\\beSmart.exe";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'tttttttt'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class ttttttttExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'DisplayText' property of 'View Software WebPage' button equals 'View Software WebPage'
+        /// </summary>
+        public string UIViewSoftwareWebPageButtonDisplayText = "View Software WebPage";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'tttttttttt'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class ttttttttttParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Select 'False' cell
+        /// </summary>
+        public bool UIFalseCellChecked = true;
+        
+        /// <summary>
+        /// Select 'False' cell
+        /// </summary>
+        public bool UIFalseCellChecked1 = true;
+        
+        /// <summary>
+        /// Select 'False' cell
+        /// </summary>
+        public bool UIFalseCellChecked2 = true;
+        
+        /// <summary>
+        /// Select 'False' cell
+        /// </summary>
+        public bool UIFalseCellChecked3 = true;
+        #endregion
+    }
+    
     [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
     public class UIBeSMARTSoftwareWindow : WinWindow
     {
@@ -632,6 +988,18 @@ namespace teste
                 return this.mUINextWindow;
             }
         }
+        
+        public UIViewSoftwareWebPageWindow UIViewSoftwareWebPageWindow
+        {
+            get
+            {
+                if ((this.mUIViewSoftwareWebPageWindow == null))
+                {
+                    this.mUIViewSoftwareWebPageWindow = new UIViewSoftwareWebPageWindow(this);
+                }
+                return this.mUIViewSoftwareWebPageWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -644,6 +1012,8 @@ namespace teste
         private UIDataGridViewTabelaSoWindow mUIDataGridViewTabelaSoWindow;
         
         private UINextWindow mUINextWindow;
+        
+        private UIViewSoftwareWebPageWindow mUIViewSoftwareWebPageWindow;
         #endregion
     }
     
@@ -743,10 +1113,24 @@ namespace teste
                 return this.mUIDataBaseMenuItem;
             }
         }
+        
+        public UISoftwareMenuItem UISoftwareMenuItem
+        {
+            get
+            {
+                if ((this.mUISoftwareMenuItem == null))
+                {
+                    this.mUISoftwareMenuItem = new UISoftwareMenuItem(this);
+                }
+                return this.mUISoftwareMenuItem;
+            }
+        }
         #endregion
         
         #region Fields
         private UIDataBaseMenuItem mUIDataBaseMenuItem;
+        
+        private UISoftwareMenuItem mUISoftwareMenuItem;
         #endregion
     }
     
@@ -784,6 +1168,43 @@ namespace teste
         
         #region Fields
         private WinMenuItem mUIOpenMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UISoftwareMenuItem : WinMenuItem
+    {
+        
+        public UISoftwareMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Software";
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIStartanewComparationMenuItem
+        {
+            get
+            {
+                if ((this.mUIStartanewComparationMenuItem == null))
+                {
+                    this.mUIStartanewComparationMenuItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIStartanewComparationMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Start a new Comparation";
+                    this.mUIStartanewComparationMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIStartanewComparationMenuItem.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIStartanewComparationMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIStartanewComparationMenuItem;
         #endregion
     }
     
@@ -1022,6 +1443,138 @@ namespace teste
                 return this.mUILinha31Row;
             }
         }
+        
+        public UILinha4Row UILinha4Row
+        {
+            get
+            {
+                if ((this.mUILinha4Row == null))
+                {
+                    this.mUILinha4Row = new UILinha4Row(this);
+                }
+                return this.mUILinha4Row;
+            }
+        }
+        
+        public UILinha15Row UILinha15Row
+        {
+            get
+            {
+                if ((this.mUILinha15Row == null))
+                {
+                    this.mUILinha15Row = new UILinha15Row(this);
+                }
+                return this.mUILinha15Row;
+            }
+        }
+        
+        public UILinha12Row UILinha12Row
+        {
+            get
+            {
+                if ((this.mUILinha12Row == null))
+                {
+                    this.mUILinha12Row = new UILinha12Row(this);
+                }
+                return this.mUILinha12Row;
+            }
+        }
+        
+        public UILinha16Row UILinha16Row
+        {
+            get
+            {
+                if ((this.mUILinha16Row == null))
+                {
+                    this.mUILinha16Row = new UILinha16Row(this);
+                }
+                return this.mUILinha16Row;
+            }
+        }
+        
+        public UILinha13Row UILinha13Row
+        {
+            get
+            {
+                if ((this.mUILinha13Row == null))
+                {
+                    this.mUILinha13Row = new UILinha13Row(this);
+                }
+                return this.mUILinha13Row;
+            }
+        }
+        
+        public UILinha10Row UILinha10Row
+        {
+            get
+            {
+                if ((this.mUILinha10Row == null))
+                {
+                    this.mUILinha10Row = new UILinha10Row(this);
+                }
+                return this.mUILinha10Row;
+            }
+        }
+        
+        public UILinha6Row UILinha6Row
+        {
+            get
+            {
+                if ((this.mUILinha6Row == null))
+                {
+                    this.mUILinha6Row = new UILinha6Row(this);
+                }
+                return this.mUILinha6Row;
+            }
+        }
+        
+        public UILinha0Row UILinha0Row
+        {
+            get
+            {
+                if ((this.mUILinha0Row == null))
+                {
+                    this.mUILinha0Row = new UILinha0Row(this);
+                }
+                return this.mUILinha0Row;
+            }
+        }
+        
+        public UILinha7Row UILinha7Row
+        {
+            get
+            {
+                if ((this.mUILinha7Row == null))
+                {
+                    this.mUILinha7Row = new UILinha7Row(this);
+                }
+                return this.mUILinha7Row;
+            }
+        }
+        
+        public UILinha10Row1 UILinha10Row1
+        {
+            get
+            {
+                if ((this.mUILinha10Row1 == null))
+                {
+                    this.mUILinha10Row1 = new UILinha10Row1(this);
+                }
+                return this.mUILinha10Row1;
+            }
+        }
+        
+        public UILinha13Row1 UILinha13Row1
+        {
+            get
+            {
+                if ((this.mUILinha13Row1 == null))
+                {
+                    this.mUILinha13Row1 = new UILinha13Row1(this);
+                }
+                return this.mUILinha13Row1;
+            }
+        }
         #endregion
         
         #region Fields
@@ -1054,6 +1607,28 @@ namespace teste
         private UILinha30Row mUILinha30Row;
         
         private WinRow mUILinha31Row;
+        
+        private UILinha4Row mUILinha4Row;
+        
+        private UILinha15Row mUILinha15Row;
+        
+        private UILinha12Row mUILinha12Row;
+        
+        private UILinha16Row mUILinha16Row;
+        
+        private UILinha13Row mUILinha13Row;
+        
+        private UILinha10Row mUILinha10Row;
+        
+        private UILinha6Row mUILinha6Row;
+        
+        private UILinha0Row mUILinha0Row;
+        
+        private UILinha7Row mUILinha7Row;
+        
+        private UILinha10Row1 mUILinha10Row1;
+        
+        private UILinha13Row1 mUILinha13Row1;
         #endregion
     }
     
@@ -1180,10 +1755,28 @@ namespace teste
                 return this.mUIHttpwwwccasrummesmmeCell;
             }
         }
+        
+        public WinCell UITrueCell
+        {
+            get
+            {
+                if ((this.mUITrueCell == null))
+                {
+                    this.mUITrueCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUITrueCell.SearchProperties[WinCell.PropertyNames.Value] = "true";
+                    this.mUITrueCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUITrueCell;
+            }
+        }
         #endregion
         
         #region Fields
         private WinCell mUIHttpwwwccasrummesmmeCell;
+        
+        private WinCell mUITrueCell;
         #endregion
     }
     
@@ -1564,6 +2157,437 @@ namespace teste
     }
     
     [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha4Row : WinRow
+    {
+        
+        public UILinha4Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";Electre IS;http://electre-ii.software.informer.com/;true;519;good;true;true;fals" +
+                        "e;false", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIHttpelectreiisoftwarCell
+        {
+            get
+            {
+                if ((this.mUIHttpelectreiisoftwarCell == null))
+                {
+                    this.mUIHttpelectreiisoftwarCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIHttpelectreiisoftwarCell.SearchProperties[WinCell.PropertyNames.Value] = "http://electre-ii.software.informer.com/";
+                    this.mUIHttpelectreiisoftwarCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIHttpelectreiisoftwarCell;
+            }
+        }
+        
+        public WinCell UIGoodCell
+        {
+            get
+            {
+                if ((this.mUIGoodCell == null))
+                {
+                    this.mUIGoodCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIGoodCell.SearchProperties[WinCell.PropertyNames.Value] = "good";
+                    this.mUIGoodCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIGoodCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIHttpelectreiisoftwarCell;
+        
+        private WinCell mUIGoodCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha15Row : WinRow
+    {
+        
+        public UILinha15Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";Uta Plus;http://www.lamsade.dauphine.fr/english/software.html#uta+;false;519;goo" +
+                        "d;true;false;false;true", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIHttpwwwlamsadedauphiCell
+        {
+            get
+            {
+                if ((this.mUIHttpwwwlamsadedauphiCell == null))
+                {
+                    this.mUIHttpwwwlamsadedauphiCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIHttpwwwlamsadedauphiCell.SearchProperties[WinCell.PropertyNames.Value] = "http://www.lamsade.dauphine.fr/english/software.html#uta+";
+                    this.mUIHttpwwwlamsadedauphiCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIHttpwwwlamsadedauphiCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIHttpwwwlamsadedauphiCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha12Row : WinRow
+    {
+        
+        public UILinha12Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";Prime Decions;http://www.sal.tkk.fi/en/resources/downloadables/prime;false;0;goo" +
+                        "d;true;false;false;true", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIPrimeDecionsCell
+        {
+            get
+            {
+                if ((this.mUIPrimeDecionsCell == null))
+                {
+                    this.mUIPrimeDecionsCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIPrimeDecionsCell.SearchProperties[WinCell.PropertyNames.Value] = "Prime Decions";
+                    this.mUIPrimeDecionsCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIPrimeDecionsCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIPrimeDecionsCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha16Row : WinRow
+    {
+        
+        public UILinha16Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";Vip Analysis;http://www4.fe.uc.pt/lmcdias/english/vipa.htm;false;0;good;true;tru" +
+                        "e;false;true", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UITrueCell
+        {
+            get
+            {
+                if ((this.mUITrueCell == null))
+                {
+                    this.mUITrueCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUITrueCell.SearchProperties[WinCell.PropertyNames.Value] = "true";
+                    this.mUITrueCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUITrueCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUITrueCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha13Row : WinRow
+    {
+        
+        public UILinha13Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";SANNA;http://sanna.com.br/;false;0;good;true;true;false;true", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UITrueCell
+        {
+            get
+            {
+                if ((this.mUITrueCell == null))
+                {
+                    this.mUITrueCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUITrueCell.SearchProperties[WinCell.PropertyNames.Value] = "true";
+                    this.mUITrueCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUITrueCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUITrueCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha10Row : WinRow
+    {
+        
+        public UILinha10Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";OnBalance;http://www.quartzstar.com/;false;640;good;true;true;true;true", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UITrueCell
+        {
+            get
+            {
+                if ((this.mUITrueCell == null))
+                {
+                    this.mUITrueCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUITrueCell.SearchProperties[WinCell.PropertyNames.Value] = "true";
+                    this.mUITrueCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUITrueCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUITrueCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha6Row : WinRow
+    {
+        
+        public UILinha6Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties.Add(new PropertyExpression(WinRow.PropertyNames.Value, ";Expert Choice;http://www.expertchoice.com/;false;1955;good;true;true;true;true", PropertyExpressionOperator.Contains));
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UITrueCell
+        {
+            get
+            {
+                if ((this.mUITrueCell == null))
+                {
+                    this.mUITrueCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUITrueCell.SearchProperties[WinCell.PropertyNames.Value] = "true";
+                    this.mUITrueCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUITrueCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUITrueCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha0Row : WinRow
+    {
+        
+        public UILinha0Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "False;1;Decision Explorer;http://www.banxia.com/dexplore/;false;456;good;true;tru" +
+                "e;true;true";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIFalseCell
+        {
+            get
+            {
+                if ((this.mUIFalseCell == null))
+                {
+                    this.mUIFalseCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIFalseCell.SearchProperties[WinCell.PropertyNames.Value] = "False";
+                    this.mUIFalseCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIFalseCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIFalseCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha7Row : WinRow
+    {
+        
+        public UILinha7Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "False;8;Hiview;http://www.catalyze.co.uk/?id=230;true;1100;good;true;true;true;tr" +
+                "ue";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIFalseCell
+        {
+            get
+            {
+                if ((this.mUIFalseCell == null))
+                {
+                    this.mUIFalseCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIFalseCell.SearchProperties[WinCell.PropertyNames.Value] = "False";
+                    this.mUIFalseCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIFalseCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIFalseCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha10Row1 : WinRow
+    {
+        
+        public UILinha10Row1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "False;11;OnBalance;http://www.quartzstar.com/;false;640;good;true;true;true;true";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIFalseCell
+        {
+            get
+            {
+                if ((this.mUIFalseCell == null))
+                {
+                    this.mUIFalseCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIFalseCell.SearchProperties[WinCell.PropertyNames.Value] = "False";
+                    this.mUIFalseCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIFalseCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIFalseCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha13Row1 : WinRow
+    {
+        
+        public UILinha13Row1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "False;14;SANNA;http://sanna.com.br/;false;0;good;true;true;false;true";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UIFalseCell
+        {
+            get
+            {
+                if ((this.mUIFalseCell == null))
+                {
+                    this.mUIFalseCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUIFalseCell.SearchProperties[WinCell.PropertyNames.Value] = "False";
+                    this.mUIFalseCell.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIFalseCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUIFalseCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
     public class UINextWindow : WinWindow
     {
         
@@ -1596,6 +2620,42 @@ namespace teste
         
         #region Fields
         private WinButton mUINextButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UIViewSoftwareWebPageWindow : WinWindow
+    {
+        
+        public UIViewSoftwareWebPageWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonViewWebPage";
+            this.WindowTitles.Add("beSMART Software");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIViewSoftwareWebPageButton
+        {
+            get
+            {
+                if ((this.mUIViewSoftwareWebPageButton == null))
+                {
+                    this.mUIViewSoftwareWebPageButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIViewSoftwareWebPageButton.SearchProperties[WinButton.PropertyNames.Name] = "View Software WebPage";
+                    this.mUIViewSoftwareWebPageButton.WindowTitles.Add("beSMART Software");
+                    #endregion
+                }
+                return this.mUIViewSoftwareWebPageButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIViewSoftwareWebPageButton;
         #endregion
     }
     
@@ -1797,6 +2857,272 @@ namespace teste
         
         #region Fields
         private WinList mUIVistadeItensList;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UIBeSMARTSoftwareConsuWindow : WinWindow
+    {
+        
+        public UIBeSMARTSoftwareConsuWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "beSMART Software | Consult Software Webpage";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDataGridViewSimpleSoWindow UIDataGridViewSimpleSoWindow
+        {
+            get
+            {
+                if ((this.mUIDataGridViewSimpleSoWindow == null))
+                {
+                    this.mUIDataGridViewSimpleSoWindow = new UIDataGridViewSimpleSoWindow(this);
+                }
+                return this.mUIDataGridViewSimpleSoWindow;
+            }
+        }
+        
+        public UIItemClient UIItemClient
+        {
+            get
+            {
+                if ((this.mUIItemClient == null))
+                {
+                    this.mUIItemClient = new UIItemClient(this);
+                }
+                return this.mUIItemClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDataGridViewSimpleSoWindow mUIDataGridViewSimpleSoWindow;
+        
+        private UIItemClient mUIItemClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UIDataGridViewSimpleSoWindow : WinWindow
+    {
+        
+        public UIDataGridViewSimpleSoWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "dataGridViewSimpleSoftware";
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDataGridViewTable1 UIDataGridViewTable
+        {
+            get
+            {
+                if ((this.mUIDataGridViewTable == null))
+                {
+                    this.mUIDataGridViewTable = new UIDataGridViewTable1(this);
+                }
+                return this.mUIDataGridViewTable;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDataGridViewTable1 mUIDataGridViewTable;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UIDataGridViewTable1 : WinTable
+    {
+        
+        public UIDataGridViewTable1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTable.PropertyNames.Name] = "DataGridView";
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public UILinha8Row UILinha8Row
+        {
+            get
+            {
+                if ((this.mUILinha8Row == null))
+                {
+                    this.mUILinha8Row = new UILinha8Row(this);
+                }
+                return this.mUILinha8Row;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UILinha8Row mUILinha8Row;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILinha8Row : WinRow
+    {
+        
+        public UILinha8Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "System.Drawing.Bitmap;9;Logical Decisions;http://www.logicaldecisions.com/";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UILogicalDecisionsCell
+        {
+            get
+            {
+                if ((this.mUILogicalDecisionsCell == null))
+                {
+                    this.mUILogicalDecisionsCell = new WinCell(this);
+                    #region Search Criteria
+                    this.mUILogicalDecisionsCell.SearchProperties[WinCell.PropertyNames.Value] = "Logical Decisions";
+                    this.mUILogicalDecisionsCell.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+                    #endregion
+                }
+                return this.mUILogicalDecisionsCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUILogicalDecisionsCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UIItemClient : WinClient
+    {
+        
+        public UIItemClient(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinControl.PropertyNames.ClassName] = "Internet Explorer_Server";
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public UILOGICALDECISIONSSoftDocument UILOGICALDECISIONSSoftDocument
+        {
+            get
+            {
+                if ((this.mUILOGICALDECISIONSSoftDocument == null))
+                {
+                    this.mUILOGICALDECISIONSSoftDocument = new UILOGICALDECISIONSSoftDocument(this);
+                }
+                return this.mUILOGICALDECISIONSSoftDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UILOGICALDECISIONSSoftDocument mUILOGICALDECISIONSSoftDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UILOGICALDECISIONSSoftDocument : HtmlDocument
+    {
+        
+        public UILOGICALDECISIONSSoftDocument(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[HtmlDocument.PropertyNames.Id] = null;
+            this.SearchProperties[HtmlDocument.PropertyNames.RedirectingPage] = "False";
+            this.SearchProperties[HtmlDocument.PropertyNames.FrameDocument] = "False";
+            this.FilterProperties[HtmlDocument.PropertyNames.Title] = "LOGICAL DECISIONS | Software for more effective decisions";
+            this.FilterProperties[HtmlDocument.PropertyNames.AbsolutePath] = "/";
+            this.FilterProperties[HtmlDocument.PropertyNames.PageUrl] = "http://www.logicaldecisions.com/";
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public UISitetitleCustom UISitetitleCustom
+        {
+            get
+            {
+                if ((this.mUISitetitleCustom == null))
+                {
+                    this.mUISitetitleCustom = new UISitetitleCustom(this);
+                }
+                return this.mUISitetitleCustom;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UISitetitleCustom mUISitetitleCustom;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "11.0.51106.1")]
+    public class UISitetitleCustom : HtmlCustom
+    {
+        
+        public UISitetitleCustom(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties["TagName"] = "H1";
+            this.SearchProperties["Id"] = "site-title";
+            this.SearchProperties[UITestControl.PropertyNames.Name] = null;
+            this.FilterProperties["Class"] = null;
+            this.FilterProperties["ControlDefinition"] = "id=site-title";
+            this.FilterProperties["TagInstance"] = "1";
+            this.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+            #endregion
+        }
+        
+        #region Properties
+        public HtmlHyperlink UILOGICALDECISIONSHyperlink
+        {
+            get
+            {
+                if ((this.mUILOGICALDECISIONSHyperlink == null))
+                {
+                    this.mUILOGICALDECISIONSHyperlink = new HtmlHyperlink(this);
+                    #region Search Criteria
+                    this.mUILOGICALDECISIONSHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Id] = null;
+                    this.mUILOGICALDECISIONSHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Name] = null;
+                    this.mUILOGICALDECISIONSHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Target] = null;
+                    this.mUILOGICALDECISIONSHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "LOGICAL DECISIONS";
+                    this.mUILOGICALDECISIONSHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.AbsolutePath] = "/";
+                    this.mUILOGICALDECISIONSHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = "LOGICAL DECISIONS";
+                    this.mUILOGICALDECISIONSHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Href] = "http://www.logicaldecisions.com/";
+                    this.mUILOGICALDECISIONSHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Class] = null;
+                    this.mUILOGICALDECISIONSHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.ControlDefinition] = "title=\"LOGICAL DECISIONS\" href=\"http://w";
+                    this.mUILOGICALDECISIONSHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.TagInstance] = "1";
+                    this.mUILOGICALDECISIONSHyperlink.WindowTitles.Add("beSMART Software | Consult Software Webpage");
+                    #endregion
+                }
+                return this.mUILOGICALDECISIONSHyperlink;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private HtmlHyperlink mUILOGICALDECISIONSHyperlink;
         #endregion
     }
 }
