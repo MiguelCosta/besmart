@@ -13,11 +13,9 @@ using ZedGraph;
 using System.Collections;
 
 
-namespace Interface
-{
+namespace Interface {
 
-    public partial class chooseProcess : Form
-    {
+    public partial class chooseProcess :Form {
         int indexSperate = 0;
         int selectCharacteristics_row = 0;
         string selectCharacteristics_id = "";
@@ -25,8 +23,7 @@ namespace Interface
 
         string _file;
 
-        public chooseProcess(string file)
-        {
+        public chooseProcess(string file) {
             InitializeComponent();
 
             init();
@@ -38,23 +35,19 @@ namespace Interface
             inicial.ShowDialog();
         }
 
-        private void openFile()
-        {
-            try
-            {
+        private void openFile() {
+            try {
                 Business.ManagementDataBase.loadObject(_file);
 
                 // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
                 refreshTableSoftware();
                 refreshTableCaracteristics();
-            }
-            catch (Exception) { }
+            } catch(Exception) { }
 
 
         }
 
-        private void init()
-        {
+        private void init() {
             // configurações iniciais
             refreshTableSoftware();
             refreshTableCaracteristics();
@@ -67,8 +60,7 @@ namespace Interface
 
         }
 
-        private void info()
-        {
+        private void info() {
             string info1 = "";
             info1 += "For new Comparation: ";
             info1 += "\n1 - Software -> Start New Comparation (Ctrl+N)";
@@ -124,13 +116,28 @@ namespace Interface
 
         #region Refresh Tables
 
-        private void refreshTableSoftware()
-        {
+        private void refreshTableSoftware() {
             dataGridViewTabelaSoftware.DataSource = Business.ManagementDataBase.tableSoftware(false);
+            dataGridViewTabelaSoftware.Columns["Link"].Visible = false;
+
+            if(!dataGridViewTabelaSoftware.Columns.Contains("Link2")) {
+                DataGridViewLinkColumn links = new DataGridViewLinkColumn();
+                links.UseColumnTextForLinkValue = true;
+                links.Name = "LinkClick";
+                links.HeaderText = "Link";
+                links.ActiveLinkColor = Color.White;
+                links.LinkBehavior = LinkBehavior.SystemDefault;
+                links.LinkColor = Color.Blue;
+                links.TrackVisitedState = true;
+                links.VisitedLinkColor = Color.Gray;
+
+                dataGridViewTabelaSoftware.Columns.Add(links);
+            }
+
         }
-        private void refreshTableCaracteristics()
-        {
+        private void refreshTableCaracteristics() {
             dataGridViewCharacteristics.DataSource = Business.ManagementDataBase.tableCharacteristics();
+            dataGridViewCharacteristics.Columns["ID"].Visible = false;
         }
 
         #endregion
@@ -138,38 +145,31 @@ namespace Interface
         #region File
 
         // open file
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenFileDialog o = new OpenFileDialog();
             o.Filter = "beSmart files (*.beSmart)|*.beSmart|All files (*.*)|*.*";
             DialogResult ret = o.ShowDialog();
             String filename = o.FileName;
 
-            if (ret == DialogResult.OK)
-            {
-                try
-                {
+            if(ret == DialogResult.OK) {
+                try {
                     Business.ManagementDataBase.loadObject(filename);
 
                     // ->>>> alterar isto par um evento, quando a base de dados muda faz refresh das tabelas
                     refreshTableSoftware();
                     refreshTableCaracteristics();
-                }
-                catch (Exception)
-                {
+                } catch(Exception) {
                     MessageBox.Show("Error Open File", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
             SaveFileDialog s = new SaveFileDialog();
             s.Filter = "beSmart files (*.beSmart)|*.beSmart|All files (*.*)|*.*";
             DialogResult ret = s.ShowDialog();
 
-            if (ret == DialogResult.OK)
-            {
+            if(ret == DialogResult.OK) {
                 string name = s.FileName;
                 Business.ManagementDataBase.database.saveInObject(name);
             }
@@ -177,8 +177,7 @@ namespace Interface
         #endregion
 
         #region Edit information
-        private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void editSoftwareListToolStripMenuItem_Click(object sender, EventArgs e) {
             EditSWList editList = new EditSWList();
             editList.ShowDialog();
             refreshTableSoftware();
@@ -188,13 +187,11 @@ namespace Interface
         #endregion
 
         #region New Data Base
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void newToolStripMenuItem_Click(object sender, EventArgs e) {
             string msg = "Want to create a new Data Base?\nThe information has not saved will be lost.";
             DialogResult r = MessageBox.Show(msg, "New Data Base", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
-            if (r == DialogResult.Yes)
-            {
+            if(r == DialogResult.Yes) {
                 Business.ManagementDataBase.database = new Business.DataBaseUser();
                 init();
             }
@@ -203,8 +200,7 @@ namespace Interface
         #endregion
 
         #region Report/suggestion
-        private void reportErrorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void reportErrorToolStripMenuItem_Click(object sender, EventArgs e) {
             ReportError r = new ReportError();
             r.Show();
         }
@@ -212,17 +208,14 @@ namespace Interface
 
         #region Button Next
 
-        private void buttonNextChooseCriteria_Click(object sender, EventArgs e)
-        {
+        private void buttonNextChooseCriteria_Click(object sender, EventArgs e) {
             // limpar a estrutura
             Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
             Business.ManagementDataBase.caracteristicas_escolhidas.Clear();
 
             // vai a todas as linhas das tabelas ver quais estão seleccionadas
-            foreach (DataGridViewRow linha in dataGridViewCharacteristics.Rows)
-            {
-                if (linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true)
-                {
+            foreach(DataGridViewRow linha in dataGridViewCharacteristics.Rows) {
+                if(linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true) {
                     int id = System.Convert.ToInt32(linha.Cells[1].Value);
                     string name = (string)linha.Cells[2].Value;
                     Business.ManagementDataBase.caracteristicas_escolhidas.Add(id, name);
@@ -230,12 +223,9 @@ namespace Interface
             }
 
             // condição para se ter de seleccionar pelo menos uma caracteristica
-            if (Business.ManagementDataBase.caracteristicas_escolhidas.Count < 1)
-            {
+            if(Business.ManagementDataBase.caracteristicas_escolhidas.Count < 1) {
                 MessageBox.Show("Select at least one characteristics!");
-            }
-            else
-            {
+            } else {
                 buttonNextChooseCriteria_message();
                 tabControlSeparates.SelectedTab = tabPageClassificaoes;
                 indexSperate = tabControlSeparates.SelectedIndex;
@@ -247,86 +237,76 @@ namespace Interface
         }
 
         // messagem que deve aparecer quando se clica no next e aparece sucesso
-        private void buttonNextChooseCriteria_message()
-        {
+        private void buttonNextChooseCriteria_message() {
             string message = "Select Characteristics:\n";
 
-            foreach (KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas)
-            {
+            foreach(KeyValuePair<int, string> pair in Business.ManagementDataBase.caracteristicas_escolhidas) {
                 message += pair.Key + "\t" + pair.Value + "\n";
             }
 
             MessageBox.Show(message, "Characteristics", MessageBoxButtons.OK, MessageBoxIcon.None);
         }
 
-        private void buttonNextChooseSoftware_Click(object sender, EventArgs e)
-        {
-            Business.ManagementDataBase.ids_dos_SoftwareSeleccionados = new List<int>();
+        private void buttonNextChooseSoftware_Click(object sender, EventArgs e) {
+            try {
 
-            foreach (DataGridViewRow linha in dataGridViewTabelaSoftware.Rows)
-            {
-                // seleccionada apenas as linhas que tem o checbox activo
-                if (linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true)
-                {
-                    int id = System.Convert.ToInt32(linha.Cells[1].Value);
-                    string name = linha.Cells[2].Value.ToString();
+                Business.ManagementDataBase.ids_dos_SoftwareSeleccionados = new List<int>();
 
-                    Business.ManagementDataBase.addIdSoftwareelect(id);
-                }
-            }
+                foreach(DataGridViewRow linha in dataGridViewTabelaSoftware.Rows) {
+                    // seleccionada apenas as linhas que tem o checbox activo
+                    if(linha.Cells[0].Value != null && (bool)linha.Cells[0].Value == true) {
+                        int id = System.Convert.ToInt32(linha.Cells["ID"].Value);
+                        string name = linha.Cells["Name"].Value.ToString();
 
-
-            // verifica se os softwares tem todas as caracteristicas preenchidas
-            foreach (int id_s in Business.ManagementDataBase.ids_dos_SoftwareSeleccionados)
-            {
-                Business.Software s = Business.ManagementDataBase.getSoftware(id_s);
-
-                foreach (int id_c in Business.ManagementDataBase.database.Charac.Keys)
-                {
-                    if (!s.Charac.ContainsKey(id_c))
-                    {
-                        string msg = "The software selected not all characteristics are completed!\nPlease edit the information in: Software-> Edit Software List.";
-                        MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        Business.ManagementDataBase.addIdSoftwareelect(id);
                     }
                 }
 
-            }
+                // verifica se os softwares tem todas as caracteristicas preenchidas
+                foreach(int id_s in Business.ManagementDataBase.ids_dos_SoftwareSeleccionados) {
+                    Business.Software s = Business.ManagementDataBase.getSoftware(id_s);
 
+                    foreach(int id_c in Business.ManagementDataBase.database.Charac.Keys) {
+                        if(!s.Charac.ContainsKey(id_c)) {
+                            string msg = "The software selected not all characteristics are completed!\nPlease edit the information in: Software-> Edit Software List.";
+                            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
 
-            if (Business.ManagementDataBase.totalSoftwareelect() < 2 || Business.ManagementDataBase.totalSoftwareelect() > 16)
-            {
-                MessageBox.Show("Select between 2 and 16 Software!");
-            }
-            else
-            {
-                // apresenta os Software seleccionados
-                buttonNextChooseSoftware_message();
+                }
 
-                tabControlSeparates.SelectedTab = tabPageChooseCriteria;
+                if(Business.ManagementDataBase.totalSoftwareelect() < 2 || Business.ManagementDataBase.totalSoftwareelect() > 16) {
+                    MessageBox.Show("Select between 2 and 16 Software!");
+                } else {
+                    // apresenta os Software seleccionados
+                    buttonNextChooseSoftware_message();
 
-                indexSperate = tabControlSeparates.SelectedIndex;
+                    tabControlSeparates.SelectedTab = tabPageChooseCriteria;
 
-                progressBar1.Value = 25;
+                    indexSperate = tabControlSeparates.SelectedIndex;
+
+                    progressBar1.Value = 25;
+                }
+
+            } catch(Exception ex) {
+
+                MessageBox.Show(ex.Message);
             }
         }
 
         // messagem que deve aparecer quando se clica no next e aparece sucesso
-        private void buttonNextChooseSoftware_message()
-        {
+        private void buttonNextChooseSoftware_message() {
             string message = "Select Software:\n";
 
-            foreach (Business.Software s in Business.ManagementDataBase.infoSoftware_byID().Values)
-            {
+            foreach(Business.Software s in Business.ManagementDataBase.infoSoftware_byID().Values) {
                 message += s.Id + "\t" + s.Name + "\n";
             }
 
             MessageBox.Show(message, "Software", MessageBoxButtons.OK, MessageBoxIcon.None);
         }
 
-
-        private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e)
-        {
+        private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e) {
             dataGridViewCaracteristicasPrioridades.DataSource = Business.ManagementDataBase.tableCaracteristicasPrioridades();
             tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
             indexSperate = tabControlSeparates.SelectedIndex;
@@ -346,22 +326,19 @@ namespace Interface
 
         #region Button Preivous
 
-        private void buttonPreviousToSoftware_Click(object sender, EventArgs e)
-        {
+        private void buttonPreviousToSoftware_Click(object sender, EventArgs e) {
             tabControlSeparates.SelectedTab = tabPageChooseSoftware;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 0;
         }
 
-        private void buttonPreviousDefiniotWeigths_Click(object sender, EventArgs e)
-        {
+        private void buttonPreviousDefiniotWeigths_Click(object sender, EventArgs e) {
             tabControlSeparates.SelectedTab = tabPageChooseCriteria;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 25;
         }
 
-        private void buttonDefinitionOfPriorities_Click(object sender, EventArgs e)
-        {
+        private void buttonDefinitionOfPriorities_Click(object sender, EventArgs e) {
             tabControlSeparates.SelectedTab = tabPageClassificaoes;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 50;
@@ -370,16 +347,13 @@ namespace Interface
         #endregion
 
         #region Button Finish
-        private void buttonFinish_Click(object sender, EventArgs e)
-        {
+        private void buttonFinish_Click(object sender, EventArgs e) {
             Business.ManagementDataBase.resultFinal = new Dictionary<int, Dictionary<string, float>>();
-            if (Business.ManagementDataBase.metodo_fase_1.Equals("smart"))
-            {
+            if(Business.ManagementDataBase.metodo_fase_1.Equals("smart")) {
                 Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinal(Business.ManagementDataBase.tabelaSmartNorm, Business.ManagementDataBase.decision.TableResult);
             }
 
-            if (Business.ManagementDataBase.metodo_fase_1.Equals("ahp"))
-            {
+            if(Business.ManagementDataBase.metodo_fase_1.Equals("ahp")) {
                 Business.ManagementDataBase.resultFinal = Business.ManagementDataBase.decision.analiseFinal(Business.ManagementDataBase.pesosFinaisClassAHP, Business.ManagementDataBase.decision.TableResult);
             }
 
@@ -391,12 +365,10 @@ namespace Interface
             final.Columns.Add("Priority");
 
 
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
-            {
+            foreach(KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal) {
                 Dictionary<string, float> a;
                 Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
-                foreach (KeyValuePair<string, float> pair2 in a)
-                {
+                foreach(KeyValuePair<string, float> pair2 in a) {
                     int id_Soft = 0;
                     int.TryParse(pair2.Key, out id_Soft);
                     Business.Software s = Business.ManagementDataBase.getSoftware(id_Soft);
@@ -423,26 +395,19 @@ namespace Interface
             configTableFinalDetails();
         }
 
-        private void labelBestSoftware()
-        {
-            foreach (DataGridViewRow line in dataGridViewFinal.Rows)
-            {
-                if (line.Cells[0].Value.ToString().Equals("1"))
-                {
+        private void labelBestSoftware() {
+            foreach(DataGridViewRow line in dataGridViewFinal.Rows) {
+                if(line.Cells[0].Value.ToString().Equals("1")) {
                     labelBestSoftwareName.Text = line.Cells[2].Value.ToString();
                     return;
                 }
             }
         }
 
-        private void configTableFinal()
-        {
-            foreach (DataGridViewRow line in dataGridViewFinal.Rows)
-            {
-                if (line.Cells[0].Value.ToString().Equals("1"))
-                {
-                    foreach (DataGridViewCell c in line.Cells)
-                    {
+        private void configTableFinal() {
+            foreach(DataGridViewRow line in dataGridViewFinal.Rows) {
+                if(line.Cells[0].Value.ToString().Equals("1")) {
+                    foreach(DataGridViewCell c in line.Cells) {
                         c.Style.BackColor = Color.Yellow;
                     }
                 }
@@ -458,15 +423,11 @@ namespace Interface
             dataGridViewFinal.ReadOnly = true;
         }
 
-        private void configTableFinalDetails()
-        {
+        private void configTableFinalDetails() {
             // cores das caracteristicas
-            foreach (DataGridViewRow line in dataGridViewFinalDetails.Rows)
-            {
-                if (line.Cells[1].Value.ToString().Equals(""))
-                {
-                    foreach (DataGridViewCell c in line.Cells)
-                    {
+            foreach(DataGridViewRow line in dataGridViewFinalDetails.Rows) {
+                if(line.Cells[1].Value.ToString().Equals("")) {
+                    foreach(DataGridViewCell c in line.Cells) {
                         c.Style.BackColor = Color.Black;
                         c.Style.ForeColor = System.Drawing.Color.White;
                     }
@@ -478,10 +439,8 @@ namespace Interface
             }
 
             // nomes dos softwares
-            foreach (DataGridViewRow line in dataGridViewFinalDetails.Rows)
-            {
-                if (line.Cells[1].Value.ToString().Equals("") == false)
-                {
+            foreach(DataGridViewRow line in dataGridViewFinalDetails.Rows) {
+                if(line.Cells[1].Value.ToString().Equals("") == false) {
                     int id;
                     int.TryParse(line.Cells[1].Value.ToString(), out id);
                     Business.Software s = Business.ManagementDataBase.getSoftware(id);
@@ -500,16 +459,14 @@ namespace Interface
 
             }
 
-            for (int i = 0; i < dataGridViewFinalDetails.ColumnCount; i++)
-            {
+            for(int i = 0 ; i < dataGridViewFinalDetails.ColumnCount ; i++) {
                 dataGridViewFinalDetails.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             dataGridViewFinalDetails.ReadOnly = true;
         }
 
-        private void dataGridViewFinalDetails_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
+        private void dataGridViewFinalDetails_DataError(object sender, DataGridViewDataErrorEventArgs e) {
 
         }
 
@@ -518,8 +475,7 @@ namespace Interface
 
         #region Graph Final
 
-        private void graph()
-        {
+        private void graph() {
             // limpa o gráfico
             zedGraphControlRankingFinal.GraphPane.CurveList.Clear();
 
@@ -548,17 +504,14 @@ namespace Interface
             zedGraphControlRankingFinal.AxisChange();
         }
 
-        private string[] graphXX()
-        {
+        private string[] graphXX() {
             // coloca o nome dos softwares num array de strings
             ArrayList list = new ArrayList();
 
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
-            {
+            foreach(KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal) {
                 Dictionary<string, float> a;
                 Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
-                foreach (KeyValuePair<string, float> pair2 in a)
-                {
+                foreach(KeyValuePair<string, float> pair2 in a) {
                     int id_Soft = 0;
                     int.TryParse(pair2.Key, out id_Soft);
                     Business.Software s = Business.ManagementDataBase.getSoftware(id_Soft);
@@ -570,8 +523,7 @@ namespace Interface
             string[] x = new string[list.Count];
 
             int pos = 0;
-            foreach (string v in list)
-            {
+            foreach(string v in list) {
                 x[pos] = v;
                 pos++;
             }
@@ -580,16 +532,13 @@ namespace Interface
             return x;
         }
 
-        private PointPairList graphYY()
-        {
+        private PointPairList graphYY() {
             PointPairList list = new PointPairList();
 
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
-            {
+            foreach(KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal) {
                 Dictionary<string, float> a;
                 Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
-                foreach (KeyValuePair<string, float> pair2 in a)
-                {
+                foreach(KeyValuePair<string, float> pair2 in a) {
                     list.Add(0, pair2.Value);
                 }
             }
@@ -601,8 +550,7 @@ namespace Interface
 
         #region Graph Final Details
 
-        private void graphDetails()
-        {
+        private void graphDetails() {
             // limpa o gráfico
             zedGraphControlRankingDetails.GraphPane.CurveList.Clear();
 
@@ -635,17 +583,14 @@ namespace Interface
             //zedGraphControlRankingDetails.SetScrollRangeFromData();
         }
 
-        private string[] graphXXDetails()
-        {
+        private string[] graphXXDetails() {
             // coloca o nome dos softwares num array de strings
             ArrayList list = new ArrayList();
 
-            foreach (KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal)
-            {
+            foreach(KeyValuePair<int, Dictionary<string, float>> pair in Business.ManagementDataBase.resultFinal) {
                 Dictionary<string, float> a;
                 Business.ManagementDataBase.resultFinal.TryGetValue(pair.Key, out a);
-                foreach (KeyValuePair<string, float> pair2 in a)
-                {
+                foreach(KeyValuePair<string, float> pair2 in a) {
                     int id_Soft = 0;
                     int.TryParse(pair2.Key, out id_Soft);
                     Business.Software s = Business.ManagementDataBase.getSoftware(id_Soft);
@@ -657,8 +602,7 @@ namespace Interface
             string[] x = new string[list.Count];
 
             int pos = 0;
-            foreach (string v in list)
-            {
+            foreach(string v in list) {
                 x[pos] = v;
                 pos++;
             }
@@ -667,15 +611,13 @@ namespace Interface
             return x;
         }
 
-        private void graphYYDetails(GraphPane myPane)
-        {
+        private void graphYYDetails(GraphPane myPane) {
             myPane.BarSettings.Type = BarType.Stack;
 
             // vai buscar uma cor
             int color = 0;
 
-            foreach (int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys)
-            {
+            foreach(int c in Business.ManagementDataBase.caracteristicas_escolhidas.Keys) {
                 PointPairList list = new PointPairList();
 
                 list = graphYYDetailsAux("" + c);
@@ -690,8 +632,7 @@ namespace Interface
             return;
         }
 
-        private PointPairList graphYYDetailsAux(string id_c)
-        {
+        private PointPairList graphYYDetailsAux(string id_c) {
             PointPairList list = new PointPairList();
 
             float resultWeight;
@@ -700,19 +641,15 @@ namespace Interface
             Business.ManagementDataBase.decision.TableResultWeight.TryGetValue(id_c, out resultWeight);
 
             // vou a todos os softwares (string) -> necessário para o resultado ser ordenado
-            foreach (Dictionary<string, float> v1 in Business.ManagementDataBase.resultFinal.Values)
-            {
+            foreach(Dictionary<string, float> v1 in Business.ManagementDataBase.resultFinal.Values) {
                 // este for é necessário apesar de a tabela final de tanking ter apenas um valor aqui...
-                foreach (KeyValuePair<string, float> pair_r in v1)
-                {
+                foreach(KeyValuePair<string, float> pair_r in v1) {
                     // depois vou a TableResult à respectiva caracteristica buscar o peso dos softwares
                     Dictionary<string, float> a;
                     Business.ManagementDataBase.decision.TableResult.TryGetValue(id_c, out a);
 
-                    foreach (KeyValuePair<string, float> pair in a)
-                    {
-                        if (pair.Key.Equals(pair_r.Key))
-                        {
+                    foreach(KeyValuePair<string, float> pair in a) {
+                        if(pair.Key.Equals(pair_r.Key)) {
                             // se o ID for igual ao que id do software que procuramos vai adicionar
                             // multiplica pelo peso que essa caracteristica tem
                             float p = pair.Value * resultWeight;
@@ -729,42 +666,36 @@ namespace Interface
         #endregion
 
         #region Button Help
-        private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void aHPTutorialToolStripMenuItem_Click(object sender, EventArgs e) {
             string url = Path.GetFullPath("Files\\Tutorials_html\\AHPtutorial.htm");
             View_HTML t = new View_HTML(url);
             t.Show();
         }
 
-        private void sMARTTutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void sMARTTutorialToolStripMenuItem_Click(object sender, EventArgs e) {
             string url = Path.GetFullPath("Files\\Tutorials_html\\SMARTtutorial.htm");
             View_HTML t = new View_HTML(url);
             t.Show();
         }
 
-        private void valueFNTutorialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void valueFNTutorialToolStripMenuItem_Click(object sender, EventArgs e) {
             string url = Path.GetFullPath("Files\\Tutorials_html\\ValueFntutorial.htm");
             View_HTML t = new View_HTML(url);
             t.Show();
         }
 
-        private void webPageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void webPageToolStripMenuItem_Click(object sender, EventArgs e) {
             System.Diagnostics.Process.Start("http://code.google.com/p/besmart/");
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
             AboutBox a = new AboutBox();
             a.Show();
         }
         #endregion
 
         #region Start New Comparation
-        private void startANewComparationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void startANewComparationToolStripMenuItem_Click(object sender, EventArgs e) {
             Business.ManagementDataBase.ids_dos_SoftwareSeleccionados = new List<int>();
             Business.ManagementDataBase.caracteristicas_escolhidas = new Dictionary<int, string>();
             Business.ManagementDataBase.tabelaSmartNorm = new Dictionary<string, float>();
@@ -799,8 +730,7 @@ namespace Interface
 
         }
 
-        private void buttonStartNewComparation_Click(object sender, EventArgs e)
-        {
+        private void buttonStartNewComparation_Click(object sender, EventArgs e) {
             startANewComparationToolStripMenuItem_Click(null, null);
         }
 
@@ -808,14 +738,12 @@ namespace Interface
 
         #region ViewWebPage
 
-        private void buttonViewWebPage_Click(object sender, EventArgs e)
-        {
+        private void buttonViewWebPage_Click(object sender, EventArgs e) {
             ConsultWebpage cwp = new ConsultWebpage();
             cwp.Show();
         }
 
-        private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void viewSoftwareWebpageToolStripMenuItem_Click(object sender, EventArgs e) {
             ConsultWebpage cwp = new ConsultWebpage();
             cwp.Show();
 
@@ -823,33 +751,26 @@ namespace Interface
         #endregion
 
         #region exit
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             DialogResult r = MessageBox.Show("Want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
-            {
+            if(r == DialogResult.Yes) {
                 this.Dispose();
             }
         }
 
 
-        private void chooseProcess_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        private void chooseProcess_FormClosing(object sender, FormClosingEventArgs e) {
             DialogResult r = MessageBox.Show("Want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
-            {
+            if(r == DialogResult.Yes) {
                 this.Dispose();
-            }
-            else
-            {   // cancel dispose
+            } else {   // cancel dispose
                 e.Cancel = true;
             }
         }
         #endregion
 
         #region TabSeparates
-        private void tabControlSeparates_Click(object sender, EventArgs e)
-        {
+        private void tabControlSeparates_Click(object sender, EventArgs e) {
             tabControlSeparates.SelectedIndex = indexSperate;
             MessageBox.Show("Use the buttons Next and Previous for navigate in process.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -858,68 +779,81 @@ namespace Interface
 
         #region Choose Software
 
-        private void dataGridViewTabelaSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
-            {
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
-                {
+        private void dataGridViewTabelaSoftware_CellClick(object sender, DataGridViewCellEventArgs e) {
+            try {
+
+                foreach(DataGridViewRow line in dataGridViewTabelaSoftware.Rows) {
+                    if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True")) {
+                        line.Selected = true;
+                    }
+                    if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False")) {
+                        line.Selected = false;
+                    }
+                }
+
+                // Para quando se clica na coluna do Link
+                if(e.ColumnIndex == dataGridViewTabelaSoftware.Columns["LinkClick"].Index) {
+                    View_HTML v = new View_HTML(dataGridViewTabelaSoftware.Rows[e.RowIndex].Cells["Link"].Value.ToString());
+                    v.Show();
+                }
+
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridViewTabelaSoftware_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
+            foreach(DataGridViewRow line in dataGridViewTabelaSoftware.Rows) {
+                if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True")) {
                     line.Selected = true;
                 }
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
-                {
+                if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False")) {
                     line.Selected = false;
                 }
             }
         }
 
-        private void dataGridViewTabelaSoftware_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow line in dataGridViewTabelaSoftware.Rows)
-            {
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
-                {
-                    line.Selected = true;
+        /// <summary>
+        /// Evento para formatar as celulas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewTabelaSoftware_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            try {
+
+                // Formata a coluna do link
+                if(dataGridViewTabelaSoftware.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewLinkCell) {
+                    e.Value = dataGridViewTabelaSoftware.Rows[e.RowIndex].Cells["Link"].Value;
                 }
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
-                {
-                    line.Selected = false;
-                }
+
+            } catch(Exception ex) {
+
+                MessageBox.Show(ex.Message);
             }
         }
-
-
 
         #endregion
 
         #region Choose Characteristics
 
-        private void dataGridViewCharacteristics_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow line in dataGridViewCharacteristics.Rows)
-            {
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
-                {
+        private void dataGridViewCharacteristics_CellClick(object sender, DataGridViewCellEventArgs e) {
+            foreach(DataGridViewRow line in dataGridViewCharacteristics.Rows) {
+                if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True")) {
                     line.Selected = true;
                 }
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
-                {
+                if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False")) {
                     line.Selected = false;
                 }
             }
 
         }
 
-        private void dataGridViewCharacteristics_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow line in dataGridViewCharacteristics.Rows)
-            {
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True"))
-                {
+        private void dataGridViewCharacteristics_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
+            foreach(DataGridViewRow line in dataGridViewCharacteristics.Rows) {
+                if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("True")) {
                     line.Selected = true;
                 }
-                if (line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False"))
-                {
+                if(line.Cells[0].Value != null && line.Cells[0].Value.ToString().Equals("False")) {
                     line.Selected = false;
                 }
             }
@@ -929,45 +863,36 @@ namespace Interface
 
         #region Definition of Weights Smart
 
-        private void refreshTableSmart()
-        {
+        private void refreshTableSmart() {
             dataGridViewPesosFinaisSmart.DataBindings.Clear();
             dataGridViewSmart.DataSource = Business.ManagementDataBase.tableSmart();
-            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
-            {
+            //dataGridViewSmart.Columns["ID"].Visible = false;
+            foreach(DataGridViewRow line in dataGridViewSmart.Rows) {
                 line.ErrorText = "Please insert a value.";
             }
 
         }
 
-        private void dataGridViewSmart_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
+        private void dataGridViewSmart_CellValidating(object sender, DataGridViewCellValidatingEventArgs e) {
             int c = e.ColumnIndex;
             int l = e.RowIndex;
 
             int newNumber = 0;
 
-            if (dataGridViewSmart.Rows[l].Cells[0].Value == null /*|| dataGridViewSmart.CurrentCell.Value.ToString().Equals("") == true*/) return;
+            if(dataGridViewSmart.Rows[l].Cells[0].Value == null /*|| dataGridViewSmart.CurrentCell.Value.ToString().Equals("") == true*/) return;
 
-            if (c == 0)
-            {
-                if (!int.TryParse(e.FormattedValue.ToString(), out newNumber))
-                {
+            if(c == 0) {
+                if(!int.TryParse(e.FormattedValue.ToString(), out newNumber)) {
                     dataGridViewSmart.Rows[l].ErrorText = "The Value is not a number!";
                     MessageBox.Show("The Value is not a number!");
                     e.Cancel = true;
                     return;
-                }
-                else
-                {
-                    if (newNumber < 10)
-                    {
+                } else {
+                    if(newNumber < 10) {
                         dataGridViewSmart.Rows[l].ErrorText = "The value can not be less than 10.";
                         MessageBox.Show("The value can not be less than 10.");
                         e.Cancel = true;
-                    }
-                    else
-                    {
+                    } else {
                         dataGridViewSmart.Rows[l].ErrorText = null;
                     }
                 }
@@ -978,69 +903,54 @@ namespace Interface
         }
 
 
-        private void dataGridViewSmart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
+        private void dataGridViewSmart_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
             verifyTableSmart();
         }
 
 
-        private void dataGridViewPesosFinaisSmart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
+        private void dataGridViewPesosFinaisSmart_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
         }
 
         // verifica se está tudo preenchido e calcula os pesos
-        private void verifyTableSmart()
-        {
+        private void verifyTableSmart() {
             // se estiver alguma coisa vazia não faz mais nada
-            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
-            {
+            foreach(DataGridViewRow line in dataGridViewSmart.Rows) {
                 int n = 0;
-                if (line.Cells[0].Value == null)
-                {
+                if(line.Cells[0].Value == null) {
                     line.ErrorText = "Please insert a value.";
                     return;
-                }
-                else { line.ErrorText = null; }
+                } else { line.ErrorText = null; }
 
-                if (!int.TryParse(line.Cells[0].Value.ToString(), out n))
-                {
+                if(!int.TryParse(line.Cells[0].Value.ToString(), out n)) {
                     line.ErrorText = "The Value is not a number!";
                     return;
-                }
-                else { line.ErrorText = null; }
+                } else { line.ErrorText = null; }
 
-                if (n < 10)
-                {
+                if(n < 10) {
                     line.ErrorText = "The value can not be less than 10.";
                     return;
                 }
             }
 
             // para remover possiveis erros que ainda existam
-            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
-            {
+            foreach(DataGridViewRow line in dataGridViewSmart.Rows) {
                 line.ErrorText = null;
             }
 
             // para verificar se existe um 10
             int num_10 = 0;
-            foreach (DataGridViewRow line in dataGridViewSmart.Rows)
-            {
-                try
-                {
+            foreach(DataGridViewRow line in dataGridViewSmart.Rows) {
+                try {
                     int v = -1;
                     int.TryParse(line.Cells[0].Value.ToString(), out v);
-                    if (v == 10) num_10++;
-                }
-                catch (Exception)
-                {
+                    if(v == 10) num_10++;
+                } catch(Exception) {
                     return;
                 }
             }
 
             // se não existir altera a msg
-            if (num_10 < 1)
-            {
+            if(num_10 < 1) {
                 label_DefinitionOfWeigths.Text = "Assign 10 to a characteristics.";
                 return;
             }
@@ -1048,8 +958,7 @@ namespace Interface
 
             // para fazer os calulos
             Business.ManagementDataBase.decision.TableCH.Clear();
-            foreach (DataGridViewRow linha in dataGridViewSmart.Rows)
-            {
+            foreach(DataGridViewRow linha in dataGridViewSmart.Rows) {
                 string idChar = linha.Cells[1].Value.ToString();
                 int points = System.Convert.ToInt32(linha.Cells[0].Value.ToString());
                 Business.ManagementDataBase.decision.registerClass(idChar, points);
@@ -1062,8 +971,7 @@ namespace Interface
 
             buttonNextDefinitonWeigths.Enabled = true;
 
-            if (tabControlSmartAHP.SelectedIndex == 0)
-            {
+            if(tabControlSmartAHP.SelectedIndex == 0) {
                 Business.ManagementDataBase.metodo_fase_1 = "smart";
 
                 string inf = "Currently smart method chosen.";
@@ -1077,8 +985,7 @@ namespace Interface
         #endregion
 
         #region Definition of Weights AHP
-        private void refreshTableAHP()
-        {
+        private void refreshTableAHP() {
             dataGridViewPesosAHP.DataBindings.Clear();
             dataGridViewAHP.DataBindings.Clear();
             dataGridViewAHP.DataSource = Business.ManagementDataBase.tableAHP();
@@ -1087,39 +994,32 @@ namespace Interface
             int num_ca = Business.ManagementDataBase.totalCharacteristcSelect();
 
             // 
-            while (i < num_ca)
-            {
+            while(i < num_ca) {
                 dataGridViewAHP[i + 1, i].Value = "1";
                 dataGridViewAHP[i + 1, i].ReadOnly = true;
                 i++;
             }
 
-            for (i = 0; i < dataGridViewAHP.ColumnCount; i++)
-            {
+            for(i = 0 ; i < dataGridViewAHP.ColumnCount ; i++) {
                 dataGridViewAHP.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             colorTableAHP();
         }
 
-        private void dataGridViewAHP_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
+        private void dataGridViewAHP_CellValidating(object sender, DataGridViewCellValidatingEventArgs e) {
             verifyTableAHP();
         }
 
-        private void dataGridViewAHP_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
+        private void dataGridViewAHP_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
             verifyTableAHP();
         }
 
-        private void verifyTableAHP()
-        {
+        private void verifyTableAHP() {
             // vai a todas as linhas
-            foreach (DataGridViewRow line in dataGridViewAHP.Rows)
-            {
+            foreach(DataGridViewRow line in dataGridViewAHP.Rows) {
                 // vai a cada célula da linha
-                foreach (DataGridViewCell c in line.Cells)
-                {
+                foreach(DataGridViewCell c in line.Cells) {
                     int column = c.ColumnIndex;
                     int row = c.RowIndex;
 
@@ -1127,18 +1027,15 @@ namespace Interface
                     int dif = column - row;
 
                     // se for diagonal fica a 1
-                    if (dif == 1)
-                    {
+                    if(dif == 1) {
                         dataGridViewAHP.Rows[row].Cells[column].Value = "1";
                         dataGridViewAHP.Rows[row].Cells[column].ReadOnly = true;
                     }
 
                     // para a digonal superior
-                    if (column >= 1 && dif > 1)
-                    {
+                    if(column >= 1 && dif > 1) {
                         // verifica se está preenchida
-                        if (c.Value != null && c.Value.ToString().Equals("") == false)
-                        {
+                        if(c.Value != null && c.Value.ToString().Equals("") == false) {
                             // pega no valor da célula e cria o novo
                             string v = c.Value.ToString();
                             string v1 = "1/" + v;
@@ -1156,8 +1053,7 @@ namespace Interface
                     }
 
                     // para a digonal inferior não permite alterar
-                    if (dif < 1)
-                    {
+                    if(dif < 1) {
                         dataGridViewAHP.Rows[row].Cells[column].ReadOnly = true;
                     }
 
@@ -1171,26 +1067,21 @@ namespace Interface
 
         }
 
-        private void colorTableAHP()
-        {
+        private void colorTableAHP() {
             // vai a todas as linhas
-            foreach (DataGridViewRow line in dataGridViewAHP.Rows)
-            {
+            foreach(DataGridViewRow line in dataGridViewAHP.Rows) {
                 // vai a cada célula da linha
-                foreach (DataGridViewCell c in line.Cells)
-                {
+                foreach(DataGridViewCell c in line.Cells) {
                     int column = c.ColumnIndex;
                     int row = c.RowIndex;
                     // se dif = 1 é diagonal, se >1 é acima da diagonal, se < 1 abaixo da diagonal
                     int dif = column - row;
 
                     // para a digonal superior
-                    if (column >= 1 && dif > 1)
-                    {
+                    if(column >= 1 && dif > 1) {
                         dataGridViewAHP.Rows[row].Cells[column].Style.BackColor = Color.Gold;
                         // verifica se está preenchida
-                        if (c.Value != null && c.Value.ToString().Equals("") == false)
-                        {
+                        if(c.Value != null && c.Value.ToString().Equals("") == false) {
                             int r = 0;
                             int g = 255;
                             int b = 18;
@@ -1199,8 +1090,7 @@ namespace Interface
                     }
 
                     // para a digonal inferior e diagonal
-                    if (column >= 1 && dif <= 1)
-                    {
+                    if(column >= 1 && dif <= 1) {
                         int r = 0;
                         int g = 170;
                         int b = 255;
@@ -1208,8 +1098,7 @@ namespace Interface
                     }
 
                     // para a 1ª coluna
-                    if (column == 0)
-                    {
+                    if(column == 0) {
                         int r = 222;
                         int g = 222;
                         int b = 222;
@@ -1222,19 +1111,15 @@ namespace Interface
 
         }
 
-        private void caulatePesosAHP()
-        {
+        private void caulatePesosAHP() {
             // verifica se pode calcular
-            foreach (DataGridViewRow line in dataGridViewAHP.Rows)
-            {
-                foreach (DataGridViewCell cell in line.Cells)
-                {
+            foreach(DataGridViewRow line in dataGridViewAHP.Rows) {
+                foreach(DataGridViewCell cell in line.Cells) {
                     // para não verificar a primeira coluna
-                    if (cell.ColumnIndex > 0)
-                    {
+                    if(cell.ColumnIndex > 0) {
                         float v = stringToFloat(cell.Value.ToString());
                         // se não for float ou estiver a 0 faz return
-                        if (v == -1 || v == 0) return;
+                        if(v == -1 || v == 0) return;
                     }
 
                 }
@@ -1243,18 +1128,13 @@ namespace Interface
 
             // vai calcular
             int flag = 0;   // para a preira coluna
-            foreach (DataGridViewColumn coluna in dataGridViewAHP.Columns)
-            {
-                if (flag == 0)
-                {
+            foreach(DataGridViewColumn coluna in dataGridViewAHP.Columns) {
+                if(flag == 0) {
                     flag = 1;
-                }
-                else
-                {
+                } else {
                     string name = coluna.Name.ToString();
                     string idA = Business.ManagementDataBase.procuraIdCha(name);
-                    foreach (DataGridViewRow linha in dataGridViewAHP.Rows)
-                    {
+                    foreach(DataGridViewRow linha in dataGridViewAHP.Rows) {
                         string nameB = linha.Cells[0].Value.ToString();
                         string idB = Business.ManagementDataBase.procuraIdCha(nameB);
                         string pointsStr = linha.Cells[name].Value.ToString();
@@ -1280,10 +1160,8 @@ namespace Interface
 
         }
 
-        private void testConsistency()
-        {
-            try
-            {
+        private void testConsistency() {
+            try {
                 Dictionary<int, double> matrixC = new Dictionary<int, double>();
                 Dictionary<int, double> matrixD = new Dictionary<int, double>();
 
@@ -1291,15 +1169,12 @@ namespace Interface
                 matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, Business.ManagementDataBase.pesosFinaisClassAHP);
                 double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
 
-                if (taxa <= 0.10)
-                {
+                if(taxa <= 0.10) {
                     int r = 0;
                     int g = 255;
                     int b = 78;
                     labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(r, g, b);
-                }
-                else
-                {
+                } else {
                     int r = 255;
                     int g = 27;
                     int b = 0;
@@ -1307,32 +1182,27 @@ namespace Interface
                 }
 
                 // actualiza a label com a taxa
-                labelConsistencyRate.Text = "" + taxa;
+                labelConsistencyRate.Text = "" + taxa.ToString("f3");
                 // activa o botão next
                 buttonNextDefinitonWeigths.Enabled = true;
-            }
-            catch (Exception) { }
+            } catch(Exception) { }
 
         }
         #endregion
 
         #region Definiton Priorities ValueFN
 
-        private void buttonSelectCharacteristicsNext_Click(object sender, EventArgs e)
-        {
+        private void buttonSelectCharacteristicsNext_Click(object sender, EventArgs e) {
             calculataDefinitionOfPriorities_ButtonNext();
         }
 
-        private void buttonSelectCharacteristicsPrevious_Click(object sender, EventArgs e)
-        {
+        private void buttonSelectCharacteristicsPrevious_Click(object sender, EventArgs e) {
             calculataDefinitionOfPriorities_ButtonPrevious();
         }
 
-        private void calculataDefinitionOfPriorities_ButtonNext()
-        {
+        private void calculataDefinitionOfPriorities_ButtonNext() {
             // para não incrementar sempre a caracteristica seleccionada
-            if (selectCharacteristics_row < dataGridViewCaracteristicasPrioridades.RowCount)
-            {
+            if(selectCharacteristics_row < dataGridViewCaracteristicasPrioridades.RowCount) {
                 // vai seleccionando a linha que deve
                 dataGridViewCaracteristicasPrioridades.Rows[selectCharacteristics_row].Selected = true;
 
@@ -1362,19 +1232,16 @@ namespace Interface
             }
 
             // se estiver igual ou maior é porque não tem mais linhas
-            if (selectCharacteristics_row >= dataGridViewCaracteristicasPrioridades.RowCount)
-            {
+            if(selectCharacteristics_row >= dataGridViewCaracteristicasPrioridades.RowCount) {
                 buttonSelectCaracteristicsNext.Enabled = false;
                 buttonFinish.Enabled = true;
             }
 
         }
 
-        private void calculataDefinitionOfPriorities_ButtonPrevious()
-        {
+        private void calculataDefinitionOfPriorities_ButtonPrevious() {
             // para não decrementar sempre a caracteristica seleccionada
-            if (selectCharacteristics_row > 0)
-            {
+            if(selectCharacteristics_row > 0) {
                 // para seleccionar a linha anterior
                 selectCharacteristics_row--;
 
@@ -1405,16 +1272,14 @@ namespace Interface
             }
 
             // se estiver igual ou maior é porque não tem mais linhas
-            if (selectCharacteristics_row <= 0)
-            {
+            if(selectCharacteristics_row <= 0) {
                 buttonSelectCharacteristicsPrevious.Enabled = false;
                 buttonFinish.Enabled = true;
             }
 
         }
 
-        private void calculateValueFn()
-        {
+        private void calculateValueFn() {
             Business.ManagementDataBase.decision.TableSW = Business.ManagementDataBase.database.SoftwareWithCaracteristics(Business.ManagementDataBase.ids_dos_SoftwareSeleccionados);
 
             Dictionary<string, Dictionary<string, int>> tableFilter = new Dictionary<string, Dictionary<string, int>>();
@@ -1427,15 +1292,13 @@ namespace Interface
 
             Dictionary<string, float> aux = new Dictionary<string, float>();
             // maximizar
-            if (radioButtonMaximize.Checked)
-            {
+            if(radioButtonMaximize.Checked) {
                 aux = Business.ManagementDataBase.decision.calValueMax(min, max, tableFilter);
 
             }
 
             // maximizar
-            if (radioButtonMinimize.Checked)
-            {
+            if(radioButtonMinimize.Checked) {
                 aux = Business.ManagementDataBase.decision.calValueMin(min, max, tableFilter);
             }
 
@@ -1448,8 +1311,7 @@ namespace Interface
             Dictionary<string, float> a;
 
             Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
-            foreach (KeyValuePair<string, float> pair2 in a)
-            {
+            foreach(KeyValuePair<string, float> pair2 in a) {
                 prioridades.Rows.Add(pair2.Key, pair2.Value);
             }
 
@@ -1460,31 +1322,26 @@ namespace Interface
 
         }
 
-        private void radioButtonMinimize_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioButtonMinimize_CheckedChanged(object sender, EventArgs e) {
             calculateValueFn();
         }
 
-        private void radioButtonMaximize_CheckedChanged(object sender, EventArgs e)
-        {
+        private void radioButtonMaximize_CheckedChanged(object sender, EventArgs e) {
             calculateValueFn();
         }
 
         #endregion
 
         #region Definiton Priorities AHP
-        private void dataGridViewAHPPriority_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
+        private void dataGridViewAHPPriority_CellValidating(object sender, DataGridViewCellValidatingEventArgs e) {
             verifyTableAHPPriorities();
         }
 
-        private void dataGridViewAHPPriority_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
+        private void dataGridViewAHPPriority_CellEndEdit(object sender, DataGridViewCellEventArgs e) {
             verifyTableAHPPriorities();
         }
 
-        private void refreshTableAHPPriority(string nameC)
-        {
+        private void refreshTableAHPPriority(string nameC) {
             dataGridViewAHPPriority.DataBindings.Clear();
             dataGridViewAHPPriority.DataSource = Business.ManagementDataBase.refreshTableAHPPriority(nameC);
 
@@ -1493,29 +1350,24 @@ namespace Interface
 
             dataGridViewAHPPriority.AllowUserToOrderColumns = false;
 
-            while (i < num_ca)
-            {
+            while(i < num_ca) {
                 dataGridViewAHPPriority[i + 1, i].Value = "1";
                 dataGridViewAHPPriority[i + 1, i].ReadOnly = true;
                 i++;
             }
 
-            for (i = 0; i < dataGridViewAHPPriority.ColumnCount; i++)
-            {
+            for(i = 0 ; i < dataGridViewAHPPriority.ColumnCount ; i++) {
                 dataGridViewAHPPriority.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             colorTableAHPPriorities();
         }
 
-        private void verifyTableAHPPriorities()
-        {
+        private void verifyTableAHPPriorities() {
             // vai a todas as linhas
-            foreach (DataGridViewRow line in dataGridViewAHPPriority.Rows)
-            {
+            foreach(DataGridViewRow line in dataGridViewAHPPriority.Rows) {
                 // vai a cada célula da linha
-                foreach (DataGridViewCell c in line.Cells)
-                {
+                foreach(DataGridViewCell c in line.Cells) {
                     int column = c.ColumnIndex;
                     int row = c.RowIndex;
 
@@ -1523,18 +1375,15 @@ namespace Interface
                     int dif = column - row;
 
                     // se for diagonal fica a 1
-                    if (dif == 1)
-                    {
+                    if(dif == 1) {
                         dataGridViewAHPPriority.Rows[row].Cells[column].Value = "1";
                         dataGridViewAHPPriority.Rows[row].Cells[column].ReadOnly = true;
                     }
 
                     // para a digonal superior
-                    if (column >= 1 && dif > 1)
-                    {
+                    if(column >= 1 && dif > 1) {
                         // verifica se está preenchida
-                        if (c.Value != null && c.Value.ToString().Equals("") == false)
-                        {
+                        if(c.Value != null && c.Value.ToString().Equals("") == false) {
                             // pega no valor da célula e cria o novo
                             string v = c.Value.ToString();
                             string v1 = "1/" + v;
@@ -1552,8 +1401,7 @@ namespace Interface
                     }
 
                     // para a digonal inferior não permite alterar
-                    if (dif < 1)
-                    {
+                    if(dif < 1) {
                         dataGridViewAHPPriority.Rows[row].Cells[column].ReadOnly = true;
                     }
 
@@ -1567,19 +1415,15 @@ namespace Interface
 
         }
 
-        private void calculateAHPPriorities()
-        {
+        private void calculateAHPPriorities() {
             // verifica se pode calcular
-            foreach (DataGridViewRow line in dataGridViewAHPPriority.Rows)
-            {
-                foreach (DataGridViewCell cell in line.Cells)
-                {
+            foreach(DataGridViewRow line in dataGridViewAHPPriority.Rows) {
+                foreach(DataGridViewCell cell in line.Cells) {
                     // para não verificar a primeira coluna
-                    if (cell.ColumnIndex > 0)
-                    {
+                    if(cell.ColumnIndex > 0) {
                         float v = stringToFloat(cell.Value.ToString());
                         // se não for float ou estiver a 0 faz return
-                        if (v == -1 || v == 0) return;
+                        if(v == -1 || v == 0) return;
                     }
 
                 }
@@ -1589,17 +1433,12 @@ namespace Interface
 
             // para não ler a primeira coluna
             int flag = 0;
-            foreach (DataGridViewColumn coluna in dataGridViewAHPPriority.Columns)
-            {
-                if (flag == 0)
-                {
+            foreach(DataGridViewColumn coluna in dataGridViewAHPPriority.Columns) {
+                if(flag == 0) {
                     flag = 1;
-                }
-                else
-                {
+                } else {
                     string idSofA = coluna.Name.ToString();
-                    foreach (DataGridViewRow linha in dataGridViewAHPPriority.Rows)
-                    {
+                    foreach(DataGridViewRow linha in dataGridViewAHPPriority.Rows) {
                         string idSofB = linha.Cells[0].Value.ToString();
                         //MessageBox.Show(idSofB);
                         string pointsStr = linha.Cells[idSofA].Value.ToString();
@@ -1622,8 +1461,7 @@ namespace Interface
             Dictionary<string, float> a;
 
             Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
-            foreach (KeyValuePair<string, float> pair2 in a)
-            {
+            foreach(KeyValuePair<string, float> pair2 in a) {
                 prioridades.Rows.Add(pair2.Key, pair2.Value);
             }
 
@@ -1634,8 +1472,7 @@ namespace Interface
 
         }
 
-        private void calculateTestConcistencyAHPPriorities()
-        {
+        private void calculateTestConcistencyAHPPriorities() {
             // é chamada na calculateAHPPriorities
 
             Dictionary<int, double> matrixC = new Dictionary<int, double>();
@@ -1648,13 +1485,10 @@ namespace Interface
             matrixD = Business.ManagementDataBase.decision.calculaMatrizD(matrixC, aux1);
             double taxa = Business.ManagementDataBase.decision.taxaConsitencia(matrixD);
 
-            if (taxa <= 0.10)
-            {
+            if(taxa <= 0.10) {
                 //MessageBox.Show("The consistency Rate is good: " + taxa);
                 labelAHPPrioCons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(81)))), ((int)(((byte)(19)))));
-            }
-            else
-            {
+            } else {
                 //MessageBox.Show("The consistency Rate is bad: " + taxa);
                 labelAHPPrioCons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             }
@@ -1663,26 +1497,21 @@ namespace Interface
             labelAHPPrioCons.Text = "" + taxa;
         }
 
-        private void colorTableAHPPriorities()
-        {
+        private void colorTableAHPPriorities() {
             // vai a todas as linhas
-            foreach (DataGridViewRow line in dataGridViewAHPPriority.Rows)
-            {
+            foreach(DataGridViewRow line in dataGridViewAHPPriority.Rows) {
                 // vai a cada célula da linha
-                foreach (DataGridViewCell c in line.Cells)
-                {
+                foreach(DataGridViewCell c in line.Cells) {
                     int column = c.ColumnIndex;
                     int row = c.RowIndex;
                     // se dif = 1 é diagonal, se >1 é acima da diagonal, se < 1 abaixo da diagonal
                     int dif = column - row;
 
                     // para a digonal superior
-                    if (column >= 1 && dif > 1)
-                    {
+                    if(column >= 1 && dif > 1) {
                         dataGridViewAHPPriority.Rows[row].Cells[column].Style.BackColor = Color.Gold;
                         // verifica se está preenchida
-                        if (c.Value != null && c.Value.ToString().Equals("") == false)
-                        {
+                        if(c.Value != null && c.Value.ToString().Equals("") == false) {
                             int r = 0;
                             int g = 255;
                             int b = 18;
@@ -1691,8 +1520,7 @@ namespace Interface
                     }
 
                     // para a digonal inferior e diagonal
-                    if (column >= 1 && dif <= 1)
-                    {
+                    if(column >= 1 && dif <= 1) {
                         int r = 0;
                         int g = 170;
                         int b = 255;
@@ -1700,8 +1528,7 @@ namespace Interface
                     }
 
                     // para a 1ª coluna
-                    if (column == 0)
-                    {
+                    if(column == 0) {
                         int r = 222;
                         int g = 222;
                         int b = 222;
@@ -1718,16 +1545,14 @@ namespace Interface
 
         #region Funções úteis
 
-        private float stringToFloat(string s)
-        {
+        private float stringToFloat(string s) {
             float r = -1;
             float.TryParse(s, out r);
             return r;
         }
 
 
-        private Color CreateRandomColor()
-        {
+        private Color CreateRandomColor() {
             Random randonGen = new Random();
 
             int r = randonGen.Next(0, 255);
@@ -1739,8 +1564,7 @@ namespace Interface
             return randomColor;
         }
 
-        private Color myColor(int i)
-        {
+        private Color myColor(int i) {
             int num = 21;
             Color[] colors = {   Color.Blue, 
                                  Color.Red, 
@@ -1766,7 +1590,7 @@ namespace Interface
                              };
 
             // se não tiver o indice no array de cores
-            if (i >= num) return CreateRandomColor();
+            if(i >= num) return CreateRandomColor();
 
             return colors[i];
         }
@@ -1775,83 +1599,68 @@ namespace Interface
         #endregion
 
         #region Examples
-        private void insertSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void insertSoftwareToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=sw-z_DPLmtU&hd=1");
             v.Show();
         }
 
-        private void editSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void editSoftwareToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=UxkwyXp0nJ8&hd=1");
             v.Show();
         }
 
-        private void deleteSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void deleteSoftwareToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=_6QIwx7LCQY&hd=1");
             v.Show();
         }
 
-        private void addCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void addCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=N4PNLXoIkYY&hd=1");
             v.Show();
         }
 
 
-        private void editCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void editCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=WwABhgbziuY&hd=1");
             v.Show();
         }
 
-        private void deleteCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void deleteCharacteristicsToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=RNpqN7e2jIc&hd=1");
             v.Show();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+        private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=PRp_X6ipmvI&hd=1");
             v.Show();
         }
 
-        private void smartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void smartToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=1Kgjc6NWbKk&hd=1");
             v.Show();
         }
 
-        private void aHPDefinitionOfWeightsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void aHPDefinitionOfWeightsToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=9R4fZMcOwCw&hd=1");
             v.Show();
         }
 
-        private void vlaueFNDefinitionOfPrioritiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void vlaueFNDefinitionOfPrioritiesToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=Z9qJZoVOI4U&hd=1");
             v.Show();
         }
 
-        private void aHPDefinitionOfPrioritiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void aHPDefinitionOfPrioritiesToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=jBMBio4vaJI&hd=1");
             v.Show();
         }
 
-        private void finalResultsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void finalResultsToolStripMenuItem_Click(object sender, EventArgs e) {
             View_HTML v = new View_HTML("http://www.youtube.com/watch_popup?v=BQbI6LMaYRY&hd=1");
             v.Show();
         }
 
         #endregion
-
-
-
 
 
 

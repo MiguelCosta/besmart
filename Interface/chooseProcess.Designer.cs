@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -204,15 +205,15 @@
             this.aHPDefinitionOfPrioritiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.finalResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.reportErrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.webPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
-            this.webPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -325,7 +326,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(821, 554);
             this.tableLayoutPanel3.TabIndex = 48;
@@ -338,7 +339,7 @@
             this.groupBoxCharactList.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxCharactList.Location = new System.Drawing.Point(3, 3);
             this.groupBoxCharactList.Name = "groupBoxCharactList";
-            this.groupBoxCharactList.Size = new System.Drawing.Size(815, 447);
+            this.groupBoxCharactList.Size = new System.Drawing.Size(815, 404);
             this.groupBoxCharactList.TabIndex = 42;
             this.groupBoxCharactList.TabStop = false;
             this.groupBoxCharactList.Text = "Software List";
@@ -388,11 +389,12 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange;
             this.dataGridViewTabelaSoftware.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTabelaSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(809, 424);
+            this.dataGridViewTabelaSoftware.Size = new System.Drawing.Size(809, 381);
             this.dataGridViewTabelaSoftware.StandardTab = true;
             this.dataGridViewTabelaSoftware.TabIndex = 0;
             this.dataGridViewTabelaSoftware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellClick);
             this.dataGridViewTabelaSoftware.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTabelaSoftware_CellEndEdit);
+            this.dataGridViewTabelaSoftware.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewTabelaSoftware_CellFormatting);
             // 
             // Column3
             // 
@@ -410,11 +412,11 @@
             this.tableLayoutPanel4.Controls.Add(this.buttonNextChooseSoftware, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonViewWebPage, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 506);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 511);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(815, 45);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(815, 40);
             this.tableLayoutPanel4.TabIndex = 43;
             // 
             // buttonNextChooseSoftware
@@ -422,7 +424,7 @@
             this.buttonNextChooseSoftware.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonNextChooseSoftware.AutoSize = true;
             this.buttonNextChooseSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextChooseSoftware.Location = new System.Drawing.Point(410, 9);
+            this.buttonNextChooseSoftware.Location = new System.Drawing.Point(410, 7);
             this.buttonNextChooseSoftware.Name = "buttonNextChooseSoftware";
             this.buttonNextChooseSoftware.Size = new System.Drawing.Size(75, 26);
             this.buttonNextChooseSoftware.TabIndex = 0;
@@ -434,7 +436,7 @@
             // 
             this.buttonViewWebPage.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonViewWebPage.AutoSize = true;
-            this.buttonViewWebPage.Location = new System.Drawing.Point(261, 10);
+            this.buttonViewWebPage.Location = new System.Drawing.Point(261, 7);
             this.buttonViewWebPage.Name = "buttonViewWebPage";
             this.buttonViewWebPage.Size = new System.Drawing.Size(143, 25);
             this.buttonViewWebPage.TabIndex = 1;
@@ -446,10 +448,12 @@
             // 
             this.label_info1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_info1.AutoSize = true;
-            this.label_info1.BackColor = System.Drawing.Color.Yellow;
-            this.label_info1.Location = new System.Drawing.Point(395, 471);
+            this.label_info1.BackColor = System.Drawing.SystemColors.Control;
+            this.label_info1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_info1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info1.Location = new System.Drawing.Point(392, 450);
             this.label_info1.Name = "label_info1";
-            this.label_info1.Size = new System.Drawing.Size(30, 13);
+            this.label_info1.Size = new System.Drawing.Size(36, 17);
             this.label_info1.TabIndex = 44;
             this.label_info1.Text = "info1";
             // 
@@ -478,7 +482,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 554);
             this.tableLayoutPanel1.TabIndex = 4;
@@ -491,7 +495,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(815, 447);
+            this.groupBox1.Size = new System.Drawing.Size(815, 429);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criteria List";
@@ -538,7 +542,7 @@
             this.dataGridViewCharacteristics.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewCharacteristics.RowHeadersVisible = false;
             this.dataGridViewCharacteristics.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCharacteristics.Size = new System.Drawing.Size(809, 424);
+            this.dataGridViewCharacteristics.Size = new System.Drawing.Size(809, 406);
             this.dataGridViewCharacteristics.TabIndex = 1;
             this.dataGridViewCharacteristics.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristics_CellClick);
             this.dataGridViewCharacteristics.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCharacteristics_CellEndEdit);
@@ -559,18 +563,18 @@
             this.tableLayoutPanel5.Controls.Add(this.buttonNextChooseCriteria, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonPreviousToSoftware, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 506);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 508);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(815, 45);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(815, 43);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // buttonNextChooseCriteria
             // 
             this.buttonNextChooseCriteria.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonNextChooseCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextChooseCriteria.Location = new System.Drawing.Point(410, 10);
+            this.buttonNextChooseCriteria.Location = new System.Drawing.Point(410, 9);
             this.buttonNextChooseCriteria.Name = "buttonNextChooseCriteria";
             this.buttonNextChooseCriteria.Size = new System.Drawing.Size(75, 25);
             this.buttonNextChooseCriteria.TabIndex = 1;
@@ -582,7 +586,7 @@
             // 
             this.buttonPreviousToSoftware.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonPreviousToSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.buttonPreviousToSoftware.Location = new System.Drawing.Point(320, 11);
+            this.buttonPreviousToSoftware.Location = new System.Drawing.Point(320, 10);
             this.buttonPreviousToSoftware.Name = "buttonPreviousToSoftware";
             this.buttonPreviousToSoftware.Size = new System.Drawing.Size(84, 23);
             this.buttonPreviousToSoftware.TabIndex = 2;
@@ -594,10 +598,12 @@
             // 
             this.label_infoChooseCriteria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_infoChooseCriteria.AutoSize = true;
-            this.label_infoChooseCriteria.BackColor = System.Drawing.Color.Yellow;
-            this.label_infoChooseCriteria.Location = new System.Drawing.Point(395, 471);
+            this.label_infoChooseCriteria.BackColor = System.Drawing.SystemColors.Control;
+            this.label_infoChooseCriteria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_infoChooseCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_infoChooseCriteria.Location = new System.Drawing.Point(392, 461);
             this.label_infoChooseCriteria.Name = "label_infoChooseCriteria";
-            this.label_infoChooseCriteria.Size = new System.Drawing.Size(30, 13);
+            this.label_infoChooseCriteria.Size = new System.Drawing.Size(36, 17);
             this.label_infoChooseCriteria.TabIndex = 4;
             this.label_infoChooseCriteria.Text = "info2";
             // 
@@ -684,6 +690,7 @@
             this.tabControlSmartAHP.Controls.Add(this.tabPageSMART);
             this.tabControlSmartAHP.Controls.Add(this.tabPageAHP);
             this.tabControlSmartAHP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlSmartAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlSmartAHP.Location = new System.Drawing.Point(0, 0);
             this.tabControlSmartAHP.Name = "tabControlSmartAHP";
             this.tabControlSmartAHP.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -697,10 +704,10 @@
             this.tabPageSMART.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageSMART.Controls.Add(this.tableLayoutPanel11);
             this.tabPageSMART.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageSMART.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSMART.Location = new System.Drawing.Point(4, 28);
             this.tabPageSMART.Name = "tabPageSMART";
             this.tabPageSMART.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSMART.Size = new System.Drawing.Size(807, 418);
+            this.tabPageSMART.Size = new System.Drawing.Size(807, 415);
             this.tabPageSMART.TabIndex = 0;
             this.tabPageSMART.Text = "SMART";
             this.tabPageSMART.UseVisualStyleBackColor = true;
@@ -718,7 +725,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(801, 412);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(801, 409);
             this.tableLayoutPanel11.TabIndex = 6;
             // 
             // tableLayoutPanel13
@@ -733,7 +740,7 @@
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(795, 356);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(795, 353);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
             // tableLayoutPanel16
@@ -749,7 +756,7 @@
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(248, 350);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(248, 347);
             this.tableLayoutPanel16.TabIndex = 9;
             // 
             // dataGridViewPesosFinaisSmart
@@ -772,7 +779,7 @@
             this.dataGridViewPesosFinaisSmart.Location = new System.Drawing.Point(3, 23);
             this.dataGridViewPesosFinaisSmart.Name = "dataGridViewPesosFinaisSmart";
             this.dataGridViewPesosFinaisSmart.ReadOnly = true;
-            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(242, 324);
+            this.dataGridViewPesosFinaisSmart.Size = new System.Drawing.Size(242, 321);
             this.dataGridViewPesosFinaisSmart.TabIndex = 10;
             this.dataGridViewPesosFinaisSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPesosFinaisSmart_CellEndEdit);
             // 
@@ -826,7 +833,7 @@
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSmart.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewSmart.Size = new System.Drawing.Size(535, 350);
+            this.dataGridViewSmart.Size = new System.Drawing.Size(535, 347);
             this.dataGridViewSmart.TabIndex = 8;
             this.dataGridViewSmart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmart_CellEndEdit);
             this.dataGridViewSmart.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewSmart_CellValidating);
@@ -840,11 +847,12 @@
             // 
             this.label_DefinitionOfWeightsSmart.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_DefinitionOfWeightsSmart.AutoSize = true;
-            this.label_DefinitionOfWeightsSmart.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfWeightsSmart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfWeightsSmart.Location = new System.Drawing.Point(322, 18);
+            this.label_DefinitionOfWeightsSmart.BackColor = System.Drawing.SystemColors.Control;
+            this.label_DefinitionOfWeightsSmart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_DefinitionOfWeightsSmart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfWeightsSmart.Location = new System.Drawing.Point(308, 16);
             this.label_DefinitionOfWeightsSmart.Name = "label_DefinitionOfWeightsSmart";
-            this.label_DefinitionOfWeightsSmart.Size = new System.Drawing.Size(156, 13);
+            this.label_DefinitionOfWeightsSmart.Size = new System.Drawing.Size(184, 17);
             this.label_DefinitionOfWeightsSmart.TabIndex = 2;
             this.label_DefinitionOfWeightsSmart.Text = "label_DefinitionOfWeightsSmart";
             // 
@@ -852,10 +860,10 @@
             // 
             this.tabPageAHP.Controls.Add(this.tableLayoutPanel9);
             this.tabPageAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageAHP.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAHP.Location = new System.Drawing.Point(4, 28);
             this.tabPageAHP.Name = "tabPageAHP";
             this.tabPageAHP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAHP.Size = new System.Drawing.Size(807, 418);
+            this.tabPageAHP.Size = new System.Drawing.Size(807, 415);
             this.tabPageAHP.TabIndex = 1;
             this.tabPageAHP.Text = "AHP";
             this.tabPageAHP.UseVisualStyleBackColor = true;
@@ -870,10 +878,10 @@
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 132F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(801, 412);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(801, 409);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // tableLayoutPanel14
@@ -884,11 +892,11 @@
             this.tableLayoutPanel14.Controls.Add(this.dataGridViewAHP, 0, 0);
             this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 1, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 113);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 135);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(795, 296);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(795, 271);
             this.tableLayoutPanel14.TabIndex = 1;
             // 
             // dataGridViewAHP
@@ -929,7 +937,7 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewAHP.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewAHP.Size = new System.Drawing.Size(590, 290);
+            this.dataGridViewAHP.Size = new System.Drawing.Size(590, 265);
             this.dataGridViewAHP.TabIndex = 8;
             this.dataGridViewAHP.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAHP_CellEndEdit);
             this.dataGridViewAHP.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewAHP_CellValidating);
@@ -946,9 +954,9 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(193, 290);
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.76307F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.25435F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(193, 265);
             this.tableLayoutPanel15.TabIndex = 9;
             // 
             // tableLayoutPanel17
@@ -958,12 +966,12 @@
             this.tableLayoutPanel17.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.labelConsistencyRate, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 249);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 210);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(187, 38);
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.85714F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.14286F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(187, 52);
             this.tableLayoutPanel17.TabIndex = 13;
             // 
             // label4
@@ -971,7 +979,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(29, 1);
+            this.label4.Location = new System.Drawing.Point(29, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 0;
@@ -981,17 +989,18 @@
             // 
             this.labelConsistencyRate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelConsistencyRate.AutoSize = true;
+            this.labelConsistencyRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelConsistencyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.labelConsistencyRate.Location = new System.Drawing.Point(93, 20);
+            this.labelConsistencyRate.Location = new System.Drawing.Point(93, 22);
             this.labelConsistencyRate.Name = "labelConsistencyRate";
-            this.labelConsistencyRate.Size = new System.Drawing.Size(0, 16);
+            this.labelConsistencyRate.Size = new System.Drawing.Size(0, 29);
             this.labelConsistencyRate.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 13);
+            this.label2.Location = new System.Drawing.Point(23, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 16);
             this.label2.TabIndex = 0;
@@ -1014,9 +1023,9 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPesosAHP.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewPesosAHP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPesosAHP.Location = new System.Drawing.Point(3, 46);
+            this.dataGridViewPesosAHP.Location = new System.Drawing.Point(3, 42);
             this.dataGridViewPesosAHP.Name = "dataGridViewPesosAHP";
-            this.dataGridViewPesosAHP.Size = new System.Drawing.Size(187, 197);
+            this.dataGridViewPesosAHP.Size = new System.Drawing.Size(187, 162);
             this.dataGridViewPesosAHP.TabIndex = 1;
             // 
             // panel4
@@ -1026,7 +1035,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(795, 104);
+            this.panel4.Size = new System.Drawing.Size(795, 126);
             this.panel4.TabIndex = 2;
             // 
             // tableLayoutPanel32
@@ -1040,18 +1049,19 @@
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
             this.tableLayoutPanel32.RowCount = 1;
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(795, 104);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(795, 126);
             this.tableLayoutPanel32.TabIndex = 3;
             // 
             // label_DefinitionOfWeightsAHP
             // 
             this.label_DefinitionOfWeightsAHP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_DefinitionOfWeightsAHP.AutoSize = true;
-            this.label_DefinitionOfWeightsAHP.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfWeightsAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfWeightsAHP.Location = new System.Drawing.Point(324, 45);
+            this.label_DefinitionOfWeightsAHP.BackColor = System.Drawing.SystemColors.Control;
+            this.label_DefinitionOfWeightsAHP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_DefinitionOfWeightsAHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfWeightsAHP.Location = new System.Drawing.Point(313, 54);
             this.label_DefinitionOfWeightsAHP.Name = "label_DefinitionOfWeightsAHP";
-            this.label_DefinitionOfWeightsAHP.Size = new System.Drawing.Size(146, 13);
+            this.label_DefinitionOfWeightsAHP.Size = new System.Drawing.Size(168, 17);
             this.label_DefinitionOfWeightsAHP.TabIndex = 2;
             this.label_DefinitionOfWeightsAHP.Text = "info_DefinitionOfWeightsAHP";
             // 
@@ -1059,10 +1069,12 @@
             // 
             this.label_DefinitionOfWeigths.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_DefinitionOfWeigths.AutoSize = true;
-            this.label_DefinitionOfWeigths.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfWeigths.Location = new System.Drawing.Point(348, 471);
+            this.label_DefinitionOfWeigths.BackColor = System.Drawing.SystemColors.Control;
+            this.label_DefinitionOfWeigths.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_DefinitionOfWeigths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfWeigths.Location = new System.Drawing.Point(338, 469);
             this.label_DefinitionOfWeigths.Name = "label_DefinitionOfWeigths";
-            this.label_DefinitionOfWeigths.Size = new System.Drawing.Size(124, 13);
+            this.label_DefinitionOfWeigths.Size = new System.Drawing.Size(144, 17);
             this.label_DefinitionOfWeigths.TabIndex = 8;
             this.label_DefinitionOfWeigths.Text = "info_DefinitionOfWeigths";
             // 
@@ -1122,10 +1134,12 @@
             // 
             this.label_DefinitionOfPriorities.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_DefinitionOfPriorities.AutoSize = true;
-            this.label_DefinitionOfPriorities.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfPriorities.Location = new System.Drawing.Point(345, 460);
+            this.label_DefinitionOfPriorities.BackColor = System.Drawing.SystemColors.Control;
+            this.label_DefinitionOfPriorities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_DefinitionOfPriorities.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfPriorities.Location = new System.Drawing.Point(333, 458);
             this.label_DefinitionOfPriorities.Name = "label_DefinitionOfPriorities";
-            this.label_DefinitionOfPriorities.Size = new System.Drawing.Size(124, 13);
+            this.label_DefinitionOfPriorities.Size = new System.Drawing.Size(148, 17);
             this.label_DefinitionOfPriorities.TabIndex = 9;
             this.label_DefinitionOfPriorities.Text = "info_DefinitionOfPriorities";
             // 
@@ -1173,11 +1187,12 @@
             // 
             this.label_Definition_of_Priorities_CharacteristicsSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_Definition_of_Priorities_CharacteristicsSelect.AutoSize = true;
-            this.label_Definition_of_Priorities_CharacteristicsSelect.BackColor = System.Drawing.Color.GreenYellow;
-            this.label_Definition_of_Priorities_CharacteristicsSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Definition_of_Priorities_CharacteristicsSelect.Location = new System.Drawing.Point(83, 16);
+            this.label_Definition_of_Priorities_CharacteristicsSelect.BackColor = System.Drawing.SystemColors.Control;
+            this.label_Definition_of_Priorities_CharacteristicsSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Location = new System.Drawing.Point(56, 15);
             this.label_Definition_of_Priorities_CharacteristicsSelect.Name = "label_Definition_of_Priorities_CharacteristicsSelect";
-            this.label_Definition_of_Priorities_CharacteristicsSelect.Size = new System.Drawing.Size(334, 18);
+            this.label_Definition_of_Priorities_CharacteristicsSelect.Size = new System.Drawing.Size(388, 20);
             this.label_Definition_of_Priorities_CharacteristicsSelect.TabIndex = 5;
             this.label_Definition_of_Priorities_CharacteristicsSelect.Text = "label_Definition of Priorities_CharacteristicsSelect";
             // 
@@ -1322,11 +1337,12 @@
             // 
             this.label_DefinitionOfPrioritiesValueFn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_DefinitionOfPrioritiesValueFn.AutoSize = true;
-            this.label_DefinitionOfPrioritiesValueFn.BackColor = System.Drawing.Color.Yellow;
-            this.label_DefinitionOfPrioritiesValueFn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(243, 50);
+            this.label_DefinitionOfPrioritiesValueFn.BackColor = System.Drawing.SystemColors.Control;
+            this.label_DefinitionOfPrioritiesValueFn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_DefinitionOfPrioritiesValueFn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DefinitionOfPrioritiesValueFn.Location = new System.Drawing.Point(226, 48);
             this.label_DefinitionOfPrioritiesValueFn.Name = "label_DefinitionOfPrioritiesValueFn";
-            this.label_DefinitionOfPrioritiesValueFn.Size = new System.Drawing.Size(178, 13);
+            this.label_DefinitionOfPrioritiesValueFn.Size = new System.Drawing.Size(212, 17);
             this.label_DefinitionOfPrioritiesValueFn.TabIndex = 3;
             this.label_DefinitionOfPrioritiesValueFn.Text = "label_Definition_of_PrioritiesValueFn";
             // 
@@ -1693,7 +1709,7 @@
             this.tableLayoutPanel10.Location = new System.Drawing.Point(49, 164);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(196, 34);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
@@ -1924,6 +1940,7 @@
             // 
             // tableLayoutPanel30
             // 
+            this.tableLayoutPanel30.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.tableLayoutPanel30.ColumnCount = 2;
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.92818F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.07182F));
@@ -1941,9 +1958,9 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Interface.Properties.Resources.Best1;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(82, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1954,7 +1971,7 @@
             this.labelBestSoftwareName.AutoSize = true;
             this.labelBestSoftwareName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBestSoftwareName.ForeColor = System.Drawing.Color.Orange;
-            this.labelBestSoftwareName.Location = new System.Drawing.Point(93, 13);
+            this.labelBestSoftwareName.Location = new System.Drawing.Point(97, 13);
             this.labelBestSoftwareName.Name = "labelBestSoftwareName";
             this.labelBestSoftwareName.Size = new System.Drawing.Size(149, 25);
             this.labelBestSoftwareName.TabIndex = 1;
@@ -2083,8 +2100,8 @@
             this.viewSoftwareWebpageToolStripMenuItem});
             this.softwareToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
-            this.softwareToolStripMenuItem.Text = "Software";
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(62, 25);
+            this.softwareToolStripMenuItem.Text = "Menu";
             // 
             // startANewComparationToolStripMenuItem
             // 
@@ -2293,6 +2310,11 @@
             this.finalResultsToolStripMenuItem.Text = "Final Results";
             this.finalResultsToolStripMenuItem.Click += new System.EventHandler(this.finalResultsToolStripMenuItem_Click);
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(311, 6);
+            // 
             // reportErrorToolStripMenuItem
             // 
             this.reportErrorToolStripMenuItem.Image = global::Interface.Properties.Resources.Mail1;
@@ -2301,6 +2323,18 @@
             this.reportErrorToolStripMenuItem.Size = new System.Drawing.Size(314, 26);
             this.reportErrorToolStripMenuItem.Text = "Report Error / Suggestion";
             this.reportErrorToolStripMenuItem.Click += new System.EventHandler(this.reportErrorToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(311, 6);
+            // 
+            // webPageToolStripMenuItem
+            // 
+            this.webPageToolStripMenuItem.Name = "webPageToolStripMenuItem";
+            this.webPageToolStripMenuItem.Size = new System.Drawing.Size(314, 26);
+            this.webPageToolStripMenuItem.Text = "Web Page";
+            this.webPageToolStripMenuItem.Click += new System.EventHandler(this.webPageToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -2339,23 +2373,6 @@
             this.panelTab.Name = "panelTab";
             this.panelTab.Size = new System.Drawing.Size(835, 589);
             this.panelTab.TabIndex = 48;
-            // 
-            // webPageToolStripMenuItem
-            // 
-            this.webPageToolStripMenuItem.Name = "webPageToolStripMenuItem";
-            this.webPageToolStripMenuItem.Size = new System.Drawing.Size(314, 26);
-            this.webPageToolStripMenuItem.Text = "Web Page";
-            this.webPageToolStripMenuItem.Click += new System.EventHandler(this.webPageToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(311, 6);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(311, 6);
             // 
             // chooseProcess
             // 

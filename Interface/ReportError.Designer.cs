@@ -78,7 +78,7 @@
             this.buttonSend.Location = new System.Drawing.Point(334, 334);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(91, 21);
-            this.buttonSend.TabIndex = 2;
+            this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
@@ -89,7 +89,7 @@
             this.richTextBoxBody.Location = new System.Drawing.Point(3, 183);
             this.richTextBoxBody.Name = "richTextBoxBody";
             this.richTextBoxBody.Size = new System.Drawing.Size(422, 145);
-            this.richTextBoxBody.TabIndex = 4;
+            this.richTextBoxBody.TabIndex = 0;
             this.richTextBoxBody.Text = "";
             // 
             // tableLayoutPanel3
@@ -147,7 +147,7 @@
             this.buttonSelectFile.Location = new System.Drawing.Point(315, 3);
             this.buttonSelectFile.Name = "buttonSelectFile";
             this.buttonSelectFile.Size = new System.Drawing.Size(95, 22);
-            this.buttonSelectFile.TabIndex = 1;
+            this.buttonSelectFile.TabIndex = 0;
             this.buttonSelectFile.Text = "Choose File...";
             this.buttonSelectFile.UseVisualStyleBackColor = true;
             this.buttonSelectFile.Click += new System.EventHandler(this.buttonSelectFile_Click);
@@ -185,7 +185,7 @@
             this.textBoxSubject.Location = new System.Drawing.Point(3, 27);
             this.textBoxSubject.Name = "textBoxSubject";
             this.textBoxSubject.Size = new System.Drawing.Size(416, 20);
-            this.textBoxSubject.TabIndex = 1;
+            this.textBoxSubject.TabIndex = 0;
             // 
             // tableLayoutPanel5
             // 
@@ -208,7 +208,7 @@
             this.textBoxFrom.Location = new System.Drawing.Point(3, 30);
             this.textBoxFrom.Name = "textBoxFrom";
             this.textBoxFrom.Size = new System.Drawing.Size(416, 20);
-            this.textBoxFrom.TabIndex = 2;
+            this.textBoxFrom.TabIndex = 0;
             // 
             // label3
             // 
