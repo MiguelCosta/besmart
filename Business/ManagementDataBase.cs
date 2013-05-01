@@ -320,10 +320,15 @@ namespace Business
         {
             DataTable pesos = new DataTable();
             pesos.Columns.Add("ID");
+            pesos.Columns.Add("Name");
             pesos.Columns.Add("Weight");
+
+            String nameTmp = "";
+
             foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.pesosFinaisClassAHP)
             {
-                pesos.Rows.Add(pair.Key, pair.Value);
+                nameTmp = Business.ManagementDataBase.getCharacteristics(int.Parse(pair.Key)).Name;
+                pesos.Rows.Add(pair.Key, nameTmp, pair.Value);
             }
 
             return new DataView(pesos);
@@ -334,10 +339,15 @@ namespace Business
         {
             DataTable pesos = new DataTable();
             pesos.Columns.Add("ID");
+            pesos.Columns.Add("Name");
             pesos.Columns.Add("Weight");
+
+            String nameTmp = "";
+
             foreach (KeyValuePair<string, float> pair in tabelaSmartNorm)
             {
-                pesos.Rows.Add(pair.Key, pair.Value);
+                nameTmp = Business.ManagementDataBase.getCharacteristics(int.Parse(pair.Key)).Name;
+                pesos.Rows.Add(pair.Key,  nameTmp, pair.Value);
             }
 
             return new DataView(pesos);

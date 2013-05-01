@@ -866,7 +866,7 @@ namespace Interface {
         private void refreshTableSmart() {
             dataGridViewPesosFinaisSmart.DataBindings.Clear();
             dataGridViewSmart.DataSource = Business.ManagementDataBase.tableSmart();
-            //dataGridViewSmart.Columns["ID"].Visible = false;
+            dataGridViewSmart.Columns["ID"].Visible = false;
             foreach(DataGridViewRow line in dataGridViewSmart.Rows) {
                 line.ErrorText = "Please insert a value.";
             }
@@ -968,7 +968,8 @@ namespace Interface {
             Business.ManagementDataBase.tabelaSmartNorm = Business.ManagementDataBase.decision.normalizeSMART(Business.ManagementDataBase.decision.TableCH);
 
             dataGridViewPesosFinaisSmart.DataSource = Business.ManagementDataBase.tableFinalWeightSmart();
-
+            dataGridViewPesosFinaisSmart.Columns["ID"].Visible = false;
+            
             buttonNextDefinitonWeigths.Enabled = true;
 
             if(tabControlSmartAHP.SelectedIndex == 0) {
@@ -1153,6 +1154,7 @@ namespace Interface {
 
 
             dataGridViewPesosAHP.DataSource = Business.ManagementDataBase.tableFinalWeightAHP();
+            dataGridViewPesosAHP.Columns["ID"].Visible = false;
 
             Business.ManagementDataBase.metodo_fase_1 = "ahp";
             label_DefinitionOfWeigths.Text = "Currently AHP method chosen.";
@@ -1661,7 +1663,6 @@ namespace Interface {
         }
 
         #endregion
-
 
 
     }
