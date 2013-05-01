@@ -108,9 +108,9 @@ namespace Interface {
 
             string definitionOfPrioritiesAHP = "";
             definitionOfPrioritiesAHP += "The table pretends to describe the relation between all characteristics chosen.";
-            definitionOfPrioritiesAHP += "The main diagonal of the table associates the same two characteristics, so  is automatically filled.";
-            definitionOfPrioritiesAHP += "Here you have to  fill the part of the table above the main diagonal, and give points to each criterion concerning other.";
-            definitionOfPrioritiesAHP += "You may adopt your own scale or consider  the scale described in AHP Tutorial.";
+            definitionOfPrioritiesAHP += "\nThe main diagonal of the table associates the same two characteristics, so  is automatically filled.";
+            definitionOfPrioritiesAHP += "\nHere you have to  fill the part of the table above the main diagonal, and give points to each criterion concerning other.";
+            definitionOfPrioritiesAHP += "\nYou may adopt your own scale or consider  the scale described in AHP Tutorial.";
             label_DefinitionOfPrioritiesAHP.Text = definitionOfPrioritiesAHP;
         }
 
@@ -320,7 +320,6 @@ namespace Interface {
             buttonSelectCharacteristicsNext_Click(null, null);
             buttonSelectCaracteristicsNext.Enabled = true;
 
-            dataGridViewListSelectSoftware.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
         }
 
 
@@ -383,6 +382,7 @@ namespace Interface {
 
             dataGridViewFinalDetails.DataBindings.Clear();
             dataGridViewFinalDetails.DataSource = Business.ManagementDataBase.tableFinalCompose();
+            dataGridViewFinal.Columns["Software ID"].Visible = false;
 
             tabControlSeparates.SelectedTab = tabPageFinal;
             indexSperate = tabControlSeparates.SelectedIndex;
@@ -971,7 +971,7 @@ namespace Interface {
 
             dataGridViewPesosFinaisSmart.DataSource = Business.ManagementDataBase.tableFinalWeightSmart();
             dataGridViewPesosFinaisSmart.Columns["ID"].Visible = false;
-            
+
             buttonNextDefinitonWeigths.Enabled = true;
 
             if(tabControlSmartAHP.SelectedIndex == 0) {
@@ -1462,17 +1462,21 @@ namespace Interface {
 
             DataTable prioridades = new DataTable();
             prioridades.Columns.Add("ID");
+            prioridades.Columns.Add("Name");
             prioridades.Columns.Add("Priority");
 
             Dictionary<string, float> a;
 
             Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
+            String nameTmp = "";
             foreach(KeyValuePair<string, float> pair2 in a) {
-                prioridades.Rows.Add(pair2.Key, pair2.Value);
+                nameTmp = Business.ManagementDataBase.getSoftware(int.Parse(pair2.Key)).Name;
+                prioridades.Rows.Add(pair2.Key, nameTmp, pair2.Value);
             }
 
             DataView view = new DataView(prioridades);
             dataGridViewPesosAHPFinais.DataSource = view;
+            dataGridViewPesosAHPFinais.Columns["ID"].Visible = false;
 
             calculateTestConcistencyAHPPriorities();
 
@@ -1500,7 +1504,7 @@ namespace Interface {
             }
 
             // actualiza a label com a taxa
-            labelAHPPrioCons.Text = "" + taxa;
+            labelAHPPrioCons.Text = "" + taxa.ToString("f3");
         }
 
         private void colorTableAHPPriorities() {
@@ -1667,6 +1671,54 @@ namespace Interface {
         }
 
         #endregion
+
+        private void dataGridViewAHPPriority_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            try {
+                String nameTmp = "";
+                switch(e.ColumnIndex) {
+                    case 0:
+                        e.Value = Business.ManagementDataBase.getSoftware(int.Parse(e.Value.ToString())).Name;
+                        break;
+
+                    default:
+                        nameTmp = Business.ManagementDataBase.getSoftware(int.Parse(dataGridViewAHPPriority.Columns[e.ColumnIndex].Name)).Name;
+                        dataGridViewAHPPriority.Columns[e.ColumnIndex].HeaderText = nameTmp;
+                        break;
+                }
+
+
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridViewFinalDetails_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            try {
+
+                String nameTemp = "";
+
+                switch(e.ColumnIndex) {
+                    case 0:
+                        dataGridViewFinalDetails.Columns[0].Visible = false;
+                        dataGridViewFinalDetails.Columns[1].HeaderText = "";
+                        break;
+                    case 1:
+                        if(e.Value.Equals("") && dataGridViewFinalDetails.Rows[e.RowIndex].Cells[1].Style.BackColor.Equals(Color.Black)) {
+                            nameTemp = Business.ManagementDataBase.getCharacteristics(int.Parse(dataGridViewFinalDetails.Rows[e.RowIndex].Cells[0].Value.ToString())).Name;
+                            e.Value = nameTemp;
+                            dataGridViewFinalDetails.Rows[e.RowIndex].Cells[1].Value = nameTemp;
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
 
 
     }
