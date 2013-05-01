@@ -308,6 +308,9 @@ namespace Interface {
 
         private void buttonNextDefinitonWeigths_Click(object sender, EventArgs e) {
             dataGridViewCaracteristicasPrioridades.DataSource = Business.ManagementDataBase.tableCaracteristicasPrioridades();
+            dataGridViewCaracteristicasPrioridades.Columns["ID"].Visible = false;
+            dataGridViewCaracteristicasPrioridades.Columns["Name"].HeaderText = "Criterias";
+
             tabControlSeparates.SelectedTab = tabPageDefinitionPriorities;
             indexSperate = tabControlSeparates.SelectedIndex;
             progressBar1.Value = 75;
@@ -318,7 +321,6 @@ namespace Interface {
             buttonSelectCaracteristicsNext.Enabled = true;
 
             dataGridViewListSelectSoftware.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
-            dataGridViewListSelectSoftware2.DataSource = Business.ManagementDataBase.tableSoftwareSelectSimple();
         }
 
 
@@ -1308,19 +1310,21 @@ namespace Interface {
 
             DataTable prioridades = new DataTable();
             prioridades.Columns.Add("ID");
+            prioridades.Columns.Add("Name");
             prioridades.Columns.Add("Priority");
 
             Dictionary<string, float> a;
 
             Business.ManagementDataBase.decision.TableResult.TryGetValue(selectCharacteristics_id, out a);
+            String nameTmp = "";
             foreach(KeyValuePair<string, float> pair2 in a) {
-                prioridades.Rows.Add(pair2.Key, pair2.Value);
+                nameTmp = Business.ManagementDataBase.getSoftware(int.Parse(pair2.Key)).Name;
+                prioridades.Rows.Add(pair2.Key, nameTmp, pair2.Value);
             }
-
-
 
             DataView view = new DataView(prioridades);
             dataGridViewValueFn.DataSource = view;
+            dataGridViewValueFn.Columns["ID"].Visible = false;
 
         }
 
