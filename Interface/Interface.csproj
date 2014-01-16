@@ -155,6 +155,12 @@
     <Compile Include="ReportError.Designer.cs">
       <DependentUpon>ReportError.cs</DependentUpon>
     </Compile>
+    <Compile Include="uscGraphBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uscGraphBalance.Designer.cs">
+      <DependentUpon>uscGraphBalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="View_Characteristics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportError.resx">
       <DependentUpon>ReportError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uscGraphBalance.resx">
+      <DependentUpon>uscGraphBalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View_Characteristics.resx">
       <DependentUpon>View_Characteristics.cs</DependentUpon>

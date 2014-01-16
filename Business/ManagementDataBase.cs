@@ -518,9 +518,7 @@ namespace Business
             }
 
             MessageBox.Show(s.ToString());
-
         }
-
 
         public static bool existSoftware(int newNumber)
         {

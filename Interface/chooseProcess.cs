@@ -15,7 +15,7 @@ using System.Collections;
 
 namespace Interface {
 
-    public partial class chooseProcess :Form {
+    public partial class chooseProcess : Form {
         int indexSperate = 0;
         int selectCharacteristics_row = 0;
         string selectCharacteristics_id = "";
@@ -395,6 +395,11 @@ namespace Interface {
 
             configTableFinal();
             configTableFinalDetails();
+
+            uscGraphBalance bal = new uscGraphBalance();
+            bal.Dock = DockStyle.Fill;
+            pnlGrahpBalance.Controls.Clear();
+            pnlGrahpBalance.Controls.Add(bal);
         }
 
         private void labelBestSoftware() {
@@ -1688,7 +1693,6 @@ namespace Interface {
 
 
             } catch(Exception ex) {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -1715,7 +1719,6 @@ namespace Interface {
                 }
 
             } catch(Exception ex) {
-                MessageBox.Show(ex.Message);
             }
 
         }
