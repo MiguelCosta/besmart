@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{E0F2FB78-525C-436F-8544-9DF9AD70A2D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{969B6A81-759A-460E-83CE-BA98AC328019}"
@@ -8,21 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "teste\test.csproj", "{046A54A0-FBD5-4B8B-8DBF-5FDD5AE9DBB4}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://miguelcosta.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = teste\\test.csproj
-		SccProjectName0 = teste
-		SccLocalPath0 = teste
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = Business\\Business.csproj
-		SccProjectName2 = Business
-		SccLocalPath2 = Business
-		SccProjectUniqueName3 = Interface\\Interface.csproj
-		SccProjectName3 = Interface
-		SccLocalPath3 = Interface
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

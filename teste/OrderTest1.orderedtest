@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<OrderedTest name="orderedtest1" storage="c:\users\miguel\documents\projetos\besmart\trunk\teste\orderedtest1.orderedtest" id="4f22c861-7d5b-4a79-86d8-7050d1933a4d" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <TestLinks>
-    <TestLink id="0654d49a-4d05-f04c-ce98-b1ecb328e9c3" name="_1_OpenProgram" storage="bin\debug\teste.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <TestLink id="70bab06c-3c98-5294-6573-af106884813e" name="_2_LoadFileExample" storage="bin\debug\teste.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  </TestLinks>
-</OrderedTest>
