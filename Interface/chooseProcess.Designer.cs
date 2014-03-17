@@ -151,8 +151,12 @@
             this.tabPageFinal = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbcGraphs = new System.Windows.Forms.TabControl();
+            this.tbpGraphTotal = new System.Windows.Forms.TabPage();
             this.zedGraphControlRankingFinal = new ZedGraph.ZedGraphControl();
+            this.tbpGraphPartial = new System.Windows.Forms.TabPage();
             this.zedGraphControlRankingDetails = new ZedGraph.ZedGraphControl();
+            this.pnlGrahpBalance = new System.Windows.Forms.Panel();
             this.buttonStartNewComparation = new System.Windows.Forms.Button();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewFinalDetails = new System.Windows.Forms.DataGridView();
@@ -204,10 +208,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelTab = new System.Windows.Forms.Panel();
-            this.tbcGraphs = new System.Windows.Forms.TabControl();
-            this.tbpGraphTotal = new System.Windows.Forms.TabPage();
-            this.tbpGraphPartial = new System.Windows.Forms.TabPage();
-            this.pnlGrahpBalance = new System.Windows.Forms.Panel();
             this.tabControlSeparates.SuspendLayout();
             this.tabPageChooseSoftware.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -269,6 +269,9 @@
             this.tabPageFinal.SuspendLayout();
             this.tableLayoutPanel31.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
+            this.tbcGraphs.SuspendLayout();
+            this.tbpGraphTotal.SuspendLayout();
+            this.tbpGraphPartial.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinalDetails)).BeginInit();
             this.tableLayoutPanel29.SuspendLayout();
@@ -278,9 +281,6 @@
             this.menuStrip1.SuspendLayout();
             this.panelProgress.SuspendLayout();
             this.panelTab.SuspendLayout();
-            this.tbcGraphs.SuspendLayout();
-            this.tbpGraphTotal.SuspendLayout();
-            this.tbpGraphPartial.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlSeparates
@@ -1722,6 +1722,28 @@
             this.tableLayoutPanel22.Size = new System.Drawing.Size(815, 274);
             this.tableLayoutPanel22.TabIndex = 1;
             // 
+            // tbcGraphs
+            // 
+            this.tbcGraphs.Controls.Add(this.tbpGraphTotal);
+            this.tbcGraphs.Controls.Add(this.tbpGraphPartial);
+            this.tbcGraphs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcGraphs.Location = new System.Drawing.Point(410, 3);
+            this.tbcGraphs.Name = "tbcGraphs";
+            this.tbcGraphs.SelectedIndex = 0;
+            this.tbcGraphs.Size = new System.Drawing.Size(402, 268);
+            this.tbcGraphs.TabIndex = 3;
+            // 
+            // tbpGraphTotal
+            // 
+            this.tbpGraphTotal.BackColor = System.Drawing.SystemColors.Control;
+            this.tbpGraphTotal.Controls.Add(this.zedGraphControlRankingFinal);
+            this.tbpGraphTotal.Location = new System.Drawing.Point(4, 22);
+            this.tbpGraphTotal.Name = "tbpGraphTotal";
+            this.tbpGraphTotal.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpGraphTotal.Size = new System.Drawing.Size(394, 242);
+            this.tbpGraphTotal.TabIndex = 0;
+            this.tbpGraphTotal.Text = "Total";
+            // 
             // zedGraphControlRankingFinal
             // 
             this.zedGraphControlRankingFinal.BackgroundImage = global::Interface.Properties.Resources.Logo_Marca_de_água;
@@ -1742,6 +1764,17 @@
             this.zedGraphControlRankingFinal.Size = new System.Drawing.Size(388, 236);
             this.zedGraphControlRankingFinal.TabIndex = 2;
             // 
+            // tbpGraphPartial
+            // 
+            this.tbpGraphPartial.BackColor = System.Drawing.SystemColors.Control;
+            this.tbpGraphPartial.Controls.Add(this.zedGraphControlRankingDetails);
+            this.tbpGraphPartial.Location = new System.Drawing.Point(4, 22);
+            this.tbpGraphPartial.Name = "tbpGraphPartial";
+            this.tbpGraphPartial.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpGraphPartial.Size = new System.Drawing.Size(394, 242);
+            this.tbpGraphPartial.TabIndex = 1;
+            this.tbpGraphPartial.Text = "Partial";
+            // 
             // zedGraphControlRankingDetails
             // 
             this.zedGraphControlRankingDetails.BackgroundImage = global::Interface.Properties.Resources.Logo_Marca_de_água;
@@ -1761,6 +1794,14 @@
             this.zedGraphControlRankingDetails.ScrollMinY2 = 0D;
             this.zedGraphControlRankingDetails.Size = new System.Drawing.Size(388, 236);
             this.zedGraphControlRankingDetails.TabIndex = 3;
+            // 
+            // pnlGrahpBalance
+            // 
+            this.pnlGrahpBalance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrahpBalance.Location = new System.Drawing.Point(3, 3);
+            this.pnlGrahpBalance.Name = "pnlGrahpBalance";
+            this.pnlGrahpBalance.Size = new System.Drawing.Size(401, 268);
+            this.pnlGrahpBalance.TabIndex = 4;
             // 
             // buttonStartNewComparation
             // 
@@ -2281,47 +2322,6 @@
             this.panelTab.Size = new System.Drawing.Size(835, 589);
             this.panelTab.TabIndex = 48;
             // 
-            // tbcGraphs
-            // 
-            this.tbcGraphs.Controls.Add(this.tbpGraphTotal);
-            this.tbcGraphs.Controls.Add(this.tbpGraphPartial);
-            this.tbcGraphs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbcGraphs.Location = new System.Drawing.Point(410, 3);
-            this.tbcGraphs.Name = "tbcGraphs";
-            this.tbcGraphs.SelectedIndex = 0;
-            this.tbcGraphs.Size = new System.Drawing.Size(402, 268);
-            this.tbcGraphs.TabIndex = 3;
-            // 
-            // tbpGraphTotal
-            // 
-            this.tbpGraphTotal.BackColor = System.Drawing.SystemColors.Control;
-            this.tbpGraphTotal.Controls.Add(this.zedGraphControlRankingFinal);
-            this.tbpGraphTotal.Location = new System.Drawing.Point(4, 22);
-            this.tbpGraphTotal.Name = "tbpGraphTotal";
-            this.tbpGraphTotal.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpGraphTotal.Size = new System.Drawing.Size(394, 242);
-            this.tbpGraphTotal.TabIndex = 0;
-            this.tbpGraphTotal.Text = "Total";
-            // 
-            // tbpGraphPartial
-            // 
-            this.tbpGraphPartial.BackColor = System.Drawing.SystemColors.Control;
-            this.tbpGraphPartial.Controls.Add(this.zedGraphControlRankingDetails);
-            this.tbpGraphPartial.Location = new System.Drawing.Point(4, 22);
-            this.tbpGraphPartial.Name = "tbpGraphPartial";
-            this.tbpGraphPartial.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpGraphPartial.Size = new System.Drawing.Size(394, 242);
-            this.tbpGraphPartial.TabIndex = 1;
-            this.tbpGraphPartial.Text = "Partial";
-            // 
-            // pnlGrahpBalance
-            // 
-            this.pnlGrahpBalance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrahpBalance.Location = new System.Drawing.Point(3, 3);
-            this.pnlGrahpBalance.Name = "pnlGrahpBalance";
-            this.pnlGrahpBalance.Size = new System.Drawing.Size(401, 268);
-            this.pnlGrahpBalance.TabIndex = 4;
-            // 
             // chooseProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2413,6 +2413,9 @@
             this.tabPageFinal.ResumeLayout(false);
             this.tableLayoutPanel31.ResumeLayout(false);
             this.tableLayoutPanel22.ResumeLayout(false);
+            this.tbcGraphs.ResumeLayout(false);
+            this.tbpGraphTotal.ResumeLayout(false);
+            this.tbpGraphPartial.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinalDetails)).EndInit();
             this.tableLayoutPanel29.ResumeLayout(false);
@@ -2424,9 +2427,6 @@
             this.menuStrip1.PerformLayout();
             this.panelProgress.ResumeLayout(false);
             this.panelTab.ResumeLayout(false);
-            this.tbcGraphs.ResumeLayout(false);
-            this.tbpGraphTotal.ResumeLayout(false);
-            this.tbpGraphPartial.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

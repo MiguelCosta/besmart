@@ -1248,7 +1248,7 @@ namespace Business
 
             // Verifica qual o maior vai retiralo da matriz rankAux e acrescentar na matriz rank aux 2
             // É necessário verificar se ele adiciona à cabeça ou na cauda se for à cabeça alterar para ver o minimo
-            while (rankAux.Count != 0)
+            while (rankAux.Count > 0)
             {
                 float valorMax = 0;
                 foreach (String id in rankAux.Keys)

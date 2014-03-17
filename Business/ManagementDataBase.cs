@@ -91,9 +91,9 @@ namespace Business
                 // vai colocar por ordem no array o valor de cada coluna
                 for (int i = 0; i < num_colunas; i++)
                 {
-                    string v = ""; 
+                    string v = "";
                     // a coluna 0 é uma checkbox, logo é +1
-                    info.TryGetValue(i+1, out v);
+                    info.TryGetValue(i + 1, out v);
                     array[i] = v;
                 }
 
@@ -206,8 +206,8 @@ namespace Business
             return new DataView(tabela_caracteristicas);
 
         }
-        
-        public static DataView tableFinalCompose() 
+
+        public static DataView tableFinalCompose()
         {
             DataTable tabelaFinalComposta = new DataTable();
             tabelaFinalComposta.Clear();
@@ -218,11 +218,11 @@ namespace Business
 
             tabelaFinalComposta.Columns["Characteristic"].ReadOnly = true;
 
-            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.decision.TableResultWeight) 
+            foreach (KeyValuePair<string, float> pair in Business.ManagementDataBase.decision.TableResultWeight)
             {
 
                 tabelaFinalComposta.Rows.Add(pair.Key, "", pair.Value, "");
-                foreach (KeyValuePair<string, Dictionary<string,float>> pair1 in Business.ManagementDataBase.decision.TableResult)
+                foreach (KeyValuePair<string, Dictionary<string, float>> pair1 in Business.ManagementDataBase.decision.TableResult)
                 {
                     if (pair.Key.Equals(pair1.Key))
                     {
@@ -238,7 +238,7 @@ namespace Business
 
             return new DataView(tabelaFinalComposta);
         }
-        
+
         public static DataView tableSmart()
         {
             DataTable pesos = new DataTable();
@@ -347,7 +347,7 @@ namespace Business
             foreach (KeyValuePair<string, float> pair in tabelaSmartNorm)
             {
                 nameTmp = Business.ManagementDataBase.getCharacteristics(int.Parse(pair.Key)).Name;
-                pesos.Rows.Add(pair.Key,  nameTmp, pair.Value);
+                pesos.Rows.Add(pair.Key, nameTmp, pair.Value);
             }
 
             return new DataView(pesos);
@@ -503,6 +503,18 @@ namespace Business
         {
 
             return database.getCharacteristics(id);
+        }
+
+        public static Business.Characteristic getCharacteristics(string name)
+        {
+            foreach (var c in database.Charac)
+            {
+                if (c.Value.Name.Equals(name))
+                {
+                    return c.Value;
+                }
+            }
+            return null;
         }
 
         // funções de teste
