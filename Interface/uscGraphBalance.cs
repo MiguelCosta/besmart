@@ -25,8 +25,6 @@ namespace Interface
             try
             {
                 lstCriteria.DataSource = Business.ManagementDataBase.caracteristicas_escolhidas.Values.ToList();
-
-
                 FillBalance();
             }
             catch (Exception)
