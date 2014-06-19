@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("beSmart")]
-[assembly: AssemblyDescription("Anabela Tereso (Supervisor), Ana Sampaio, Hugo Frade, João Amorim, João Ferreira, Miguel Costa, Tiago Abreu")]
+[assembly: AssemblyTitle("Business.Properties")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Universidade do Minho")]
-[assembly: AssemblyProduct("beSmart")]
-[assembly: AssemblyCopyright("Copyright © LI4 Group 13 2011")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Business.Properties")]
+[assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e4166355-bb94-4399-8194-2c34de84fd37")]
+[assembly: Guid("b91e43a6-c3a2-4e25-b8d2-70e76f86427a")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,8 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0")]
 [assembly: AssemblyFileVersion("2.0.0")]
